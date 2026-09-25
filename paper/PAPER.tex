@@ -63,7 +63,7 @@ Language models reason in a line: one token after another in a single transcript
 
 A reasoning model today holds one line of thought. It can explore alternatives only by writing them out in sequence, and the alternatives it has dropped stay buried in the transcript. Running several copies in parallel does not fix this: independent samples from one model share its biases, so they tend to fail in the same way. In my Countdown runs with Qwen3-1.7B \citep{qwen3}, 45.1\% of failed attempts repeated an attempt the same sample had already rejected, and a further 29.7\% repeated one that a sibling sample had rejected earlier.
 
-The clearest case is a single trace. Given $[24, 98, 19, 3]$ and the target 361, the model wrote $((24 \times 19) - 98) + 3 = 361$ at token 1,313. It checked the expression nine more times, drifted back into wrong combinations, and reached its 2,048-token budget without giving an answer. The knowledge was present. The format could not hold it, compare it against alternatives, or commit to it.
+The clearest case is a single trace. Given $[24, 98, 19, 3]$ and the target 361, the model wrote $((24 \times 19) - 98) + 3 = 361$ at token 1,313. It checked the expression nine more times, drifted back into wrong combinations, and reached its 2,048-token budget without giving an answer. The model could find the answer. A single transcript gave it no way to set that answer beside the alternatives it was still exploring and commit to it.
 
 Quantum search offers a picture of the alternative. Grover's algorithm \citep{grover1996} applies one check to a superposition of every candidate and uses the sign of the amplitudes so that wrong candidates fade together. A classical machine cannot reproduce the speedup, and I do not claim one. Two parts of the picture do survive classically. Many paths collapse into far fewer states when the problem has structure, so a reasoner that works on states handles many paths at the cost of one state each. And one refutation of a state removes every path through it, including paths that were never written out.
 
@@ -78,14 +78,14 @@ Quantum search offers a picture of the alternative. Grover's algorithm \citep{gr
 \begin{figure}[t]
 \centering
 \includegraphics[width=\columnwidth]{figures/teaser.png}
-\caption{The same problem solved two ways. Left: Qwen3-1.7B's recorded reasoning, with every attempt placed where it was written; the rings mark repeats. Right: \IS{} expanding many branches, fusing duplicates, burning out dead ends and reaching $((24 \times 19) + 3) - 98 = 361$ in three steps.}
+\caption{The same problem solved two ways. Left: Qwen3-1.7B's recorded reasoning, with every attempt placed where it was written; the rings mark repeats. Right: \IS{} expanding many branches, merging duplicates, dropping dead ends and reaching $((24 \times 19) + 3) - 98 = 361$ in three steps.}
 \label{fig:teaser}
 \end{figure}
 
 \section{Interference Search}
 \label{sec:method}
 
-A domain supplies five functions: a start state, a proposer that returns candidate next states for each live state, a merge key that says when two states are the same situation, a judge that scores states, and goal and dead-end tests. Cost is counted in the domain's own unit: judged states in Countdown, generated tokens in code.
+A domain supplies six functions: a start state, a proposer that returns candidate next states for each live state, a merge key that says when two states are the same situation, a judge that scores states, a goal test and a dead-end test. Cost is counted in the domain's own unit: judged states in Countdown, generated tokens in code.
 
 \begin{figure}[t]
 \centering
@@ -107,14 +107,16 @@ A domain supplies five functions: a start state, a proposer that returns candida
 \label{fig:loop}
 \end{figure}
 
-Each round (Figure~\ref{fig:loop}) expands every live state, executes the proposed moves, and pools the resulting states by merge key. A state that several parents reach is kept once; the ranks at which parents proposed it are pooled as votes. States whose keys were already expanded are dropped, which is the memory that stops a branch from revisiting its own failures. The judge scores the pool, the best $W$ survive, and all survivors move to the next level together. The width $W$ is chosen from the budget, so a larger budget buys a wider frontier rather than a longer chain. The loop never carries a transcript; each proposal sees one state.
+Each round (Figure~\ref{fig:loop}) expands every live state, executes the proposed moves, and pools the resulting states by merge key. A state that several parents reach is kept once; the ranks at which parents proposed it are pooled as votes. States whose keys were already expanded are dropped, which is the memory that stops a branch from revisiting its own failures. The judge scores the pool, the best $W$ survive, and all survivors move to the next level together. The width $W$ is set from the budget, so extra budget widens the frontier while its depth stays fixed by the problem. The loop never carries a transcript; each proposal sees one state.
 
-The baseline for every comparison uses the same five functions in a single chain: judge the children of the current state, sample one in proportion to its score, continue, and restart from the beginning when the chain dies.
+The baseline for every comparison uses the same six functions in a single chain: judge the children of the current state, sample one in proportion to its score, continue, and restart from the beginning when the chain dies.
 
 \section{Where the redundancy is}
 \label{sec:redundancy}
 
 Countdown makes the structure exact. A state is the sorted multiset of available numbers; a move combines two of them with $+$, $-$, $\times$ or $\div$, with positive whole results; the goal is a single number equal to the target. Dynamic programming over states labels every state as alive or dead.
+
+The arithmetic in each move is easy, and in the search arms the environment performs it; the model never computes a result. What makes Countdown hard is choosing which two numbers to combine, with which operation, in what order. That choice is the search this paper is about, and it is why Stream of Search \citep{gandhi2024sos} and APR \citep{pan2025apr} use the same puzzle.
 
 \begin{table}[t]
 \centering\small
@@ -131,7 +133,7 @@ Numbers & Paths & States & Paths/state & Dead share \\
 \label{tab:compression}
 \end{table}
 
-Table~\ref{tab:compression} shows the two facts the method rests on. Paths per state grow by 3.2 and then 5.5 times as the fifth and sixth numbers are added, so a reasoner over states does exponentially less work than one over paths as problems grow. And after only two moves, more than 80\% of all complete paths already run through a dead state; a correct refutation there removes most of the search in one step.
+Table~\ref{tab:compression} shows the two facts the method rests on. Paths per state grow by 3.2 and then 5.5 times as the fifth and sixth numbers are added, so the saving from working on states grows faster than the problem does. And after only two moves, more than 80\% of all complete paths already run through a dead state; a correct refutation there removes most of the search in one step.
 
 With the language model, the redundancy is visible directly. Across eight independent samples on six hard problems (381 failed attempts), 29.7\% of failures repeated a failure a sibling had produced earlier in token time, costing 16.5\% of all generated tokens on my pre-registered metric, and 45.1\% repeated the sample's own earlier failure. Another 46\% of tokens came after some sample had already found an answer; that stopping signal is what consensus-based early termination such as Parallel-Probe \citep{zheng2026probe} exploits, and I do not count it here.
 
@@ -164,7 +166,7 @@ Test set & Pruning & Solved & Work \\
 \label{tab:judge}
 \end{table}
 
-Table~\ref{tab:judge} tests it by pruning, on sizes it never saw. On random six-number problems it removes 90.7\% of the search without losing a solution, where a sound hand bound removes 2.2\%. Two sizes beyond training it removes 92.1\%, on a small set. The limit is equally clear: random problems often have many solutions, so pruning a few still leaves one alive. On hard problems with at most 24 solution paths, the setting that was safe on random problems loses more than half of them; the safe setting there is $\tau=0.2$, which still cuts the search 5.6 times at a 2\% loss.
+Table~\ref{tab:judge} tests it by pruning, on sizes it never saw. On random six-number problems it removes 90.7\% of the search without losing a solution, where a sound hand bound removes 2.2\%. Two sizes beyond training it removes 92.1\%, on a small set. Random problems flatter the judge, because they often have many solutions and pruning a few still leaves one alive. On hard problems with at most 24 solution paths, the setting that was safe on random problems loses more than half of them; the safe setting there is $\tau=0.2$, which still cuts the search 5.6 times at a 2\% loss.
 
 \section{The shape of the search}
 \label{sec:shape}
@@ -255,7 +257,7 @@ Qwen3-1.7B thinking in text & & 3 \\
 
 Two readings follow. The structure is doing the work: even a probe on crude features, inside the frontier, solves seven times as many problems as the model reasoning alone, in 3 rounds instead of about 1,400 generated tokens. And the model's hidden state carries reachability information that its answer does not (0.87 against 0.58), but no more than simple number features do. I had first read the probe result as the model knowing more than it can say; the feature control does not support that reading.
 
-Three attempts to get this behaviour out of the model without training failed, and each failure is informative. \emph{Textual ledgers:} every 256 tokens, eight streams were told which full expressions they or their siblings had already refuted. Within 80 tokens of a note, 33.6\% of attempts repeated a sibling's refutation, against about 21\% without notes; telling the model an expression is wrong primes it. Solve rates did not change (22, 21 and 22 of 24). \emph{Decode-time rewinding:} when a stream wrote an already-refuted expression it was rewound and resampled; it regenerated the same line up to 16 times, because the cause sits in the context. \emph{State prompting:} showing the model only the current state and asking for a move made it add the first two listed numbers and repeat the same three-step path; with memory and shuffled order it still solved none of a small set.
+Three attempts to get this behaviour out of the model without training failed. \emph{Textual ledgers:} every 256 tokens, eight streams were told which full expressions they or their siblings had already refuted. Within 80 tokens of a note, 33.6\% of attempts repeated a sibling's refutation, against about 21\% without notes; telling the model an expression is wrong primes it. Solve rates did not change (22, 21 and 22 of 24). \emph{Decode-time rewinding:} when a stream wrote an already-refuted expression it was rewound and resampled; it regenerated the same line up to 16 times, because the cause sits in the context. \emph{State prompting:} showing the model only the current state and asking for a move made it add the first two listed numbers and repeat the same three-step path; with memory and shuffled order it still solved none of a small set.
 
 \section{Code}
 \label{sec:code}
@@ -323,13 +325,13 @@ In code the comparison holds the model and the budget fixed. Every strategy spen
 
 \section{Limitations}
 
-Every result is one seed, and the larger claims rest on 30 problems per condition, 10 in the seven-number test. The strongest Countdown numbers use a small trained judge and an environment that lists moves; they do not run the language model, and the 5 to 14 ms per problem they take is not a speedup of the model itself. The judge exists only for Countdown, where states are exact and labels come from a solver; open domains need learned merge keys and labels from rollouts, which I have not built. In code the gain over independent sampling is within noise. Nothing here trains the language model, so whether a model trained to reason this way keeps these gains is open. Compute is compared in the domain's unit (judged states or generated tokens); prompt tokens and prefill cost differ between arms and are reported in the repository rather than folded in.
+Every result is one seed, and the larger claims rest on 30 problems per condition, 10 in the seven-number test. The Countdown problems are small enough that a frontier model would likely solve most of them by reasoning in text; the comparisons here hold the model and judge fixed and vary only the shape of the search, and I have not run them at frontier scale. The strongest Countdown numbers use a small trained judge and an environment that lists moves; they do not run the language model, and the 5 to 14 ms per problem they take is not a speedup of the model itself. The judge exists only for Countdown, where states are exact and labels come from a solver; open domains need learned merge keys and labels from rollouts, which I have not built. In code the gain over independent sampling is within noise. Nothing here trains the language model, so whether a model trained to reason this way keeps these gains is open. Budgets are set in the domain's unit (judged states or generated tokens). Prompt tokens differ between arms; Table~\ref{tab:tokens} reports them separately, and they are not part of any budget.
 
 \section{Conclusion}
 
 Holding the model and the judge fixed and changing only the shape of the search, from one chain over a transcript to a frontier over merged states, turned 21 solved problems into 30 at equal compute and 24 sequential steps into 3. The gain comes from merging and level-synchronous advance together, and it grows with problem size because the number of paths grows much faster than the number of states. The negative results say where the mechanism must live: prompts and decoding tricks do not produce it in a small model. The next step is to train it into one.
 
-\paragraph{Code and data.} The code, the trained judge, every raw result and the research log will be released under Apache 2.0 at \url{https://github.com/Badtheorylabs/interference-search}.
+\paragraph{Code and data.} \url{https://github.com/Badtheorylabs/interference-search}, under Apache 2.0, with the trained judge, every raw result and the research log. \code{paper/CLAIMS.md} maps each number in this paper to the file and command that produced it.
 
 \balance
 \bibliographystyle{plainnat}
