@@ -11,6 +11,7 @@ environment-enumerates frontier on the same 30 hard problems as llm_state.py.
 import json
 import os
 import random
+import sys
 import time
 from functools import lru_cache
 
@@ -24,6 +25,8 @@ from interference_search.countdown import gen_hard_problem, gen_problem, moves
 from interference_search.judge import load_judge
 
 LAYERS = (14, 21, 28)
+# --timing-only: skip the AUC tables and time only the probe-judged search, with the layer the full run picked
+TIMING_ONLY = "--timing-only" in sys.argv
 model, tok = load("mlx-community/Qwen3-1.7B-4bit")
 YES = tok.encode("Yes", add_special_tokens=False)[0]
 NO = tok.encode("No", add_special_tokens=False)[0]
@@ -133,11 +136,15 @@ print(f"states: train {len(train)} ({len(alive)} alive), val {len(val)}, test4 {
       f"  ({time.time() - t0:.0f}s)", flush=True)
 
 F = {}
-for name, rows in (("train", train), ("val", val), ("test4", test4), ("test5", test5)):
+for name, rows in (("train", train), ("val", val)) + (() if TIMING_ONLY else (("test4", test4), ("test5", test5))):
     F[name] = features([(s, t) for s, t, _ in rows])
     print(f"features {name} done ({time.time() - t0:.0f}s)", flush=True)
 Y = {n: np.array([r[2] for r in rows], dtype=float) for n, rows in
      (("train", train), ("val", val), ("test4", test4), ("test5", test5))}
+if TIMING_ONLY:
+    F["test4"] = F["test5"] = ({l: F["val"][0][l] for l in LAYERS}, F["val"][1])   # placeholders, AUCs unused
+    Y["test4"] = Y["test5"] = Y["val"]
+    test4 = test5 = val
 
 # the trained Countdown judge on the same states
 _judge = load_judge()
@@ -159,7 +166,7 @@ for l in LAYERS:
     report[f"probe layer {l}"] = (auc(fn(F["test4"][0][l]), Y["test4"]), auc(fn(F["test5"][0][l]), Y["test5"]))
 for k, (a4, a5) in report.items():
     print(f"  {k:28s}  {a4:8.3f}   {a5:8.3f}")
-best_layer = max(LAYERS, key=lambda l: report[f"probe layer {l}"][0])
+best_layer = 28 if TIMING_ONLY else max(LAYERS, key=lambda l: report[f"probe layer {l}"][0])
 print(f"best probe layer {best_layer}  ({time.time() - t0:.0f}s)", flush=True)
 
 # use the best probe as a judge in an environment-enumerates frontier on llm_state.py's 30 hard problems
@@ -202,10 +209,17 @@ def ref_judge(kids, target):
 
 
 print("\nenvironment enumerates, judge ranks (30 hard 4-number problems, <= 150 judged states each)")
-for name, j in (("prompted P(yes)", pyes_judge), (f"probe layer {best_layer}", probe_judge), ("small refuter", ref_judge)):
-    res = [enum_frontier(p, j) for p in problems]
-    print(f"  {name:22s} solved {sum(r[0] for r in res)}/30   mean judged states {np.mean([r[1] for r in res]):.0f}", flush=True)
+judges = (("prompted P(yes)", pyes_judge), (f"probe layer {best_layer}", probe_judge), ("small refuter", ref_judge))
+for name, j in (judges[1:2] if TIMING_ONLY else judges):
+    res, secs = [], []
+    for p in problems:
+        t1 = time.perf_counter()
+        res.append(enum_frontier(p, j))
+        secs.append(time.perf_counter() - t1)
+    print(f"  {name:22s} solved {sum(r[0] for r in res)}/30   mean judged states {np.mean([r[1] for r in res]):.0f}"
+          f"   {np.mean(secs):.2f} s/problem", flush=True)
     report[f"search {name}"] = sum(r[0] for r in res) / 30
+    report[f"search {name} seconds per problem"] = float(np.mean(secs))
 os.makedirs("runs", exist_ok=True)
-json.dump(report, open("runs/probe_results.json", "w"), indent=1)
+json.dump(report, open("runs/probe_timing.json" if TIMING_ONLY else "runs/probe_results.json", "w"), indent=1)
 print(f"done ({time.time() - t0:.0f}s)")

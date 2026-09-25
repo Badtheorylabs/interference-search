@@ -1,0 +1,6 @@
+.venv
+.git
+repro
+media
+paper/*.pdf
+**/__pycache__

@@ -20,6 +20,7 @@ Every number in the paper, where it comes from, and how to reproduce it. Paths a
 | Code, 30 MBPP first-try failures | 7, 7, 8, 9 of 30; 83% merged | `results/code/bench_code_partial.json` | `cd experiments/code && python benchmark.py` |
 | Chain of thought, generated tokens per solved Countdown problem | about 14,900 (44,703 over 3 solves) | `results/llm` transcript arm, 1,490 generated per problem | `python llm_state.py --arms transcript` |
 | Judge arms: tokens read per problem, generated | about 4,290 read (65 states × 66 tokens), 0 generated | probe run judged-state counts; prompt length measured with the Qwen3 tokenizer | `python probe.py` |
+| Wall clock, one problem at a time on an M2: Qwen3-1.7B thinking in text vs Qwen3-1.7B hidden-state probe judging inside the search | 57.4 s and 1/30 vs 15.2 s and 15/30 | `results/llm/cot_timing.json`, `results/llm/probe_search_timing.json` | `cd experiments/llm && python cot_timing.py && python probe.py --timing-only` |
 | Code, generated tokens per solve | 4,560 (Interference Search), 5,090 (best of N), 5,460 (revise latest) | `results/code/bench_code_partial.json` | `cd experiments/code && python benchmark.py` |
 | Parallel streams trained from scratch, isolated vs visible (4 streams) | 0.508 vs 0.511 | research log, toy section | `experiments/toy/run_gpu.sh` |
 

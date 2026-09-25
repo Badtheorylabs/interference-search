@@ -100,6 +100,20 @@ cd ../code && python benchmark.py # the code strategies with Qwen3-1.7B, about a
 
 Each experiment prints its table and writes a JSON file where it runs.
 
+To check every Countdown number on any machine, including a Linux VM with no GPU:
+
+```bash
+bash scripts/reproduce_countdown.sh     # tests, compression, benchmark, ablation; about 10 minutes on CPU
+```
+
+It writes fresh outputs to `repro/` and compares them against `results/countdown`. Solve rates and step counts are deterministic, so they should match exactly; timings will differ by machine. `RETRAIN=1` also retrains the judge from scratch. With Docker:
+
+```bash
+docker build -t interference-search . && docker run --rm interference-search
+```
+
+The language-model experiments use MLX and don't run on Linux yet.
+
 ## Related work
 
 Each piece has been done before on its own. APR and ThreadWeaver run parallel threads inside one model. ParallelEnv branches agents over environment snapshots. FETCH and transposition tables merge equivalent states in tree search. Atom of Thoughts, the Markovian Thinker and PENCIL keep a compact reasoning state in place of the full history. Relational Q-functions learn pruning that holds on bigger problems. What I haven't found elsewhere is the combination tested here: explicit states, merging, a learned judge and a frontier that advances level by level, used for both thinking and execution. [`docs/RELATED_WORK.md`](docs/RELATED_WORK.md) goes through each paper and what I took from it.

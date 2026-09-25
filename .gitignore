@@ -13,3 +13,4 @@ paper/*.bbl
 paper/*.blg
 paper/*.out
 *.egg-info/
+repro/
