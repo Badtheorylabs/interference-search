@@ -54,7 +54,7 @@
 \begin{minipage}{0.90\textwidth}
 \small
 \textbf{Abstract.}
-Language models reason in a line: one token after another in a single transcript, rewinding in text when a step fails. I study a different shape. \IS{} works on explicit states. Every live branch expands at once, the environment executes the moves, branches that reach the same state merge, a small trained judge cancels dead ends, and the survivors advance together one level at a time. The name comes from the way quantum search lets wrong paths cancel; the method is classical and claims no quantum speedup. On 30 hard Countdown problems, with the same judge and the same budget of 200 judged positions, \IS{} solves 30 and a single line of thought solves 21; to solve all 30, the line needs 23.7 sequential steps on average and the frontier needs 3. Most reasoning in this domain is duplicate work: at six numbers, 831,176 operation sequences collapse into 13,229 distinct states. The judge, trained on four- and five-number problems, cut the search 12.6 times on seven-number problems without losing a solution, but loses solutions on hard problems when set aggressively. Qwen3-1.7B thinking in text solves 3 of the 30 problems; in one recorded trace it wrote the correct expression at token 1,313 and never committed to it. On 30 MBPP problems the model fails on its first try, \IS{} solves 9 against 8 for independent sampling and 7 for both linear refinement strategies, a lead within noise. Several obvious alternatives failed, and I report them: textual notes about failed attempts made the model retry them, decode-time rewinding regenerated the same mistake, and parallel streams that could attend to each other learned nothing that independent streams did not. None of these results trains the language model; that is the next step.
+Language models reason in a line: one token after another in a single transcript, rewinding in text when a step fails. I study a different shape. \IS{} works on explicit states. Every live branch expands at once, the environment executes the moves, branches that reach the same state merge, a small trained judge cancels dead ends, and the survivors advance together one level at a time. The name comes from the way quantum search lets wrong paths cancel; the method is classical and claims no quantum speedup. On 30 hard Countdown problems, with the same judge and the same budget of 200 judged positions, \IS{} solves 30 and a single line of thought solves 21; to solve all 30, the line needs 23.7 sequential steps on average and the frontier needs 3. Most reasoning in this domain is duplicate work: at six numbers, 831,176 operation sequences collapse into 13,229 distinct states. The judge, trained on four- and five-number problems, cut the search 12.6 times on seven-number problems without losing a solution, but loses solutions on hard problems when set aggressively. Qwen3-1.7B thinking in text solves 3 of the 30 problems and generates about 14,900 tokens per solved problem, where the search generates none; in one recorded trace the model wrote the correct expression at token 1,313 and never committed to it. On 30 MBPP problems the model fails on its first try, \IS{} solves 9 against 8 for independent sampling and 7 for both linear refinement strategies, a lead within noise. Several obvious alternatives failed, and I report them: textual notes about failed attempts made the model retry them, decode-time rewinding regenerated the same mistake, and parallel streams that could attend to each other learned nothing that independent streams did not. None of these results trains the language model; that is the next step.
 \end{minipage}
 \vspace{6mm}
 ]
@@ -72,7 +72,7 @@ Quantum search offers a picture of the alternative. Grover's algorithm \citep{gr
 \item \IS{}, a search loop over explicit states with merging, a learned judge and a level-synchronous frontier, applied to both thinking (proposing and judging) and execution (applying moves, running tests) (\S\ref{sec:method}).
 \item Exact measurements of how much of Countdown's search space is duplicate or dead, and a judge that generalizes to larger problems than it was trained on (\S\ref{sec:redundancy}, \S\ref{sec:judge}).
 \item Matched-compute comparisons and ablations showing that the gain comes from merging plus level-synchronous advance, and that neither a global ranked memory nor plain cross-stream attention reproduces it (\S\ref{sec:shape}).
-\item Results with a real language model and in code, and a set of negative results that constrain where the mechanism has to live (\S\ref{sec:llm}, \S\ref{sec:code}).
+\item Results with a real language model and in code, token accounting for both, and a set of negative results that constrain where the mechanism has to live (\S\ref{sec:llm}--\S\ref{sec:tokens}).
 \end{itemize}
 
 \begin{figure}[t]
@@ -278,7 +278,38 @@ Fresh attempts (best of $N$) & 8 / 30 \\
 \label{tab:code}
 \end{table}
 
-Table~\ref{tab:code} shows parallel strategies ahead of both linear ones, and \IS{} one problem ahead of independent sampling, which is within noise on 30 problems. Behaviour merging removed 83\% of generated programs as duplicates. The agent loop solved nothing after its third round while its history grew. The traces explain the ceiling: when the model's idea is wrong, revisions reproduce it, so search can organize the model's ideas but cannot supply new ones. A stronger proposer or a trained judge is the natural next test.
+Table~\ref{tab:code} shows parallel strategies ahead of both linear ones, and \IS{} one problem ahead of independent sampling, which is within noise on 30 problems. Behaviour merging removed 83\% of generated programs as duplicates. The agent loop solved nothing after its third round while its history grew. The traces explain the ceiling: when this untrained model's idea is wrong, its revisions reproduce it, so here the search organizes the model's ideas without adding new ones. A model trained inside the frontier is rewarded for distinct live branches, since duplicates merge and earn nothing, and read-only actions such as retrieval can branch freely; both are ways past this ceiling, and both are untested here.
+
+\section{Token consumption}
+\label{sec:tokens}
+
+\begin{table}[t]
+\centering\small
+\begin{tabularx}{\columnwidth}{Xrrr}
+\toprule
+\multicolumn{4}{l}{\emph{Countdown, 30 hard problems}} \\
+System & Written & Read & Solved \\
+\midrule
+Qwen3-1.7B thinking in text & 1,490 & 83 & 3 \\
+\IS, hidden-state probe judge & 0 & 4,290 & 15 \\
+\IS, trained judge & 0 & 0 & 23 \\
+\midrule
+\multicolumn{4}{l}{\emph{Code, 30 MBPP first-try failures}} \\
+Strategy & Written & Read & Solved \\
+\midrule
+Agent loop with full history & 1,218 & n/r & 7 \\
+Revise the latest program & 1,273 & 4,216 & 7 \\
+Fresh attempts (best of $N$) & 1,357 & 1,473 & 8 \\
+\IS & 1,368 & 1,934 & 9 \\
+\bottomrule
+\end{tabularx}
+\caption{Language-model tokens per problem, averaged over all 30 problems. Written: generated tokens. Read: prompt tokens processed. The Countdown judge arms read one 66-token prompt per judged state, about 65 states per problem, and generate nothing. n/r: not recorded; that arm re-reads its growing history every round.}
+\label{tab:tokens}
+\end{table}
+
+Table~\ref{tab:tokens} counts language-model tokens. In Countdown, chain of thought generated about 14,900 tokens per solved problem (44,703 over 3 solves). \IS{} generates none: the environment writes the moves and the judge only reads each state, once, in a single forward pass. With the judge read from Qwen3-1.7B's hidden state, the search read about 8,600 tokens per solved problem. Only 18 of each 66-token judge prompt are specific to the state, so with the shared instruction prefix cached, the new tokens fall to about 1,200 per problem. Reading is also the cheaper operation: prompt tokens are processed in parallel, and hosted models usually price them below generated tokens. The two Countdown systems are not the same model doing different work, since the search runs the environment and a judge; the comparison says what each approach spends to solve these problems.
+
+In code the comparison holds the model and the budget fixed. Every strategy spends close to its 1,500-token allowance on the problems it fails, so the per-problem averages are similar by design, and the fair measure is tokens per solved problem. \IS{} generated the fewest, about 4,560 per solve against 5,090 for fresh attempts and 5,460 for revising the latest program, and per solved problem read 2.8 times fewer tokens than the revision strategy (6,450 against 18,070). It read somewhat more than fresh attempts, because revising a program means showing it the program. The margins are modest and track the solve counts in Table~\ref{tab:code}.
 
 \section{Related work}
 

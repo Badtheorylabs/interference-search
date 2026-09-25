@@ -18,6 +18,9 @@ Every number in the paper, where it comes from, and how to reproduce it. Paths a
 | Failed attempts repeating an own or sibling refutation (Phase 0) | 45.1% and 29.7% | `results/llm/phase0_qwen3-1.7b.jsonl` | `python phase0.py && python analyze0.py …` |
 | Textual notes prime retries (Phase 1) | 33.6% vs about 21% within 80 tokens | `results/llm/phase1_qwen3-1.7b.jsonl` | `python phase1.py && python analyze1.py …` |
 | Code, 30 MBPP first-try failures | 7, 7, 8, 9 of 30; 83% merged | `results/code/bench_code_partial.json` | `cd experiments/code && python benchmark.py` |
+| Chain of thought, generated tokens per solved Countdown problem | about 14,900 (44,703 over 3 solves) | `results/llm` transcript arm, 1,490 generated per problem | `python llm_state.py --arms transcript` |
+| Judge arms: tokens read per problem, generated | about 4,290 read (65 states × 66 tokens), 0 generated | probe run judged-state counts; prompt length measured with the Qwen3 tokenizer | `python probe.py` |
+| Code, generated tokens per solve | 4,560 (Interference Search), 5,090 (best of N), 5,460 (revise latest) | `results/code/bench_code_partial.json` | `cd experiments/code && python benchmark.py` |
 | Parallel streams trained from scratch, isolated vs visible (4 streams) | 0.508 vs 0.511 | research log, toy section | `experiments/toy/run_gpu.sh` |
 
 All runs are one seed. Results on 30 problems carry roughly ±2.5 problems of sampling noise at these solve rates.
