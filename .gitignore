@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.venv/
+runs/
+runs_gpu/
+runs2/
+frames/
+chrome-prof/
+*.log
+paper/*.aux
+paper/*.log
+paper/*.bbl
+paper/*.blg
+paper/*.out
+*.egg-info/

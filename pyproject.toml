@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "interference-search"
+version = "0.1.0"
+description = "Reason over explicit states, many branches at once: merge duplicates, cancel dead ends, advance together."
+readme = "README.md"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Bad Theory Labs" }]
+requires-python = ">=3.10"
+dependencies = ["torch>=2.2", "numpy"]
+
+[project.optional-dependencies]
+llm = ["mlx-lm>=0.31; sys_platform == 'darwin'", "transformers>=4.44"]
+test = ["pytest>=8"]
+
+[project.urls]
+Homepage = "https://badtheorylabs.com"
+Repository = "https://github.com/Badtheorylabs/interference-search"
+
+[tool.setuptools]
+packages = ["interference_search"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

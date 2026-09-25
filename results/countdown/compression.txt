@@ -1,0 +1,24 @@
+
+4 numbers, 20 random solvable instances (mean per instance)
+depth      paths      states   paths/state   dead states   share of full paths through dead states
+    0           1           1          1.0            0 ( 0.0%)     0.0%
+    1          19          18          1.0           15 (80.7%)    80.7%
+    2         179          97          1.8           93 (96.0%)    95.4%
+    3         566         159          3.6          158 (99.4%)    98.5%
+
+5 numbers, 20 random solvable instances (mean per instance)
+depth      paths      states   paths/state   dead states   share of full paths through dead states
+    0           1           1          1.0            0 ( 0.0%)     0.0%
+    1          31          28          1.1           21 (75.4%)    73.6%
+    2         589         278          2.1          269 (96.8%)    96.2%
+    3        5534        1159          4.8         1153 (99.4%)    99.2%
+    4       17266        1511         11.4         1510 (99.9%)    99.7%
+
+6 numbers, 20 random solvable instances (mean per instance)
+depth      paths      states   paths/state   dead states   share of full paths through dead states
+    0           1           1          1.0            0 ( 0.0%)     0.0%
+    1          47          43          1.1           13 (30.0%)    28.5%
+    2        1475         704          2.1          596 (84.7%)    82.6%
+    3       27915        5262          5.3         5161 (98.1%)    96.9%
+    4      264496       16479         16.1        16445 (99.8%)    99.3%
+    5      831176       13229         62.8        13228 (100.0%)    99.8%

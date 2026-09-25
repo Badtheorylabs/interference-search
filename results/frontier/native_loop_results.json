@@ -1,0 +1,271 @@
+{
+ "args": {
+  "model": "refuter_s0.pt",
+  "n6": 100,
+  "n7": 30,
+  "tau": 0.7,
+  "temp": 0.5
+ },
+ "results": {
+  "6 numbers": {
+   "linear": {
+    "10": {
+     "solved": 0.03,
+     "rounds_when_solved": 8.333333333333334,
+     "expansions_when_solved": 8.333333333333334
+    },
+    "20": {
+     "solved": 0.14,
+     "rounds_when_solved": 11.071428571428571,
+     "expansions_when_solved": 11.071428571428571
+    },
+    "50": {
+     "solved": 0.26,
+     "rounds_when_solved": 22.307692307692307,
+     "expansions_when_solved": 22.307692307692307
+    },
+    "100": {
+     "solved": 0.4,
+     "rounds_when_solved": 54.25,
+     "expansions_when_solved": 54.25
+    },
+    "200": {
+     "solved": 0.48,
+     "rounds_when_solved": 89.27083333333333,
+     "expansions_when_solved": 89.27083333333333
+    },
+    "400": {
+     "solved": 0.71,
+     "rounds_when_solved": 116.33802816901408,
+     "expansions_when_solved": 116.33802816901408
+    }
+   },
+   "linear+refute": {
+    "10": {
+     "solved": 0.06,
+     "rounds_when_solved": 7.166666666666667,
+     "expansions_when_solved": 7.166666666666667
+    },
+    "20": {
+     "solved": 0.12,
+     "rounds_when_solved": 8.833333333333334,
+     "expansions_when_solved": 8.833333333333334
+    },
+    "50": {
+     "solved": 0.28,
+     "rounds_when_solved": 21.321428571428573,
+     "expansions_when_solved": 21.321428571428573
+    },
+    "100": {
+     "solved": 0.43,
+     "rounds_when_solved": 45.48837209302326,
+     "expansions_when_solved": 45.48837209302326
+    },
+    "200": {
+     "solved": 0.68,
+     "rounds_when_solved": 57.544117647058826,
+     "expansions_when_solved": 57.544117647058826
+    },
+    "400": {
+     "solved": 0.83,
+     "rounds_when_solved": 130.93975903614458,
+     "expansions_when_solved": 130.93975903614458
+    }
+   },
+   "frontier": {
+    "10": {
+     "solved": 0.17,
+     "rounds_when_solved": 5.0,
+     "expansions_when_solved": 8.0
+    },
+    "20": {
+     "solved": 0.33,
+     "rounds_when_solved": 5.0,
+     "expansions_when_solved": 14.393939393939394
+    },
+    "50": {
+     "solved": 0.61,
+     "rounds_when_solved": 5.0,
+     "expansions_when_solved": 32.868852459016395
+    },
+    "100": {
+     "solved": 0.77,
+     "rounds_when_solved": 5.0,
+     "expansions_when_solved": 62.688311688311686
+    },
+    "200": {
+     "solved": 0.88,
+     "rounds_when_solved": 5.0,
+     "expansions_when_solved": 119.13636363636364
+    },
+    "400": {
+     "solved": 0.94,
+     "rounds_when_solved": 5.0,
+     "expansions_when_solved": 202.7127659574468
+    }
+   },
+   "frontier+refute": {
+    "10": {
+     "solved": 0.17,
+     "rounds_when_solved": 5.0,
+     "expansions_when_solved": 8.0
+    },
+    "20": {
+     "solved": 0.33,
+     "rounds_when_solved": 5.0,
+     "expansions_when_solved": 14.393939393939394
+    },
+    "50": {
+     "solved": 0.61,
+     "rounds_when_solved": 5.0,
+     "expansions_when_solved": 32.81967213114754
+    },
+    "100": {
+     "solved": 0.77,
+     "rounds_when_solved": 5.0,
+     "expansions_when_solved": 62.51948051948052
+    },
+    "200": {
+     "solved": 0.87,
+     "rounds_when_solved": 5.0,
+     "expansions_when_solved": 118.64367816091954
+    },
+    "400": {
+     "solved": 0.94,
+     "rounds_when_solved": 5.0,
+     "expansions_when_solved": 201.4255319148936
+    }
+   }
+  },
+  "7 numbers": {
+   "linear": {
+    "10": {
+     "solved": 0.0,
+     "rounds_when_solved": 0.0,
+     "expansions_when_solved": 0.0
+    },
+    "20": {
+     "solved": 0.03333333333333333,
+     "rounds_when_solved": 6.0,
+     "expansions_when_solved": 6.0
+    },
+    "50": {
+     "solved": 0.16666666666666666,
+     "rounds_when_solved": 28.8,
+     "expansions_when_solved": 28.8
+    },
+    "100": {
+     "solved": 0.2,
+     "rounds_when_solved": 31.0,
+     "expansions_when_solved": 31.0
+    },
+    "200": {
+     "solved": 0.6,
+     "rounds_when_solved": 87.66666666666667,
+     "expansions_when_solved": 87.66666666666667
+    },
+    "400": {
+     "solved": 0.8666666666666667,
+     "rounds_when_solved": 152.76923076923077,
+     "expansions_when_solved": 152.76923076923077
+    }
+   },
+   "linear+refute": {
+    "10": {
+     "solved": 0.03333333333333333,
+     "rounds_when_solved": 10.0,
+     "expansions_when_solved": 10.0
+    },
+    "20": {
+     "solved": 0.06666666666666667,
+     "rounds_when_solved": 15.5,
+     "expansions_when_solved": 15.5
+    },
+    "50": {
+     "solved": 0.13333333333333333,
+     "rounds_when_solved": 19.0,
+     "expansions_when_solved": 19.0
+    },
+    "100": {
+     "solved": 0.5333333333333333,
+     "rounds_when_solved": 59.9375,
+     "expansions_when_solved": 59.9375
+    },
+    "200": {
+     "solved": 0.5,
+     "rounds_when_solved": 84.13333333333334,
+     "expansions_when_solved": 84.13333333333334
+    },
+    "400": {
+     "solved": 0.9,
+     "rounds_when_solved": 146.03703703703704,
+     "expansions_when_solved": 146.03703703703704
+    }
+   },
+   "frontier": {
+    "10": {
+     "solved": 0.03333333333333333,
+     "rounds_when_solved": 6.0,
+     "expansions_when_solved": 6.0
+    },
+    "20": {
+     "solved": 0.3,
+     "rounds_when_solved": 6.0,
+     "expansions_when_solved": 14.222222222222221
+    },
+    "50": {
+     "solved": 0.5333333333333333,
+     "rounds_when_solved": 6.0,
+     "expansions_when_solved": 35.1875
+    },
+    "100": {
+     "solved": 0.7,
+     "rounds_when_solved": 6.0,
+     "expansions_when_solved": 67.80952380952381
+    },
+    "200": {
+     "solved": 0.8666666666666667,
+     "rounds_when_solved": 6.0,
+     "expansions_when_solved": 134.73076923076923
+    },
+    "400": {
+     "solved": 0.8666666666666667,
+     "rounds_when_solved": 6.0,
+     "expansions_when_solved": 253.19230769230768
+    }
+   },
+   "frontier+refute": {
+    "10": {
+     "solved": 0.03333333333333333,
+     "rounds_when_solved": 6.0,
+     "expansions_when_solved": 6.0
+    },
+    "20": {
+     "solved": 0.3,
+     "rounds_when_solved": 6.0,
+     "expansions_when_solved": 14.222222222222221
+    },
+    "50": {
+     "solved": 0.5333333333333333,
+     "rounds_when_solved": 6.0,
+     "expansions_when_solved": 35.1875
+    },
+    "100": {
+     "solved": 0.7,
+     "rounds_when_solved": 6.0,
+     "expansions_when_solved": 67.80952380952381
+    },
+    "200": {
+     "solved": 0.8666666666666667,
+     "rounds_when_solved": 6.0,
+     "expansions_when_solved": 134.73076923076923
+    },
+    "400": {
+     "solved": 0.8666666666666667,
+     "rounds_when_solved": 6.0,
+     "expansions_when_solved": 253.19230769230768
+    }
+   }
+  }
+ }
+}

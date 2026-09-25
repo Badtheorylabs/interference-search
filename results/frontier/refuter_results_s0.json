@@ -1,0 +1,138 @@
+{
+ "6 numbers, random": [
+  {
+   "method": "no pruning",
+   "solved": 1.0,
+   "mean_states_expanded": 21220.36
+  },
+  {
+   "method": "hand bound",
+   "solved": 1.0,
+   "mean_states_expanded": 20754.21
+  },
+  {
+   "method": "exact oracle",
+   "solved": 1.0,
+   "mean_states_expanded": 223.25
+  },
+  {
+   "method": "learned tau=0.2",
+   "solved": 1.0,
+   "mean_states_expanded": 4794.31
+  },
+  {
+   "method": "learned tau=0.5",
+   "solved": 1.0,
+   "mean_states_expanded": 2951.25
+  },
+  {
+   "method": "learned tau=0.7",
+   "solved": 1.0,
+   "mean_states_expanded": 1964.87
+  },
+  {
+   "method": "learned tau=0.9",
+   "solved": 0.86,
+   "mean_states_expanded": 786.98
+  },
+  {
+   "method": "learned tau=0.95",
+   "solved": 0.5,
+   "mean_states_expanded": 403.82
+  },
+  {
+   "method": "learned tau=0.99",
+   "solved": 0.0,
+   "mean_states_expanded": 8.28
+  }
+ ],
+ "6 numbers, hard": [
+  {
+   "method": "no pruning",
+   "solved": 1.0,
+   "mean_states_expanded": 19502.56
+  },
+  {
+   "method": "hand bound",
+   "solved": 1.0,
+   "mean_states_expanded": 18607.83
+  },
+  {
+   "method": "exact oracle",
+   "solved": 1.0,
+   "mean_states_expanded": 16.65
+  },
+  {
+   "method": "learned tau=0.2",
+   "solved": 0.98,
+   "mean_states_expanded": 3498.05
+  },
+  {
+   "method": "learned tau=0.5",
+   "solved": 0.78,
+   "mean_states_expanded": 1426.84
+  },
+  {
+   "method": "learned tau=0.7",
+   "solved": 0.43,
+   "mean_states_expanded": 839.96
+  },
+  {
+   "method": "learned tau=0.9",
+   "solved": 0.06,
+   "mean_states_expanded": 480.34
+  },
+  {
+   "method": "learned tau=0.95",
+   "solved": 0.0,
+   "mean_states_expanded": 174.47
+  },
+  {
+   "method": "learned tau=0.99",
+   "solved": 0.0,
+   "mean_states_expanded": 1.13
+  }
+ ],
+ "7 numbers, random": [
+  {
+   "method": "no pruning",
+   "solved": 1.0,
+   "mean_states_expanded": 253710.8
+  },
+  {
+   "method": "hand bound",
+   "solved": 1.0,
+   "mean_states_expanded": 252741.1
+  },
+  {
+   "method": "learned tau=0.2",
+   "solved": 1.0,
+   "mean_states_expanded": 50940.5
+  },
+  {
+   "method": "learned tau=0.5",
+   "solved": 1.0,
+   "mean_states_expanded": 30851.4
+  },
+  {
+   "method": "learned tau=0.7",
+   "solved": 1.0,
+   "mean_states_expanded": 20068.7
+  },
+  {
+   "method": "learned tau=0.9",
+   "solved": 0.9,
+   "mean_states_expanded": 8444.5
+  },
+  {
+   "method": "learned tau=0.95",
+   "solved": 0.5,
+   "mean_states_expanded": 3884.4
+  },
+  {
+   "method": "learned tau=0.99",
+   "solved": 0.0,
+   "mean_states_expanded": 58.3
+  }
+ ]
+}

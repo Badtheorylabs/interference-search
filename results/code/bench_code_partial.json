@@ -1,0 +1,46 @@
+[
+ {
+  "arm": "best-of-N",
+  "solved": 8,
+  "of": 30,
+  "gen_tokens_mean": 1356.5,
+  "gen_tokens_when_solved": 365.125,
+  "prompt_tokens_mean": 1473.0666666666666,
+  "rounds_when_solved": 1.25,
+  "merge_rate": null,
+  "sec": 1385
+ },
+ {
+  "arm": "transcript",
+  "solved": 7,
+  "of": 30,
+  "gen_tokens_mean": 1218,
+  "gen_tokens_when_solved": null,
+  "prompt_tokens_mean": null,
+  "rounds_when_solved": null,
+  "merge_rate": null,
+  "note": "stopped at round 54 to save battery; 2 problems still active and unsolved; no new solve after round 3"
+ },
+ {
+  "arm": "linear state",
+  "solved": 7,
+  "of": 30,
+  "gen_tokens_mean": 1273.3333333333333,
+  "gen_tokens_when_solved": 299.2857142857143,
+  "prompt_tokens_mean": 4215.533333333334,
+  "rounds_when_solved": 1.7142857142857142,
+  "merge_rate": null,
+  "sec": 1550
+ },
+ {
+  "arm": "Interference Search",
+  "solved": 9,
+  "of": 30,
+  "gen_tokens_mean": 1367.6333333333334,
+  "gen_tokens_when_solved": 453.6666666666667,
+  "prompt_tokens_mean": 1933.8666666666666,
+  "rounds_when_solved": 2.0,
+  "merge_rate": 0.8275109170305677,
+  "sec": 2397
+ }
+]
