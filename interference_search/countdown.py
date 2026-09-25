@@ -233,7 +233,6 @@ def extract_attempts(text, numbers, target):
         # substitute intermediate results that are not original numbers
         if not _is_sub_multiset(leaves, numbers):
             expanded = seg
-            used = list(leaves)
             for leaf in set(leaves):
                 if leaf in step_exprs and Counter(leaves)[leaf] > Counter(numbers)[leaf]:
                     e, _ = step_exprs[leaf]

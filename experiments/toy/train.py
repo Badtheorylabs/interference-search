@@ -66,7 +66,6 @@ def rollout(model, n, k, group=1, gen=None, sample=True, expert=False):
             ex.update(dead_node)
     inp = {x: torch.stack(v, 2) for x, v in buf.items()}
     reward = env.solved.float() * (1 + (T - env.solve_t) / T)
-    redundant = None
     return inp, sids, torch.stack(acts, 2), torch.stack(alive, 1), reward, env
 
 

@@ -1,23 +1,24 @@
 """Interference Search: one loop, pluggable domains.
 
-A search runs over explicit states, not transcripts. Each round, every live state is expanded
-together; the environment executes the proposed moves and returns new states; states with the
-same merge key collapse into one (their scores pool); a judge ranks what is left; the best
-`width` states advance to the next round. Nothing is carried from round to round except the
-states themselves and a memory of keys already expanded.
+The search works on explicit states. Each round, every live state is expanded together and the
+environment executes the proposed moves. States with the same merge key collapse into one, and the
+votes of their parents add up. A judge ranks what is left, and the best `width` states advance to
+the next round. The only things carried between rounds are the live states and the set of keys
+already expanded.
 
-A domain supplies five functions:
+A domain supplies six functions:
 
     start(problem)                  -> initial state
     propose(states, problem)        -> for each state, a list of candidate next states, plus the
                                        generation cost (tokens) spent proposing them
     key(state)                      -> hashable merge key; equal keys mean "the same situation"
-    judge(states, problem)          -> score per state (higher = more promising), plus cost
+    judge(states, problem)          -> score per state (higher = more promising), plus cost;
+                                       return None as the scores to rank by pooled votes instead
     is_goal(state, problem)         -> bool
-    is_dead(state, problem)         -> bool, states the environment already knows are finished and wrong
+    is_dead(state, problem)         -> bool: the state is finished and wrong
 
-Cost is counted in the domain's own unit (LLM tokens, judged states, ...), and the loop stops when
-a budget runs out.
+Cost is counted in the domain's own unit, such as generated tokens or judged states, and the loop
+stops when the budget runs out.
 """
 import math
 import random
@@ -84,8 +85,8 @@ def search(domain, problem, budget, width=6, merge=True, restarts=True):
 
 
 def linear_search(domain, problem, budget, temp=0.5, rng=None):
-    """Today's baseline: one chain at a time. Judge the children of the current state, sample one,
-    continue; when the chain dies, restart from the beginning. Same domain, same judge, same cost unit."""
+    """The baseline: one chain at a time. Judge the children of the current state, sample one and
+    continue; when the chain dies, restart from the beginning. Same domain, judge and cost unit."""
     rng = rng or random.Random(0)
     res = Result(solved=False)
     while res.cost < budget:

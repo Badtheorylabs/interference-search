@@ -38,7 +38,7 @@ def encode(states, target, max_n=7):
     return torch.tensor(feats), torch.tensor(mask)
 
 
-class Refuter(nn.Module):
+class Judge(nn.Module):
     """Set transformer: numbers attend to each other, then pooled to one alive/dead logit."""
 
     def __init__(self, d=64, layers=2):
@@ -58,7 +58,7 @@ class Refuter(nn.Module):
 
 def load_judge(path=DEFAULT_WEIGHTS):
     """Load trained weights and return score(states, target) -> list of P(alive)."""
-    model = Refuter()
+    model = Judge()
     model.load_state_dict(torch.load(path, map_location="cpu"))
     model.eval()
 

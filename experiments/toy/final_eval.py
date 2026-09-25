@@ -5,31 +5,31 @@ sibling) had already found dead. Mean and spread are over training seeds.
 """
 import glob
 import json
+import os
 import sys
 from collections import defaultdict
 
 import torch
 
+from env import TreeSearch
+from model import StreamPolicy
+
 RUN_DIR = sys.argv[1] if len(sys.argv) > 1 else "runs"
-import os
-sys.argv = ["train.py", "--arm", "indep", "--iters", "0", "--bc-iters", "0", "--device", os.environ.get("DEVICE", "cpu")]
-src = open("train.py").read().split("model = StreamPolicy")[0]
-exec(src)  # brings in args, rollout, TreeSearch, StreamPolicy
-
-from model import StreamPolicy  # noqa: E402
+DEV = torch.device(os.environ.get("DEVICE", "cpu"))
 
 
-def eval_model(model, k, n=4000, seed=999):
+def eval_model(model, k, args, n=4000, seed=999):
+    """Evaluate under the environment settings the model was trained with (`args` from its run file)."""
     g = torch.Generator().manual_seed(seed)
     model.eval()
-    env = TreeSearch(n, k, noise=args.noise, steps=args.steps, gen=g, refute_p=args.refute_p, device=DEV)
+    env = TreeSearch(n, k, noise=args["noise"], steps=args["steps"], gen=g, refute_p=args["refute_p"], device=DEV)
     env.reset()
     sids = torch.rand(n, 16, generator=g).argsort(1)[:, :k].to(DEV)
     obs = env.observe(torch.zeros(n, k, dtype=torch.bool, device=DEV))
     dead_node = torch.full((n, k), -1, dtype=torch.long, device=DEV)
     buf = {x: [] for x in ("pos_code", "ch_hint", "is_leaf", "dead", "dead_code", "child_code")}
     hits = rep = 0
-    for t in range(args.steps):
+    for t in range(args["steps"]):
         buf["pos_code"].append(env.code[obs["pos"]])
         buf["ch_hint"].append(obs["ch_hint"])
         buf["is_leaf"].append(obs["is_leaf"])
@@ -55,13 +55,14 @@ res = defaultdict(lambda: defaultdict(list))
 strength = defaultdict(list)
 for pt in sorted(glob.glob(RUN_DIR + "/*_s*.pt")):
     arm = pt.split("/")[-1].rsplit("_s", 1)[0]
-    m = StreamPolicy(arm, steps=args.steps).to(DEV)
+    args = json.load(open(pt.replace(".pt", ".json")))["args"]
+    m = StreamPolicy(arm, steps=args["steps"]).to(DEV)
     m.load_state_dict(torch.load(pt, map_location=DEV))
     if arm in ("unsigned", "signed"):
         raw = m.raw.item()
         strength[arm].append(-torch.nn.functional.softplus(torch.tensor(raw)).item() if arm == "signed" else raw)
     for k in (2, 4, 8):
-        s, r = eval_model(m, k)
+        s, r = eval_model(m, k, args)
         res[arm][f"K{k}"].append(s)
         res[arm][f"R{k}"].append(r)
     print(pt, {k: round(v[-1], 3) for k, v in res[arm].items()}, flush=True)

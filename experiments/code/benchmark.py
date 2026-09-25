@@ -10,14 +10,15 @@ Arms, all at the same generated-token budget per problem, all batched across pro
 """
 import argparse
 import json
+import os
 import random
 import time
 from collections import defaultdict
+from pathlib import Path
 
+import mlx.core as mx
 from mlx_lm import batch_generate, load
 from mlx_lm.sample_utils import make_sampler
-
-from pathlib import Path
 
 from interference_search.program_domain import Code, State, execute, extract_code, feedback
 
@@ -37,7 +38,6 @@ data = json.load(open(ROOT / "data" / "mbpp_sanitized.json"))
 t0 = time.time()
 
 # screen: keep problems the model gets wrong on its first greedy attempt (cached)
-import os
 cand = data[:args.screen]
 cache = ROOT / "results" / "code" / f"screen_{args.screen}.json"
 if os.path.exists(cache):
@@ -56,8 +56,6 @@ print(f"screen: greedy first try solves {sum(first_try)}/{len(cand)}; {len(faile
       f"  ({time.time() - t0:.0f}s)", flush=True)
 problems = random.Random(0).sample(failed, min(args.n, len(failed)))
 
-
-import mlx.core as mx
 mx.set_cache_limit(2 * 1024 ** 3)   # stop MLX's buffer cache from growing across hundreds of calls
 
 

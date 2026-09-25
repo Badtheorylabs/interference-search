@@ -17,10 +17,8 @@ import json
 import math
 import random
 import re
-import sys
 import time
 from collections import defaultdict
-from fractions import Fraction
 
 from mlx_lm import batch_generate, load
 from mlx_lm.sample_utils import make_sampler

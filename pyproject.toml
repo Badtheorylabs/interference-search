@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "Reason over explicit states, many branches at once: merge duplicates, cancel dead ends, advance together."
 readme = "README.md"
 license = { text = "Apache-2.0" }
-authors = [{ name = "Bad Theory Labs" }]
+authors = [{ name = "Al-ameen" }, { name = "Bad Theory Labs" }]
 requires-python = ">=3.10"
 dependencies = ["torch>=2.2", "numpy"]
 

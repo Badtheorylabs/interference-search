@@ -1,5 +1,7 @@
 """Does Qwen3-1.7B already know which Countdown states are dead, even though it can't say so?
 
+Short answer: not beyond what plain number features carry. probe_control.py is the control that shows it.
+
 No fine-tuning. Run the frozen model once over a state prompt, read the hidden state of the last
 token at a few depths, and train a linear probe (on CPU) to predict alive/dead from exact DP labels.
 Test on states from unseen problems, including a bigger size. Compare against the prompted judge
@@ -7,9 +9,8 @@ Test on states from unseen problems, including a bigger size. Compare against th
 environment-enumerates frontier on the same 30 hard problems as llm_state.py.
 """
 import json
-import math
+import os
 import random
-import sys
 import time
 from functools import lru_cache
 
@@ -20,7 +21,7 @@ from mlx_lm import load
 from mlx_lm.models.base import create_attention_mask
 
 from interference_search.countdown import gen_hard_problem, gen_problem, moves
-from interference_search.judge import encode as judge_encode, load_judge
+from interference_search.judge import load_judge
 
 LAYERS = (14, 21, 28)
 model, tok = load("mlx-community/Qwen3-1.7B-4bit")
@@ -205,5 +206,6 @@ for name, j in (("prompted P(yes)", pyes_judge), (f"probe layer {best_layer}", p
     res = [enum_frontier(p, j) for p in problems]
     print(f"  {name:22s} solved {sum(r[0] for r in res)}/30   mean judged states {np.mean([r[1] for r in res]):.0f}", flush=True)
     report[f"search {name}"] = sum(r[0] for r in res) / 30
-import os; os.makedirs("runs", exist_ok=True); json.dump({k: v for k, v in report.items()}, open("runs/probe_results.json", "w"), indent=1)
+os.makedirs("runs", exist_ok=True)
+json.dump(report, open("runs/probe_results.json", "w"), indent=1)
 print(f"done ({time.time() - t0:.0f}s)")

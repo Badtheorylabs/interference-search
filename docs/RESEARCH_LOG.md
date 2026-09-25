@@ -1,7 +1,8 @@
-# Interference Search: Experiment Design
+# Research log
 
-Status: Phase 0 and Phase 1 run locally (see results at the end).
-Date: 2026-09-22
+This is the working log, kept from 2026-09-22 to 2026-09-24 and left in the order it was written. It starts as an experiment design for a different mechanism (parallel streams that suppress each other's refuted ideas), records why that failed, and ends with the merged-state search the paper describes. Plans near the top were written before the results below them, and some were dropped.
+
+Directory names changed when I cleaned the code up for release. `toy/` is now `experiments/toy/`. `frontier/native_loop.py` and `frontier/ablate.py` are now `experiments/countdown/frontier_vs_linear.py` (the ablation is its `--ablation` flag). `isearch/` is now the `interference_search/` package, and `code_domain.py` is now `program_domain.py`. `REVIEW_BRIEF.md` was the brief I sent to outside reviewers and is not included. Where a number here was later corrected, the correction sits next to it in a note.
 
 ## The idea in one paragraph
 
@@ -274,11 +275,11 @@ moves). Frontier width = budget / depth. Solve rate on unseen problems:
 | frontier (merged) | 17% | 33% | 61% | 77% | 88% | 94% |
 | frontier + refute | 17% | 33% | 61% | 77% | 87% | 94% |
 
-7 numbers (30): at 50 expansions frontier 53% vs linear 17%; at 400 both about 87 to 90%.
+7 numbers (30): at 50 expansions frontier 53% vs linear 17%; at 400 both 87%. (Note, 2026-09-25: an earlier version said "about 87 to 90%". The saved results show 86.7% for both.)
 Sequential rounds when solved: frontier 5 (6 numbers) and 6 (7 numbers); linear 116 and 153.
 
-Reading: organising the same model as a merged frontier needs roughly 4x fewer expansions for the
-same solve rate at 6 numbers (77% at 100 vs 71% at 400) and about 20x fewer sequential steps. The
+Reading: organising the same model as a merged frontier needs roughly 4x fewer expansions for a
+similar solve rate at 6 numbers (77% at 100 vs 71% at 400) and about 20x fewer sequential steps (5 vs 116). The
 hard refute threshold adds nothing on top of ranking by viability, which already drops those states.
 Merging is not yet isolated (needs a frontier-without-merge arm), and a value-ranked frontier is close
 to value-guided beam search, which is prior art; the new part to argue is the native, learned version

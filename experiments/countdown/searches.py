@@ -7,7 +7,6 @@ one expansion = the judge looks at one state and the environment executes all of
   bestfirst         strictly sequential, a ranked memory of every state seen, always continue from the best
 """
 import heapq
-import math
 
 import torch
 

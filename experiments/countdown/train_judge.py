@@ -15,7 +15,7 @@ import torch
 import torch.nn as nn
 
 from interference_search.countdown import gen_problem, moves, reachable_states, solver
-from interference_search.judge import Refuter, encode, hand_alive
+from interference_search.judge import Judge, encode, hand_alive
 
 ap = argparse.ArgumentParser()
 ap.add_argument("--train-inst", type=int, default=400, help="instances per size (4 and 5 numbers)")
@@ -41,7 +41,7 @@ print(f"train states {len(rows)}  alive {n_alive / len(rows):.1%}  ({time.time()
 
 X, M = encode([r[0] for r in rows], [r[1] for r in rows])
 Y = torch.tensor([float(r[2]) for r in rows])
-model = Refuter()
+model = Judge()
 opt = torch.optim.Adam(model.parameters(), lr=1e-3)
 pos_w = torch.tensor((len(rows) - n_alive) / max(n_alive, 1))
 for ep in range(args.epochs):

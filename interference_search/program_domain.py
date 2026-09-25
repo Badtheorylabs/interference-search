@@ -7,13 +7,14 @@ Judge    = tests passed (execution is the judge; no learned model yet).
 Propose  = from the empty state, write a fresh program; from a program, write a revision given only
            the current program and its test feedback (no chat history).
 Cost     = generated tokens.
+
+experiments/code/benchmark.py drives this class directly instead of through core.search, so that one
+round of generation can be batched across all problems at once.
 """
-import ast
 import json
 import re
 import subprocess
 import sys
-import tempfile
 
 RUNNER = r'''
 import json, sys, signal, ast
