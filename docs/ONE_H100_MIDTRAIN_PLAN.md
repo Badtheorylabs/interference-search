@@ -1,6 +1,6 @@
 # One H100 midtraining plan
 
-Status: superseded for the fuzzy-inhibition arm, 26 September 2026. The [compact-state pilot report](COMPACT_STATE_PILOT_2026-09-26.md) records full-checkpoint feasibility and a negative matched training result. The resource estimates below remain a planning reference; do not treat them as a go decision for more of the same training.
+Status: architecture gate still closed, 27 September 2026. The [compact-state pilot report](COMPACT_STATE_PILOT_2026-09-26.md) records full-checkpoint feasibility and a negative matched training result. The [counterexample search test](COUNTEREXAMPLE_PARALLEL_REASONING_2026-09-27.md) then showed exact compact sharing, but no solve advantage over cached factors and only modest parallel-depth savings at much higher verifier work. The resource estimates below remain a planning reference; they are not a go decision for training either mechanism.
 
 ## Decision
 
@@ -22,7 +22,7 @@ Keep the verifier outside the weights. It executes model-proposed candidates and
 
 ## Data and evaluation gate
 
-Before renting a GPU, freeze a Countdown bootstrap curriculum and a generated program-induction curriculum with source-disjoint validation and test sets. The Countdown records must include model-selected action labels, executed successor states, reachability labels, and paired states before and after one verified refutation. Those pairs train the successor predictor and expose whether the negative path changes a sibling's action. The second family should have multiple possible programs consistent with early evidence and counterexamples that distinguish them. Keep the released cached frontier, an exact solver, and a cached state enumerator, with their full runtime, as baselines. If these solve the family cheaply, do not claim a compute advantage there.
+Before renting a GPU, freeze a Countdown bootstrap curriculum and a generated program-induction curriculum with source-disjoint validation and test sets. The Countdown records must include model-selected action labels, executed successor states, reachability labels, and paired states before and after one verified refutation. Those pairs train the successor predictor and expose whether the negative path changes a sibling's action. The second family should have multiple possible programs consistent with early evidence and counterexamples that distinguish them. Keep the released cached frontier, an exact solver, and a cached state enumerator, with their full runtime, as baselines. The current register-program family is solved cheaply by cached factors, so it fails this gate as a primary midtraining target. A replacement must first show that learned proposals or shared-state updates add value on held-out instances beyond the cached solver.
 
 Measure at least these outcomes on held-out instances:
 
