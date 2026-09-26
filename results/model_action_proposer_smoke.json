@@ -1,0 +1,240 @@
+{
+  "status": "inference-only batched action-format preflight",
+  "model": "Qwen/Qwen3-4B-Instruct-2507",
+  "revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+  "gpu": "NVIDIA H100 PCIe",
+  "problems": 2,
+  "states": 8,
+  "samples": 16,
+  "valid_actions": 16,
+  "valid_rate": 1.0,
+  "distinct_successors_across_states": 8,
+  "mean_distinct_successors_per_state": 1.0,
+  "batch_seconds": 1.039,
+  "records": [
+    {
+      "problem_index": 0,
+      "state": [
+        8,
+        24,
+        36
+      ],
+      "text": "{\"i\":0,\"op\":\"+\",\"j\":1}",
+      "valid": true,
+      "successor": [
+        32,
+        36
+      ]
+    },
+    {
+      "problem_index": 0,
+      "state": [
+        8,
+        24,
+        36
+      ],
+      "text": "{\"i\":0,\"op\":\"+\",\"j\":1}",
+      "valid": true,
+      "successor": [
+        32,
+        36
+      ]
+    },
+    {
+      "problem_index": 0,
+      "state": [
+        8,
+        25,
+        37
+      ],
+      "text": "{\"i\":0,\"op\":\"+\",\"j\":1}",
+      "valid": true,
+      "successor": [
+        33,
+        37
+      ]
+    },
+    {
+      "problem_index": 0,
+      "state": [
+        8,
+        25,
+        37
+      ],
+      "text": "{\"i\":0,\"op\":\"+\",\"j\":1}",
+      "valid": true,
+      "successor": [
+        33,
+        37
+      ]
+    },
+    {
+      "problem_index": 0,
+      "state": [
+        8,
+        24,
+        86
+      ],
+      "text": "{\"i\":0,\"op\":\"+\",\"j\":1}",
+      "valid": true,
+      "successor": [
+        32,
+        86
+      ]
+    },
+    {
+      "problem_index": 0,
+      "state": [
+        8,
+        24,
+        86
+      ],
+      "text": "{\"i\":0,\"op\":\"+\",\"j\":1}",
+      "valid": true,
+      "successor": [
+        32,
+        86
+      ]
+    },
+    {
+      "problem_index": 0,
+      "state": [
+        8,
+        24,
+        1525
+      ],
+      "text": "{\"i\":0,\"op\":\"+\",\"j\":1}",
+      "valid": true,
+      "successor": [
+        32,
+        1525
+      ]
+    },
+    {
+      "problem_index": 0,
+      "state": [
+        8,
+        24,
+        1525
+      ],
+      "text": "{\"i\":0,\"op\":\"+\",\"j\":1}",
+      "valid": true,
+      "successor": [
+        32,
+        1525
+      ]
+    },
+    {
+      "problem_index": 1,
+      "state": [
+        5,
+        20,
+        1482
+      ],
+      "text": "{\"i\":0,\"op\":\"+\",\"j\":1}",
+      "valid": true,
+      "successor": [
+        25,
+        1482
+      ]
+    },
+    {
+      "problem_index": 1,
+      "state": [
+        5,
+        20,
+        1482
+      ],
+      "text": "{\"i\":0,\"op\":\"+\",\"j\":1}",
+      "valid": true,
+      "successor": [
+        25,
+        1482
+      ]
+    },
+    {
+      "problem_index": 1,
+      "state": [
+        19,
+        20,
+        390
+      ],
+      "text": "{\"i\":0,\"op\":\"+\",\"j\":1}",
+      "valid": true,
+      "successor": [
+        39,
+        390
+      ]
+    },
+    {
+      "problem_index": 1,
+      "state": [
+        19,
+        20,
+        390
+      ],
+      "text": "{\"i\":0,\"op\":\"+\",\"j\":1}",
+      "valid": true,
+      "successor": [
+        39,
+        390
+      ]
+    },
+    {
+      "problem_index": 1,
+      "state": [
+        1,
+        5,
+        78
+      ],
+      "text": "{\"i\":0,\"op\":\"+\",\"j\":1}",
+      "valid": true,
+      "successor": [
+        6,
+        78
+      ]
+    },
+    {
+      "problem_index": 1,
+      "state": [
+        1,
+        5,
+        78
+      ],
+      "text": "{\"i\":0,\"op\":\"+\",\"j\":1}",
+      "valid": true,
+      "successor": [
+        6,
+        78
+      ]
+    },
+    {
+      "problem_index": 1,
+      "state": [
+        5,
+        19,
+        58
+      ],
+      "text": "{\"i\":0,\"op\":\"+\",\"j\":1}",
+      "valid": true,
+      "successor": [
+        24,
+        58
+      ]
+    },
+    {
+      "problem_index": 1,
+      "state": [
+        5,
+        19,
+        58
+      ],
+      "text": "{\"i\":0,\"op\":\"+\",\"j\":1}",
+      "valid": true,
+      "successor": [
+        24,
+        58
+      ]
+    }
+  ]
+}

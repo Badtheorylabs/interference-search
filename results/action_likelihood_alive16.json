@@ -1,0 +1,564 @@
+{
+  "status": "model-ranked legal action preflight; exact solver used only for scoring",
+  "model": "Qwen/Qwen3-4B-Instruct-2507",
+  "revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+  "gpu": "NVIDIA H100 PCIe",
+  "states": 16,
+  "top_k": 4,
+  "alive_states": 16,
+  "pooled_mass_top1_live_on_alive": 2,
+  "pooled_mass_topk_live_on_alive": 8,
+  "max_action_top1_live_on_alive": 2,
+  "max_action_topk_live_on_alive": 8,
+  "randomk_expected_live_on_alive": 9.846031746031748,
+  "model_forward_calls": 32,
+  "scored_actions": 150,
+  "input_tokens_processed": 14833,
+  "wall_seconds": 1.55,
+  "rows": [
+    {
+      "target": 880,
+      "state": [
+        8,
+        24,
+        86
+      ],
+      "alive": true,
+      "legal_actions": 10,
+      "unique_children": 10,
+      "top1_live": false,
+      "topk_any_live": false,
+      "max_action_top1_live": false,
+      "max_action_topk_live": false,
+      "randomk_expected_live": 0.4,
+      "top_children": [
+        [
+          8,
+          62
+        ],
+        [
+          32,
+          86
+        ],
+        [
+          24,
+          688
+        ],
+        [
+          86,
+          192
+        ]
+      ]
+    },
+    {
+      "target": 880,
+      "state": [
+        8,
+        25,
+        85
+      ],
+      "alive": true,
+      "legal_actions": 9,
+      "unique_children": 9,
+      "top1_live": false,
+      "topk_any_live": false,
+      "max_action_top1_live": false,
+      "max_action_topk_live": false,
+      "randomk_expected_live": 0.4444444444444444,
+      "top_children": [
+        [
+          33,
+          85
+        ],
+        [
+          25,
+          680
+        ],
+        [
+          8,
+          60
+        ],
+        [
+          85,
+          200
+        ]
+      ]
+    },
+    {
+      "target": 390,
+      "state": [
+        19,
+        20,
+        390
+      ],
+      "alive": true,
+      "legal_actions": 9,
+      "unique_children": 9,
+      "top1_live": false,
+      "topk_any_live": false,
+      "max_action_top1_live": false,
+      "max_action_topk_live": false,
+      "randomk_expected_live": 0.4444444444444444,
+      "top_children": [
+        [
+          20,
+          371
+        ],
+        [
+          39,
+          390
+        ],
+        [
+          19,
+          370
+        ],
+        [
+          380,
+          390
+        ]
+      ]
+    },
+    {
+      "target": 390,
+      "state": [
+        1,
+        5,
+        78
+      ],
+      "alive": true,
+      "legal_actions": 9,
+      "unique_children": 8,
+      "top1_live": false,
+      "topk_any_live": true,
+      "max_action_top1_live": false,
+      "max_action_topk_live": true,
+      "randomk_expected_live": 0.7857142857142857,
+      "top_children": [
+        [
+          1,
+          73
+        ],
+        [
+          6,
+          78
+        ],
+        [
+          5,
+          78
+        ],
+        [
+          1,
+          83
+        ]
+      ]
+    },
+    {
+      "target": 696,
+      "state": [
+        6,
+        20,
+        96
+      ],
+      "alive": true,
+      "legal_actions": 10,
+      "unique_children": 10,
+      "top1_live": false,
+      "topk_any_live": false,
+      "max_action_top1_live": false,
+      "max_action_topk_live": false,
+      "randomk_expected_live": 0.4,
+      "top_children": [
+        [
+          6,
+          76
+        ],
+        [
+          26,
+          96
+        ],
+        [
+          20,
+          576
+        ],
+        [
+          16,
+          20
+        ]
+      ]
+    },
+    {
+      "target": 696,
+      "state": [
+        9,
+        15,
+        116
+      ],
+      "alive": true,
+      "legal_actions": 9,
+      "unique_children": 9,
+      "top1_live": false,
+      "topk_any_live": false,
+      "max_action_top1_live": false,
+      "max_action_topk_live": false,
+      "randomk_expected_live": 0.4444444444444444,
+      "top_children": [
+        [
+          9,
+          101
+        ],
+        [
+          24,
+          116
+        ],
+        [
+          15,
+          1044
+        ],
+        [
+          116,
+          135
+        ]
+      ]
+    },
+    {
+      "target": 529,
+      "state": [
+        3,
+        22,
+        504
+      ],
+      "alive": true,
+      "legal_actions": 10,
+      "unique_children": 10,
+      "top1_live": true,
+      "topk_any_live": true,
+      "max_action_top1_live": true,
+      "max_action_topk_live": true,
+      "randomk_expected_live": 0.8333333333333334,
+      "top_children": [
+        [
+          25,
+          504
+        ],
+        [
+          3,
+          482
+        ],
+        [
+          66,
+          504
+        ],
+        [
+          22,
+          1512
+        ]
+      ]
+    },
+    {
+      "target": 912,
+      "state": [
+        2,
+        13,
+        70
+      ],
+      "alive": true,
+      "legal_actions": 10,
+      "unique_children": 10,
+      "top1_live": false,
+      "topk_any_live": false,
+      "max_action_top1_live": false,
+      "max_action_topk_live": false,
+      "randomk_expected_live": 0.4,
+      "top_children": [
+        [
+          15,
+          70
+        ],
+        [
+          13,
+          140
+        ],
+        [
+          2,
+          57
+        ],
+        [
+          26,
+          70
+        ]
+      ]
+    },
+    {
+      "target": 912,
+      "state": [
+        1,
+        3,
+        910
+      ],
+      "alive": true,
+      "legal_actions": 9,
+      "unique_children": 8,
+      "top1_live": false,
+      "topk_any_live": true,
+      "max_action_top1_live": false,
+      "max_action_topk_live": true,
+      "randomk_expected_live": 0.9285714285714286,
+      "top_children": [
+        [
+          4,
+          910
+        ],
+        [
+          1,
+          907
+        ],
+        [
+          3,
+          910
+        ],
+        [
+          1,
+          913
+        ]
+      ]
+    },
+    {
+      "target": 672,
+      "state": [
+        6,
+        18,
+        94
+      ],
+      "alive": true,
+      "legal_actions": 10,
+      "unique_children": 10,
+      "top1_live": false,
+      "topk_any_live": false,
+      "max_action_top1_live": false,
+      "max_action_topk_live": false,
+      "randomk_expected_live": 0.4,
+      "top_children": [
+        [
+          18,
+          564
+        ],
+        [
+          24,
+          94
+        ],
+        [
+          6,
+          76
+        ],
+        [
+          94,
+          108
+        ]
+      ]
+    },
+    {
+      "target": 241,
+      "state": [
+        11,
+        78,
+        152
+      ],
+      "alive": true,
+      "legal_actions": 9,
+      "unique_children": 9,
+      "top1_live": true,
+      "topk_any_live": true,
+      "max_action_top1_live": true,
+      "max_action_topk_live": true,
+      "randomk_expected_live": 0.8809523809523809,
+      "top_children": [
+        [
+          89,
+          152
+        ],
+        [
+          11,
+          74
+        ],
+        [
+          78,
+          1672
+        ],
+        [
+          152,
+          858
+        ]
+      ]
+    },
+    {
+      "target": 241,
+      "state": [
+        8,
+        19,
+        89
+      ],
+      "alive": true,
+      "legal_actions": 9,
+      "unique_children": 9,
+      "top1_live": false,
+      "topk_any_live": true,
+      "max_action_top1_live": false,
+      "max_action_topk_live": true,
+      "randomk_expected_live": 0.4444444444444444,
+      "top_children": [
+        [
+          27,
+          89
+        ],
+        [
+          19,
+          712
+        ],
+        [
+          8,
+          70
+        ],
+        [
+          89,
+          152
+        ]
+      ]
+    },
+    {
+      "target": 64,
+      "state": [
+        6,
+        19,
+        77
+      ],
+      "alive": true,
+      "legal_actions": 9,
+      "unique_children": 9,
+      "top1_live": false,
+      "topk_any_live": true,
+      "max_action_top1_live": false,
+      "max_action_topk_live": true,
+      "randomk_expected_live": 0.8809523809523809,
+      "top_children": [
+        [
+          25,
+          77
+        ],
+        [
+          19,
+          462
+        ],
+        [
+          77,
+          114
+        ],
+        [
+          6,
+          58
+        ]
+      ]
+    },
+    {
+      "target": 64,
+      "state": [
+        5,
+        24,
+        83
+      ],
+      "alive": true,
+      "legal_actions": 9,
+      "unique_children": 9,
+      "top1_live": false,
+      "topk_any_live": true,
+      "max_action_top1_live": false,
+      "max_action_topk_live": true,
+      "randomk_expected_live": 0.8809523809523809,
+      "top_children": [
+        [
+          29,
+          83
+        ],
+        [
+          5,
+          59
+        ],
+        [
+          24,
+          415
+        ],
+        [
+          83,
+          120
+        ]
+      ]
+    },
+    {
+      "target": 64,
+      "state": [
+        11,
+        24,
+        77
+      ],
+      "alive": true,
+      "legal_actions": 10,
+      "unique_children": 10,
+      "top1_live": false,
+      "topk_any_live": true,
+      "max_action_top1_live": false,
+      "max_action_topk_live": true,
+      "randomk_expected_live": 0.8333333333333334,
+      "top_children": [
+        [
+          35,
+          77
+        ],
+        [
+          24,
+          847
+        ],
+        [
+          11,
+          53
+        ],
+        [
+          77,
+          264
+        ]
+      ]
+    },
+    {
+      "target": 896,
+      "state": [
+        10,
+        16,
+        46
+      ],
+      "alive": true,
+      "legal_actions": 9,
+      "unique_children": 9,
+      "top1_live": false,
+      "topk_any_live": false,
+      "max_action_top1_live": false,
+      "max_action_topk_live": false,
+      "randomk_expected_live": 0.4444444444444444,
+      "top_children": [
+        [
+          46,
+          160
+        ],
+        [
+          26,
+          46
+        ],
+        [
+          10,
+          30
+        ],
+        [
+          16,
+          460
+        ]
+      ]
+    }
+  ]
+}

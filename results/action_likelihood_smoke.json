@@ -1,0 +1,88 @@
+{
+  "status": "model-ranked legal action preflight; exact solver used only for scoring",
+  "model": "Qwen/Qwen3-4B-Instruct-2507",
+  "revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+  "gpu": "NVIDIA H100 PCIe",
+  "states": 2,
+  "top_k": 4,
+  "alive_states": 0,
+  "pooled_mass_top1_live_on_alive": 0,
+  "pooled_mass_topk_live_on_alive": 0,
+  "max_action_top1_live_on_alive": 0,
+  "max_action_topk_live_on_alive": 0,
+  "randomk_expected_live_on_alive": 0,
+  "model_forward_calls": 4,
+  "scored_actions": 19,
+  "input_tokens_processed": 1874,
+  "wall_seconds": 0.611,
+  "rows": [
+    {
+      "target": 880,
+      "state": [
+        8,
+        24,
+        36
+      ],
+      "alive": false,
+      "legal_actions": 10,
+      "unique_children": 10,
+      "top1_live": false,
+      "topk_any_live": false,
+      "max_action_top1_live": false,
+      "max_action_topk_live": false,
+      "randomk_expected_live": 0.0,
+      "top_children": [
+        [
+          32,
+          36
+        ],
+        [
+          24,
+          288
+        ],
+        [
+          36,
+          192
+        ],
+        [
+          8,
+          12
+        ]
+      ]
+    },
+    {
+      "target": 880,
+      "state": [
+        8,
+        25,
+        37
+      ],
+      "alive": false,
+      "legal_actions": 9,
+      "unique_children": 9,
+      "top1_live": false,
+      "topk_any_live": false,
+      "max_action_top1_live": false,
+      "max_action_topk_live": false,
+      "randomk_expected_live": 0.0,
+      "top_children": [
+        [
+          33,
+          37
+        ],
+        [
+          25,
+          296
+        ],
+        [
+          37,
+          200
+        ],
+        [
+          8,
+          12
+        ]
+      ]
+    }
+  ]
+}
