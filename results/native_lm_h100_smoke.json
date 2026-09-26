@@ -1,0 +1,1 @@
+{"status": "passed", "device": "cuda", "seed": 17, "torch": "2.7.0", "transformers": "4.57.6", "parameters": 268611, "initial_loss": 8.018049, "backbone_changed": true, "frontier_changed": true, "action_path_changed": true, "transition_path_changed": true, "save_reload_equal": true, "cached_step_equal": true, "elapsed_s": 0.924, "peak_cuda_mib": 70.36}

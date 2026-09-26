@@ -1,0 +1,31 @@
+{
+  "generator": "native_countdown_data.py",
+  "split_rule": "nonoverlapping seed ranges and exact problem identity dedupe; shared generator",
+  "claim_boundary": "instance-disjoint Countdown curriculum; five-number structural holdout; no source-disjoint domain transfer",
+  "splits": {
+    "train": {
+      "rows": 2000,
+      "attempts": 2000,
+      "numbers": 4,
+      "path": "data/native_countdown/train.jsonl",
+      "sha256": "ed0b325e72d7cdbe0019f0b033663fab6cfd5843340dcdc9ca0b609106445e51",
+      "cross_branch_refutation_rows": 2000
+    },
+    "validation": {
+      "rows": 200,
+      "attempts": 200,
+      "numbers": 4,
+      "path": "data/native_countdown/validation.jsonl",
+      "sha256": "fce9b23a0e5e72f986c6ef9084e9be38dd9aea7631256c18f4a1f9e205c2d045",
+      "cross_branch_refutation_rows": 200
+    },
+    "test_5_numbers": {
+      "rows": 200,
+      "attempts": 200,
+      "numbers": 5,
+      "path": "data/native_countdown/test_5_numbers.jsonl",
+      "sha256": "1f88db6dd0af1180d5ad8b6048e9732504ea7b15a94cdd01e448288222153e74",
+      "cross_branch_refutation_rows": 200
+    }
+  }
+}

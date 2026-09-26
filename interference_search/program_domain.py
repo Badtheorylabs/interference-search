@@ -12,6 +12,7 @@ experiments/code/benchmark.py drives this class directly instead of through core
 round of generation can be batched across all problems at once.
 """
 import json
+import ast
 import re
 import subprocess
 import sys
@@ -135,7 +136,31 @@ class Code:
         return res
 
     def key(self, s):
+        """Legacy benchmark key: observed behaviour on the visible tests.
+
+        This is a soft signature, not proof of continuation equivalence. Keep
+        it here so the released benchmark remains reproducible.
+        """
         return None if s.behaviour is None else tuple(s.behaviour)
+
+    def exact_key(self, s):
+        """A safe repeat key for the new frontier, including observed state.
+
+        AST normalization ignores formatting while preserving the code's
+        structure. Syntactically invalid programs fall back to exact source.
+        Different programs are never hard-merged merely for matching tests.
+        """
+        if s.src is None:
+            return (None, None)
+        try:
+            source = ast.dump(ast.parse(s.src), include_attributes=False)
+        except SyntaxError:
+            source = s.src
+        return (source, tuple(s.behaviour) if s.behaviour is not None else None)
+
+    def signature(self, s):
+        """Visible-test behaviour for soft clustering and diversity."""
+        return self.key(s)
 
     def judge(self, states, p):
         return [s.passed for s in states], 0

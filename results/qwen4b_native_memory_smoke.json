@@ -1,0 +1,20 @@
+{
+  "status": "one-step memory preflight; random inputs; no behavior claim",
+  "model": "Qwen/Qwen3-4B-Base",
+  "revision": "906bfd4b4dc7f14ee4320094d8b41684abff8539",
+  "gpu": "NVIDIA H100 PCIe",
+  "torch": "2.7.0",
+  "parameters": 4163206659,
+  "trainable_parameters": 4163206659,
+  "optimizer": "adamw8bit",
+  "load_seconds": 7.39,
+  "backward_seconds": 1.12,
+  "total_step_seconds": 1.42,
+  "backward_peak_mib": 16797.2,
+  "total_peak_mib": 24177.0,
+  "loss": 6.299344,
+  "backbone_gradient_sum": 373.10614,
+  "transition_gradient_sum": 233.984436,
+  "backbone_changed": true,
+  "transition_changed": true
+}
