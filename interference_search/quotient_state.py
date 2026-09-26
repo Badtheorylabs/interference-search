@@ -115,6 +115,26 @@ class QuotientState:
         self.refutations.append(refutation)
         return changed
 
+    def fork(self) -> "QuotientState":
+        """Copy the current DAG for temporary candidate selection."""
+        other = QuotientState(self.decisions)
+        other.nodes = list(self.nodes)
+        other.unique = dict(self.unique)
+        other.root = self.root
+        other.refutations = list(self.refutations)
+        return other
+
+    def exclude_candidate_for_selection(self, assignment: tuple[int, ...]) -> None:
+        """Exclude one candidate from this local fork without recording a proof.
+
+        The caller must not use this as a permanent verified refutation. It is
+        for selecting distinct candidates within one parallel batch.
+        """
+        if len(assignment) != self.decisions or any(bit not in (0, 1) for bit in assignment):
+            raise ValueError("assignment has wrong shape or values")
+        cube = self._cube(VerifiedRefutation.from_mapping(dict(enumerate(assignment))))
+        self.root = self._and(self.root, self._negate(cube, {}), {})
+
     def count(self) -> int:
         @lru_cache(maxsize=None)
         def visit(node: int, level: int) -> int:
@@ -137,19 +157,26 @@ class QuotientState:
             node = high if assignment[var] else low
         return node == 1
 
-    def recover(self) -> tuple[int, ...] | None:
+    def recover(self, preferred: tuple[int, ...] | None = None) -> tuple[int, ...] | None:
         """Return one surviving assignment without replaying prior exclusions."""
+        if preferred is not None and (len(preferred) != self.decisions or
+                                      any(bit not in (0, 1) for bit in preferred)):
+            raise ValueError("preferred assignment has wrong shape or values")
         if self.root == 0:
             return None
         answer = [0] * self.decisions
         node = self.root
+        level = 0
         while node > 1:
             var, low, high = self.nodes[node]
-            if low != 0:
-                node = low
-            else:
-                answer[var] = 1
-                node = high
+            if preferred is not None:
+                answer[level:var] = preferred[level:var]
+            favor_high = preferred is not None and preferred[var] == 1
+            answer[var] = int((high != 0 and favor_high) or low == 0)
+            node = high if answer[var] else low
+            level = var + 1
+        if preferred is not None:
+            answer[level:] = preferred[level:]
         return tuple(answer)
 
     def log_partition(self, logits: torch.Tensor) -> torch.Tensor:

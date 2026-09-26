@@ -54,6 +54,17 @@ def test_uncertified_or_empty_refutation_cannot_erase_the_state():
     assert state.count() == 64
 
 
+def test_temporary_batch_exclusions_do_not_change_verified_state():
+    state = QuotientState(12)
+    fork = state.fork()
+    first = fork.recover()
+    fork.exclude_candidate_for_selection(first)
+    assert fork.recover() != first
+    assert fork.count() == 2**12 - 1
+    assert state.count() == 2**12
+    assert not state.refutations and not fork.refutations
+
+
 def test_neural_weights_and_gradients_match_explicit_small_version_space():
     state = QuotientState(5)
     state.refute(VerifiedRefutation.from_mapping({0: 1, 2: 0}), lambda _: True)
