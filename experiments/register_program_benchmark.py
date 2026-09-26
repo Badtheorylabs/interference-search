@@ -6,6 +6,7 @@ function, so real wall time is also recorded. No learned model is involved.
 """
 
 import argparse
+from itertools import product
 import json
 import random
 import statistics
@@ -104,10 +105,16 @@ def run_trial(task, policy_name, batch_size, call_budget, selection, seed):
 
 def benchmark(seeds, call_budget, registers, slots, topologies, batch_sizes, selections):
     rows = []
+    output_diversity = {}
     for topology in topologies:
+        diversity_values = []
         for seed in range(seeds):
             task = RegisterProgram(registers=registers, slots_per_register=slots,
                                    topology=topology, seed=seed)
+            grammar = task.public_view()
+            for register in range(registers):
+                diversity_values.append(len({grammar.local_output(register, pattern)
+                    for pattern in product((0, 1), repeat=len(grammar.scope(register)))}))
             for batch_size in batch_sizes:
                 for selection in selections:
                     for policy_name in POLICIES:
@@ -116,6 +123,10 @@ def benchmark(seeds, call_budget, registers, slots, topologies, batch_sizes, sel
                         rows.append({"topology": topology, "seed": seed,
                                      "batch_size": batch_size, "selection": selection,
                                      "policy": policy_name, **result})
+        output_diversity[topology] = {
+            "mean": round(statistics.mean(diversity_values), 3),
+            "min": min(diversity_values), "max": max(diversity_values),
+        }
     groups = []
     for topology in topologies:
         for batch_size in batch_sizes:
@@ -141,7 +152,7 @@ def benchmark(seeds, call_budget, registers, slots, topologies, batch_sizes, sel
                        "registers": registers, "slots_per_register": slots,
                        "topologies": topologies, "batch_sizes": batch_sizes,
                        "selections": selections},
-            "groups": groups, "rows": rows}
+            "output_diversity": output_diversity, "groups": groups, "rows": rows}
 
 
 def main():
@@ -163,7 +174,9 @@ def main():
     if args.output:
         with open(args.output, "w") as handle:
             json.dump(result, handle, indent=2)
-    print(json.dumps({"config": result["config"], "groups": result["groups"]}, indent=2))
+    print(json.dumps({"config": result["config"],
+                      "output_diversity": result["output_diversity"],
+                      "groups": result["groups"]}, indent=2))
 
 
 if __name__ == "__main__":

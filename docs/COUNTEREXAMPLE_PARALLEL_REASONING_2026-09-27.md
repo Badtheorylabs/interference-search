@@ -14,14 +14,16 @@ The run used 30 seeds per topology, a maximum of 128 verifier calls per task, an
 
 | Policy | Batch | Selection | Verifier calls | Rounds | Proposed | Wall time, factor / ROBDD |
 |---|---:|---|---:|---:|---:|---:|
-| Cached factor and ROBDD | 1 | Lexicographic | 6.42 | 6.42 | 6.42 | 2.60 / 17.23 ms |
-| Cached factor and ROBDD | 8 | Lexicographic | 44.07 | 5.73 | 44.07 | 14.57 / 17.26 ms |
-| Cached factor and ROBDD | 8 | Random preferences | 35.80 | 4.88 | 35.80 | 10.55 / 16.75 ms |
-| Cached factor and ROBDD | 8 | Output coverage | 34.16 | 4.67 | 244.38 | 66.88 / 32.14 ms |
+| Cached factor and ROBDD | 1 | Lexicographic | 6.42 | 6.42 | 6.42 | 2.57 / 16.86 ms |
+| Cached factor and ROBDD | 8 | Lexicographic | 44.07 | 5.73 | 44.07 | 14.34 / 17.57 ms |
+| Cached factor and ROBDD | 8 | Random preferences | 35.80 | 4.88 | 35.80 | 10.43 / 16.17 ms |
+| Cached factor and ROBDD | 8 | Output coverage | 34.16 | 4.67 | 244.38 | 64.43 / 32.30 ms |
 
 These are small local CPU timings and are sensitive to implementation and run order. The robust comparison is work: diverse eight-wide batches cut serial depth from 6.42 to 4.88 rounds, but used 35.80 verifier calls instead of 6.42. Coverage searched about 244 candidates to save another 0.21 rounds. Neither scheduler improved the number of solved tasks, and the cached factor solver matched the ROBDD's verifier-call and round counts exactly.
 
 The ROBDD did compactly represent the live set. For the diverse eight-wide runs, median peak reachable nodes were 25.5 for independent, 45 for ring, and 39.5 for sparse topology. It applied an average of 83, 1,203, and 544 forbidden local cubes respectively. The cached factor solver also avoided full-program enumeration, so compactness alone does not establish an advantage over the simple control. Ring's wider local scope made the ROBDD update substantially more expensive.
+
+There is also a depth limit in this verifier protocol. Across the same 30 seeds, one register had an average of 13.32 possible outputs in the independent topology, 31 in the ring topology, and 24.99 in the sparse topology. The verifier reports only the first wrong register. A batch of eight cannot cover every possible output at even the first uncertain register in the average case. Most paths therefore return the same early feedback, and later registers are exposed only after another round. A model prior that concentrates the likely output, a verifier that reports more than one mismatch, or cheaper much wider batches would change that condition. The current architecture does none of those.
 
 This is a mechanism check, not a breakthrough result. Parallel execution reduces the number of dependent verifier rounds only modestly here, and at a large increase in total calls. The ROBDD is a known classical representation; counterexample-guided synthesis and abstraction refinement are established, including [BLAZE](https://arxiv.org/abs/1710.07740). Recent [Narcissus](https://arxiv.org/abs/2608.25657) also makes a generic claim of new LLM-guided enumerative synthesis unsafe. The useful architectural requirement is sharper: a learned reasoner must produce diverse, high-value queries from a shared state and improve verified solve rate or latency **after** matching total model, verifier, selection, and memory work against cached symbolic search.
 
