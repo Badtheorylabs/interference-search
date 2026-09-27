@@ -69,7 +69,8 @@ def generate(model, tokenizer, prompt, max_new_tokens, coupling=None):
 async def evaluate(args):
     rows = [json.loads(line) for line in Path(args.data).read_text().splitlines()]
     split = max(1, int(len(rows) * 0.8))
-    rows = rows[split:split + args.count]
+    heldout = rows[split:]
+    rows = heldout[args.start:args.start + args.count]
     mbpp = {row["task_id"]: row for row in json.loads(
         Path("data/mbpp_sanitized.json").read_text())}
     tokenizer = AutoTokenizer.from_pretrained(args.model, local_files_only=True)
@@ -121,6 +122,7 @@ def main():
     parser.add_argument("--native-state", required=True)
     parser.add_argument("--data", default="data/mbpp_same_state_118/rows.jsonl")
     parser.add_argument("--count", type=int, default=6)
+    parser.add_argument("--start", type=int, default=0)
     parser.add_argument("--max-new-tokens", type=int, default=192)
     parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args()
