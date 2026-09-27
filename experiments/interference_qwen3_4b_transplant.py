@@ -126,7 +126,7 @@ def main():
         "interference_layers": config.num_hidden_layers,
         "missing_keys": len(loading["missing_keys"]),
         "non_native_missing_keys": non_native_missing,
-        "unexpected_keys": loading["unexpected_keys"],
+        "unexpected_keys": sorted(loading["unexpected_keys"]),
         "pretrain_logit_max_delta": parity_delta,
         "loss": float(loss.detach()),
         "gradient_norm": float(gradient_norm),
