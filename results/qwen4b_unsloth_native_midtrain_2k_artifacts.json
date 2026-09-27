@@ -1,0 +1,44 @@
+{
+  "host": "ubuntu@209.20.157.48",
+  "gpu": "NVIDIA H100 PCIe 80GB",
+  "environment": "/home/ubuntu/interference-unsloth-venv",
+  "versions": {
+    "unsloth": "2026.9.11",
+    "unsloth_zoo": "2026.9.7",
+    "torch": "2.12.1+cu130",
+    "transformers": "5.5.0",
+    "peft": "0.21.0"
+  },
+  "remote_run": "/home/ubuntu/interference-parallel-reasoning/runs/qwen4b_unsloth_native_midtrain_2k",
+  "artifacts": {
+    "native_head": {
+      "path": "native_kv_frontier_head.pt",
+      "bytes": 342628769,
+      "sha256": "04724d09786a16be8628608daf495b39058b2b70d85b0fb2f42420202bc43a0f"
+    },
+    "action_vectors": {
+      "path": "native_action_vectors.pt",
+      "bytes": 861835,
+      "sha256": "5cbf4c2079abbc34c6c4e5b510aca7c749f4e2d0dddacd759525f0db7352bf74"
+    },
+    "unsloth_adapter": {
+      "path": "unsloth_adapter/adapter_model.safetensors",
+      "bytes": 264308896,
+      "sha256": "87537064c58a40f934b7c0578449a3fddc2aa84e8b51b5644d2fd1e9901aecfb"
+    },
+    "adapter_config": {
+      "path": "unsloth_adapter/adapter_config.json",
+      "sha256": "a1f43be1e3125d51a43a6edfca179d528d6bedc40d0ae829c27193e1e7f29ed6"
+    },
+    "report": {
+      "path": "results/qwen4b_unsloth_native_midtrain_2k_report.json",
+      "bytes": 5192,
+      "sha256": "29a33a9a09e9084311e6b98a75ce690a659dea54804e9166370e58fc1a80471f"
+    },
+    "log": {
+      "path": "results/qwen4b_unsloth_native_midtrain_2k_log.txt",
+      "bytes": 23037,
+      "sha256": "b46b17525f2754b9d0fe049c060e0b10be76c014e729e4bbc3b1f9c7b6ab23ce"
+    }
+  }
+}

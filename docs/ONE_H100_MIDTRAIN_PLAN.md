@@ -6,6 +6,8 @@ The [async native runtime preflight](ASYNC_NATIVE_EXECUTION_2026-09-27.md) now m
 
 That systems gate is now recorded in the [sandboxed MBPP report](MBPP_REAL_EXECUTION_GATE_2026-09-27.md): 47/64 visible-test solves in both arms, with 2.064 seconds mean task latency for the streaming pipeline and 2.265 seconds for the cached vLLM level barrier. The native frontier head was not used for MBPP. Its training target and the stronger concurrent-system comparator still need a separate causal test.
 
+The first joint model-and-architecture run is now complete in the [Unsloth native midtraining report](UNSLOTH_NATIVE_MIDTRAIN_2026-09-27.md). Rank-32 LoRA across Qwen3-4B and the full native head trained for 2,000 updates through differentiable task KV branches. Interference became selective and improved the final weights relative to their zero-coupling ablation, but the trained policy remained below the untrained starting policy. Expand and rebalance the verifier curriculum before launching the proposed 100,000 to 200,000-update run.
+
 ## Decision
 
 Use `Qwen/Qwen3-4B-Base` as the first backbone. It is a text model with 4.0B parameters, a conventional Qwen3 decoder, and an Apache 2.0 model card. The newer Qwen3.5-4B-Base is multimodal and has a more involved text architecture. That may be useful later, but it adds integration work to the first test. Pin the chosen checkpoint to an exact Hugging Face revision before any run.

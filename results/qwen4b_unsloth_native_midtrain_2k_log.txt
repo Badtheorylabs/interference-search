@@ -1,0 +1,209 @@
+[fla.utils._device|WARNING]Current Python version 3.10 is below the recommended 3.11 version. It is recommended to upgrade to Python 3.11 or higher for the best experience.
+W0927 09:40:57.696000 493674 torch/utils/_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+W0927 09:40:57.734000 493674 torch/utils/_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+/home/ubuntu/interference-unsloth-venv/lib/python3.10/site-packages/unsloth/import_fixes.py:4896: FutureWarning: torch._dynamo.config.inline_inbuilt_nn_modules is deprecated and does not do anything, inline_inbuilt_nn_modules is always True. It will be removed in a future version of PyTorch.
+  original_setattr(self, name, value)
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+==((====))==  Unsloth 2026.9.11: Fast Qwen3 patching. Transformers: 5.5.0.
+   \\   /|    NVIDIA H100 PCIe. Num GPUs = 1. Max memory: 79.179 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.12.1+cu130. CUDA: 9.0. CUDA Toolkit: 13.0. Triton: 3.7.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.35. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Loading weights:   0%|          | 0/398 [00:00<?, ?it/s]Loading weights:   0%|          | 1/398 [00:00<00:47,  8.30it/s]Loading weights:   4%|▍         | 16/398 [00:00<00:04, 82.38it/s]Loading weights:   9%|▉         | 37/398 [00:00<00:02, 129.59it/s]Loading weights:  15%|█▍        | 59/398 [00:00<00:02, 153.82it/s]Loading weights:  20%|██        | 80/398 [00:00<00:01, 170.73it/s]Loading weights:  25%|██▍       | 99/398 [00:00<00:01, 175.23it/s]Loading weights:  29%|██▉       | 117/398 [00:00<00:01, 170.07it/s]Loading weights:  34%|███▍      | 136/398 [00:00<00:01, 173.99it/s]Loading weights:  39%|███▉      | 157/398 [00:00<00:01, 180.25it/s]Loading weights:  44%|████▍     | 176/398 [00:01<00:01, 178.16it/s]Loading weights:  49%|████▊     | 194/398 [00:01<00:01, 176.45it/s]Loading weights:  53%|█████▎    | 212/398 [00:01<00:01, 175.76it/s]Loading weights:  59%|█████▊    | 233/398 [00:01<00:00, 182.66it/s]Loading weights:  64%|██████▎   | 253/398 [00:01<00:00, 184.77it/s]Loading weights:  68%|██████▊   | 272/398 [00:01<00:00, 176.07it/s]Loading weights:  73%|███████▎  | 290/398 [00:01<00:00, 163.29it/s]Loading weights:  78%|███████▊  | 310/398 [00:01<00:00, 172.27it/s]Loading weights:  82%|████████▏ | 328/398 [00:01<00:00, 171.01it/s]Loading weights:  87%|████████▋ | 346/398 [00:02<00:00, 163.19it/s]Loading weights:  92%|█████████▏| 367/398 [00:02<00:00, 168.90it/s]Loading weights:  97%|█████████▋| 385/398 [00:02<00:00, 171.74it/s]Loading weights: 100%|██████████| 398/398 [00:02<00:00, 167.27it/s]
+Unsloth 2026.9.11 patched 36 layers with 36 QKV layers, 36 O layers and 36 MLP layers.
+/home/ubuntu/interference-unsloth-venv/lib/python3.10/site-packages/unsloth/import_fixes.py:4091: UserWarning: 'has_cuda' is deprecated, please use 'torch.backends.cuda.is_built()'
+  return original(name)
+/home/ubuntu/interference-unsloth-venv/lib/python3.10/site-packages/unsloth/import_fixes.py:4091: UserWarning: 'has_cudnn' is deprecated, please use 'torch.backends.cudnn.is_available()'
+  return original(name)
+/home/ubuntu/interference-unsloth-venv/lib/python3.10/site-packages/unsloth/import_fixes.py:4091: UserWarning: 'has_mps' is deprecated, please use 'torch.backends.mps.is_built()'
+  return original(name)
+/home/ubuntu/interference-unsloth-venv/lib/python3.10/site-packages/unsloth/import_fixes.py:4091: UserWarning: 'has_mkldnn' is deprecated, please use 'torch.backends.mkldnn.is_available()'
+  return original(name)
+Unsloth: /home/ubuntu/.cache/huggingface/hub/models--Qwen--Qwen3-4B-Base/snapshots/906bfd4b4dc7f14ee4320094d8b41684abff8539 had a bad pad_token (<|endoftext|>). Using pad_token = <|vision_pad|>.
+{"step": 1, "coupling": "zero", "loss": 3.67664, "action": 2.28626, "survival": 0.73696, "match": 1.58824, "transition": 1.00491, "elapsed_s": 1.8}
+{"step": 25, "coupling": "zero", "loss": 2.2338, "action": 1.04381, "survival": 0.75033, "match": 1.39616, "transition": 0.63927, "elapsed_s": 19.5}
+{"step": 50, "coupling": "zero", "loss": 2.75028, "action": 1.6279, "survival": 0.61347, "match": 1.34968, "transition": 0.67385, "elapsed_s": 34.6}
+{"step": 75, "coupling": "zero", "loss": 2.46134, "action": 1.36046, "survival": 0.56725, "match": 1.34528, "transition": 0.67111, "elapsed_s": 48.0}
+{"step": 100, "coupling": "zero", "loss": 2.21361, "action": 0.97511, "survival": 0.89366, "match": 1.36127, "transition": 0.66799, "elapsed_s": 61.2}
+{"step": 125, "coupling": "zero", "loss": 1.96217, "action": 0.80627, "survival": 0.68177, "match": 1.32986, "transition": 0.72753, "elapsed_s": 73.7}
+{"step": 150, "coupling": "zero", "loss": 2.16617, "action": 1.05771, "survival": 0.57408, "match": 1.36202, "transition": 0.6594, "elapsed_s": 86.8}
+{"step": 175, "coupling": "zero", "loss": 2.39822, "action": 1.25402, "survival": 0.62577, "match": 1.36496, "transition": 0.70471, "elapsed_s": 99.2}
+{"step": 200, "coupling": "zero", "loss": 2.3486, "action": 1.21574, "survival": 0.61066, "match": 1.35011, "transition": 0.71179, "elapsed_s": 112.1}
+{"step": 225, "coupling": "zero", "loss": 2.1662, "action": 1.03976, "survival": 0.54408, "match": 1.35937, "transition": 0.76373, "elapsed_s": 123.7}
+{"step": 250, "coupling": "zero", "loss": 3.04227, "action": 1.98681, "survival": 0.41189, "match": 1.35717, "transition": 0.70706, "elapsed_s": 134.5}
+{"step": 275, "coupling": "zero", "loss": 2.45962, "action": 1.30415, "survival": 0.65645, "match": 1.35024, "transition": 0.7259, "elapsed_s": 144.9}
+{"step": 300, "coupling": "zero", "loss": 4.0668, "action": 2.94417, "survival": 0.57337, "match": 1.33167, "transition": 0.75816, "elapsed_s": 155.9}
+{"step": 325, "coupling": "zero", "loss": 3.02618, "action": 1.88169, "survival": 0.61934, "match": 1.347, "transition": 0.74419, "elapsed_s": 166.7}
+{"step": 350, "coupling": "zero", "loss": 2.44614, "action": 1.21298, "survival": 0.85321, "match": 1.35703, "transition": 0.71118, "elapsed_s": 177.9}
+{"step": 375, "coupling": "zero", "loss": 3.27008, "action": 2.2418, "survival": 0.37321, "match": 1.3327, "transition": 0.70882, "elapsed_s": 188.5}
+{"step": 400, "coupling": "zero", "loss": 2.93083, "action": 1.72205, "survival": 0.78576, "match": 1.39377, "transition": 0.65864, "elapsed_s": 199.4}
+{"step": 425, "coupling": "zero", "loss": 1.6914, "action": 0.65762, "survival": 0.38132, "match": 1.3612, "transition": 0.66883, "elapsed_s": 210.1}
+{"step": 450, "coupling": "zero", "loss": 2.44561, "action": 1.26091, "survival": 0.69106, "match": 1.35573, "transition": 0.76802, "elapsed_s": 220.7}
+{"step": 475, "coupling": "zero", "loss": 2.83654, "action": 1.6953, "survival": 0.61658, "match": 1.35454, "transition": 0.72445, "elapsed_s": 231.2}
+{"step": 500, "coupling": "zero", "loss": 2.70894, "action": 1.34315, "survival": 1.16674, "match": 1.3506, "transition": 0.74597, "elapsed_s": 241.5}
+{"step": 525, "coupling": "zero", "loss": 2.65375, "action": 1.44107, "survival": 0.77051, "match": 1.35462, "transition": 0.75722, "elapsed_s": 252.1}
+{"step": 550, "coupling": "zero", "loss": 4.3752, "action": 3.32972, "survival": 0.38525, "match": 1.3191, "transition": 0.77279, "elapsed_s": 262.9}
+{"step": 575, "coupling": "zero", "loss": 2.80194, "action": 1.73721, "survival": 0.41145, "match": 1.35334, "transition": 0.74494, "elapsed_s": 273.3}
+{"step": 600, "coupling": "zero", "loss": 2.06563, "action": 0.84421, "survival": 0.80195, "match": 1.35379, "transition": 0.74581, "elapsed_s": 283.8}
+{"step": 625, "coupling": "zero", "loss": 1.51651, "action": 0.28404, "survival": 0.83129, "match": 1.3478, "transition": 0.75354, "elapsed_s": 294.4}
+{"step": 650, "coupling": "zero", "loss": 4.92403, "action": 3.79489, "survival": 0.51035, "match": 1.38594, "transition": 0.77343, "elapsed_s": 304.8}
+{"step": 675, "coupling": "zero", "loss": 2.30001, "action": 1.27769, "survival": 0.38427, "match": 1.29503, "transition": 0.73699, "elapsed_s": 315.2}
+{"step": 700, "coupling": "zero", "loss": 1.6818, "action": 0.59085, "survival": 0.47883, "match": 1.35965, "transition": 0.73199, "elapsed_s": 325.7}
+{"step": 725, "coupling": "zero", "loss": 2.82171, "action": 1.64329, "survival": 0.68693, "match": 1.36603, "transition": 0.73545, "elapsed_s": 336.3}
+{"step": 750, "coupling": "zero", "loss": 1.85672, "action": 0.74872, "survival": 0.57141, "match": 1.33687, "transition": 0.70331, "elapsed_s": 347.2}
+{"step": 775, "coupling": "zero", "loss": 2.26281, "action": 1.07167, "survival": 0.75975, "match": 1.34661, "transition": 0.71309, "elapsed_s": 357.5}
+{"step": 800, "coupling": "zero", "loss": 3.60867, "action": 2.45051, "survival": 0.6514, "match": 1.34861, "transition": 0.7443, "elapsed_s": 367.9}
+{"step": 825, "coupling": "zero", "loss": 1.94319, "action": 0.74554, "survival": 0.77552, "match": 1.33969, "transition": 0.72533, "elapsed_s": 378.5}
+{"step": 850, "coupling": "zero", "loss": 2.05363, "action": 0.97656, "survival": 0.48435, "match": 1.31571, "transition": 0.75155, "elapsed_s": 389.2}
+{"step": 875, "coupling": "zero", "loss": 2.83027, "action": 1.75241, "survival": 0.44366, "match": 1.34983, "transition": 0.7516, "elapsed_s": 401.5}
+{"step": 900, "coupling": "zero", "loss": 3.09901, "action": 1.97688, "survival": 0.57844, "match": 1.33254, "transition": 0.74828, "elapsed_s": 413.9}
+{"step": 925, "coupling": "zero", "loss": 3.61851, "action": 2.4075, "survival": 0.83624, "match": 1.32322, "transition": 0.71635, "elapsed_s": 425.8}
+{"step": 950, "coupling": "zero", "loss": 2.53088, "action": 1.35712, "survival": 0.67387, "match": 1.33155, "transition": 0.7948, "elapsed_s": 436.6}
+{"step": 975, "coupling": "zero", "loss": 2.55743, "action": 1.43196, "survival": 0.56487, "match": 1.34931, "transition": 0.74955, "elapsed_s": 447.3}
+{"step": 1000, "coupling": "zero", "loss": 2.50699, "action": 1.38537, "survival": 0.59572, "match": 1.32812, "transition": 0.73091, "elapsed_s": 458.4}
+{"step": 1025, "coupling": "zero", "loss": 2.30146, "action": 1.15753, "survival": 0.68319, "match": 1.32256, "transition": 0.69791, "elapsed_s": 469.3}
+{"step": 1050, "coupling": "zero", "loss": 2.34716, "action": 1.33002, "survival": 0.5643, "match": 1.16829, "transition": 0.69091, "elapsed_s": 480.1}
+{"step": 1075, "coupling": "zero", "loss": 3.86305, "action": 2.89937, "survival": 0.55519, "match": 1.05306, "transition": 0.71689, "elapsed_s": 493.4}
+{"step": 1100, "coupling": "zero", "loss": 2.67365, "action": 1.44309, "survival": 0.63032, "match": 1.52203, "transition": 0.72474, "elapsed_s": 508.1}
+{"step": 1125, "coupling": "zero", "loss": 2.54094, "action": 1.39151, "survival": 0.81261, "match": 1.26099, "transition": 0.64629, "elapsed_s": 522.9}
+{"step": 1150, "coupling": "zero", "loss": 1.95866, "action": 0.76513, "survival": 0.42393, "match": 1.63093, "transition": 0.69498, "elapsed_s": 537.7}
+{"step": 1175, "coupling": "zero", "loss": 2.89558, "action": 1.87868, "survival": 0.56848, "match": 1.21535, "transition": 0.60611, "elapsed_s": 552.3}
+{"step": 1200, "coupling": "zero", "loss": 2.20773, "action": 1.17553, "survival": 0.56872, "match": 1.20091, "transition": 0.68084, "elapsed_s": 567.0}
+{"step": 1225, "coupling": "inhibit", "loss": 4.18646, "action": 3.15121, "survival": 0.56359, "match": 1.21345, "transition": 0.67699, "elapsed_s": 581.8}
+{"step": 1250, "coupling": "inhibit", "loss": 3.44765, "action": 2.4824, "survival": 0.41149, "match": 1.22908, "transition": 0.62039, "elapsed_s": 596.7}
+{"step": 1275, "coupling": "inhibit", "loss": 1.86571, "action": 0.92492, "survival": 0.36537, "match": 1.18312, "transition": 0.67693, "elapsed_s": 611.5}
+{"step": 1300, "coupling": "inhibit", "loss": 3.83084, "action": 2.55879, "survival": 0.92868, "match": 1.34977, "transition": 0.75229, "elapsed_s": 626.4}
+{"step": 1325, "coupling": "inhibit", "loss": 3.11979, "action": 2.24363, "survival": 0.57512, "match": 0.907, "transition": 0.64207, "elapsed_s": 641.2}
+{"step": 1350, "coupling": "inhibit", "loss": 2.19719, "action": 1.00506, "survival": 0.77906, "match": 1.30314, "transition": 0.76311, "elapsed_s": 656.0}
+{"step": 1375, "coupling": "inhibit", "loss": 2.85963, "action": 1.93453, "survival": 0.4035, "match": 1.12739, "transition": 0.66665, "elapsed_s": 668.9}
+{"step": 1400, "coupling": "inhibit", "loss": 3.92438, "action": 2.87598, "survival": 0.62372, "match": 1.18738, "transition": 0.68408, "elapsed_s": 681.3}
+{"step": 1425, "coupling": "inhibit", "loss": 2.02167, "action": 0.94455, "survival": 0.60288, "match": 1.28039, "transition": 0.65261, "elapsed_s": 693.6}
+{"step": 1450, "coupling": "inhibit", "loss": 3.28163, "action": 2.42866, "survival": 0.40308, "match": 1.01769, "transition": 0.60963, "elapsed_s": 706.2}
+{"step": 1475, "coupling": "inhibit", "loss": 2.57638, "action": 1.50945, "survival": 0.59351, "match": 1.31007, "transition": 0.58163, "elapsed_s": 718.7}
+{"step": 1500, "coupling": "inhibit", "loss": 3.64417, "action": 2.60491, "survival": 0.55039, "match": 1.27124, "transition": 0.61163, "elapsed_s": 731.5}
+{"step": 1525, "coupling": "inhibit", "loss": 2.33311, "action": 1.2415, "survival": 0.70183, "match": 1.27098, "transition": 0.58464, "elapsed_s": 742.7}
+{"step": 1550, "coupling": "inhibit", "loss": 2.30549, "action": 1.33994, "survival": 0.74641, "match": 0.96034, "transition": 0.62275, "elapsed_s": 755.6}
+{"step": 1575, "coupling": "inhibit", "loss": 2.68965, "action": 1.70024, "survival": 0.58943, "match": 1.12279, "transition": 0.6408, "elapsed_s": 768.0}
+{"step": 1600, "coupling": "inhibit", "loss": 1.37624, "action": 0.47809, "survival": 0.55579, "match": 0.9985, "transition": 0.5886, "elapsed_s": 781.2}
+{"step": 1625, "coupling": "inhibit", "loss": 1.6237, "action": 0.77221, "survival": 0.24731, "match": 1.13279, "transition": 0.62057, "elapsed_s": 793.4}
+{"step": 1650, "coupling": "inhibit", "loss": 3.218, "action": 2.0886, "survival": 0.89136, "match": 1.19193, "transition": 0.58963, "elapsed_s": 805.8}
+{"step": 1675, "coupling": "inhibit", "loss": 4.36227, "action": 3.18558, "survival": 0.97846, "match": 1.17712, "transition": 0.65583, "elapsed_s": 818.0}
+{"step": 1700, "coupling": "inhibit", "loss": 1.30886, "action": 0.61223, "survival": 0.31372, "match": 0.80851, "transition": 0.55629, "elapsed_s": 830.1}
+{"step": 1725, "coupling": "inhibit", "loss": 1.33456, "action": 0.55283, "survival": 0.43795, "match": 0.86086, "transition": 0.58707, "elapsed_s": 842.7}
+{"step": 1750, "coupling": "inhibit", "loss": 2.64532, "action": 1.18029, "survival": 0.68232, "match": 1.9662, "transition": 0.69666, "elapsed_s": 855.1}
+{"step": 1775, "coupling": "inhibit", "loss": 3.16734, "action": 2.15094, "survival": 0.67454, "match": 1.11445, "transition": 0.63121, "elapsed_s": 867.7}
+{"step": 1800, "coupling": "inhibit", "loss": 1.33008, "action": 0.48303, "survival": 0.3163, "match": 1.07765, "transition": 0.60568, "elapsed_s": 879.7}
+{"step": 1825, "coupling": "inhibit", "loss": 2.16317, "action": 1.30935, "survival": 0.38889, "match": 1.02937, "transition": 0.61192, "elapsed_s": 890.0}
+{"step": 1850, "coupling": "inhibit", "loss": 2.47873, "action": 1.48344, "survival": 0.64067, "match": 1.11303, "transition": 0.60835, "elapsed_s": 900.4}
+{"step": 1875, "coupling": "inhibit", "loss": 1.59598, "action": 0.62621, "survival": 0.6973, "match": 1.01976, "transition": 0.60321, "elapsed_s": 910.7}
+{"step": 1900, "coupling": "inhibit", "loss": 2.47674, "action": 1.49226, "survival": 0.66409, "match": 1.11019, "transition": 0.54581, "elapsed_s": 920.9}
+{"step": 1925, "coupling": "inhibit", "loss": 1.99971, "action": 1.17272, "survival": 0.42441, "match": 0.99227, "transition": 0.53696, "elapsed_s": 931.2}
+{"step": 1950, "coupling": "inhibit", "loss": 1.73494, "action": 0.695, "survival": 0.88301, "match": 1.01981, "transition": 0.58941, "elapsed_s": 941.7}
+{"step": 1975, "coupling": "inhibit", "loss": 1.90191, "action": 0.86701, "survival": 0.70988, "match": 1.14988, "transition": 0.58672, "elapsed_s": 952.2}
+{"step": 2000, "coupling": "inhibit", "loss": 2.25372, "action": 1.38146, "survival": 0.42516, "match": 1.06584, "transition": 0.56424, "elapsed_s": 962.6}
+==((====))==  Unsloth 2026.9.11: Fast Qwen3 patching. Transformers: 5.5.0.
+   \\   /|    NVIDIA H100 PCIe. Num GPUs = 1. Max memory: 79.179 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.12.1+cu130. CUDA: 9.0. CUDA Toolkit: 13.0. Triton: 3.7.1
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.35. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Loading weights:   0%|          | 0/398 [00:00<?, ?it/s]Loading weights:   0%|          | 1/398 [00:00<00:55,  7.18it/s]Loading weights:   4%|▍         | 16/398 [00:00<00:04, 76.96it/s]Loading weights:   9%|▉         | 37/398 [00:00<00:02, 124.99it/s]Loading weights:  15%|█▍        | 58/398 [00:00<00:02, 154.61it/s]Loading weights:  19%|█▉        | 75/398 [00:00<00:02, 158.51it/s]Loading weights:  23%|██▎       | 92/398 [00:00<00:01, 156.47it/s]Loading weights:  29%|██▊       | 114/398 [00:00<00:01, 174.63it/s]Loading weights:  34%|███▎      | 134/398 [00:00<00:01, 176.99it/s]Loading weights:  38%|███▊      | 152/398 [00:00<00:01, 177.36it/s]Loading weights:  43%|████▎     | 170/398 [00:01<00:01, 169.39it/s]Loading weights:  48%|████▊     | 191/398 [00:01<00:01, 178.03it/s]Loading weights:  53%|█████▎    | 212/398 [00:01<00:01, 177.41it/s]Loading weights:  59%|█████▉    | 234/398 [00:01<00:00, 184.28it/s]Loading weights:  64%|██████▎   | 253/398 [00:01<00:00, 184.24it/s]Loading weights:  68%|██████▊   | 272/398 [00:01<00:00, 180.48it/s]Loading weights:  73%|███████▎  | 291/398 [00:01<00:00, 176.19it/s]Loading weights:  79%|███████▊  | 313/398 [00:01<00:00, 181.85it/s]Loading weights:  84%|████████▍ | 334/398 [00:01<00:00, 186.42it/s]Loading weights:  89%|████████▉ | 355/398 [00:02<00:00, 192.30it/s]Loading weights:  94%|█████████▍| 375/398 [00:02<00:00, 188.13it/s]Loading weights:  99%|█████████▉| 394/398 [00:02<00:00, 180.38it/s]Loading weights: 100%|██████████| 398/398 [00:02<00:00, 171.72it/s]
+Unsloth: /home/ubuntu/.cache/huggingface/hub/models--Qwen--Qwen3-4B-Base/snapshots/906bfd4b4dc7f14ee4320094d8b41684abff8539 had a bad pad_token (<|endoftext|>). Using pad_token = <|vision_pad|>.
+{
+  "status": "trained native frontier on Qwen3-4B hidden states and live task KV",
+  "before": {
+    "validation": {
+      "zero": {
+        "rows": 100,
+        "alive_states": 220,
+        "exact_target_top1_rate": 0.30454545454545456,
+        "winning_action_top1_rate": 0.30454545454545456,
+        "known_refuted_action_top1_rate": 0.12380952380952381,
+        "refutation_match_positive": 0.2659555667638779,
+        "refutation_match_negative": 0.26577728807926176,
+        "refutation_match_gap": 0.00017827868461611773
+      },
+      "inhibit": {
+        "rows": 100,
+        "alive_states": 220,
+        "exact_target_top1_rate": 0.30454545454545456,
+        "winning_action_top1_rate": 0.30454545454545456,
+        "known_refuted_action_top1_rate": 0.12380952380952381,
+        "refutation_match_positive": 0.2659555667638779,
+        "refutation_match_negative": 0.26577728807926176,
+        "refutation_match_gap": 0.00017827868461611773
+      }
+    },
+    "test_5_numbers": {
+      "zero": {
+        "rows": 100,
+        "alive_states": 293,
+        "exact_target_top1_rate": 0.17064846416382254,
+        "winning_action_top1_rate": 0.23890784982935154,
+        "known_refuted_action_top1_rate": 0.04830917874396135,
+        "refutation_match_positive": 0.26506287544965745,
+        "refutation_match_negative": 0.2650910857319832,
+        "refutation_match_gap": -2.821028232574685e-05
+      },
+      "inhibit": {
+        "rows": 100,
+        "alive_states": 293,
+        "exact_target_top1_rate": 0.17064846416382254,
+        "winning_action_top1_rate": 0.23890784982935154,
+        "known_refuted_action_top1_rate": 0.04830917874396135,
+        "refutation_match_positive": 0.26506287544965745,
+        "refutation_match_negative": 0.2650910857319832,
+        "refutation_match_gap": -2.821028232574685e-05
+      }
+    }
+  },
+  "after": {
+    "validation": {
+      "zero": {
+        "rows": 100,
+        "alive_states": 220,
+        "exact_target_top1_rate": 0.15,
+        "winning_action_top1_rate": 0.15,
+        "known_refuted_action_top1_rate": 0.14285714285714285,
+        "refutation_match_positive": 0.6676024897396564,
+        "refutation_match_negative": 0.4499237388372421,
+        "refutation_match_gap": 0.2176787509024143
+      },
+      "inhibit": {
+        "rows": 100,
+        "alive_states": 220,
+        "exact_target_top1_rate": 0.1318181818181818,
+        "winning_action_top1_rate": 0.24545454545454545,
+        "known_refuted_action_top1_rate": 0.10476190476190476,
+        "refutation_match_positive": 0.6676024897396564,
+        "refutation_match_negative": 0.4499237388372421,
+        "refutation_match_gap": 0.2176787509024143
+      }
+    },
+    "test_5_numbers": {
+      "zero": {
+        "rows": 100,
+        "alive_states": 293,
+        "exact_target_top1_rate": 0.12286689419795221,
+        "winning_action_top1_rate": 0.16040955631399317,
+        "known_refuted_action_top1_rate": 0.0821256038647343,
+        "refutation_match_positive": 0.6552154204249382,
+        "refutation_match_negative": 0.48622255980968476,
+        "refutation_match_gap": 0.16899286061525343
+      },
+      "inhibit": {
+        "rows": 100,
+        "alive_states": 293,
+        "exact_target_top1_rate": 0.10580204778156997,
+        "winning_action_top1_rate": 0.19795221843003413,
+        "known_refuted_action_top1_rate": 0.06763285024154589,
+        "refutation_match_positive": 0.6552154204249382,
+        "refutation_match_negative": 0.48622255980968476,
+        "refutation_match_gap": 0.16899286061525343
+      }
+    }
+  },
+  "checkpoint": "runs/qwen4b_unsloth_native_midtrain_2k/native_kv_frontier_head.pt"
+}
