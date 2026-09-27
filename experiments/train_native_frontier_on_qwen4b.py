@@ -12,11 +12,18 @@ import json
 import random
 import statistics
 import subprocess
+import sys
 import time
 from pathlib import Path
 
 import torch
 from torch.nn import functional as F
+
+if "--unsloth" in sys.argv:
+    from unsloth import FastLanguageModel
+else:
+    FastLanguageModel = None
+
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 from interference_search.countdown import solver
@@ -213,7 +220,6 @@ def main():
     rows = {name: read_rows(path) for name, path in paths.items()}
     peft_model = None
     if args.unsloth:
-        from unsloth import FastLanguageModel
         model_path = args.model_path or MODEL
         peft_model, tokenizer = FastLanguageModel.from_pretrained(
             model_name=model_path, max_seq_length=256, dtype=torch.bfloat16,
@@ -265,6 +271,9 @@ def main():
     for step, index in enumerate(order, 1):
         coupling = "zero" if step <= args.inhibit_start else "inhibit"
         model.train()
+        # Unsloth exposes differentiable KV through its eval/inference forward.
+        # LoRA dropout is zero, so eval does not change the training function.
+        backbone.eval()
         if args.unsloth and step == args.head_warmup + 1:
             optimizer.param_groups[1]["lr"] = args.lora_learning_rate
         optimizer.zero_grad(set_to_none=True)
