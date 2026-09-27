@@ -97,6 +97,7 @@ def main():
     parser.add_argument("--data", default="data/mbpp_same_state_train/rows.jsonl")
     parser.add_argument("--steps", type=int, default=200)
     parser.add_argument("--learning-rate", type=float, default=2e-6)
+    parser.add_argument("--preserve-weight", type=float, default=5.0)
     parser.add_argument("--seed", type=int, default=41)
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--source-commit", required=True)
@@ -152,7 +153,8 @@ def main():
         preserve = F.kl_div(
             zero.log_softmax(dim=-1), teacher_logits.softmax(dim=-1),
             reduction="batchmean")
-        loss = -inhibit_lp + F.relu(0.05 - margin) + 0.2 * preserve
+        loss = (-inhibit_lp + F.relu(0.05 - margin)
+                + args.preserve_weight * preserve)
         optimizer.zero_grad(set_to_none=True)
         loss.backward()
         torch.nn.utils.clip_grad_norm_(native, 1.0)
@@ -176,6 +178,7 @@ def main():
         "source_commit": args.source_commit,
         "data_sha256": hashlib.sha256(Path(args.data).read_bytes()).hexdigest(),
         "train_tasks": len(train), "validation_tasks": len(validation),
+        "preserve_weight": args.preserve_weight,
         "steps": args.steps, "before": before, "after": after,
         "loss_first": losses[0], "loss_last": losses[-1],
         "mean_training_margin": statistics.mean(margins),
