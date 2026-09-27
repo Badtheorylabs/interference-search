@@ -7,6 +7,7 @@ updates without an external search controller.
 """
 
 from dataclasses import dataclass
+import math
 
 import torch
 from torch import nn
