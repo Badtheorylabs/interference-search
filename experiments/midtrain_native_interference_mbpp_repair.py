@@ -1,0 +1,169 @@
+"""Train native interference on verified corrected-code decision tokens."""
+
+import argparse
+import hashlib
+import json
+import random
+import statistics
+import time
+from pathlib import Path
+
+import torch
+from torch.nn import functional as F
+from transformers import AutoConfig, AutoModelForCausalLM, AutoTokenizer
+
+from interference_search.configuration_interference_qwen3 import InterferenceQwen3Config
+from interference_search.modeling_interference_qwen3 import InterferenceQwen3ForCausalLM
+
+
+def clipped(tokenizer, text, limit):
+    return tokenizer.encode(text, add_special_tokens=False)[:limit]
+
+
+def example(tokenizer, row, rng, device):
+    negative = rng.choice(row["negatives"])
+    task = clipped(tokenizer, "Coding task:\n" + row["task"] + "\n", 128)
+    failed = clipped(tokenizer, "Failed implementation:\n" + negative["source"] + "\n", 192)
+    feedback_text = "\n".join(
+        f"{status}: {detail}" for status, detail in negative["tests"])
+    feedback = clipped(tokenizer, "Verified execution failure:\n" + feedback_text + "\n", 96)
+    marker = tokenizer.encode("<tool_response>", add_special_tokens=False)
+    instruction = clipped(
+        tokenizer, "Produce the corrected Python implementation. Return only source code:\n", 24)
+    positive = clipped(tokenizer, row["positive"]["source"], 160)
+    failed_code = clipped(tokenizer, negative["source"], 160)
+    if not positive:
+        return None
+    differing = [index for index in range(min(len(positive), len(failed_code)))
+                 if positive[index] != failed_code[index]]
+    differing += list(range(min(len(positive), len(failed_code)), len(positive)))
+    candidates = [index for index in differing if index < 96]
+    cut = rng.choice(candidates) if candidates else rng.randrange(min(len(positive), 96))
+    ids = task + failed + feedback + marker + instruction + positive[:cut]
+    return (torch.tensor(ids, device=device)[None],
+            torch.ones(1, len(ids), dtype=torch.long, device=device),
+            torch.tensor([positive[cut]], device=device), cut)
+
+
+@torch.no_grad()
+def evaluate(model, teacher, tokenizer, rows, seed):
+    model.eval()
+    rng = random.Random(seed)
+    inhibit_values, zero_values, margins, kls = [], [], [], []
+    for row in rows:
+        built = example(tokenizer, row, rng, "cuda")
+        if built is None:
+            continue
+        ids, mask, target, _ = built
+        teacher_logits = teacher(input_ids=ids, attention_mask=mask,
+                                 use_cache=False).logits[:, -1].float()
+        zero = model(input_ids=ids, attention_mask=mask, use_cache=False,
+                     coupling="zero").logits[:, -1].float()
+        inhibit = model(input_ids=ids, attention_mask=mask, use_cache=False,
+                        coupling="inhibit").logits[:, -1].float()
+        zero_lp = zero.log_softmax(dim=-1).gather(1, target[:, None]).mean()
+        inhibit_lp = inhibit.log_softmax(dim=-1).gather(1, target[:, None]).mean()
+        zero_values.append(float(zero_lp)); inhibit_values.append(float(inhibit_lp))
+        margins.append(float(inhibit_lp - zero_lp))
+        kls.append(float(F.kl_div(
+            zero.log_softmax(dim=-1), teacher_logits.softmax(dim=-1),
+            reduction="batchmean")))
+    return {"rows": len(margins),
+            "mean_inhibit_target_logp": statistics.mean(inhibit_values),
+            "mean_zero_target_logp": statistics.mean(zero_values),
+            "mean_inhibit_minus_zero": statistics.mean(margins),
+            "positive_margin_rows": sum(value > 0 for value in margins),
+            "mean_zero_vs_teacher_kl": statistics.mean(kls)}
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--model", required=True)
+    parser.add_argument("--data", default="data/mbpp_same_state_118/rows.jsonl")
+    parser.add_argument("--steps", type=int, default=400)
+    parser.add_argument("--learning-rate", type=float, default=2e-6)
+    parser.add_argument("--preserve-weight", type=float, default=20.0)
+    parser.add_argument("--seed", type=int, default=53)
+    parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument("--source-commit", required=True)
+    args = parser.parse_args()
+    rows = [json.loads(line) for line in Path(args.data).read_text().splitlines()]
+    split = max(1, int(len(rows) * 0.8))
+    train, validation = rows[:split], rows[split:]
+    tokenizer = AutoTokenizer.from_pretrained(args.model, local_files_only=True)
+    base = AutoConfig.from_pretrained(args.model, local_files_only=True)
+    values = base.to_dict(); values.pop("model_type", None); values.pop("architectures", None)
+    config = InterferenceQwen3Config(
+        **values, frontier_slots=8, frontier_dim=128, frontier_heads=4,
+        tool_error_token_id=tokenizer.convert_tokens_to_ids("<tool_response>"))
+    model = InterferenceQwen3ForCausalLM.from_pretrained(
+        args.model, config=config, local_files_only=True, dtype=torch.bfloat16,
+        attn_implementation="sdpa", device_map="cuda")
+    model.model.reset_native_output(); model.model.set_native_dtype(torch.float32)
+    teacher = AutoModelForCausalLM.from_pretrained(
+        args.model, local_files_only=True, dtype=torch.bfloat16,
+        attn_implementation="sdpa", device_map="cuda").eval()
+    for parameter in model.parameters(): parameter.requires_grad_(False)
+    native_named = [(name, parameter) for name, parameter in model.named_parameters()
+                    if "hypothesis_update" in name or "frontier_init" in name]
+    native = [parameter for _, parameter in native_named]
+    for parameter in native: parameter.requires_grad_(True)
+    optimizer = torch.optim.AdamW(
+        native, lr=args.learning_rate, betas=(0.9, 0.95), weight_decay=0.01)
+    before = evaluate(model, teacher, tokenizer, validation, args.seed + 1000)
+    rng = random.Random(args.seed)
+    losses, margins, times = [], [], []
+    torch.cuda.reset_peak_memory_stats(); started = time.perf_counter()
+    for step in range(1, args.steps + 1):
+        ids, mask, target, cut = example(tokenizer, rng.choice(train), rng, "cuda")
+        tick = time.perf_counter()
+        with torch.no_grad():
+            teacher_logits = teacher(input_ids=ids, attention_mask=mask,
+                                     use_cache=False).logits[:, -1].float()
+        model.train()
+        zero = model(input_ids=ids, attention_mask=mask, use_cache=False,
+                     coupling="zero").logits[:, -1].float()
+        inhibit = model(input_ids=ids, attention_mask=mask, use_cache=False,
+                        coupling="inhibit").logits[:, -1].float()
+        zero_lp = zero.log_softmax(dim=-1).gather(1, target[:, None]).mean()
+        inhibit_lp = inhibit.log_softmax(dim=-1).gather(1, target[:, None]).mean()
+        margin = inhibit_lp - zero_lp
+        preserve = F.kl_div(
+            zero.log_softmax(dim=-1), teacher_logits.softmax(dim=-1),
+            reduction="batchmean")
+        loss = (-inhibit_lp + F.relu(0.05 - margin)
+                + args.preserve_weight * preserve)
+        optimizer.zero_grad(set_to_none=True); loss.backward()
+        torch.nn.utils.clip_grad_norm_(native, 1.0); optimizer.step()
+        torch.cuda.synchronize()
+        losses.append(float(loss.detach())); margins.append(float(margin.detach()))
+        times.append(time.perf_counter() - tick)
+        if step == 1 or step % 40 == 0 or step == args.steps:
+            print(json.dumps({"step": step, "loss": round(losses[-1], 5),
+                              "causal_margin": round(margins[-1], 6),
+                              "target_position": cut,
+                              "elapsed_seconds": round(time.perf_counter() - started, 2)}),
+                  flush=True)
+    after = evaluate(model, teacher, tokenizer, validation, args.seed + 1000)
+    args.out.mkdir(parents=True, exist_ok=True)
+    state_path = args.out / "native_interference_state.pt"
+    torch.save({name: parameter.detach().cpu() for name, parameter in native_named}, state_path)
+    report = {"status": "verified corrected-code token midtrain",
+              "source_commit": args.source_commit,
+              "data_sha256": hashlib.sha256(Path(args.data).read_bytes()).hexdigest(),
+              "train_tasks": len(train), "validation_tasks": len(validation),
+              "steps": args.steps, "preserve_weight": args.preserve_weight,
+              "before": before, "after": after,
+              "loss_first": losses[0], "loss_last": losses[-1],
+              "mean_training_margin": statistics.mean(margins),
+              "median_step_seconds": statistics.median(times),
+              "elapsed_seconds": time.perf_counter() - started,
+              "peak_cuda_mib": torch.cuda.max_memory_allocated() / 2**20,
+              "native_state_path": str(state_path),
+              "native_state_sha256": hashlib.sha256(state_path.read_bytes()).hexdigest()}
+    (args.out / "report.json").write_text(json.dumps(report, indent=2) + "\n")
+    print(json.dumps(report, indent=2))
+
+
+if __name__ == "__main__":
+    main()
