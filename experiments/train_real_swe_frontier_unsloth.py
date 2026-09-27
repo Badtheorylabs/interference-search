@@ -10,6 +10,7 @@ import subprocess
 import sys
 import time
 import types
+from collections import defaultdict
 from pathlib import Path
 
 from unsloth import FastLanguageModel
@@ -82,7 +83,8 @@ def row_loss(model, tokenizer, row, coupling):
     output, score, observations, labels, positive = forward_row(
         model, tokenizer, row, coupling)
     live = labels.bool()
-    rank = torch.logsumexp(score, dim=0) - torch.logsumexp(score[live], dim=0)
+    good, bad = score[live], score[~live]
+    rank = F.softplus(bad[None, :] - good[:, None]).mean()
     classification = F.binary_cross_entropy_with_logits(score, labels)
     predicted = output.predicted_successors[0, :, 0]
     transition = 1 - (F.normalize(predicted, dim=-1) *
@@ -132,6 +134,22 @@ def sha256(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
+def balanced_order(rows, count, seed):
+    """Sample repositories uniformly, then sample a frontier inside the repo."""
+    by_repo = defaultdict(list)
+    for index, row in enumerate(rows):
+        by_repo[row["repo_family"]].append(index)
+    rng = random.Random(seed)
+    repos = sorted(by_repo)
+    return [rng.choice(by_repo[rng.choice(repos)]) for _ in range(count)]
+
+
+def evaluation_sample(rows, count, seed):
+    if count <= 0 or count >= len(rows):
+        return list(rows)
+    return random.Random(seed).sample(rows, count)
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model-path", required=True)
@@ -141,12 +159,19 @@ def main():
     parser.add_argument("--eval-rows", type=int, default=80)
     parser.add_argument("--head-warmup", type=int, default=25)
     parser.add_argument("--inhibit-start", type=int, default=200)
+    parser.add_argument("--grad-accum", type=int, default=1)
+    parser.add_argument("--head-lr", type=float, default=5e-5)
+    parser.add_argument("--lora-lr", type=float, default=1e-5)
+    parser.add_argument("--scale", type=float, default=0.5)
+    parser.add_argument("--match-space", choices=("learned", "model"), default="learned")
     parser.add_argument("--seed", type=int, default=17)
     parser.add_argument("--source-commit", required=True)
     args = parser.parse_args()
     train = read_rows(args.data / "train.jsonl")
-    validation = read_rows(args.data / "validation.jsonl")[:args.eval_rows]
-    test = read_rows(args.data / "test.jsonl")[:args.eval_rows]
+    validation = evaluation_sample(
+        read_rows(args.data / "validation.jsonl"), args.eval_rows, args.seed + 1)
+    test = evaluation_sample(
+        read_rows(args.data / "test.jsonl"), args.eval_rows, args.seed + 2)
     peft_model, tokenizer = FastLanguageModel.from_pretrained(
         model_name=args.model_path, max_seq_length=768, dtype=torch.bfloat16,
         load_in_4bit=False, full_finetuning=False)
@@ -159,7 +184,7 @@ def main():
     backbone = peft_model.get_base_model()
     restore_reference_qwen3(backbone)
     model = NativeKVFrontier(backbone, actions=1, train_backbone=True,
-                             match_space="model").cuda()
+                             scale=args.scale, match_space=args.match_space).cuda()
     before = {"validation": evaluate(model, tokenizer, validation),
               "test": evaluate(model, tokenizer, test)}
     head = list(model.cell.parameters())
@@ -167,26 +192,28 @@ def main():
     head_before = model.cell.value_head.weight.detach().cpu().clone()
     lora_before = lora[0].detach().cpu().clone()
     optimizer = torch.optim.AdamW([
-        {"params": head, "lr": 5e-5},
+        {"params": head, "lr": args.head_lr},
         {"params": lora, "lr": 0.0},
     ], betas=(0.9, 0.95), weight_decay=0.01)
-    order = random.Random(args.seed).choices(range(len(train)), k=args.steps)
+    order = balanced_order(train, args.steps, args.seed)
     losses, times = [], []
     torch.cuda.reset_peak_memory_stats()
     started = time.perf_counter()
     for step, index in enumerate(order, 1):
         model.train()
         if step == args.head_warmup + 1:
-            optimizer.param_groups[1]["lr"] = 1e-5
+            optimizer.param_groups[1]["lr"] = args.lora_lr
         coupling = "zero" if step <= args.inhibit_start else "inhibit"
-        optimizer.zero_grad(set_to_none=True)
+        if (step - 1) % args.grad_accum == 0:
+            optimizer.zero_grad(set_to_none=True)
         tick = time.perf_counter()
         loss, parts = row_loss(model, tokenizer, train[index], coupling)
         if not torch.isfinite(loss):
             raise RuntimeError(f"non-finite loss at step {step}")
-        loss.backward()
-        torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
-        optimizer.step()
+        (loss / args.grad_accum).backward()
+        if step % args.grad_accum == 0 or step == args.steps:
+            torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
+            optimizer.step()
         torch.cuda.synchronize()
         losses.append(float(loss.detach()))
         times.append(time.perf_counter() - tick)
@@ -207,6 +234,16 @@ def main():
         "status": "real SWE native frontier one-hour gate",
         "model_path": args.model_path, "source_commit": args.source_commit,
         "steps": args.steps, "seed": args.seed,
+        "training_config": {
+            "sampling": "uniform_repo_then_uniform_row",
+            "match_space": args.match_space,
+            "scale": args.scale,
+            "grad_accum": args.grad_accum,
+            "head_lr": args.head_lr,
+            "lora_lr": args.lora_lr,
+            "head_warmup": args.head_warmup,
+            "inhibit_start": args.inhibit_start,
+        },
         "data_sha256": {split: sha256(args.data / f"{split}.jsonl")
                         for split in ("train", "validation", "test")},
         "before": before, "after": after,
