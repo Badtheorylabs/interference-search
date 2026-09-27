@@ -14,3 +14,6 @@ paper/*.blg
 paper/*.out
 *.egg-info/
 repro/
+data/real_swe_frontier_v0/train.jsonl
+data/real_swe_frontier_v0/validation.jsonl
+data/real_swe_frontier_v0/test.jsonl

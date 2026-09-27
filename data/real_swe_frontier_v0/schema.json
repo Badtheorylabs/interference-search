@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Real SWE Interference Frontier Row",
+  "type": "object",
+  "required": ["id", "split", "source", "instance_id", "repo_family", "task", "fraction", "branches"],
+  "properties": {
+    "id": {"type": "string"},
+    "split": {"enum": ["train", "validation", "test"]},
+    "source": {"type": "object"},
+    "instance_id": {"type": "string"},
+    "repo_family": {"type": "string"},
+    "task": {"type": "string", "minLength": 1},
+    "fraction": {"enum": [0.25, 0.5, 0.75]},
+    "branches": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "required": ["trajectory_id", "model", "state", "action", "observation", "resolved", "state_hash", "transition_hash"],
+        "properties": {
+          "trajectory_id": {"type": "string"},
+          "model": {"type": "string"},
+          "state": {"type": "string"},
+          "action": {"type": "string"},
+          "observation": {"type": "string"},
+          "resolved": {"type": "boolean"},
+          "state_hash": {"type": "string"},
+          "transition_hash": {"type": "string"},
+          "patch_hash": {"type": ["string", "null"]}
+        }
+      }
+    }
+  }
+}

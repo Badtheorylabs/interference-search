@@ -1,0 +1,29 @@
+{
+  "source_files": 8,
+  "source_rows": 24100,
+  "contrastive_instances": 843,
+  "rows": {
+    "train": 2114,
+    "validation": 276,
+    "test": 138
+  },
+  "branches": {
+    "train": 11376,
+    "validation": 1231,
+    "test": 614
+  },
+  "resolved_branches": {
+    "train": 5269,
+    "validation": 525,
+    "test": 248
+  },
+  "dropped": {
+    "not_contrastive": 9794,
+    "projection_not_contrastive": 1
+  },
+  "repo_families": {
+    "train": 87,
+    "validation": 14,
+    "test": 10
+  }
+}

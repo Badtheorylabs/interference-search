@@ -131,8 +131,13 @@ class NativeKVFrontier(nn.Module):
                       coupling: str):
         if state_vectors.shape[0] != 1:
             raise ValueError("one task KV may update one frontier")
-        actions = action_vectors[None, None].expand(
-            1, state_vectors.shape[1], -1, -1)
+        if action_vectors.ndim == 2:
+            actions = action_vectors[None, None].expand(
+                1, state_vectors.shape[1], -1, -1)
+        elif action_vectors.ndim == 4 and action_vectors.shape[:2] == state_vectors.shape[:2]:
+            actions = action_vectors
+        else:
+            raise ValueError("actions must be shared [actions, hidden] or per-state [1, width, actions, hidden]")
         return self.cell(
             state_vectors.float(), state_mask,
             context.task_vector.float().unsqueeze(0),
