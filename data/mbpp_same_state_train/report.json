@@ -1,0 +1,14 @@
+{
+  "status": "verified same-state MBPP counterfactuals",
+  "dataset_sha256": "ca95deaa9a01ef0a6f439f88bcf0dd3db3563d22f22aad6cae04ebb9a8d8c8e9",
+  "start": 0,
+  "tasks": 32,
+  "rows": 29,
+  "samples_per_state": 6,
+  "root_rows": 29,
+  "revision_rows": 0,
+  "data_path": "data/mbpp_same_state_train/rows.jsonl",
+  "data_sha256": "03e3ed01b4d1afd692d775743e95fda6c2891b7979560d7d3c3aa7aa74dc25ee",
+  "model_requests": 192,
+  "output_tokens": 13270
+}
