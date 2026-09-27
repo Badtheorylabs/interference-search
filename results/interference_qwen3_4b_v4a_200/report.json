@@ -1,0 +1,29 @@
+{
+  "status": "V4a endogenous hypothesis-set admission",
+  "source_commit": "3769c37bb7c1b5aebb922d25a72dbe78c3f140da",
+  "train_tasks": 32,
+  "validation_tasks": 8,
+  "steps": 200,
+  "before": {
+    "tasks": 8,
+    "mean_matched_cosine": 0.0007625191938132048,
+    "candidate_decoding_accuracy": 0.25,
+    "alive_accuracy": 0.25,
+    "mean_value_mse": 0.40801579132676125,
+    "mean_task_conditioned_effective_rank": 1.0000011324882507
+  },
+  "after": {
+    "tasks": 8,
+    "mean_matched_cosine": 0.6728923469781876,
+    "candidate_decoding_accuracy": 0.25,
+    "alive_accuracy": 0.75,
+    "mean_value_mse": 0.20503267366439104,
+    "mean_task_conditioned_effective_rank": 1.491461992263794
+  },
+  "loss_first": 1.192069411277771,
+  "loss_last": 0.14574258029460907,
+  "median_step_seconds": 0.45774298650212586,
+  "elapsed_seconds": 108.91172707099759,
+  "peak_cuda_mib": 16473.4921875,
+  "native_state_path": "runs/interference_qwen3_4b_v4a_200/native_interference_state.pt"
+}

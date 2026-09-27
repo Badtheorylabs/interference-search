@@ -49,10 +49,14 @@ def teacher_targets(teacher, tokenizer, row, selected, device):
     positions = batch["attention_mask"].sum(dim=1) - 1
     hidden = output.hidden_states[-1][
         torch.arange(len(selected), device=device), positions]
+    # Remove the task-wide component shared by every candidate. V4a must
+    # reconstruct the alternatives, not only the common task centroid.
+    hidden = hidden.float()
+    hidden = hidden - hidden.mean(dim=0, keepdim=True)
     alive = torch.tensor([float(item["all_passed"]) for item in selected], device=device)
     values = torch.tensor([item["passed"] / max(len(item["tests"]), 1)
                            for item in selected], device=device)
-    return hidden.float(), alive, values
+    return hidden, alive, values
 
 
 def assignment(predicted, targets):
@@ -154,6 +158,8 @@ def main():
         slots, similarity = assignment(predicted.detach(), targets)
         target_ids = torch.arange(len(selected), device="cuda")
         coverage = (1 - F.cosine_similarity(predicted[slots], targets, dim=-1)).mean()
+        matched_logits = similarity[slots] / 0.07
+        contrastive = F.cross_entropy(matched_logits, target_ids)
         alive_logits = output.slot_alive_logits[0]
         alive_targets = torch.zeros_like(alive_logits); alive_targets[slots] = alive
         alive_loss = F.binary_cross_entropy_with_logits(alive_logits, alive_targets)
@@ -169,7 +175,8 @@ def main():
                 overlap = overlap + (ownership[:, left] * ownership[:, right]).sum()
                 pairs += 1
         separation = overlap / max(pairs, 1)
-        loss = coverage + 0.2 * alive_loss + 0.1 * value_loss + 0.02 * separation
+        loss = (coverage + 0.5 * contrastive + 0.2 * alive_loss
+                + 0.1 * value_loss + 0.02 * separation)
         optimizer.zero_grad(set_to_none=True); loss.backward()
         torch.nn.utils.clip_grad_norm_(native, 1.0); optimizer.step()
         torch.cuda.synchronize(); losses.append(float(loss.detach()))
@@ -177,6 +184,7 @@ def main():
         if step == 1 or step % 50 == 0 or step == args.steps:
             print(json.dumps({"step": step, "loss": round(losses[-1], 5),
                               "coverage": round(float(coverage.detach()), 5),
+                              "contrastive": round(float(contrastive.detach()), 5),
                               "elapsed_seconds": round(time.perf_counter() - started, 2)}),
                   flush=True)
     after = evaluate(model, teacher, tokenizer, validation, args.seed + 1000)
