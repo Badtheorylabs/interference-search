@@ -1,0 +1,11 @@
+{
+  "status": "combined verified same-state coding counterfactuals",
+  "rows": 118,
+  "unique_tasks": 118,
+  "negatives": 314,
+  "source_shards": [
+    "data/mbpp_same_state_train/rows.jsonl",
+    "data/mbpp_same_state_more/rows.jsonl"
+  ],
+  "data_sha256": "1da19a549dfea89e7f3133bc30f733d55f7f98eaf3738e6e24eba01517a66fc9"
+}
