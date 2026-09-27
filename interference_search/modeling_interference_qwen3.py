@@ -66,8 +66,11 @@ class NativeHypothesisUpdate(nn.Module):
 
     def forward(self, hidden_states, frontier_state, refutation_mask=None,
                 coupling="inhibit"):
-        compact_tokens = self.token_norm(self.token_down(hidden_states))
+        native_dtype = self.token_down.weight.dtype
+        compact_tokens = self.token_norm(self.token_down(
+            hidden_states.to(native_dtype)))
         latest = compact_tokens[:, -1:]
+        frontier_state = frontier_state.to(native_dtype)
         slots = self.slot_norm(frontier_state)
         positive, _ = self.constructive(slots, slots, slots, need_weights=False)
         token_write = latest.expand(-1, slots.shape[1], -1)
@@ -91,14 +94,17 @@ class NativeHypothesisUpdate(nn.Module):
             signed = signed + self.scale * negative
         elif coupling != "zero":
             raise ValueError("coupling must be inhibit, zero, or excite")
-        frontier_state = frontier_state + write * (signed + token_write)
-        frontier_state = frontier_state + self.slot_mlp(self.slot_norm(frontier_state))
+        frontier_state = self.slot_norm(
+            frontier_state + 0.1 * write * (signed + token_write))
+        frontier_state = self.slot_norm(
+            frontier_state + 0.1 * self.slot_mlp(frontier_state))
 
         token_update, _ = self.readout(latest, self.slot_norm(frontier_state),
                                        self.slot_norm(frontier_state), need_weights=False)
         token_update = torch.sigmoid(self.read_gate(token_update)) * token_update
         revised = hidden_states.clone()
-        revised[:, -1:] = revised[:, -1:] + self.token_up(token_update)
+        revised[:, -1:] = revised[:, -1:] + self.token_up(token_update).to(
+            hidden_states.dtype)
         return revised, frontier_state, positive, negative
 
 
@@ -146,6 +152,13 @@ class InterferenceQwen3Model(Qwen3PreTrainedModel):
         for layer in self.layers:
             if layer.hypothesis_update is not None:
                 nn.init.zeros_(layer.hypothesis_update.token_up.weight)
+
+    def set_native_dtype(self, dtype):
+        """Keep the small recurrent state numerically stable beside a BF16 base."""
+        self.frontier_init.data = self.frontier_init.data.to(dtype)
+        for layer in self.layers:
+            if layer.hypothesis_update is not None:
+                layer.hypothesis_update.to(dtype=dtype)
 
     def forward(self, input_ids=None, attention_mask=None, position_ids=None,
                 past_key_values=None, inputs_embeds=None, use_cache=None,

@@ -42,6 +42,10 @@ def main():
         args.model, config=config, local_files_only=True,
         dtype=torch.bfloat16, attn_implementation="sdpa",
         device_map="cuda", output_loading_info=True)
+    # Loading a stock Qwen checkpoint initializes missing keys after __init__.
+    # Reapply the exact base-preserving boundary, then keep the recurrent state FP32.
+    model.model.reset_native_output()
+    model.model.set_native_dtype(torch.float32)
     model.eval()
     native_named = [(name, parameter) for name, parameter in model.named_parameters()
                     if "hypothesis_update" in name or "frontier_init" in name]
@@ -70,7 +74,7 @@ def main():
     for parameter in native_parameters:
         parameter.requires_grad_(True)
     before = tensor_sha(native_parameters)
-    optimizer = torch.optim.AdamW(native_parameters, lr=2e-4)
+    optimizer = torch.optim.AdamW(native_parameters, lr=2e-5)
     refutation_mask = torch.zeros_like(batch["input_ids"], dtype=torch.bool)
     refutation_mask[:, -1] = True
     targets = tokenizer([" pass", " fix"], add_special_tokens=False,
