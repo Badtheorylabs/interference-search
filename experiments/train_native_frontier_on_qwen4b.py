@@ -8,12 +8,14 @@ transition heads while holding the 4B backbone fixed.
 
 import argparse
 import hashlib
+import importlib
 import json
 import random
 import statistics
 import subprocess
 import sys
 import time
+import types
 from pathlib import Path
 
 import torch
@@ -196,6 +198,20 @@ def source_receipt(source_commit):
     return commit, dirty, sha256(Path(__file__))
 
 
+def restore_reference_qwen3_forward(backbone):
+    """Keep Unsloth LoRA modules but use differentiable HF cache semantics."""
+    import transformers.models.qwen3.modeling_qwen3 as qwen3
+    qwen3 = importlib.reload(qwen3)
+    backbone.model.rotary_emb = qwen3.Qwen3RotaryEmbedding(
+        config=backbone.config).to(device="cuda")
+    backbone.forward = types.MethodType(qwen3.Qwen3ForCausalLM.forward, backbone)
+    backbone.model.forward = types.MethodType(qwen3.Qwen3Model.forward, backbone.model)
+    for layer in backbone.model.layers:
+        layer.forward = types.MethodType(qwen3.Qwen3DecoderLayer.forward, layer)
+        layer.self_attn.forward = types.MethodType(
+            qwen3.Qwen3Attention.forward, layer.self_attn)
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--data", type=Path, default=Path("data/native_countdown"))
@@ -234,6 +250,7 @@ def main():
             use_rslora=True,
         )
         backbone = peft_model.get_base_model()
+        restore_reference_qwen3_forward(backbone)
     else:
         tokenizer = AutoTokenizer.from_pretrained(MODEL, revision=REVISION,
                                                   local_files_only=True)
@@ -271,9 +288,7 @@ def main():
     for step, index in enumerate(order, 1):
         coupling = "zero" if step <= args.inhibit_start else "inhibit"
         model.train()
-        # Unsloth exposes differentiable KV through its eval/inference forward.
-        # LoRA dropout is zero, so eval does not change the training function.
-        backbone.eval()
+        # Qwen and the injected LoRA adapters use zero dropout in this recipe.
         if args.unsloth and step == args.head_warmup + 1:
             optimizer.param_groups[1]["lr"] = args.lora_learning_rate
         optimizer.zero_grad(set_to_none=True)
@@ -319,6 +334,8 @@ def main():
         "steps": args.steps, "learning_rate": args.learning_rate,
         "inhibit_start": args.inhibit_start, "seed": args.seed,
         "unsloth": args.unsloth, "lora_rank": args.lora_rank if args.unsloth else None,
+        "backbone_forward": ("unsloth_lora_with_reference_qwen3_kv"
+                             if args.unsloth else "transformers_qwen3"),
         "lora_learning_rate": args.lora_learning_rate if args.unsloth else None,
         "head_warmup": args.head_warmup if args.unsloth else None,
         "before": before, "after": after,
