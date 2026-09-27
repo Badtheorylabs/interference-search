@@ -120,6 +120,7 @@ def main():
     parser.add_argument("--steps", type=int, default=600)
     parser.add_argument("--learning-rate", type=float, default=3e-5)
     parser.add_argument("--seed", type=int, default=67)
+    parser.add_argument("--resume-native-state")
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--source-commit", required=True)
     args = parser.parse_args()
@@ -131,6 +132,9 @@ def main():
         args.model, config=model_config(args.model, tokenizer), local_files_only=True,
         dtype=torch.bfloat16, attn_implementation="sdpa", device_map="cuda")
     model.model.reset_native_output(); model.model.set_native_dtype(torch.float32)
+    if args.resume_native_state:
+        state = torch.load(args.resume_native_state, map_location="cpu", weights_only=True)
+        model.load_state_dict(state, strict=False)
     teacher = AutoModelForCausalLM.from_pretrained(
         args.model, local_files_only=True, dtype=torch.bfloat16,
         attn_implementation="sdpa", device_map="cuda").eval()
@@ -195,6 +199,7 @@ def main():
               "source_commit": args.source_commit,
               "train_tasks": len(train), "validation_tasks": len(validation),
               "steps": args.steps, "before": before, "after": after,
+              "resume_native_state": args.resume_native_state,
               "loss_first": losses[0], "loss_last": losses[-1],
               "median_step_seconds": statistics.median(times),
               "elapsed_seconds": time.perf_counter() - started,
