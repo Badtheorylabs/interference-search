@@ -18,6 +18,18 @@ The slot-theater probe rejected the hypothesis-tracking claim for this checkpoin
 
 The checkpoint learned a persistent failure-routing adapter. It did not learn distinct hypotheses. Do not describe it as parallel reasoning. The next revision must pass slot diversity, semantic selectivity, and wrong-path recovery gates before multi-action scaling.
 
+V2 added learned slot identity, occupancy, and independent token attention. It also failed: raw rank stayed 1.000 and cosine stayed 1.000.
+
+V3 added fixed slot codes, competitive token assignment, task-conditioned probes, and lower diversity pressure. It produced a strong held-out choice margin (+2.678 with 0.00096 zero-path KL) but still failed the hypothesis gate:
+
+- raw effective rank: 1.031;
+- task-conditioned effective rank: 1.013;
+- raw cosine: 0.999990;
+- task-conditioned cosine: 0.999998;
+- matched versus shuffled evidence advantage: +0.065.
+
+Therefore competitive routing without slot-level hypothesis targets is insufficient. V4 must supervise coverage of distinct candidate states, use bipartite candidate-to-slot assignment, attach alive/value labels to the assigned slots, and train family-level refutation. Do not respond by increasing the geometric diversity loss.
+
 ## Objective
 
 Build the strongest practical reasoning architecture suggested by the Interference Search results. The released explicit frontier is evidence for execution, convergence, and refutation. It is not a constraint that the native model must reproduce the original controller literally.

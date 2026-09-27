@@ -1,0 +1,34 @@
+{
+  "status": "same-state verified coding midtrain",
+  "source_commit": "ffb818e54e6299eb4c1086534bb725e827f4f24c",
+  "data_sha256": "1da19a549dfea89e7f3133bc30f733d55f7f98eaf3738e6e24eba01517a66fc9",
+  "train_tasks": 94,
+  "validation_tasks": 24,
+  "preserve_weight": 20.0,
+  "diversity_weight": 0.01,
+  "steps": 400,
+  "before": {
+    "rows": 24,
+    "mean_inhibit_target_logp": -3.6430384864409766,
+    "mean_zero_target_logp": -3.6430384864409766,
+    "mean_inhibit_minus_zero": 0.0,
+    "positive_margin_rows": 0,
+    "mean_zero_vs_teacher_kl": -4.017579716246907e-09
+  },
+  "after": {
+    "rows": 24,
+    "mean_inhibit_target_logp": -0.961379194050096,
+    "mean_zero_target_logp": -3.6389312744140625,
+    "mean_inhibit_minus_zero": 2.6775520692269006,
+    "positive_margin_rows": 23,
+    "mean_zero_vs_teacher_kl": 0.0009612035159989318
+  },
+  "loss_first": 3.1245977878570557,
+  "loss_last": 0.05668172985315323,
+  "mean_training_margin": 1.6555198773741722,
+  "median_step_seconds": 0.7076401700032875,
+  "elapsed_seconds": 308.20528206999006,
+  "peak_cuda_mib": 20241.21826171875,
+  "native_state_path": "runs/interference_qwen3_4b_v3_competitive_400/native_interference_state.pt",
+  "native_state_sha256": "43093ba8406a1f5a92aa567d17edd71994681296c224f2fb164ce5633ca374fa"
+}
