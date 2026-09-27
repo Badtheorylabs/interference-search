@@ -314,15 +314,36 @@ def main():
     args.out.mkdir(parents=True, exist_ok=True)
     checkpoint = args.out / "native_kv_frontier_head.pt"
     torch.save(model.cell.state_dict(), checkpoint)
+    action_checkpoint = args.out / "native_action_vectors.pt"
+    torch.save(action_vectors.detach().cpu(), action_checkpoint)
     adapter_dir = None
     if peft_model is not None:
         adapter_dir = args.out / "unsloth_adapter"
         peft_model.save_pretrained(adapter_dir, safe_serialization=True)
     reloaded = NativeKVFrontier(backbone, len(CODEC.actions)).cuda()
     reloaded.cell.load_state_dict(torch.load(checkpoint, map_location="cpu", weights_only=True))
-    if evaluate(model, tokenizer, validation[:4], action_vectors) != evaluate(
+    reload_reference = evaluate(model, tokenizer, validation[:4], action_vectors)
+    if reload_reference != evaluate(
             reloaded, tokenizer, validation[:4], action_vectors):
         raise RuntimeError("save/reload behavior changed")
+    adapter_reload_equal = None
+    if adapter_dir is not None:
+        loaded_peft, loaded_tokenizer = FastLanguageModel.from_pretrained(
+            model_name=str(adapter_dir), max_seq_length=256,
+            dtype=torch.bfloat16, load_in_4bit=False)
+        loaded_backbone = loaded_peft.get_base_model()
+        restore_reference_qwen3_forward(loaded_backbone)
+        loaded_native = NativeKVFrontier(
+            loaded_backbone, len(CODEC.actions), train_backbone=True,
+            match_space="model").cuda().eval()
+        loaded_native.cell.load_state_dict(torch.load(
+            checkpoint, map_location="cpu", weights_only=True))
+        loaded_actions = torch.load(action_checkpoint, map_location="cuda",
+                                    weights_only=True)
+        adapter_reload_equal = reload_reference == evaluate(
+            loaded_native, loaded_tokenizer, validation[:4], loaded_actions)
+        if not adapter_reload_equal:
+            raise RuntimeError("Unsloth adapter reload behavior changed")
     changed = sum(not torch.equal(initial[name], value.cpu())
                   for name, value in model.cell.state_dict().items())
     report = {
@@ -351,8 +372,10 @@ def main():
         "changed_head_tensors": changed,
         "task_prefills": model.task_prefills, "suffix_forwards": model.suffix_forwards,
         "checkpoint": str(checkpoint), "checkpoint_bytes": checkpoint.stat().st_size,
+        "action_vectors": str(action_checkpoint),
         "adapter_dir": str(adapter_dir) if adapter_dir else None,
         "save_reload_behavior_equal": True,
+        "adapter_reload_behavior_equal": adapter_reload_equal,
     }
     (args.out / "report.json").write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps({"status": report["status"], "before": before,
