@@ -1,0 +1,31 @@
+{
+  "problems": 200,
+  "native_interference": {
+    "model": "Qwen3-4B-Base plus 2000-step native adapter",
+    "solved": 54,
+    "solve_rate": 0.27,
+    "mean_wall_seconds": 0.5216785459501989,
+    "generated_reasoning_tokens": 0
+  },
+  "ordinary_model": {
+    "model": "Qwen3-4B-Instruct-2507",
+    "solved": 30,
+    "solve_rate": 0.15,
+    "max_new_tokens": 512,
+    "mean_generated_tokens": 497.475,
+    "batch_size": 16,
+    "amortized_seconds_per_problem": 1.0686353098499968
+  },
+  "paired": {
+    "both_solved": 15,
+    "native_only": 39,
+    "ordinary_only": 15,
+    "two_sided_exact_sign_p": 0.0014962588853935088
+  },
+  "effect": {
+    "absolute_solve_rate_points": 12.0,
+    "solve_rate_ratio": 1.8,
+    "throughput_speed_ratio": 2.0484555444
+  },
+  "claim_boundary": "Same-size Qwen-family comparison on identical tasks and checker; weights and compute units are not identical or FLOP-matched."
+}
