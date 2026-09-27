@@ -54,10 +54,6 @@ def test_rounds_execute_merge_refute_then_advance_together():
     assert result.trace[1]["raw"] == 3
     assert result.trace[1]["unique"] == 1
     assert result.trace[1]["kept"] == 1
-    assert len(result.events) == 3
-    assert result.events[1]["live"] == [(1, "left"), (2, "right")]
-    assert len(result.events[1]["transitions"]) == 3
-    assert result.events[2]["goal"]["action"] == "goal"
 
 
 def test_disabling_merge_keeps_convergent_paths_separate():

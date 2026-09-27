@@ -108,9 +108,6 @@ class NativeKVCountdownDomain:
     def observe_prediction(self, state, action, predicted, child, context):
         return None
 
-    def snapshot_round(self, context):
-        return {"refuted_states": tuple(context.refuted_states)}
-
     def observe_pruned(self, states, context):
         for state in states:
             if state not in context.refuted_states:
@@ -123,3 +120,4 @@ class NativeKVCountdownDomain:
 
     def certified_dead(self, state, problem):
         return len(state) == 1 and state[0] != problem["target"]
+

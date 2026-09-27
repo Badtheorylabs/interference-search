@@ -38,12 +38,6 @@ class CodeState:
     depth: int = 0
 
 
-@dataclass
-class MBPPContext:
-    problem: dict
-    refutations: list[CodeState]
-
-
 class MBPPAsyncDomain:
     def __init__(self, backend, sandbox: BubblewrapPython,
                  fresh_candidates: int = 2, revision_candidates: int = 1,
@@ -57,36 +51,13 @@ class MBPPAsyncDomain:
     def start(self, problem):
         return CodeState(None, None)
 
-    def prepare(self, problem):
-        return MBPPContext(problem, [])
-
     def key(self, state: CodeState):
         if state.source is None:
             return ("root",)
         return (state.depth, canonical_source(state.source),
                 tuple(state.outcome.tests) if state.outcome else ())
 
-    @staticmethod
-    def _problem(context):
-        return context.problem if isinstance(context, MBPPContext) else context
-
-    def _shared_refutations(self, context):
-        if not isinstance(context, MBPPContext) or not context.refutations:
-            return ""
-        blocks = []
-        for state in context.refutations[-2:]:
-            failures = "; ".join(
-                f"{status}: {detail}" for status, detail in state.outcome.tests
-                if status != "pass")
-            blocks.append(
-                "Sibling attempt that failed:\n```python\n"
-                f"{state.source[:1200]}\n```\nFailure: {failures[:600]}")
-        return ("\nShared refutations from sibling branches. Avoid repeating these "
-                "failed approaches:\n" + "\n".join(blocks))
-
-    def _prompt(self, state: CodeState, context, variant: int) -> str:
-        problem = self._problem(context)
-        shared = self._shared_refutations(context)
+    def _prompt(self, state: CodeState, problem, variant: int) -> str:
         if state.source is None:
             styles = (
                 "Use a clear, direct implementation.",
@@ -97,7 +68,6 @@ class MBPPAsyncDomain:
                 f"Write the Python function described here:\n{problem['prompt']}\n"
                 f"It must pass this example:\n{problem['test_list'][0]}\n"
                 f"{styles[variant % len(styles)]}\n"
-                f"{shared}\n"
                 "Return only Python source code, with no explanation."
             )
         else:
@@ -109,13 +79,11 @@ class MBPPAsyncDomain:
                 f"Fix this Python function for the task:\n{problem['prompt']}\n"
                 f"Current code:\n```python\n{state.source[:5000]}\n```\n"
                 f"Test feedback:\n{feedback[:5000]}\n"
-                f"{shared}\n"
                 "Return only corrected Python source code, with no explanation."
             )
         return self.backend.format_prompt(instruction)
 
-    def _requests(self, states: list[CodeState], context):
-        problem = self._problem(context)
+    def _requests(self, states: list[CodeState], problem):
         prompts = []
         seeds = []
         owners = []
@@ -124,15 +92,15 @@ class MBPPAsyncDomain:
                 continue
             variants = self.fresh_candidates if state.source is None else self.revision_candidates
             for variant in range(variants):
-                prompt = self._prompt(state, context, variant)
+                prompt = self._prompt(state, problem, variant)
                 prompts.append(prompt)
                 seed_text = f"{problem['task_id']}:{state.depth}:{variant}:{state.source or ''}"
                 seeds.append(int(hashlib.sha256(seed_text.encode()).hexdigest()[:8], 16))
                 owners.append(index)
         return prompts, seeds, owners
 
-    async def propose_batch(self, states: list[CodeState], context):
-        prompts, seeds, owners = self._requests(states, context)
+    async def propose_batch(self, states: list[CodeState], problem):
+        prompts, seeds, owners = self._requests(states, problem)
         results = await self.backend.generate_batch(prompts, seeds) if prompts else []
         batches = [[] for _ in states]
         for owner, generated in zip(owners, results):
@@ -140,45 +108,18 @@ class MBPPAsyncDomain:
             batches[owner].append(AsyncAction(source))
         return batches
 
-    async def propose_stream(self, states: list[CodeState], context):
-        prompts, seeds, owners = self._requests(states, context)
+    async def propose_stream(self, states: list[CodeState], problem):
+        prompts, seeds, owners = self._requests(states, problem)
         async for request_index, generated in self.backend.generate_stream(prompts, seeds):
             yield owners[request_index], [AsyncAction(extract_code(generated.text))]
 
-    async def execute(self, state: CodeState, action: str, context):
-        problem = self._problem(context)
+    async def execute(self, state: CodeState, action: str, problem):
         outcome = await self.sandbox.run(action, problem["test_list"],
                                          problem.get("test_imports", []))
         return CodeState(action, outcome, state.depth + 1)
 
     def execution_key(self, state: CodeState, action: str, problem):
-        problem = self._problem(problem)
         return (problem["task_id"], state.depth, canonical_source(action))
-
-    def score_states(self, states: list[CodeState], context):
-        scores = []
-        for state in states:
-            total = len(state.outcome.tests)
-            load_failures = sum(status == "load_error" for status, _ in state.outcome.tests)
-            scores.append(8.0 * state.outcome.passed / max(total, 1)
-                          - 2.0 * bool(load_failures) - 0.02 * state.depth)
-        return scores
-
-    def observe_pruned(self, states: list[CodeState], context):
-        if not isinstance(context, MBPPContext):
-            return
-        for state in states:
-            if state.outcome and not state.outcome.all_passed:
-                signature = (canonical_source(state.source), state.outcome.tests)
-                if not any((canonical_source(old.source), old.outcome.tests) == signature
-                           for old in context.refutations):
-                    context.refutations.append(state)
-        del context.refutations[:-8]
-
-    def snapshot_round(self, context):
-        if not isinstance(context, MBPPContext):
-            return None
-        return {"refutations": len(context.refutations)}
 
     def is_goal(self, state: CodeState, problem):
         return state.outcome is not None and state.outcome.all_passed

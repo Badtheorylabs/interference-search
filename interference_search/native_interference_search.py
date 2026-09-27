@@ -27,7 +27,6 @@ class NativeInterferenceResult:
     certified_dead: int = 0
     wall_seconds: float = 0.0
     trace: list = field(default_factory=list)
-    events: list = field(default_factory=list, repr=False)
 
 
 async def synchronized_search(domain, problem, expansion_budget: int, width: int = 8,
@@ -72,8 +71,6 @@ async def synchronized_search(domain, problem, expansion_budget: int, width: int
             if not batch:
                 break
             states = [state for state, _, _ in batch]
-            round_context = (domain.snapshot_round(context)
-                             if hasattr(domain, "snapshot_round") else None)
             result.rounds += 1
             result.expanded += len(states)
             expanded_keys.update(domain.key(state) for state in states)
@@ -95,25 +92,14 @@ async def synchronized_search(domain, problem, expansion_budget: int, width: int
             result.executions += len(children)
 
             pool = {}
-            transitions = []
-            goal = None
             for child, (parent_index, rank, item) in zip(children, metadata):
                 witness = batch[parent_index][1] + [item.action]
-                transition = {
-                    "parent_index": parent_index, "parent": states[parent_index],
-                    "rank": rank, "action": item.action,
-                    "priority": float(item.priority), "child": child,
-                    "goal": domain.is_goal(child, problem),
-                    "certified_dead": domain.certified_dead(child, problem),
-                }
-                transitions.append(transition)
-                if transition["goal"]:
+                if domain.is_goal(child, problem):
                     result.solved = True
                     result.solution = child
                     result.witness_actions = witness
-                    goal = transition
-                    continue
-                if transition["certified_dead"]:
+                    return result
+                if domain.certified_dead(child, problem):
                     result.certified_dead += 1
                     continue
                 exact_key = domain.key(child)
@@ -135,36 +121,10 @@ async def synchronized_search(domain, problem, expansion_budget: int, width: int
                 peak = max(scores)
                 pooled = peak + math.log(sum(math.exp(score - peak) for score in scores))
                 ranked.append((child, witness, pooled, votes))
-            if ranked and hasattr(domain, "score_states"):
-                judged = domain.score_states([row[0] for row in ranked], context)
-                judged = await judged if inspect.isawaitable(judged) else judged
-                if len(judged) != len(ranked) or not all(math.isfinite(x) for x in judged):
-                    raise ValueError("state judge must return one finite score per candidate")
-                ranked = [(child, witness, pooled + float(judge), votes)
-                          for (child, witness, pooled, votes), judge in zip(ranked, judged)]
             ranked.sort(key=lambda row: (row[2], row[3]), reverse=True)
-            pruned = [child for child, _, _, _ in ranked[width:]]
-            kept = [child for child, _, _, _ in ranked[:width]]
-            event = {
-                "round": result.rounds,
-                "context": round_context,
-                "live": states,
-                "transitions": transitions,
-                "ranked": [child for child, _, _, _ in ranked],
-                "kept": kept,
-                "pruned": pruned,
-                "goal": goal,
-            }
-            result.events.append(event)
-            if hasattr(domain, "observe_round"):
-                observed = domain.observe_round(event, context)
-                if inspect.isawaitable(observed):
-                    await observed
-            if goal is not None:
-                return result
-            if hasattr(domain, "observe_pruned") and pruned:
+            if hasattr(domain, "observe_pruned") and len(ranked) > width:
                 observed = domain.observe_pruned(
-                    pruned, context)
+                    [child for child, _, _, _ in ranked[width:]], context)
                 if inspect.isawaitable(observed):
                     await observed
             live = [(child, witness, pooled) for child, witness, pooled, _ in ranked[:width]]

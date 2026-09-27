@@ -1,7 +1,6 @@
 import asyncio
 
 from interference_search.async_execution import AsyncExecutionSearch
-from interference_search.native_interference_search import synchronized_search
 from interference_search.mbpp_async_domain import (
     CodeState, MBPPAsyncDomain, canonical_source, extract_code,
 )
@@ -61,26 +60,3 @@ def test_same_backend_and_executor_solve_in_both_schedulers():
     assert pipeline.solved and barrier.solved
     assert pipeline.execution_requests == barrier.execution_requests == 2
     assert "x + 1" in pipeline.solution.source
-
-
-def test_synchronized_code_frontier_executes_and_uses_verifier_scores():
-    domain = MBPPAsyncDomain(FakeBackend(), FakeSandbox(), fresh_candidates=2,
-                             revision_candidates=1, max_depth=2)
-    result = asyncio.run(synchronized_search(
-        domain, PROBLEM, expansion_budget=3, width=1,
-        execution_workers=2, merge=True))
-    assert result.solved
-    assert result.executions == 2
-    assert result.events[0]["goal"]["child"].outcome.all_passed
-
-
-def test_pruned_code_is_shared_as_a_refutation():
-    domain = MBPPAsyncDomain(FakeBackend(), FakeSandbox())
-    context = domain.prepare(PROBLEM)
-    failed = CodeState("def f(x): return x", SandboxResult(
-        (("fail", "AssertionError: got 1; expected 2"),), 0.001), 1)
-    domain.observe_pruned([failed], context)
-    prompt = domain._prompt(CodeState(None, None), context, 0)
-    assert "Shared refutations from sibling branches" in prompt
-    assert "def f(x): return x" in prompt
-    assert domain.score_states([failed], context) == [-0.02]
