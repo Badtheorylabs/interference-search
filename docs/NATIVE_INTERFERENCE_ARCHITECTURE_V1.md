@@ -30,6 +30,45 @@ V3 added fixed slot codes, competitive token assignment, task-conditioned probes
 
 Therefore competitive routing without slot-level hypothesis targets is insufficient. V4 must supervise coverage of distinct candidate states, use bipartite candidate-to-slot assignment, attach alive/value labels to the assigned slots, and train family-level refutation. Do not respond by increasing the geometric diversity loss.
 
+## V4 preregistration
+
+Candidate hypotheses are private teacher targets. At inference and evaluation, the model receives only the problem, context, and available observations. It never receives a list of candidate hypotheses to copy into slots.
+
+The target is a permutation-invariant set. Frozen teacher representations `z_j` are matched to predicted slot representations `s_i` after the forward pass:
+
+`pi* = argmin_pi sum_j D(s_pi(j), z_j)`
+
+Training combines candidate coverage, assigned-slot alive/value prediction, scoped refutation, certified merge, and causal behavior. Generic diversity is a weak regularizer and cannot substitute for coverage.
+
+### V4 stages
+
+- **V4a representation:** multiple endogenous candidate hypotheses can be decoded from separate slots.
+- **V4b causality:** ablating or transplanting one matched slot selectively changes its represented hypothesis.
+- **V4c interference:** evidence suppresses every slot dependent on a false premise; certified equivalent survivors merge and reduce live multiplicity.
+- **V4d autonomy:** candidate supervision is absent at evaluation and the behavior persists on source-disjoint tasks.
+- **V5 execution:** only after V4 passes, active slots emit distinct tool calls concurrently.
+- **V6 efficiency:** adaptive occupancy, sparse layer updates, BF16 state, and fused kernels.
+
+### V4 admission targets
+
+These thresholds are fixed before training:
+
+| Test | Admission target |
+|---|---:|
+| Task-conditioned effective rank on examples with at least four hypotheses | greater than 2.5 |
+| Candidate to matched-slot decoding | greater than 80% |
+| Dependent versus unrelated refutation effect | greater than 3x |
+| Matched versus shuffled evidence | statistically clear positive gap |
+| Single-slot intervention | selectively damages the assigned candidate |
+| Static identity removed | specialization remains |
+| Certified equivalent-candidate merge | live multiplicity decreases |
+| Merge correctness | no material loss |
+| Equal-parameter ordinary FFN | V4 wins hypothesis-specific tests |
+
+### Additional causal intervention
+
+Transplant a matched slot between tasks at the same architectural point. A transplanted hypothesis should selectively move the recipient task's downstream belief or action toward that hypothesis. Global nonspecific degradation fails the test.
+
 ## Objective
 
 Build the strongest practical reasoning architecture suggested by the Interference Search results. The released explicit frontier is evidence for execution, convergence, and refutation. It is not a constraint that the native model must reproduce the original controller literally.

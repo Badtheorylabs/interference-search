@@ -37,6 +37,9 @@ class InterferenceBaseModelOutputWithPast(ModelOutput):
     refutation_match: torch.Tensor | None = None
     slot_occupancy: torch.Tensor | None = None
     assignment_entropy: torch.Tensor | None = None
+    decoded_hypotheses: torch.Tensor | None = None
+    slot_alive_logits: torch.Tensor | None = None
+    slot_values: torch.Tensor | None = None
     hidden_states: tuple[torch.Tensor, ...] | None = None
 
 
@@ -50,6 +53,9 @@ class InterferenceCausalLMOutputWithPast(CausalLMOutputWithPast):
     refutation_match: torch.Tensor | None = None
     slot_occupancy: torch.Tensor | None = None
     assignment_entropy: torch.Tensor | None = None
+    decoded_hypotheses: torch.Tensor | None = None
+    slot_alive_logits: torch.Tensor | None = None
+    slot_values: torch.Tensor | None = None
 
 
 class NativeHypothesisUpdate(nn.Module):
@@ -182,6 +188,10 @@ class InterferenceQwen3Model(Qwen3PreTrainedModel):
         self.rotary_emb = Qwen3RotaryEmbedding(config=config)
         self.frontier_init = nn.Parameter(torch.randn(
             config.frontier_slots, config.frontier_dim) * config.initializer_range)
+        self.hypothesis_decoder = nn.Linear(
+            config.frontier_dim, config.hidden_size, bias=False)
+        self.slot_alive_head = nn.Linear(config.frontier_dim, 1)
+        self.slot_value_head = nn.Linear(config.frontier_dim, 1)
         self.gradient_checkpointing = False
         self.has_sliding_layers = "sliding_attention" in config.layer_types
         self.post_init()
@@ -199,6 +209,9 @@ class InterferenceQwen3Model(Qwen3PreTrainedModel):
         for layer in self.layers:
             if layer.hypothesis_update is not None:
                 layer.hypothesis_update.to(dtype=dtype)
+        self.hypothesis_decoder.to(dtype=dtype)
+        self.slot_alive_head.to(dtype=dtype)
+        self.slot_value_head.to(dtype=dtype)
 
     def forward(self, input_ids=None, attention_mask=None, position_ids=None,
                 past_key_values=None, inputs_embeds=None, use_cache=None,
@@ -278,6 +291,9 @@ class InterferenceQwen3Model(Qwen3PreTrainedModel):
             history.append(hidden_states)
         if use_cache:
             past_key_values.frontier_state = frontier_state
+        decoded_hypotheses = self.hypothesis_decoder(frontier_state)
+        slot_alive_logits = self.slot_alive_head(frontier_state).squeeze(-1).float()
+        slot_values = self.slot_value_head(frontier_state).squeeze(-1).float()
         return InterferenceBaseModelOutputWithPast(
             last_hidden_state=hidden_states,
             past_key_values=past_key_values if use_cache else None,
@@ -289,6 +305,9 @@ class InterferenceQwen3Model(Qwen3PreTrainedModel):
             refutation_match=torch.stack(refutation_matches, dim=1),
             slot_occupancy=torch.stack(occupancies, dim=1),
             assignment_entropy=torch.stack(assignment_entropies, dim=1),
+            decoded_hypotheses=decoded_hypotheses,
+            slot_alive_logits=slot_alive_logits,
+            slot_values=slot_values,
             hidden_states=tuple(history) if history is not None else None)
 
 
@@ -334,7 +353,10 @@ class InterferenceQwen3ForCausalLM(Qwen3PreTrainedModel, GenerationMixin):
             token_read_gate=outputs.token_read_gate,
             refutation_match=outputs.refutation_match,
             slot_occupancy=outputs.slot_occupancy,
-            assignment_entropy=outputs.assignment_entropy)
+            assignment_entropy=outputs.assignment_entropy,
+            decoded_hypotheses=outputs.decoded_hypotheses,
+            slot_alive_logits=outputs.slot_alive_logits,
+            slot_values=outputs.slot_values)
 
 
 __all__ = [
