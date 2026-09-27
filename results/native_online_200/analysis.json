@@ -1,0 +1,32 @@
+{
+  "source_commit": "34d82ecbd64ef1f44c45640c7180406b01e6b63b",
+  "report_sha256": "92884489d6fc27f151fe6111f7a76043b0b739b93f4a26a259991b1da3c95e61",
+  "problems": 200,
+  "settings": {
+    "width": 12,
+    "expansion_budget": 40,
+    "actions_per_state": 8
+  },
+  "full": {
+    "solved": 54,
+    "rate": 0.27,
+    "wilson_95": [0.2132335473, 0.3354356154]
+  },
+  "zero_coupling": {
+    "solved": 45,
+    "rate": 0.225,
+    "wilson_95": [0.1726228379, 0.2877424654],
+    "full_paired_gains": 15,
+    "full_paired_losses": 6,
+    "two_sided_exact_sign_p": 0.0783538818
+  },
+  "no_merge": {
+    "solved": 33,
+    "rate": 0.165,
+    "wilson_95": [0.1199678412, 0.2226589827],
+    "full_paired_gains": 22,
+    "full_paired_losses": 1,
+    "two_sided_exact_sign_p": 0.0000057220458984375
+  },
+  "claim": "Exact merging is a significant causal win in the native online loop; learned inhibition is favorable but not yet significant."
+}
