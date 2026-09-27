@@ -1,0 +1,34 @@
+{
+  "status": "Qwen3-4B weights transplanted into self-contained Interference Qwen3",
+  "source_commit": "473152376aaeab9186610f474c3b16e9e955c964",
+  "base_model": "/home/ubuntu/.cache/huggingface/hub/models--Qwen--Qwen3-4B-Instruct-2507/snapshots/cdbee75f17c01a7cc42f958dc650907174af0554",
+  "total_parameters": 4058535972,
+  "native_parameters": 36067876,
+  "base_compatible_parameters": 4022468096,
+  "native_fraction": 0.008886917905578193,
+  "frontier_slots": 8,
+  "frontier_dim": 128,
+  "interference_layers": 36,
+  "missing_keys": 901,
+  "non_native_missing_keys": [],
+  "unexpected_keys": [],
+  "pretrain_logit_max_delta": 0.0,
+  "loss": 11.939992904663086,
+  "gradient_norm": 168.31057739257812,
+  "native_weights_changed": true,
+  "post_update_causal_logit_delta": 1.4375,
+  "cached_frontier_shape": [
+    2,
+    8,
+    128
+  ],
+  "cached_sequence_length": 16,
+  "standard_generate_shape": [
+    1,
+    17
+  ],
+  "step_seconds": 0.9774534689931897,
+  "peak_cuda_mib": 8433.779296875,
+  "native_state_path": "runs/interference_qwen3_4b_transplant/native_interference_state.pt",
+  "native_state_sha256": "115c8eb3baa281b00df0ea502ae6ba68597104d0e90cac13edc6f79bf2ae2dfd"
+}
