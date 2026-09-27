@@ -46,6 +46,27 @@ def candidate(source, outcome):
             "passed": outcome.passed, "all_passed": outcome.all_passed}
 
 
+def mutations(source):
+    replacements = [
+        (" + ", " - "), (" - ", " + "), (" * ", " + "),
+        (" == ", " != "), (" <= ", " < "), (" >= ", " > "),
+        ("True", "False"), ("False", "True"),
+    ]
+    values = []
+    for old, new in replacements:
+        if old in source:
+            values.append(source.replace(old, new, 1))
+    lines = source.splitlines()
+    for index, line in enumerate(lines):
+        if line.lstrip().startswith("return "):
+            changed = list(lines)
+            indent = line[:len(line) - len(line.lstrip())]
+            changed[index] = indent + "return None"
+            values.append("\n".join(changed))
+            break
+    return list(dict.fromkeys(value for value in values if value != source))
+
+
 async def build_row(backend, sandbox, task, samples, seed):
     prompt = backend.format_prompt(fresh_instruction(task))
     generations = await backend.generate_batch(
@@ -55,23 +76,26 @@ async def build_row(backend, sandbox, task, samples, seed):
     negatives = [index for index, outcome in enumerate(outcomes) if not outcome.all_passed]
     state = {"kind": "root", "prompt": prompt}
 
-    if not positives and negatives:
-        best = max(negatives, key=lambda index: outcomes[index].passed)
-        prompt = backend.format_prompt(revision_instruction(
-            task, sources[best], outcomes[best]))
-        generations = await backend.generate_batch(
-            [prompt] * samples,
-            [seed + 1000 + offset for offset in range(samples)])
-        revision_sources, revision_outcomes = await execute_candidates(
-            sandbox, task, generations)
-        positives = [index for index, outcome in enumerate(revision_outcomes)
-                     if outcome.all_passed]
-        negatives = [index for index, outcome in enumerate(revision_outcomes)
-                     if not outcome.all_passed]
-        state = {"kind": "revision", "prompt": prompt,
-                 "parent_source": sources[best],
-                 "parent_tests": [list(test) for test in outcomes[best].tests]}
-        sources, outcomes = revision_sources, revision_outcomes
+    if not positives:
+        reference = task["code"]
+        reference_outcome = await sandbox.run(
+            reference, task["test_list"], task.get("test_imports", []))
+        if reference_outcome.all_passed:
+            sources.append(reference)
+            outcomes.append(reference_outcome)
+            positives.append(len(sources) - 1)
+
+    if not negatives and positives:
+        mutated = mutations(sources[positives[0]])
+        if mutated:
+            mutated_outcomes = await asyncio.gather(*(
+                sandbox.run(source, task["test_list"], task.get("test_imports", []))
+                for source in mutated))
+            for source, outcome in zip(mutated, mutated_outcomes):
+                if not outcome.all_passed:
+                    sources.append(source)
+                    outcomes.append(outcome)
+                    negatives.append(len(sources) - 1)
 
     if not positives or not negatives:
         return None
