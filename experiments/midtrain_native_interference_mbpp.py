@@ -23,28 +23,43 @@ def clipped(tokenizer, text, limit, tail=False):
 
 def example(tokenizer, row, rng, device):
     negative = rng.choice(row["negatives"])
-    task = clipped(tokenizer, "Coding task:\n" + row["task"] + "\n", 160)
-    failed_source = clipped(
-        tokenizer, "Failed implementation:\n" + negative["source"] + "\n", 256)
+    positive = row["positive"]
+    task = clipped(tokenizer, "Coding task:\n" + row["task"] + "\n", 128)
+    positive_first = rng.random() < 0.5
+    source_a = positive["source"] if positive_first else negative["source"]
+    source_b = negative["source"] if positive_first else positive["source"]
+    candidate_a = clipped(tokenizer, "Candidate A:\n" + source_a + "\n", 192)
+    candidate_b = clipped(tokenizer, "Candidate B:\n" + source_b + "\n", 192)
     feedback_text = "\n".join(
         f"{status}: {detail}" for status, detail in negative["tests"])
     feedback = clipped(
         tokenizer, "Verified execution failure:\n" + feedback_text + "\n", 128)
     instruction = clipped(
-        tokenizer, "Produce the corrected Python implementation:\n", 24)
-    target_ids = clipped(tokenizer, row["positive"]["source"], 192)
+        tokenizer,
+        "The verified failure applies to the failing candidate. "
+        "Which candidate is the correct implementation? Answer A or B:\n", 40)
+    ids = task + candidate_a + candidate_b + feedback + instruction
+    if positive_first:
+        ref_start = len(task) + len(candidate_a)
+        ref_end = ref_start + len(candidate_b) + len(feedback)
+        answer = "A"
+    else:
+        ref_start = len(task)
+        ref_end = ref_start + len(candidate_a)
+        # Feedback also carries the negative evidence even though it follows B.
+        # Mark it independently below.
+        answer = "B"
+    refutation = [ref_start <= index < ref_end for index in range(len(ids))]
+    feedback_start = len(task) + len(candidate_a) + len(candidate_b)
+    for index in range(feedback_start, feedback_start + len(feedback)):
+        refutation[index] = True
+    target_ids = tokenizer.encode(answer, add_special_tokens=False)
     if not target_ids:
         return None
-    cut = rng.randrange(len(target_ids))
-    prefix = task
-    ref_start = len(prefix)
-    ids = prefix + failed_source + feedback + instruction + target_ids[:cut]
-    ref_end = ref_start + len(failed_source) + len(feedback)
-    refutation = [ref_start <= index < ref_end for index in range(len(ids))]
     return (torch.tensor(ids, device=device)[None],
             torch.ones(1, len(ids), dtype=torch.long, device=device),
             torch.tensor(refutation, dtype=torch.bool, device=device)[None],
-            torch.tensor([target_ids[cut]], device=device))
+            torch.tensor([target_ids[0]], device=device))
 
 
 @torch.no_grad()
