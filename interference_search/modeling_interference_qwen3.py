@@ -34,6 +34,8 @@ class InterferenceBaseModelOutputWithPast(ModelOutput):
     slot_write_gate: torch.Tensor | None = None
     token_read_gate: torch.Tensor | None = None
     refutation_match: torch.Tensor | None = None
+    slot_occupancy: torch.Tensor | None = None
+    assignment_entropy: torch.Tensor | None = None
     hidden_states: tuple[torch.Tensor, ...] | None = None
 
 
@@ -45,6 +47,8 @@ class InterferenceCausalLMOutputWithPast(CausalLMOutputWithPast):
     slot_write_gate: torch.Tensor | None = None
     token_read_gate: torch.Tensor | None = None
     refutation_match: torch.Tensor | None = None
+    slot_occupancy: torch.Tensor | None = None
+    assignment_entropy: torch.Tensor | None = None
 
 
 class NativeHypothesisUpdate(nn.Module):
@@ -60,6 +64,10 @@ class NativeHypothesisUpdate(nn.Module):
         self.token_norm = nn.LayerNorm(dim)
         self.constructive = nn.MultiheadAttention(
             dim, config.frontier_heads, dropout=0.0, batch_first=True)
+        self.token_to_slots = nn.MultiheadAttention(
+            dim, config.frontier_heads, dropout=0.0, batch_first=True)
+        self.slot_identity = nn.Parameter(
+            torch.randn(config.frontier_slots, dim) * config.initializer_range)
         self.slot_mlp = nn.Sequential(
             nn.Linear(dim, dim * 4), nn.SiLU(), nn.Linear(dim * 4, dim))
         self.ref_query = nn.Linear(dim, dim, bias=False)
@@ -69,6 +77,7 @@ class NativeHypothesisUpdate(nn.Module):
             dim, config.frontier_heads, dropout=0.0, batch_first=True)
         self.write_gate = nn.Linear(dim * 2, dim)
         self.read_gate = nn.Linear(dim, 1)
+        self.occupancy = nn.Linear(dim, 1)
 
     def forward(self, hidden_states, frontier_state, refutation_mask=None,
                 coupling="inhibit"):
@@ -77,10 +86,13 @@ class NativeHypothesisUpdate(nn.Module):
             hidden_states.to(native_dtype)))
         latest = compact_tokens[:, -1:]
         frontier_state = frontier_state.to(native_dtype)
-        slots = self.slot_norm(frontier_state)
+        slots = self.slot_norm(frontier_state) + self.slot_identity.unsqueeze(0)
         positive, _ = self.constructive(slots, slots, slots, need_weights=False)
-        token_write = latest.expand(-1, slots.shape[1], -1)
+        token_write, assignment = self.token_to_slots(
+            slots, compact_tokens, compact_tokens,
+            need_weights=True, average_attn_weights=True)
         write = torch.sigmoid(self.write_gate(torch.cat((slots, token_write), dim=-1)))
+        occupancy = torch.sigmoid(self.occupancy(slots))
 
         negative = torch.zeros_like(slots)
         matches = slots.new_zeros(slots.shape[0], slots.shape[1], hidden_states.shape[1])
@@ -102,19 +114,24 @@ class NativeHypothesisUpdate(nn.Module):
         elif coupling != "zero":
             raise ValueError("coupling must be inhibit, zero, or excite")
         frontier_state = self.slot_norm(
-            frontier_state + 0.1 * write * (signed + token_write))
+            frontier_state + 0.1 * write * occupancy * (signed + token_write)
+            + 0.01 * self.slot_identity.unsqueeze(0))
         frontier_state = self.slot_norm(
             frontier_state + 0.1 * self.slot_mlp(frontier_state))
 
-        token_update, _ = self.readout(latest, self.slot_norm(frontier_state),
-                                       self.slot_norm(frontier_state), need_weights=False)
+        readable_slots = self.slot_norm(frontier_state) * occupancy
+        token_update, _ = self.readout(latest, readable_slots,
+                                       readable_slots, need_weights=False)
         read_gate = torch.sigmoid(self.read_gate(token_update))
         token_update = read_gate * token_update
         revised = hidden_states.clone()
         revised[:, -1:] = revised[:, -1:] + self.token_up(token_update).to(
             hidden_states.dtype)
+        assignment_entropy = -(assignment.float().clamp_min(1e-12)
+                               * assignment.float().clamp_min(1e-12).log()).sum(dim=-1)
         return (revised, frontier_state, positive, negative,
-                write.mean(dim=-1), read_gate.squeeze(-1), matches.max(dim=-1).values)
+                write.mean(dim=-1), read_gate.squeeze(-1),
+                matches.max(dim=-1).values, occupancy.squeeze(-1), assignment_entropy)
 
 
 class InterferenceQwen3DecoderLayer(Qwen3DecoderLayer):
@@ -131,7 +148,8 @@ class InterferenceQwen3DecoderLayer(Qwen3DecoderLayer):
             zero = frontier_state.new_zeros(frontier_state.shape)
             slot_zero = frontier_state.new_zeros(frontier_state.shape[:2])
             read_zero = frontier_state.new_zeros(frontier_state.shape[0], 1)
-            return hidden_states, frontier_state, zero, zero, slot_zero, read_zero, slot_zero
+            return (hidden_states, frontier_state, zero, zero, slot_zero,
+                    read_zero, slot_zero, slot_zero, slot_zero)
         return self.hypothesis_update(
             hidden_states, frontier_state, refutation_mask, coupling)
 
@@ -223,10 +241,12 @@ class InterferenceQwen3Model(Qwen3PreTrainedModel):
         history = [hidden_states] if output_hidden_states else None
         positive_norms, negative_norms = [], []
         write_gates, read_gates, refutation_matches = [], [], []
+        occupancies, assignment_entropies = [], []
         position_embeddings = self.rotary_emb(hidden_states, position_ids)
         for index, layer in enumerate(self.layers[:self.config.num_hidden_layers]):
             (hidden_states, frontier_state, positive, negative,
-             write_gate, read_gate, refutation_match) = layer(
+             write_gate, read_gate, refutation_match,
+             occupancy, assignment_entropy) = layer(
                 hidden_states, frontier_state,
                 refutation_mask=refutation_mask, coupling=coupling,
                 attention_mask=attention_mask[self.config.layer_types[index]],
@@ -238,6 +258,8 @@ class InterferenceQwen3Model(Qwen3PreTrainedModel):
             write_gates.append(write_gate.float())
             read_gates.append(read_gate.float())
             refutation_matches.append(refutation_match.float())
+            occupancies.append(occupancy.float())
+            assignment_entropies.append(assignment_entropy.float())
             if output_hidden_states:
                 history.append(hidden_states)
         hidden_states = self.norm(hidden_states)
@@ -254,6 +276,8 @@ class InterferenceQwen3Model(Qwen3PreTrainedModel):
             slot_write_gate=torch.stack(write_gates, dim=1),
             token_read_gate=torch.stack(read_gates, dim=1),
             refutation_match=torch.stack(refutation_matches, dim=1),
+            slot_occupancy=torch.stack(occupancies, dim=1),
+            assignment_entropy=torch.stack(assignment_entropies, dim=1),
             hidden_states=tuple(history) if history is not None else None)
 
 
@@ -297,7 +321,9 @@ class InterferenceQwen3ForCausalLM(Qwen3PreTrainedModel, GenerationMixin):
             destructive_norm=outputs.destructive_norm,
             slot_write_gate=outputs.slot_write_gate,
             token_read_gate=outputs.token_read_gate,
-            refutation_match=outputs.refutation_match)
+            refutation_match=outputs.refutation_match,
+            slot_occupancy=outputs.slot_occupancy,
+            assignment_entropy=outputs.assignment_entropy)
 
 
 __all__ = [

@@ -1,0 +1,1277 @@
+{
+  "status": "standard-generate verified repair gate",
+  "native_state": "runs/interference_qwen3_4b_mbpp_marker_400/native_interference_state.pt",
+  "groups": {
+    "native_inhibit": {
+      "solved": 8,
+      "total": 18,
+      "mean_tests_passed": 1.3888888888888888,
+      "mean_tokens": 110.72222222222223,
+      "mean_seconds": 8.007611515277757
+    },
+    "native_zero": {
+      "solved": 8,
+      "total": 18,
+      "mean_tests_passed": 1.3888888888888888,
+      "mean_tokens": 119.72222222222223,
+      "mean_seconds": 7.354211163723246
+    },
+    "stock": {
+      "solved": 8,
+      "total": 18,
+      "mean_tests_passed": 1.3888888888888888,
+      "mean_tokens": 117,
+      "mean_seconds": 3.0579753722235585
+    }
+  },
+  "rows": {
+    "native_inhibit": [
+      {
+        "task_id": 230,
+        "solved": true,
+        "passed": 3,
+        "tests": 3,
+        "tokens": 16,
+        "seconds": 3.01659948300221,
+        "source": "def replace_blank(s, char):\n    return s.replace(' ', char)",
+        "outcome": [
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ]
+        ]
+      },
+      {
+        "task_id": 232,
+        "solved": true,
+        "passed": 3,
+        "tests": 3,
+        "tokens": 43,
+        "seconds": 4.961301196002751,
+        "source": "def larg_nnum(lst, n):\n    if not lst or n <= 0:\n        return []\n    if n >= len(lst):\n        return lst[:]\n    return sorted(lst, reverse=True)[:n]",
+        "outcome": [
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ]
+        ]
+      },
+      {
+        "task_id": 233,
+        "solved": false,
+        "passed": 0,
+        "tests": 3,
+        "tokens": 192,
+        "seconds": 16.724601631998667,
+        "source": "import math\n\ndef lateral_surface_area_cylinder(radius, height):\n    if radius < 0 or height < 0:\n        raise ValueError(\"Radius and height must be non-negative\")\n    return 2 * math.pi * radius * height",
+        "outcome": [
+          [
+            "fail",
+            "NameError: name 'lateralsuface_cylinder' is not defined"
+          ],
+          [
+            "fail",
+            "NameError: name 'lateralsuface_cylinder' is not defined"
+          ],
+          [
+            "fail",
+            "NameError: name 'lateralsuface_cylinder' is not defined"
+          ]
+        ]
+      },
+      {
+        "task_id": 234,
+        "solved": true,
+        "passed": 3,
+        "tests": 3,
+        "tokens": 32,
+        "seconds": 2.5710985920013627,
+        "source": "def volume_cube(side_length):\n    if side_length < 0:\n        raise ValueError(\"Side length cannot be negative\")\n    return side_length ** 3",
+        "outcome": [
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ]
+        ]
+      },
+      {
+        "task_id": 235,
+        "solved": false,
+        "passed": 0,
+        "tests": 3,
+        "tokens": 192,
+        "seconds": 12.747014847991522,
+        "source": "def even_bit_set_number(n):\n    if n < 0:\n        return n\n    return n | 0x55555555  # Set all even bits (0-indexed from right) to 1, odd bits to 0\n    # This operation sets even bits to 1 and odd bits to 0, which is the opposite of what we want.\n    # We want to set even bits to 1, but the current implementation sets odd bits to 1.\n    # The correct approach is to use a mask that has 1s in even positions and 0s in odd positions.\n    # The mask 0x55555555 has 1s in even positions (0, 2, 4, ...) and 0s in odd positions (1, 3, 5, ...).\n    # So, we need to perform a bitwise OR",
+        "outcome": [
+          [
+            "fail",
+            "AssertionError: got 1431655775; expected 10"
+          ],
+          [
+            "fail",
+            "AssertionError: got 1431655765; expected 30"
+          ],
+          [
+            "fail",
+            "AssertionError: got 1431655775; expected 30"
+          ]
+        ]
+      },
+      {
+        "task_id": 237,
+        "solved": false,
+        "passed": 0,
+        "tests": 3,
+        "tokens": 45,
+        "seconds": 4.364871921992744,
+        "source": "def check_occurrences(tuples_list):\n    occurrence_dict = {}\n    for tup in tuples_list:\n        occurrence_dict[tup] = occurrence_dict.get(tup, 0) + 1\n    return occurrence_dict",
+        "outcome": [
+          [
+            "fail",
+            "NameError: name 'check_occurences' is not defined"
+          ],
+          [
+            "fail",
+            "NameError: name 'check_occurences' is not defined"
+          ],
+          [
+            "fail",
+            "NameError: name 'check_occurences' is not defined"
+          ]
+        ]
+      },
+      {
+        "task_id": 238,
+        "solved": false,
+        "passed": 0,
+        "tests": 3,
+        "tokens": 152,
+        "seconds": 9.667407026994624,
+        "source": "def number_of_substrings(s):\n    if not s:\n        return 0\n    return len(s) * (len(s) + 1) // 2\n\nThe corrected implementation uses the formula `n * (n + 1) // 2` to count the number of non-empty substrings, where `n` is the length of the string. This formula accounts for all possible substrings, including those of length 1, 2, ..., up to the full string length. The original implementation used `n * (n - 1) // 2`, which only counted substrings of length 2 or more, leading to incorrect results. The corrected version now correctly computes the total number of non-empty substrings.",
+        "outcome": [
+          [
+            "load_error",
+            "SyntaxError: invalid syntax (<candidate>, line 6)"
+          ],
+          [
+            "load_error",
+            "SyntaxError: invalid syntax (<candidate>, line 6)"
+          ],
+          [
+            "load_error",
+            "SyntaxError: invalid syntax (<candidate>, line 6)"
+          ]
+        ]
+      },
+      {
+        "task_id": 239,
+        "solved": false,
+        "passed": 0,
+        "tests": 3,
+        "tokens": 192,
+        "seconds": 17.408016960995155,
+        "source": "def get_total_number_of_sequences(m, n):\n    if n == 0:\n        return 1\n    if n == 1:\n        return m\n    \n    count = 0\n    # First element can be from 1 to m\n    for first in range(1, m + 1):\n        # For each valid first element, count valid sequences of length n-1\n        # where each next element is at least 2*previous and at most m\n        remaining = count_sequences(m, first, n - 1)\n        count += remaining\n    \n    return count\n\ndef count_sequences(m, prev, remaining_length):\n    if remaining_length == 0:\n        return 1\n    if prev >= m:\n        return 0\n    \n    total = 0\n    # Next element must be >= 2*prev and <= m\n    start = 2 * prev\n    if start >",
+        "outcome": [
+          [
+            "load_error",
+            "SyntaxError: invalid syntax (<candidate>, line 26)"
+          ],
+          [
+            "load_error",
+            "SyntaxError: invalid syntax (<candidate>, line 26)"
+          ],
+          [
+            "load_error",
+            "SyntaxError: invalid syntax (<candidate>, line 26)"
+          ]
+        ]
+      },
+      {
+        "task_id": 240,
+        "solved": true,
+        "passed": 3,
+        "tests": 3,
+        "tokens": 192,
+        "seconds": 11.611598513001809,
+        "source": "def replace_list(lst1, lst2):\n    if not lst1:\n        return lst2[:]\n    lst1[-1] = lst2\n    return lst1\n\n# The issue with the original implementation is that it replaces the last element of lst1 with the entire list lst2,\n# rather than replacing it with the individual elements of lst2.\n# To fix this, we need to unpack lst2 into the last element of lst1.\n\ndef replace_list(lst1, lst2):\n    if not lst1:\n        return lst2[:]\n    lst1[-1:] = lst2\n    return lst1\n\n# This corrected version uses list slicing assignment to replace the last element of lst1 with each element of lst2.\n# The slice lst1[-1:] refers to the last element of lst1, and assigning lst2 to it replaces that element with the elements of lst2.\n# This matches the expected output in the test cases",
+        "outcome": [
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ]
+        ]
+      },
+      {
+        "task_id": 242,
+        "solved": true,
+        "passed": 3,
+        "tests": 3,
+        "tokens": 12,
+        "seconds": 1.2736964890063973,
+        "source": "def count_charac(s):\n    return len(s)",
+        "outcome": [
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ]
+        ]
+      },
+      {
+        "task_id": 244,
+        "solved": false,
+        "passed": 0,
+        "tests": 3,
+        "tokens": 192,
+        "seconds": 14.534759492002195,
+        "source": "def next_Perfect_Square(n):\n    if n < 0:\n        return 0\n    if n == 0:\n        return 1\n    import math\n    root = int(math.sqrt(n))\n    if root * root == n:\n        return (root + 1) ** 2\n    else:\n        return (root + 1) ** 2\n\nThe corrected implementation ensures that when the input is a perfect square, it returns the next perfect square, and otherwise, it returns the smallest perfect square greater than n. The logic was flawed in the original code where it incorrectly returned (root - 1) * (root + 1) when n was a perfect square, which would give a smaller square. The corrected version now consistently returns (root + 1) ** 2 in all cases. This ensures that the output is always the next perfect square greater than or equal to n. The test case with",
+        "outcome": [
+          [
+            "load_error",
+            "SyntaxError: invalid syntax (<candidate>, line 13)"
+          ],
+          [
+            "load_error",
+            "SyntaxError: invalid syntax (<candidate>, line 13)"
+          ],
+          [
+            "load_error",
+            "SyntaxError: invalid syntax (<candidate>, line 13)"
+          ]
+        ]
+      },
+      {
+        "task_id": 245,
+        "solved": false,
+        "passed": 0,
+        "tests": 3,
+        "tokens": 192,
+        "seconds": 11.534954110000399,
+        "source": "def max_sum(arr):\n    if not arr:\n        return 0\n    if len(arr) == 1:\n        return arr[0]\n    \n    n = len(arr)\n    # dp_in[i] represents maximum sum of increasing subsequence ending at i\n    dp_in = [0] * n\n    # dp_de[i] represents maximum sum of decreasing subsequence starting at i\n    dp_de = [0] * n\n    \n    # Fill dp_in: maximum sum of increasing subsequence ending at each index\n    for i in range(n):\n        dp_in[i] = arr[i]\n        for j in range(i):\n            if arr[j] < arr[i]:\n                dp_in[i] = max(dp_in[i], dp_in[j] + arr[i])\n    \n    # Fill dp_de: maximum sum of decreasing subsequence starting at each index\n    for i in range(n - 1, -1",
+        "outcome": [
+          [
+            "load_error",
+            "SyntaxError: '(' was never closed (<candidate>, line 21)"
+          ],
+          [
+            "load_error",
+            "SyntaxError: '(' was never closed (<candidate>, line 21)"
+          ],
+          [
+            "load_error",
+            "SyntaxError: '(' was never closed (<candidate>, line 21)"
+          ]
+        ]
+      },
+      {
+        "task_id": 246,
+        "solved": true,
+        "passed": 3,
+        "tests": 3,
+        "tokens": 192,
+        "seconds": 11.753759457002161,
+        "source": "import math\n\ndef babylonian_squareroot(n):\n    if n < 0:\n        raise ValueError(\"Cannot compute square root of negative number\")\n    if n == 0 or n == 1:\n        return n\n    \n    x = n\n    while True:\n        root = 0.5 * (x + n / x)  # Corrected the formula from (x - n/x) to (x + n/x)\n        if abs(root - x) < 1e-10:\n            break\n        x = root\n    return x",
+        "outcome": [
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ]
+        ]
+      },
+      {
+        "task_id": 247,
+        "solved": false,
+        "passed": 0,
+        "tests": 3,
+        "tokens": 192,
+        "seconds": 12.119827974005602,
+        "source": "def lps(s):\n    n = len(s)\n    if n == 0:\n        return 0\n    \n    # Create a 2D DP table\n    dp = [[0] * n for _ in range(n)]\n    \n    # Every single character is a palindrome of length 1\n    for i in range(n):\n        dp[i][i] = 1\n    \n    # Fill the table for substrings of length 2 to n\n    for length in range(2, n + 1):\n        for i in range(n - length + 1):\n            j = i + length - 1\n            if s[i] == s[j]:\n                if length == 2:\n                    dp[i][j] = 2\n                else:\n                    dp[i][j] = dp[i + 1][j - 1] + 2\n            else:\n                dp[i][j] = max(dp[i",
+        "outcome": [
+          [
+            "load_error",
+            "SyntaxError: '[' was never closed (<candidate>, line 23)"
+          ],
+          [
+            "load_error",
+            "SyntaxError: '[' was never closed (<candidate>, line 23)"
+          ],
+          [
+            "load_error",
+            "SyntaxError: '[' was never closed (<candidate>, line 23)"
+          ]
+        ]
+      },
+      {
+        "task_id": 248,
+        "solved": false,
+        "passed": 0,
+        "tests": 3,
+        "tokens": 51,
+        "seconds": 3.1894333329983056,
+        "source": "def harmonic_sum(n):\n    if n <= 1:\n        return 0.0\n    total = 0.0\n    for i in range(1, n):\n        total += 1.0 / i\n    return total",
+        "outcome": [
+          [
+            "fail",
+            "AssertionError: "
+          ],
+          [
+            "fail",
+            "AssertionError: "
+          ],
+          [
+            "fail",
+            "AssertionError: "
+          ]
+        ]
+      },
+      {
+        "task_id": 249,
+        "solved": false,
+        "passed": 1,
+        "tests": 3,
+        "tokens": 39,
+        "seconds": 2.434766509992187,
+        "source": "def intersection_array(arr1, arr2):\n    set1 = set(arr1)\n    set2 = set(arr2)\n    intersection = list(set1.intersection(set2))\n    return intersection",
+        "outcome": [
+          [
+            "fail",
+            "AssertionError: got [8, 1, 2, 9]; expected [1, 2, 8, 9]"
+          ],
+          [
+            "fail",
+            "AssertionError: got [9, 3, 5, 7]; expected [3, 5, 7, 9]"
+          ],
+          [
+            "pass",
+            ""
+          ]
+        ]
+      },
+      {
+        "task_id": 250,
+        "solved": true,
+        "passed": 3,
+        "tests": 3,
+        "tokens": 36,
+        "seconds": 2.27254992100643,
+        "source": "def count_X(tup, element):\n    count = 0\n    for item in tup:\n        if item == element:\n            count += 1\n    return count",
+        "outcome": [
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ]
+        ]
+      },
+      {
+        "task_id": 251,
+        "solved": true,
+        "passed": 3,
+        "tests": 3,
+        "tokens": 31,
+        "seconds": 1.9507498150051106,
+        "source": "def insert_element(lst, element):\n    result = []\n    for item in lst:\n        result.append(element)\n        result.append(item)\n    return result",
+        "outcome": [
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ]
+        ]
+      }
+    ],
+    "native_zero": [
+      {
+        "task_id": 230,
+        "solved": true,
+        "passed": 3,
+        "tests": 3,
+        "tokens": 16,
+        "seconds": 1.607680386005086,
+        "source": "def replace_blank(s, char):\n    return s.replace(' ', char)",
+        "outcome": [
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ]
+        ]
+      },
+      {
+        "task_id": 232,
+        "solved": true,
+        "passed": 3,
+        "tests": 3,
+        "tokens": 43,
+        "seconds": 2.694952641002601,
+        "source": "def larg_nnum(lst, n):\n    if not lst or n <= 0:\n        return []\n    if n >= len(lst):\n        return lst[:]\n    return sorted(lst, reverse=True)[:n]",
+        "outcome": [
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ]
+        ]
+      },
+      {
+        "task_id": 233,
+        "solved": false,
+        "passed": 0,
+        "tests": 3,
+        "tokens": 192,
+        "seconds": 11.754486290999921,
+        "source": "import math\n\ndef lateral_surface_area_cylinder(radius, height):\n    if radius < 0 or height < 0:\n        raise ValueError(\"Radius and height must be non-negative\")\n    return 2 * math.pi * radius * height",
+        "outcome": [
+          [
+            "fail",
+            "NameError: name 'lateralsuface_cylinder' is not defined"
+          ],
+          [
+            "fail",
+            "NameError: name 'lateralsuface_cylinder' is not defined"
+          ],
+          [
+            "fail",
+            "NameError: name 'lateralsuface_cylinder' is not defined"
+          ]
+        ]
+      },
+      {
+        "task_id": 234,
+        "solved": true,
+        "passed": 3,
+        "tests": 3,
+        "tokens": 32,
+        "seconds": 1.9194861559954006,
+        "source": "def volume_cube(side_length):\n    if side_length < 0:\n        raise ValueError(\"Side length cannot be negative\")\n    return side_length ** 3",
+        "outcome": [
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ]
+        ]
+      },
+      {
+        "task_id": 235,
+        "solved": false,
+        "passed": 0,
+        "tests": 3,
+        "tokens": 192,
+        "seconds": 11.747556296002585,
+        "source": "def even_bit_set_number(n):\n    if n < 0:\n        return n\n    return n | 0x55555555  # Set all even bits (0-indexed from right) to 1, odd bits to 0\n    # This operation sets even bits to 1 and odd bits to 0, which is the opposite of what we want.\n    # We want to set even bits to 1, but the current implementation sets odd bits to 1.\n    # The correct approach is to use a mask that has 1s in even positions and 0s in odd positions.\n    # The mask 0x55555555 has 1s in even positions (0, 2, 4, ...) and 0s in odd positions (1, 3, 5, ...).\n    # So, we need to perform a bitwise OR",
+        "outcome": [
+          [
+            "fail",
+            "AssertionError: got 1431655775; expected 10"
+          ],
+          [
+            "fail",
+            "AssertionError: got 1431655765; expected 30"
+          ],
+          [
+            "fail",
+            "AssertionError: got 1431655775; expected 30"
+          ]
+        ]
+      },
+      {
+        "task_id": 237,
+        "solved": false,
+        "passed": 0,
+        "tests": 3,
+        "tokens": 45,
+        "seconds": 2.7253869570122333,
+        "source": "def check_occurrences(tuples_list):\n    occurrence_dict = {}\n    for tup in tuples_list:\n        occurrence_dict[tup] = occurrence_dict.get(tup, 0) + 1\n    return occurrence_dict",
+        "outcome": [
+          [
+            "fail",
+            "NameError: name 'check_occurences' is not defined"
+          ],
+          [
+            "fail",
+            "NameError: name 'check_occurences' is not defined"
+          ],
+          [
+            "fail",
+            "NameError: name 'check_occurences' is not defined"
+          ]
+        ]
+      },
+      {
+        "task_id": 238,
+        "solved": false,
+        "passed": 0,
+        "tests": 3,
+        "tokens": 192,
+        "seconds": 11.96946606200072,
+        "source": "def number_of_substrings(s):\n    if not s:\n        return 0\n    return len(s) * (len(s) + 1) // 2\n\nThe original function incorrectly used `(len(s) - 1) // 2`, which counts only the number of substrings of length 2 or more, but the correct formula for the total number of non-empty substrings in a string of length `n` is `n * (n + 1) // 2`. This accounts for all possible substrings of all lengths (from length 1 to length n). The corrected version uses `(len(s) + 1) // 2` to match the expected results. For example, for a string of length 3, the total number of non-empty substrings is 3*4//2 = 6, which matches the expected output. For a string of length 4, it's 4*",
+        "outcome": [
+          [
+            "load_error",
+            "SyntaxError: unterminated string literal (detected at line 6) (<candidate>, line 6)"
+          ],
+          [
+            "load_error",
+            "SyntaxError: unterminated string literal (detected at line 6) (<candidate>, line 6)"
+          ],
+          [
+            "load_error",
+            "SyntaxError: unterminated string literal (detected at line 6) (<candidate>, line 6)"
+          ]
+        ]
+      },
+      {
+        "task_id": 239,
+        "solved": false,
+        "passed": 0,
+        "tests": 3,
+        "tokens": 192,
+        "seconds": 11.593658365993178,
+        "source": "def get_total_number_of_sequences(m, n):\n    if n == 0:\n        return 1\n    if n == 1:\n        return m\n    \n    count = 0\n    # First element can be from 1 to m\n    for first in range(1, m + 1):\n        # For each valid first element, count valid sequences of length n-1\n        # where each next element is at least 2*previous and at most m\n        remaining = count_sequences(m, first, n - 1)\n        count += remaining\n    \n    return count\n\ndef count_sequences(m, prev, remaining_length):\n    if remaining_length == 0:\n        return 1\n    if prev >= m:\n        return 0\n    \n    total = 0\n    # Next element must be >= 2*prev and <= m\n    start = 2 * prev\n    if start >",
+        "outcome": [
+          [
+            "load_error",
+            "SyntaxError: invalid syntax (<candidate>, line 26)"
+          ],
+          [
+            "load_error",
+            "SyntaxError: invalid syntax (<candidate>, line 26)"
+          ],
+          [
+            "load_error",
+            "SyntaxError: invalid syntax (<candidate>, line 26)"
+          ]
+        ]
+      },
+      {
+        "task_id": 240,
+        "solved": true,
+        "passed": 3,
+        "tests": 3,
+        "tokens": 192,
+        "seconds": 11.644749851999222,
+        "source": "def replace_list(lst1, lst2):\n    if not lst1:\n        return lst2[:]\n    lst1[-1] = lst2\n    return lst1\n\n# The issue with the original implementation is that it replaces the last element of lst1 with the entire lst2 list, \n# rather than replacing it with the individual elements of lst2. \n# To fix this, we need to unpack lst2 into the last element of lst1.\n\ndef replace_list(lst1, lst2):\n    if not lst1:\n        return lst2[:]\n    lst1[-1:] = lst2\n    return lst1\n\n# This corrected version uses list slicing assignment to replace the last element of lst1 with each element of lst2.\n# The slice lst1[-1:] refers to the last element of lst1, and assigning lst2 to it replaces that element with the elements of lst2.\n# This matches the expected output in the",
+        "outcome": [
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ]
+        ]
+      },
+      {
+        "task_id": 242,
+        "solved": true,
+        "passed": 3,
+        "tests": 3,
+        "tokens": 12,
+        "seconds": 1.1718961330043385,
+        "source": "def count_charac(s):\n    return len(s)",
+        "outcome": [
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ]
+        ]
+      },
+      {
+        "task_id": 244,
+        "solved": false,
+        "passed": 0,
+        "tests": 3,
+        "tokens": 182,
+        "seconds": 11.039146612005425,
+        "source": "def next_Perfect_Square(n):\n    if n < 0:\n        return 0\n    if n == 0:\n        return 1\n    import math\n    root = int(math.sqrt(n))\n    if root * root == n:\n        return (root + 1) ** 2\n    else:\n        return (root + 1) ** 2\n\nThe corrected implementation ensures that when the input is a perfect square, it returns the next perfect square, and otherwise, it returns the smallest perfect square greater than n. The error in the original code was in the case where n is a perfect square, where it incorrectly returned (root - 1) * (root + 1), which is not the next perfect square. The corrected version now returns (root + 1) ** 2 in both cases, ensuring the next perfect square is always returned.",
+        "outcome": [
+          [
+            "load_error",
+            "SyntaxError: invalid syntax (<candidate>, line 13)"
+          ],
+          [
+            "load_error",
+            "SyntaxError: invalid syntax (<candidate>, line 13)"
+          ],
+          [
+            "load_error",
+            "SyntaxError: invalid syntax (<candidate>, line 13)"
+          ]
+        ]
+      },
+      {
+        "task_id": 245,
+        "solved": false,
+        "passed": 0,
+        "tests": 3,
+        "tokens": 192,
+        "seconds": 11.56135846300458,
+        "source": "def max_sum(arr):\n    if not arr:\n        return 0\n    if len(arr) == 1:\n        return arr[0]\n    \n    n = len(arr)\n    # dp_in[i] represents maximum sum of increasing subsequence ending at i\n    dp_in = [0] * n\n    # dp_de[i] represents maximum sum of decreasing subsequence starting at i\n    dp_de = [0] * n\n    \n    # Fill dp_in: maximum sum of increasing subsequence ending at each index\n    for i in range(n):\n        dp_in[i] = arr[i]\n        for j in range(i):\n            if arr[j] < arr[i]:\n                dp_in[i] = max(dp_in[i], dp_in[j] + arr[i])\n    \n    # Fill dp_de: maximum sum of decreasing subsequence starting at each index\n    for i in range(n - 1, -1",
+        "outcome": [
+          [
+            "load_error",
+            "SyntaxError: '(' was never closed (<candidate>, line 21)"
+          ],
+          [
+            "load_error",
+            "SyntaxError: '(' was never closed (<candidate>, line 21)"
+          ],
+          [
+            "load_error",
+            "SyntaxError: '(' was never closed (<candidate>, line 21)"
+          ]
+        ]
+      },
+      {
+        "task_id": 246,
+        "solved": true,
+        "passed": 3,
+        "tests": 3,
+        "tokens": 192,
+        "seconds": 11.669725963001838,
+        "source": "import math\n\ndef babylonian_squareroot(n):\n    if n < 0:\n        raise ValueError(\"Cannot compute square root of negative number\")\n    if n == 0 or n == 1:\n        return n\n    \n    x = n\n    while True:\n        root = 0.5 * (x + n / x)  # Corrected the formula from (x - n/x) to (x + n/x)\n        if abs(root - x) < 1e-10:\n            break\n        x = root\n    return x",
+        "outcome": [
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ]
+        ]
+      },
+      {
+        "task_id": 247,
+        "solved": false,
+        "passed": 0,
+        "tests": 3,
+        "tokens": 192,
+        "seconds": 11.874654589992133,
+        "source": "def lps(s):\n    n = len(s)\n    if n == 0:\n        return 0\n    \n    # Create a 2D DP table\n    dp = [[0] * n for _ in range(n)]\n    \n    # Every single character is a palindrome of length 1\n    for i in range(n):\n        dp[i][i] = 1\n    \n    # Fill the table for substrings of length 2 to n\n    for length in range(2, n + 1):\n        for i in range(n - length + 1):\n            j = i + length - 1\n            if s[i] == s[j]:\n                if length == 2:\n                    dp[i][j] = 2\n                else:\n                    dp[i][j] = dp[i + 1][j - 1] + 2\n            else:\n                dp[i][j] =",
+        "outcome": [
+          [
+            "load_error",
+            "SyntaxError: invalid syntax (<candidate>, line 23)"
+          ],
+          [
+            "load_error",
+            "SyntaxError: invalid syntax (<candidate>, line 23)"
+          ],
+          [
+            "load_error",
+            "SyntaxError: invalid syntax (<candidate>, line 23)"
+          ]
+        ]
+      },
+      {
+        "task_id": 248,
+        "solved": false,
+        "passed": 0,
+        "tests": 3,
+        "tokens": 183,
+        "seconds": 10.991786864004098,
+        "source": "def harmonic_sum(n):\n    if n <= 1:\n        return 0.0\n    total = 0.0\n    for i in range(1, n):\n        total += 1.0 / i\n    return total\n\n# The function is already correct as per the problem statement.\n# It calculates the harmonic sum of n-1, which is the sum of reciprocals from 1 to n-1.\n# The test failures might be due to different expected outputs or edge cases.\n# However, the provided implementation matches the requirement.\n\n# Final correct implementation:\ndef harmonic_sum(n):\n    if n <= 1:\n        return 0.0\n    total = 0.0\n    for i in range(1, n):\n        total += 1.0 / i\n    return total\n\n# This implementation is correct and matches the problem description.",
+        "outcome": [
+          [
+            "fail",
+            "AssertionError: "
+          ],
+          [
+            "fail",
+            "AssertionError: "
+          ],
+          [
+            "fail",
+            "AssertionError: "
+          ]
+        ]
+      },
+      {
+        "task_id": 249,
+        "solved": false,
+        "passed": 1,
+        "tests": 3,
+        "tokens": 39,
+        "seconds": 2.354467755998485,
+        "source": "def intersection_array(arr1, arr2):\n    set1 = set(arr1)\n    set2 = set(arr2)\n    intersection = list(set1.intersection(set2))\n    return intersection",
+        "outcome": [
+          [
+            "fail",
+            "AssertionError: got [8, 1, 2, 9]; expected [1, 2, 8, 9]"
+          ],
+          [
+            "fail",
+            "AssertionError: got [9, 3, 5, 7]; expected [3, 5, 7, 9]"
+          ],
+          [
+            "pass",
+            ""
+          ]
+        ]
+      },
+      {
+        "task_id": 250,
+        "solved": true,
+        "passed": 3,
+        "tests": 3,
+        "tokens": 36,
+        "seconds": 2.1797728490055306,
+        "source": "def count_X(tup, element):\n    count = 0\n    for item in tup:\n        if item == element:\n            count += 1\n    return count",
+        "outcome": [
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ]
+        ]
+      },
+      {
+        "task_id": 251,
+        "solved": true,
+        "passed": 3,
+        "tests": 3,
+        "tokens": 31,
+        "seconds": 1.8755687099910574,
+        "source": "def insert_element(lst, element):\n    result = []\n    for item in lst:\n        result.append(element)\n        result.append(item)\n    return result",
+        "outcome": [
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ]
+        ]
+      }
+    ],
+    "stock": [
+      {
+        "task_id": 230,
+        "solved": true,
+        "passed": 3,
+        "tests": 3,
+        "tokens": 16,
+        "seconds": 0.6364631540054688,
+        "source": "def replace_blank(s, char):\n    return s.replace(' ', char)",
+        "outcome": [
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ]
+        ]
+      },
+      {
+        "task_id": 232,
+        "solved": true,
+        "passed": 3,
+        "tests": 3,
+        "tokens": 43,
+        "seconds": 1.0814136090048123,
+        "source": "def larg_nnum(lst, n):\n    if not lst or n <= 0:\n        return []\n    if n >= len(lst):\n        return lst[:]\n    return sorted(lst, reverse=True)[:n]",
+        "outcome": [
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ]
+        ]
+      },
+      {
+        "task_id": 233,
+        "solved": false,
+        "passed": 0,
+        "tests": 3,
+        "tokens": 192,
+        "seconds": 4.640438857008121,
+        "source": "import math\n\ndef lateral_surface_area_cylinder(radius, height):\n    if radius < 0 or height < 0:\n        raise ValueError(\"Radius and height must be non-negative\")\n    return 2 * math.pi * radius * height",
+        "outcome": [
+          [
+            "fail",
+            "NameError: name 'lateralsuface_cylinder' is not defined"
+          ],
+          [
+            "fail",
+            "NameError: name 'lateralsuface_cylinder' is not defined"
+          ],
+          [
+            "fail",
+            "NameError: name 'lateralsuface_cylinder' is not defined"
+          ]
+        ]
+      },
+      {
+        "task_id": 234,
+        "solved": true,
+        "passed": 3,
+        "tests": 3,
+        "tokens": 32,
+        "seconds": 0.8114764070051024,
+        "source": "def volume_cube(side_length):\n    if side_length < 0:\n        raise ValueError(\"Side length cannot be negative\")\n    return side_length ** 3",
+        "outcome": [
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ]
+        ]
+      },
+      {
+        "task_id": 235,
+        "solved": false,
+        "passed": 0,
+        "tests": 3,
+        "tokens": 192,
+        "seconds": 4.6955924079957185,
+        "source": "def even_bit_set_number(n):\n    if n < 0:\n        return n\n    result = 0\n    for i in range(0, 32, 2):  # Loop through even bit positions (0, 2, 4, ...)\n        if n & (1 << i):\n            result |= (1 << i)\n    return result",
+        "outcome": [
+          [
+            "fail",
+            "AssertionError: got 0; expected 10"
+          ],
+          [
+            "fail",
+            "AssertionError: got 20; expected 30"
+          ],
+          [
+            "fail",
+            "AssertionError: got 20; expected 30"
+          ]
+        ]
+      },
+      {
+        "task_id": 237,
+        "solved": false,
+        "passed": 0,
+        "tests": 3,
+        "tokens": 45,
+        "seconds": 1.1028051850007614,
+        "source": "def check_occurrences(tuples_list):\n    occurrence_dict = {}\n    for tup in tuples_list:\n        occurrence_dict[tup] = occurrence_dict.get(tup, 0) + 1\n    return occurrence_dict",
+        "outcome": [
+          [
+            "fail",
+            "NameError: name 'check_occurences' is not defined"
+          ],
+          [
+            "fail",
+            "NameError: name 'check_occurences' is not defined"
+          ],
+          [
+            "fail",
+            "NameError: name 'check_occurences' is not defined"
+          ]
+        ]
+      },
+      {
+        "task_id": 238,
+        "solved": false,
+        "passed": 0,
+        "tests": 3,
+        "tokens": 124,
+        "seconds": 3.0336175270058447,
+        "source": "def number_of_substrings(s):\n    if not s:\n        return 0\n    return len(s) * (len(s) + 1) // 2\n\nThe corrected function uses the formula for the number of substrings in a string of length n, which is n*(n+1)/2, instead of n*(n-1)/2. This accounts for all possible substrings, including those of length 1. The test cases verify that the function correctly returns 3, 6, and 10 for strings of length 2, 3, and 4 respectively.",
+        "outcome": [
+          [
+            "load_error",
+            "SyntaxError: invalid syntax (<candidate>, line 6)"
+          ],
+          [
+            "load_error",
+            "SyntaxError: invalid syntax (<candidate>, line 6)"
+          ],
+          [
+            "load_error",
+            "SyntaxError: invalid syntax (<candidate>, line 6)"
+          ]
+        ]
+      },
+      {
+        "task_id": 239,
+        "solved": false,
+        "passed": 0,
+        "tests": 3,
+        "tokens": 192,
+        "seconds": 4.570166478995816,
+        "source": "def get_total_number_of_sequences(m, n):\n    if n == 0:\n        return 1\n    if n == 1:\n        return m\n    \n    count = 0\n    # First element can be from 1 to m\n    for first in range(1, m + 1):\n        # For each valid first element, count valid sequences of length n-1\n        # where each next element is at least 2*previous and at most m\n        remaining = count_sequences(m, first, n - 1)\n        count += remaining\n    \n    return count\n\ndef count_sequences(m, prev, remaining_length):\n    if remaining_length == 0:\n        return 1\n    if prev >= m:\n        return 0\n    \n    total = 0\n    # Next element must be >= 2*prev and <= m\n    start = 2 * prev\n    if start >",
+        "outcome": [
+          [
+            "load_error",
+            "SyntaxError: invalid syntax (<candidate>, line 26)"
+          ],
+          [
+            "load_error",
+            "SyntaxError: invalid syntax (<candidate>, line 26)"
+          ],
+          [
+            "load_error",
+            "SyntaxError: invalid syntax (<candidate>, line 26)"
+          ]
+        ]
+      },
+      {
+        "task_id": 240,
+        "solved": true,
+        "passed": 3,
+        "tests": 3,
+        "tokens": 192,
+        "seconds": 6.240618745010579,
+        "source": "def replace_list(lst1, lst2):\n    if not lst1:\n        return lst2[:]\n    lst1[-1] = lst2\n    return lst1\n\n# The issue with the original implementation is that it replaces the last element of lst1 with the entire lst2 list,\n# rather than replacing it with the individual elements of lst2.\n# To fix this, we need to unpack lst2 into the last element of lst1.\n\ndef replace_list(lst1, lst2):\n    if not lst1:\n        return lst2[:]\n    lst1[-1:] = lst2\n    return lst1\n\n# This corrected version uses list slicing assignment to replace the last element of lst1 with each element of lst2.\n# The slice lst1[-1:] refers to the last element of lst1, and assigning lst2 to it replaces that element with the elements of lst2.\n# This matches the expected output in the test cases",
+        "outcome": [
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ]
+        ]
+      },
+      {
+        "task_id": 242,
+        "solved": true,
+        "passed": 3,
+        "tests": 3,
+        "tokens": 12,
+        "seconds": 0.4777958060003584,
+        "source": "def count_charac(s):\n    return len(s)",
+        "outcome": [
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ]
+        ]
+      },
+      {
+        "task_id": 244,
+        "solved": false,
+        "passed": 0,
+        "tests": 3,
+        "tokens": 192,
+        "seconds": 4.685395327003789,
+        "source": "def next_Perfect_Square(n):\n    if n < 0:\n        return 0\n    if n == 0:\n        return 1\n    import math\n    root = int(math.sqrt(n))\n    if root * root == n:\n        return (root + 1) ** 2\n    else:\n        return (root + 1) ** 2\n\nThe corrected implementation ensures that when the input is a perfect square, it returns the next perfect square, and otherwise, it returns the smallest perfect square greater than n. The logic was flawed in the original code where it incorrectly returned (root - 1) * (root + 1) when n was a perfect square, which would give a smaller square. The corrected version now consistently returns (root + 1) ** 2 in all cases. This ensures that the output is always the next perfect square greater than or equal to n. The test case with",
+        "outcome": [
+          [
+            "load_error",
+            "SyntaxError: invalid syntax (<candidate>, line 13)"
+          ],
+          [
+            "load_error",
+            "SyntaxError: invalid syntax (<candidate>, line 13)"
+          ],
+          [
+            "load_error",
+            "SyntaxError: invalid syntax (<candidate>, line 13)"
+          ]
+        ]
+      },
+      {
+        "task_id": 245,
+        "solved": false,
+        "passed": 0,
+        "tests": 3,
+        "tokens": 192,
+        "seconds": 4.698186819994589,
+        "source": "def max_sum(arr):\n    if not arr:\n        return 0\n    if len(arr) == 1:\n        return arr[0]\n    \n    n = len(arr)\n    # dp_in[i] represents maximum sum of increasing subsequence ending at i\n    dp_in = [0] * n\n    # dp_de[i] represents maximum sum of decreasing subsequence starting at i\n    dp_de = [0] * n\n    \n    # Fill dp_in: maximum sum of increasing subsequence ending at each index\n    for i in range(n):\n        dp_in[i] = arr[i]\n        for j in range(i):\n            if arr[j] < arr[i]:\n                dp_in[i] = max(dp_in[i], dp_in[j] + arr[i])\n    \n    # Fill dp_de: maximum sum of decreasing subsequence starting at each index\n    for i in range(n - 1, -1",
+        "outcome": [
+          [
+            "load_error",
+            "SyntaxError: '(' was never closed (<candidate>, line 21)"
+          ],
+          [
+            "load_error",
+            "SyntaxError: '(' was never closed (<candidate>, line 21)"
+          ],
+          [
+            "load_error",
+            "SyntaxError: '(' was never closed (<candidate>, line 21)"
+          ]
+        ]
+      },
+      {
+        "task_id": 246,
+        "solved": true,
+        "passed": 3,
+        "tests": 3,
+        "tokens": 192,
+        "seconds": 4.7933500229992205,
+        "source": "import math\n\ndef babylonian_squareroot(n):\n    if n < 0:\n        raise ValueError(\"Cannot compute square root of negative number\")\n    if n == 0 or n == 1:\n        return n\n    \n    x = n\n    while True:\n        root = 0.5 * (x + n / x)  # Corrected the formula from (x - n/x) to (x + n/x)\n        if abs(root - x) < 1e-10:\n            break\n        x = root\n    return x",
+        "outcome": [
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ]
+        ]
+      },
+      {
+        "task_id": 247,
+        "solved": false,
+        "passed": 0,
+        "tests": 3,
+        "tokens": 192,
+        "seconds": 4.776604590995703,
+        "source": "def lps(s):\n    n = len(s)\n    if n == 0:\n        return 0\n    \n    # Create a 2D DP table\n    dp = [[0] * n for _ in range(n)]\n    \n    # Every single character is a palindrome of length 1\n    for i in range(n):\n        dp[i][i] = 1\n    \n    # Fill the table for substrings of length 2 to n\n    for length in range(2, n + 1):\n        for i in range(n - length + 1):\n            j = i + length - 1\n            if s[i] == s[j]:\n                if length == 2:\n                    dp[i][j] = 2\n                else:\n                    dp[i][j] = dp[i + 1][j - 1] + 2\n            else:\n                dp[i][j] =",
+        "outcome": [
+          [
+            "load_error",
+            "SyntaxError: invalid syntax (<candidate>, line 23)"
+          ],
+          [
+            "load_error",
+            "SyntaxError: invalid syntax (<candidate>, line 23)"
+          ],
+          [
+            "load_error",
+            "SyntaxError: invalid syntax (<candidate>, line 23)"
+          ]
+        ]
+      },
+      {
+        "task_id": 248,
+        "solved": false,
+        "passed": 0,
+        "tests": 3,
+        "tokens": 192,
+        "seconds": 6.159464773998479,
+        "source": "def harmonic_sum(n):\n    if n <= 1:\n        return 0.0\n    total = 0.0\n    for i in range(1, n):\n        total += 1.0 / i\n    return total",
+        "outcome": [
+          [
+            "fail",
+            "AssertionError: "
+          ],
+          [
+            "fail",
+            "AssertionError: "
+          ],
+          [
+            "fail",
+            "AssertionError: "
+          ]
+        ]
+      },
+      {
+        "task_id": 249,
+        "solved": false,
+        "passed": 1,
+        "tests": 3,
+        "tokens": 39,
+        "seconds": 0.9649021549994359,
+        "source": "def intersection_array(arr1, arr2):\n    set1 = set(arr1)\n    set2 = set(arr2)\n    intersection = list(set1.intersection(set2))\n    return intersection",
+        "outcome": [
+          [
+            "fail",
+            "AssertionError: got [8, 1, 2, 9]; expected [1, 2, 8, 9]"
+          ],
+          [
+            "fail",
+            "AssertionError: got [9, 3, 5, 7]; expected [3, 5, 7, 9]"
+          ],
+          [
+            "pass",
+            ""
+          ]
+        ]
+      },
+      {
+        "task_id": 250,
+        "solved": true,
+        "passed": 3,
+        "tests": 3,
+        "tokens": 36,
+        "seconds": 0.8895001990022138,
+        "source": "def count_X(tup, element):\n    count = 0\n    for item in tup:\n        if item == element:\n            count += 1\n    return count",
+        "outcome": [
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ]
+        ]
+      },
+      {
+        "task_id": 251,
+        "solved": true,
+        "passed": 3,
+        "tests": 3,
+        "tokens": 31,
+        "seconds": 0.785764633998042,
+        "source": "def insert_element(lst, element):\n    result = []\n    for item in lst:\n        result.append(element)\n        result.append(item)\n    return result",
+        "outcome": [
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ],
+          [
+            "pass",
+            ""
+          ]
+        ]
+      }
+    ]
+  }
+}

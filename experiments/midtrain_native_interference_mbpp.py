@@ -91,6 +91,7 @@ def main():
     parser.add_argument("--steps", type=int, default=200)
     parser.add_argument("--learning-rate", type=float, default=2e-6)
     parser.add_argument("--preserve-weight", type=float, default=5.0)
+    parser.add_argument("--diversity-weight", type=float, default=0.1)
     parser.add_argument("--seed", type=int, default=41)
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--source-commit", required=True)
@@ -140,15 +141,22 @@ def main():
         zero = model(input_ids=ids, attention_mask=mask, use_cache=False,
                      coupling="zero").logits[:, -1].float()
         inhibit = model(input_ids=ids, attention_mask=mask, use_cache=False,
-                        coupling="inhibit").logits[:, -1].float()
+                        coupling="inhibit")
+        inhibit_logits = inhibit.logits[:, -1].float()
         zero_lp = zero.log_softmax(dim=-1).gather(1, target[:, None]).mean()
-        inhibit_lp = inhibit.log_softmax(dim=-1).gather(1, target[:, None]).mean()
+        inhibit_lp = inhibit_logits.log_softmax(dim=-1).gather(1, target[:, None]).mean()
         margin = inhibit_lp - zero_lp
         preserve = F.kl_div(
             zero.log_softmax(dim=-1), teacher_logits.softmax(dim=-1),
             reduction="batchmean")
+        slots = F.normalize(inhibit.frontier_state.float(), dim=-1)
+        cosine = torch.matmul(slots, slots.transpose(1, 2))
+        eye = torch.eye(cosine.shape[-1], dtype=torch.bool, device=cosine.device)
+        diversity = cosine[:, ~eye].square().mean()
+        variance = F.relu(0.1 - inhibit.frontier_state.float().std(dim=1)).mean()
         loss = (-inhibit_lp + F.relu(0.05 - margin)
-                + args.preserve_weight * preserve)
+                + args.preserve_weight * preserve
+                + args.diversity_weight * (diversity + variance))
         optimizer.zero_grad(set_to_none=True)
         loss.backward()
         torch.nn.utils.clip_grad_norm_(native, 1.0)
@@ -173,6 +181,7 @@ def main():
         "data_sha256": hashlib.sha256(Path(args.data).read_bytes()).hexdigest(),
         "train_tasks": len(train), "validation_tasks": len(validation),
         "preserve_weight": args.preserve_weight,
+        "diversity_weight": args.diversity_weight,
         "steps": args.steps, "before": before, "after": after,
         "loss_first": losses[0], "loss_last": losses[-1],
         "mean_training_margin": statistics.mean(margins),

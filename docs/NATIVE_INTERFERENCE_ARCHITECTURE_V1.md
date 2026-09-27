@@ -2,6 +2,22 @@
 
 Status: frozen engineering target, 27 September 2026
 
+## Current evidence
+
+The first self-contained Qwen3-4B transplant has 4.059B parameters, preserves stock logits exactly before training, carries eight 128-dimensional states in its cache, and trains through ordinary tool-result tokens. On 24 held-out same-state coding choices, interference produced a +2.683 target log-probability advantage with 0.00199 KL on the zero path.
+
+That result is a mechanism admission only. Standard generated repairs solved 11/24 with interference, 10/24 with interference disabled, and 11/24 with stock Qwen. There is no overall coding capability win.
+
+The slot-theater probe rejected the hypothesis-tracking claim for this checkpoint:
+
+- effective slot rank: 1.000;
+- mean pairwise slot cosine: approximately 1.000;
+- matched versus shuffled evidence advantage: +0.053 log-probability;
+- correctly routed versus misassigned evidence advantage: +1.356;
+- marker versus no-marker advantage: +3.309.
+
+The checkpoint learned a persistent failure-routing adapter. It did not learn distinct hypotheses. Do not describe it as parallel reasoning. The next revision must pass slot diversity, semantic selectivity, and wrong-path recovery gates before multi-action scaling.
+
 ## Objective
 
 Build the strongest practical reasoning architecture suggested by the Interference Search results. The released explicit frontier is evidence for execution, convergence, and refutation. It is not a constraint that the native model must reproduce the original controller literally.
