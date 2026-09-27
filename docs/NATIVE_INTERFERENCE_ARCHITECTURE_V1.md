@@ -40,6 +40,17 @@ The target is a permutation-invariant set. Frozen teacher representations `z_j` 
 
 Training combines candidate coverage, assigned-slot alive/value prediction, scoped refutation, certified merge, and causal behavior. Generic diversity is a weak regularizer and cannot substitute for coverage.
 
+### V4a current result
+
+The first teacher-only V4a run used 32 training tasks and 8 held-out tasks with four verified code candidates each. At 300 steps it reached rank 2.33 and 59.4% candidate decoding. Continuing the same checkpoint to 600 cumulative steps produced:
+
+- task-conditioned effective rank: 2.83, passing the greater-than-2.5 representation threshold;
+- matched candidate cosine: 0.341;
+- candidate decoding accuracy: 59.4%, below the greater-than-80% admission threshold;
+- assigned-slot alive accuracy: 71.9%.
+
+V4a is therefore a partial representation result, not admitted. More optimization increased rank and cosine without improving candidate decoding. The next improvement should strengthen candidate-family supervision and enlarge the task-disjoint set rather than continue the same small run.
+
 ### V4 stages
 
 - **V4a representation:** multiple endogenous candidate hypotheses can be decoded from separate slots.
