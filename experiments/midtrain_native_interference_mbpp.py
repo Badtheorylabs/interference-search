@@ -91,7 +91,7 @@ def main():
     parser.add_argument("--steps", type=int, default=200)
     parser.add_argument("--learning-rate", type=float, default=2e-6)
     parser.add_argument("--preserve-weight", type=float, default=5.0)
-    parser.add_argument("--diversity-weight", type=float, default=0.1)
+    parser.add_argument("--diversity-weight", type=float, default=0.01)
     parser.add_argument("--seed", type=int, default=41)
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--source-commit", required=True)

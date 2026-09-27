@@ -9,7 +9,7 @@ class InterferenceQwen3Config(Qwen3Config):
     def __init__(self, frontier_slots=8, frontier_dim=128,
                  frontier_heads=4, interference_scale=1.0,
                  interference_layer_stride=1,
-                 tool_error_token_id=None, architecture_version=2, **kwargs):
+                 tool_error_token_id=None, architecture_version=3, **kwargs):
         super().__init__(**kwargs)
         if frontier_slots < 2:
             raise ValueError("frontier_slots must be at least two")

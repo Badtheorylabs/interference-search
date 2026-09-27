@@ -86,6 +86,7 @@ def main():
     model = load_model(args, tokenizer)
     conditions = ("matched", "shuffled", "misassigned", "no_marker", "zero")
     metrics = {name: [] for name in conditions}
+    frontiers = {name: [] for name in conditions}
     gate_write, gate_read, ref_match = [], [], []
     for index, row in enumerate(rows):
         positive_first = index % 2 == 0
@@ -108,6 +109,7 @@ def main():
                       "effective_rank": effective_rank(output.frontier_state[0]),
                       "mean_slot_cosine": slot_similarity(output.frontier_state[0])}
             metrics[name].append(record)
+            frontiers[name].append(output.frontier_state[0].float().cpu())
             if name == "matched":
                 gate_write.append(output.slot_write_gate[0].mean(dim=-1).cpu().tolist())
                 gate_read.append(output.token_read_gate[0, :, 0].cpu().tolist())
@@ -119,6 +121,15 @@ def main():
             "mean_effective_rank": statistics.mean(row["effective_rank"] for row in values),
             "mean_slot_cosine": statistics.mean(row["mean_slot_cosine"] for row in values),
         }
+    # Remove the mean state of every slot across neutral/no-marker tasks. This
+    # prevents fixed slot codes from manufacturing apparent hypothesis rank.
+    identity_baseline = torch.stack(frontiers["no_marker"]).mean(dim=0)
+    for name in conditions:
+        centered = [frontier - identity_baseline for frontier in frontiers[name]]
+        summary[name]["mean_task_conditioned_effective_rank"] = statistics.mean(
+            effective_rank(frontier) for frontier in centered)
+        summary[name]["mean_task_conditioned_slot_cosine"] = statistics.mean(
+            slot_similarity(frontier) for frontier in centered)
     matched = [row["target_logp"] for row in metrics["matched"]]
     for name in ("shuffled", "misassigned", "no_marker", "zero"):
         other = [row["target_logp"] for row in metrics[name]]

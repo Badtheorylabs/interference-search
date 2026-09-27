@@ -125,9 +125,15 @@ Construct tasks with identifiable hypotheses. Measure every slot before and afte
 
 Report pairwise cosine similarity, effective rank, assignment entropy, occupancy, survival time, and action diversity. A score gain with redundant slots is evidence for a useful recurrent adapter, not parallel hypothesis tracking.
 
+Report raw and task-conditioned rank/cosine separately. Task-conditioned metrics subtract each slot's mean identity contribution across tasks before measuring rank. Fixed slot codes and diversity regularizers must not count as hypothesis separation.
+
+Intervene on individual specialized slots. Removing one slot should selectively remove or weaken the hypothesis it represents rather than degrading every candidate uniformly.
+
 ### Wrong-path recovery
 
 Create source-disjoint tasks where early evidence makes an incorrect hypothesis dominant, a later tool result conclusively refutes it, and a previously weaker hypothesis becomes correct. Report recovery rate, recovery latency, and work after refutation. Compare against stock Qwen, the equal-parameter FFN, shuffled evidence, and inhibition disabled.
+
+Include family-level refutation: several hypotheses share one premise, a verifier disproves that premise, every dependent slot falls, and unrelated slots remain stable. Then provide equivalence evidence for two survivors and verify that multiplicity and compute fall after merging.
 
 ### Persistent working memory
 

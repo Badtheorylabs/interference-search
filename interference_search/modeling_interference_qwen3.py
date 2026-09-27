@@ -64,10 +64,12 @@ class NativeHypothesisUpdate(nn.Module):
         self.token_norm = nn.LayerNorm(dim)
         self.constructive = nn.MultiheadAttention(
             dim, config.frontier_heads, dropout=0.0, batch_first=True)
-        self.token_to_slots = nn.MultiheadAttention(
-            dim, config.frontier_heads, dropout=0.0, batch_first=True)
-        self.slot_identity = nn.Parameter(
-            torch.randn(config.frontier_slots, dim) * config.initializer_range)
+        self.slot_query = nn.Linear(dim, dim, bias=False)
+        self.token_key = nn.Linear(dim, dim, bias=False)
+        self.token_value = nn.Linear(dim, dim, bias=False)
+        identity = torch.randn(config.frontier_slots, dim)
+        identity = F.normalize(identity, dim=-1)
+        self.register_buffer("slot_identity", identity, persistent=True)
         self.slot_mlp = nn.Sequential(
             nn.Linear(dim, dim * 4), nn.SiLU(), nn.Linear(dim * 4, dim))
         self.ref_query = nn.Linear(dim, dim, bias=False)
@@ -88,9 +90,17 @@ class NativeHypothesisUpdate(nn.Module):
         frontier_state = frontier_state.to(native_dtype)
         slots = self.slot_norm(frontier_state) + self.slot_identity.unsqueeze(0)
         positive, _ = self.constructive(slots, slots, slots, need_weights=False)
-        token_write, assignment = self.token_to_slots(
-            slots, compact_tokens, compact_tokens,
-            need_weights=True, average_attn_weights=True)
+        assignment_logits = torch.matmul(
+            self.slot_query(slots).float(),
+            self.token_key(compact_tokens).float().transpose(1, 2))
+        assignment_logits = assignment_logits / math.sqrt(compact_tokens.shape[-1])
+        # Tokens compete across slots. The second normalization makes each
+        # slot's write a weighted mean without allowing every slot to claim
+        # the same evidence at full strength.
+        assignment = assignment_logits.softmax(dim=1)
+        assignment = assignment / assignment.sum(dim=-1, keepdim=True).clamp_min(1e-6)
+        token_write = torch.matmul(
+            assignment.to(compact_tokens.dtype), self.token_value(compact_tokens))
         write = torch.sigmoid(self.write_gate(torch.cat((slots, token_write), dim=-1)))
         occupancy = torch.sigmoid(self.occupancy(slots))
 
@@ -115,7 +125,7 @@ class NativeHypothesisUpdate(nn.Module):
             raise ValueError("coupling must be inhibit, zero, or excite")
         frontier_state = self.slot_norm(
             frontier_state + 0.1 * write * occupancy * (signed + token_write)
-            + 0.01 * self.slot_identity.unsqueeze(0))
+            + 0.05 * self.slot_identity.unsqueeze(0))
         frontier_state = self.slot_norm(
             frontier_state + 0.1 * self.slot_mlp(frontier_state))
 
