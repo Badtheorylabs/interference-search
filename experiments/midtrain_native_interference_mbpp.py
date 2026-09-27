@@ -38,27 +38,20 @@ def example(tokenizer, row, rng, device):
         tokenizer,
         "The verified failure applies to the failing candidate. "
         "Which candidate is the correct implementation? Answer A or B:\n", 40)
-    ids = task + candidate_a + candidate_b + feedback + instruction
+    marker = tokenizer.encode("<tool_response>", add_special_tokens=False)
+    if len(marker) != 1:
+        raise ValueError("Qwen tool response marker must be one token")
     if positive_first:
-        ref_start = len(task) + len(candidate_a)
-        ref_end = ref_start + len(candidate_b) + len(feedback)
+        ids = task + candidate_a + candidate_b + feedback + marker + instruction
         answer = "A"
     else:
-        ref_start = len(task)
-        ref_end = ref_start + len(candidate_a)
-        # Feedback also carries the negative evidence even though it follows B.
-        # Mark it independently below.
+        ids = task + candidate_a + feedback + marker + candidate_b + instruction
         answer = "B"
-    refutation = [ref_start <= index < ref_end for index in range(len(ids))]
-    feedback_start = len(task) + len(candidate_a) + len(candidate_b)
-    for index in range(feedback_start, feedback_start + len(feedback)):
-        refutation[index] = True
     target_ids = tokenizer.encode(answer, add_special_tokens=False)
     if not target_ids:
         return None
     return (torch.tensor(ids, device=device)[None],
             torch.ones(1, len(ids), dtype=torch.long, device=device),
-            torch.tensor(refutation, dtype=torch.bool, device=device)[None],
             torch.tensor([target_ids[0]], device=device))
 
 
@@ -68,13 +61,13 @@ def evaluate(model, teacher, tokenizer, rows, seed):
     rng = random.Random(seed)
     inhibit_values, zero_values, margins, kls = [], [], [], []
     for row in rows:
-        ids, mask, refutation, target = example(tokenizer, row, rng, "cuda")
+        ids, mask, target = example(tokenizer, row, rng, "cuda")
         teacher_logits = teacher(input_ids=ids, attention_mask=mask,
                                  use_cache=False).logits[:, -1].float()
         zero = model(input_ids=ids, attention_mask=mask, use_cache=False,
-                     coupling="zero", refutation_mask=refutation).logits[:, -1].float()
+                     coupling="zero").logits[:, -1].float()
         inhibit = model(input_ids=ids, attention_mask=mask, use_cache=False,
-                        coupling="inhibit", refutation_mask=refutation).logits[:, -1].float()
+                        coupling="inhibit").logits[:, -1].float()
         zero_lp = zero.log_softmax(dim=-1).gather(1, target[:, None]).mean()
         inhibit_lp = inhibit.log_softmax(dim=-1).gather(1, target[:, None]).mean()
         zero_values.append(float(zero_lp))
@@ -111,7 +104,8 @@ def main():
     values.pop("model_type", None)
     values.pop("architectures", None)
     config = InterferenceQwen3Config(
-        **values, frontier_slots=8, frontier_dim=128, frontier_heads=4)
+        **values, frontier_slots=8, frontier_dim=128, frontier_heads=4,
+        tool_error_token_id=tokenizer.convert_tokens_to_ids("<tool_response>"))
     model = InterferenceQwen3ForCausalLM.from_pretrained(
         args.model, config=config, local_files_only=True, dtype=torch.bfloat16,
         attn_implementation="sdpa", device_map="cuda")
@@ -135,7 +129,7 @@ def main():
     torch.cuda.reset_peak_memory_stats()
     started = time.perf_counter()
     for step in range(1, args.steps + 1):
-        ids, mask, refutation, target = example(
+        ids, mask, target = example(
             tokenizer, rng.choice(train), rng, "cuda")
         tick = time.perf_counter()
         with torch.no_grad():
@@ -144,9 +138,9 @@ def main():
                 use_cache=False).logits[:, -1].float()
         model.train()
         zero = model(input_ids=ids, attention_mask=mask, use_cache=False,
-                     coupling="zero", refutation_mask=refutation).logits[:, -1].float()
+                     coupling="zero").logits[:, -1].float()
         inhibit = model(input_ids=ids, attention_mask=mask, use_cache=False,
-                        coupling="inhibit", refutation_mask=refutation).logits[:, -1].float()
+                        coupling="inhibit").logits[:, -1].float()
         zero_lp = zero.log_softmax(dim=-1).gather(1, target[:, None]).mean()
         inhibit_lp = inhibit.log_softmax(dim=-1).gather(1, target[:, None]).mean()
         margin = inhibit_lp - zero_lp
