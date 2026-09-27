@@ -165,12 +165,17 @@ def evaluate(model, tokenizer, rows, action_vectors):
     return result
 
 
-def source_receipt():
+def source_receipt(source_commit):
     root = Path(__file__).resolve().parents[1]
-    commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root,
-                                     text=True).strip()
-    dirty = bool(subprocess.check_output(["git", "status", "--porcelain"],
-                                         cwd=root, text=True).strip())
+    try:
+        commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root,
+                                         text=True, stderr=subprocess.DEVNULL).strip()
+        dirty = bool(subprocess.check_output(["git", "status", "--porcelain"],
+                                             cwd=root, text=True).strip())
+    except subprocess.CalledProcessError:
+        if not source_commit:
+            raise RuntimeError("copied source requires --source-commit")
+        commit, dirty = source_commit, False
     return commit, dirty, sha256(Path(__file__))
 
 
@@ -183,8 +188,9 @@ def main():
     parser.add_argument("--learning-rate", type=float, default=2e-4)
     parser.add_argument("--inhibit-start", type=int, default=200)
     parser.add_argument("--seed", type=int, default=17)
+    parser.add_argument("--source-commit")
     args = parser.parse_args()
-    commit, dirty, script_hash = source_receipt()
+    commit, dirty, script_hash = source_receipt(args.source_commit)
     if dirty:
         raise RuntimeError("commit the exact training source before starting")
     paths = {name: args.data / f"{name}.jsonl"
