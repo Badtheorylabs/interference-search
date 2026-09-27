@@ -1,0 +1,278 @@
+"""Train Interference Search natively on Qwen3-4B hidden states and task KV.
+
+The frozen backbone prefills each task once. Frontier states, verified failures,
+typed actions, and executed successors pass through the same model weights.
+State branches reuse the task KV. This stage updates the native search and
+transition heads while holding the 4B backbone fixed.
+"""
+
+import argparse
+import hashlib
+import json
+import random
+import statistics
+import subprocess
+import time
+from pathlib import Path
+
+import torch
+from torch.nn import functional as F
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+from interference_search.countdown import solver
+from interference_search.countdown_actions import CountdownActionCodec
+from interference_search.native_kv_frontier import NativeKVFrontier
+
+
+MODEL = "Qwen/Qwen3-4B-Base"
+REVISION = "906bfd4b4dc7f14ee4320094d8b41684abff8539"
+CODEC = CountdownActionCodec(max_numbers=7)
+
+
+def read_rows(path):
+    return [json.loads(line) for line in Path(path).read_text().splitlines()]
+
+
+def sha256(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def state_text(values):
+    return "remaining values: " + ", ".join(map(str, values))
+
+
+def task_text(row):
+    return (f"Use each number {row['numbers']} once with + - * / to reach "
+            f"{row['target']}. Intermediate values must be positive whole numbers.")
+
+
+def action_text(action):
+    word = {"+": "add", "-": "subtract", "*": "multiply", "/": "divide"}[action.op]
+    return f"{word} sorted position {action.left} with sorted position {action.right}"
+
+
+def tokens(tokenizer, texts, length):
+    encoded = tokenizer(texts, padding=True, truncation=True, max_length=length,
+                        return_tensors="pt", add_special_tokens=False)
+    return encoded["input_ids"].cuda(), encoded["attention_mask"].cuda().bool()
+
+
+def encode_row(model, tokenizer, row):
+    task_ids, task_mask = tokens(tokenizer, [task_text(row)], 96)
+    context = model.prepare(task_ids, task_mask)
+    suffixes = [state_text(state) for state in row["frontier"]]
+    suffixes.append(state_text(row["verified_dead_state"]))
+    successor_specs = []
+    for state_index, records in enumerate(row["sampled_successors"]):
+        for action_id, successor in records:
+            successor_specs.append((state_index, action_id))
+            suffixes.append(state_text(successor))
+    suffix_ids, suffix_mask = tokens(tokenizer, suffixes, 32)
+    vectors = model.encode_suffixes(context, suffix_ids, suffix_mask)
+    width = len(row["frontier"])
+    states = vectors[:width].unsqueeze(0)
+    refs = vectors[width:width + 1].unsqueeze(0)
+    successors = vectors[width + 1:]
+    legal = torch.tensor([CODEC.legal_mask(tuple(state)) for state in row["frontier"]],
+                         dtype=torch.bool, device="cuda").unsqueeze(0)
+    return context, states, refs, successors, successor_specs, legal
+
+
+def forward_row(model, tokenizer, row, action_vectors, coupling):
+    context, states, refs, successors, successor_specs, legal = encode_row(
+        model, tokenizer, row)
+    output = model.frontier_step(
+        context, states, torch.ones(states.shape[:2], dtype=torch.bool, device="cuda"),
+        refs, torch.ones(refs.shape[:2], dtype=torch.bool, device="cuda"),
+        action_vectors, legal, coupling)
+    return output, successors, successor_specs, legal
+
+
+def row_loss(model, tokenizer, row, action_vectors, coupling):
+    output, successors, specs, legal = forward_row(
+        model, tokenizer, row, action_vectors, coupling)
+    targets = torch.tensor(row["action_targets"], device="cuda")
+    trainable = targets >= 0
+    action_loss = F.cross_entropy(output.proposal_logits[0, trainable], targets[trainable])
+    survival = torch.tensor(row["survival_targets"], dtype=torch.float32, device="cuda")
+    survival_loss = F.binary_cross_entropy_with_logits(output.survival_logits[0], survival)
+    refuted = torch.zeros_like(output.proposal_logits)
+    for state_index, actions in enumerate(row["refutation_actions"]):
+        refuted[0, state_index, actions] = 1
+    match_logits = output.action_refutation_logits.squeeze(-1)[legal]
+    match_targets = refuted[legal]
+    positive = match_targets.sum().clamp_min(1)
+    negative = (match_targets.numel() - positive).clamp_min(1)
+    match_loss = F.binary_cross_entropy_with_logits(
+        match_logits, match_targets, pos_weight=(negative / positive).detach())
+    predicted = torch.stack([output.predicted_successors[0, state_index, action_id]
+                             for state_index, action_id in specs])
+    transition_loss = 1 - (F.normalize(predicted, dim=-1) *
+                           F.normalize(successors.float(), dim=-1)).sum(dim=-1).mean()
+    loss = action_loss + 0.4 * survival_loss + 0.5 * match_loss + 0.3 * transition_loss
+    return loss, {"action": action_loss, "survival": survival_loss,
+                  "match": match_loss, "transition": transition_loss}
+
+
+@torch.no_grad()
+def evaluate(model, tokenizer, rows, action_vectors):
+    model.cell.eval()
+    metrics = {mode: {"exact": 0, "winning": 0, "alive": 0,
+                      "refuted": 0, "opportunities": 0,
+                      "positive": [], "negative": []}
+               for mode in ("zero", "inhibit")}
+    for row in rows:
+        context, states, refs, _, _, legal = encode_row(model, tokenizer, row)
+        target_solver = solver(row["target"])
+        for mode, values in metrics.items():
+            output = model.frontier_step(
+                context, states, torch.ones(states.shape[:2], dtype=torch.bool, device="cuda"),
+                refs, torch.ones(refs.shape[:2], dtype=torch.bool, device="cuda"),
+                action_vectors, legal, mode)
+            chosen = output.proposal_logits[0].argmax(dim=-1).cpu()
+            refuted_mask = torch.zeros_like(output.proposal_logits, dtype=torch.bool)
+            for index, state_values in enumerate(row["frontier"]):
+                target = row["action_targets"][index]
+                action_id = int(chosen[index])
+                if target >= 0:
+                    values["alive"] += 1
+                    values["exact"] += int(action_id == target)
+                    values["winning"] += int(
+                        target_solver(CODEC.apply(tuple(state_values), action_id)))
+                refuted = set(row["refutation_actions"][index])
+                refuted_mask[0, index, list(refuted)] = True
+                if refuted:
+                    values["opportunities"] += 1
+                    values["refuted"] += int(action_id in refuted)
+            positive = refuted_mask & legal
+            negative = ~refuted_mask & legal
+            values["positive"].append(float(output.action_refutation_match[positive].mean()))
+            values["negative"].append(float(output.action_refutation_match[negative].mean()))
+    result = {}
+    for mode, values in metrics.items():
+        positive = statistics.mean(values["positive"])
+        negative = statistics.mean(values["negative"])
+        result[mode] = {
+            "rows": len(rows), "alive_states": values["alive"],
+            "exact_target_top1_rate": values["exact"] / max(values["alive"], 1),
+            "winning_action_top1_rate": values["winning"] / max(values["alive"], 1),
+            "known_refuted_action_top1_rate": values["refuted"] /
+                                                max(values["opportunities"], 1),
+            "refutation_match_positive": positive,
+            "refutation_match_negative": negative,
+            "refutation_match_gap": positive - negative,
+        }
+    return result
+
+
+def source_receipt():
+    root = Path(__file__).resolve().parents[1]
+    commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root,
+                                     text=True).strip()
+    dirty = bool(subprocess.check_output(["git", "status", "--porcelain"],
+                                         cwd=root, text=True).strip())
+    return commit, dirty, sha256(Path(__file__))
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--data", type=Path, default=Path("data/native_countdown"))
+    parser.add_argument("--out", type=Path, default=Path("runs/qwen4b_native_kv"))
+    parser.add_argument("--steps", type=int, default=300)
+    parser.add_argument("--eval-rows", type=int, default=50)
+    parser.add_argument("--learning-rate", type=float, default=2e-4)
+    parser.add_argument("--inhibit-start", type=int, default=200)
+    parser.add_argument("--seed", type=int, default=17)
+    args = parser.parse_args()
+    commit, dirty, script_hash = source_receipt()
+    if dirty:
+        raise RuntimeError("commit the exact training source before starting")
+    paths = {name: args.data / f"{name}.jsonl"
+             for name in ("train", "validation", "test_5_numbers")}
+    rows = {name: read_rows(path) for name, path in paths.items()}
+    tokenizer = AutoTokenizer.from_pretrained(MODEL, revision=REVISION,
+                                              local_files_only=True)
+    tokenizer.padding_side = "right"
+    if tokenizer.pad_token_id is None:
+        tokenizer.pad_token = tokenizer.eos_token
+    backbone = AutoModelForCausalLM.from_pretrained(
+        MODEL, revision=REVISION, local_files_only=True, dtype=torch.bfloat16,
+        attn_implementation="sdpa", device_map="cuda").eval()
+    model = NativeKVFrontier(backbone, len(CODEC.actions)).cuda()
+    action_ids, action_mask = tokens(tokenizer,
+                                     [action_text(action) for action in CODEC.actions], 24)
+    action_vectors = model.encode_standalone(action_ids, action_mask)
+    initial = {name: value.detach().cpu().clone()
+               for name, value in model.cell.state_dict().items()}
+    validation = rows["validation"][:args.eval_rows]
+    test = rows["test_5_numbers"][:args.eval_rows]
+    before = {"validation": evaluate(model, tokenizer, validation, action_vectors),
+              "test_5_numbers": evaluate(model, tokenizer, test, action_vectors)}
+    optimizer = torch.optim.AdamW(model.cell.parameters(), lr=args.learning_rate,
+                                  betas=(0.9, 0.95), weight_decay=0.01)
+    order = random.Random(args.seed).choices(range(len(rows["train"])), k=args.steps)
+    losses, step_times = [], []
+    torch.cuda.reset_peak_memory_stats()
+    started = time.perf_counter()
+    for step, index in enumerate(order, 1):
+        coupling = "zero" if step <= args.inhibit_start else "inhibit"
+        model.cell.train()
+        optimizer.zero_grad(set_to_none=True)
+        tick = time.perf_counter()
+        loss, parts = row_loss(model, tokenizer, rows["train"][index],
+                               action_vectors, coupling)
+        if not torch.isfinite(loss):
+            raise RuntimeError(f"non-finite loss at step {step}")
+        loss.backward()
+        torch.nn.utils.clip_grad_norm_(model.cell.parameters(), 1.0)
+        optimizer.step()
+        torch.cuda.synchronize()
+        losses.append(float(loss.detach()))
+        step_times.append(time.perf_counter() - tick)
+        if step == 1 or step % 25 == 0 or step == args.steps:
+            print(json.dumps({"step": step, "coupling": coupling,
+                              "loss": round(losses[-1], 5),
+                              **{name: round(float(value.detach()), 5)
+                                 for name, value in parts.items()},
+                              "elapsed_s": round(time.perf_counter() - started, 1)}), flush=True)
+    after = {"validation": evaluate(model, tokenizer, validation, action_vectors),
+             "test_5_numbers": evaluate(model, tokenizer, test, action_vectors)}
+    args.out.mkdir(parents=True, exist_ok=True)
+    checkpoint = args.out / "native_kv_frontier_head.pt"
+    torch.save(model.cell.state_dict(), checkpoint)
+    reloaded = NativeKVFrontier(backbone, len(CODEC.actions)).cuda()
+    reloaded.cell.load_state_dict(torch.load(checkpoint, map_location="cpu", weights_only=True))
+    if evaluate(model, tokenizer, validation[:4], action_vectors) != evaluate(
+            reloaded, tokenizer, validation[:4], action_vectors):
+        raise RuntimeError("save/reload behavior changed")
+    changed = sum(not torch.equal(initial[name], value.cpu())
+                  for name, value in model.cell.state_dict().items())
+    report = {
+        "status": "trained native frontier on Qwen3-4B hidden states and live task KV",
+        "claim_boundary": "native-head stage; Qwen backbone frozen; Countdown generator only",
+        "model": MODEL, "revision": REVISION, "git_commit": commit,
+        "training_script_sha256": script_hash,
+        "data_sha256": {name: sha256(path) for name, path in paths.items()},
+        "steps": args.steps, "learning_rate": args.learning_rate,
+        "inhibit_start": args.inhibit_start, "seed": args.seed,
+        "before": before, "after": after,
+        "loss_first": losses[0], "loss_last": losses[-1],
+        "loss_last_25_mean": statistics.mean(losses[-25:]),
+        "training_seconds": time.perf_counter() - started,
+        "steady_step_seconds": statistics.median(step_times[1:]),
+        "peak_cuda_mib": torch.cuda.max_memory_allocated() / 2**20,
+        "trainable_parameters": sum(parameter.numel() for parameter in model.cell.parameters()),
+        "backbone_trainable_parameters": sum(parameter.numel() for parameter in backbone.parameters()
+                                             if parameter.requires_grad),
+        "changed_head_tensors": changed,
+        "task_prefills": model.task_prefills, "suffix_forwards": model.suffix_forwards,
+        "checkpoint": str(checkpoint), "checkpoint_bytes": checkpoint.stat().st_size,
+        "save_reload_behavior_equal": True,
+    }
+    (args.out / "report.json").write_text(json.dumps(report, indent=2) + "\n")
+    print(json.dumps({"status": report["status"], "before": before,
+                      "after": after, "checkpoint": str(checkpoint)}, indent=2))
+
+
+if __name__ == "__main__":
+    main()
