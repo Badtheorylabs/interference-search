@@ -61,6 +61,22 @@ def test_refutation_reaches_same_proposed_action_across_states():
                                out.action_refutation_match[0, 1, 0])
 
 
+def test_model_space_match_detects_successor_equal_to_refutation():
+    cell = NativeFrontierCell(hidden=4, actions=1, heads=1).eval()
+    projection = torch.nn.Linear(8, 4, bias=False)
+    projection.weight.data.zero_()
+    projection.weight.data[:, 4:] = torch.eye(4)
+    cell.transition_head = projection
+    states = torch.zeros(1, 1, 4)
+    task = torch.zeros(1, 4)
+    ref = torch.tensor([[[1.0, 0.0, 0.0, 0.0]]])
+    actions = ref[:, :, None]
+    output = cell(states, torch.ones(1, 1, dtype=torch.bool), task,
+                  ref, torch.ones(1, 1, dtype=torch.bool),
+                  action_vectors=actions, match_space="model")
+    assert output.action_refutation_match.item() > 0.9
+
+
 def test_frontier_is_permutation_equivariant_and_trains():
     cell = NativeFrontierCell(hidden=16, actions=4)
     states, live, task, refs, verified = inputs()

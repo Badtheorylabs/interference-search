@@ -75,9 +75,12 @@ class NativeFrontierCell(nn.Module):
         action_vectors: torch.Tensor | None = None,
         action_mask: torch.Tensor | None = None,
         hard_action_exclusion: torch.Tensor | None = None,
+        match_space: str = "learned",
     ) -> FrontierOutput:
         if coupling not in {"inhibit", "zero", "excite"}:
             raise ValueError("coupling must be inhibit, zero, or excite")
+        if match_space not in {"learned", "model"}:
+            raise ValueError("match_space must be learned or model")
         batch, width, hidden = state_vectors.shape
         if hidden != self.hidden or task_vector.shape != (batch, hidden):
             raise ValueError("state and task vector shapes disagree with hidden size")
@@ -118,9 +121,14 @@ class NativeFrontierCell(nn.Module):
         predicted_successors = self.transition_head(action_context)
 
         if refutations.shape[1]:
-            keys = F.normalize(self.refutation_key(refutations).float(), dim=-1)
-            state_queries = F.normalize(self.query(states).float(), dim=-1)
-            action_queries = F.normalize(self.action_query(predicted_successors).float(), dim=-1)
+            if match_space == "model":
+                keys = F.normalize(refutations.float(), dim=-1)
+                state_queries = F.normalize(states.float(), dim=-1)
+                action_queries = F.normalize(predicted_successors.float(), dim=-1)
+            else:
+                keys = F.normalize(self.refutation_key(refutations).float(), dim=-1)
+                state_queries = F.normalize(self.query(states).float(), dim=-1)
+                action_queries = F.normalize(self.action_query(predicted_successors).float(), dim=-1)
             state_logits = 4.0 * torch.matmul(state_queries, keys.transpose(1, 2)) - self.match_logit_bias.float()
             action_logits = 4.0 * torch.einsum("bwah,brh->bwar", action_queries, keys) - self.match_logit_bias.float()
             matches = torch.sigmoid(state_logits) * refutation_mask[:, None]

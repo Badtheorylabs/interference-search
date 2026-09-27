@@ -91,9 +91,19 @@ def forward_row(model, tokenizer, row, action_vectors, coupling):
 def row_loss(model, tokenizer, row, action_vectors, coupling):
     output, successors, specs, legal = forward_row(
         model, tokenizer, row, action_vectors, coupling)
-    targets = torch.tensor(row["action_targets"], device="cuda")
-    trainable = targets >= 0
-    action_loss = F.cross_entropy(output.proposal_logits[0, trainable], targets[trainable])
+    can_solve = solver(row["target"])
+    action_losses = []
+    for state_index, values in enumerate(row["frontier"]):
+        state = tuple(values)
+        legal_ids = [index for index, allowed in enumerate(CODEC.legal_mask(state))
+                     if allowed]
+        winning_ids = [index for index in legal_ids
+                       if can_solve(CODEC.apply(state, index))]
+        if winning_ids:
+            logits = output.proposal_logits[0, state_index]
+            action_losses.append(torch.logsumexp(logits[legal_ids], dim=0) -
+                                 torch.logsumexp(logits[winning_ids], dim=0))
+    action_loss = torch.stack(action_losses).mean()
     survival = torch.tensor(row["survival_targets"], dtype=torch.float32, device="cuda")
     survival_loss = F.binary_cross_entropy_with_logits(output.survival_logits[0], survival)
     refuted = torch.zeros_like(output.proposal_logits)
@@ -108,7 +118,7 @@ def row_loss(model, tokenizer, row, action_vectors, coupling):
     predicted = torch.stack([output.predicted_successors[0, state_index, action_id]
                              for state_index, action_id in specs])
     transition_loss = 1 - (F.normalize(predicted, dim=-1) *
-                           F.normalize(successors.float(), dim=-1)).sum(dim=-1).mean()
+                           F.normalize(successors.detach().float(), dim=-1)).sum(dim=-1).mean()
     loss = action_loss + 0.4 * survival_loss + 0.5 * match_loss + 0.3 * transition_loss
     return loss, {"action": action_loss, "survival": survival_loss,
                   "match": match_loss, "transition": transition_loss}
@@ -116,7 +126,7 @@ def row_loss(model, tokenizer, row, action_vectors, coupling):
 
 @torch.no_grad()
 def evaluate(model, tokenizer, rows, action_vectors):
-    model.cell.eval()
+    model.eval()
     metrics = {mode: {"exact": 0, "winning": 0, "alive": 0,
                       "refuted": 0, "opportunities": 0,
                       "positive": [], "negative": []}
@@ -189,6 +199,11 @@ def main():
     parser.add_argument("--inhibit-start", type=int, default=200)
     parser.add_argument("--seed", type=int, default=17)
     parser.add_argument("--source-commit")
+    parser.add_argument("--unsloth", action="store_true")
+    parser.add_argument("--model-path")
+    parser.add_argument("--lora-rank", type=int, default=32)
+    parser.add_argument("--lora-learning-rate", type=float, default=2e-5)
+    parser.add_argument("--head-warmup", type=int, default=50)
     args = parser.parse_args()
     commit, dirty, script_hash = source_receipt(args.source_commit)
     if dirty:
@@ -196,33 +211,62 @@ def main():
     paths = {name: args.data / f"{name}.jsonl"
              for name in ("train", "validation", "test_5_numbers")}
     rows = {name: read_rows(path) for name, path in paths.items()}
-    tokenizer = AutoTokenizer.from_pretrained(MODEL, revision=REVISION,
-                                              local_files_only=True)
+    peft_model = None
+    if args.unsloth:
+        from unsloth import FastLanguageModel
+        model_path = args.model_path or MODEL
+        peft_model, tokenizer = FastLanguageModel.from_pretrained(
+            model_name=model_path, max_seq_length=256, dtype=torch.bfloat16,
+            load_in_4bit=False, full_finetuning=False,
+        )
+        peft_model = FastLanguageModel.get_peft_model(
+            peft_model, r=args.lora_rank,
+            target_modules=["q_proj", "k_proj", "v_proj", "o_proj",
+                            "gate_proj", "up_proj", "down_proj"],
+            lora_alpha=args.lora_rank * 2, lora_dropout=0, bias="none",
+            use_gradient_checkpointing=False, random_state=args.seed,
+            use_rslora=True,
+        )
+        backbone = peft_model.get_base_model()
+    else:
+        tokenizer = AutoTokenizer.from_pretrained(MODEL, revision=REVISION,
+                                                  local_files_only=True)
+        backbone = AutoModelForCausalLM.from_pretrained(
+            MODEL, revision=REVISION, local_files_only=True, dtype=torch.bfloat16,
+            attn_implementation="sdpa", device_map="cuda").eval()
     tokenizer.padding_side = "right"
     if tokenizer.pad_token_id is None:
         tokenizer.pad_token = tokenizer.eos_token
-    backbone = AutoModelForCausalLM.from_pretrained(
-        MODEL, revision=REVISION, local_files_only=True, dtype=torch.bfloat16,
-        attn_implementation="sdpa", device_map="cuda").eval()
-    model = NativeKVFrontier(backbone, len(CODEC.actions)).cuda()
+    model = NativeKVFrontier(backbone, len(CODEC.actions),
+                             train_backbone=args.unsloth,
+                             match_space="model").cuda()
+    model.eval()
     action_ids, action_mask = tokens(tokenizer,
                                      [action_text(action) for action in CODEC.actions], 24)
-    action_vectors = model.encode_standalone(action_ids, action_mask)
+    action_vectors = model.encode_standalone(action_ids, action_mask).detach()
     initial = {name: value.detach().cpu().clone()
                for name, value in model.cell.state_dict().items()}
     validation = rows["validation"][:args.eval_rows]
     test = rows["test_5_numbers"][:args.eval_rows]
     before = {"validation": evaluate(model, tokenizer, validation, action_vectors),
               "test_5_numbers": evaluate(model, tokenizer, test, action_vectors)}
-    optimizer = torch.optim.AdamW(model.cell.parameters(), lr=args.learning_rate,
-                                  betas=(0.9, 0.95), weight_decay=0.01)
+    head_parameters = list(model.cell.parameters())
+    lora_parameters = [parameter for parameter in backbone.parameters()
+                       if parameter.requires_grad]
+    optimizer = torch.optim.AdamW([
+        {"params": head_parameters, "lr": args.learning_rate},
+        {"params": lora_parameters, "lr": 0.0 if args.unsloth else args.lora_learning_rate},
+    ], betas=(0.9, 0.95), weight_decay=0.01)
+    lora_before = [parameter.detach().cpu().clone() for parameter in lora_parameters[:2]]
     order = random.Random(args.seed).choices(range(len(rows["train"])), k=args.steps)
     losses, step_times = [], []
     torch.cuda.reset_peak_memory_stats()
     started = time.perf_counter()
     for step, index in enumerate(order, 1):
         coupling = "zero" if step <= args.inhibit_start else "inhibit"
-        model.cell.train()
+        model.train()
+        if args.unsloth and step == args.head_warmup + 1:
+            optimizer.param_groups[1]["lr"] = args.lora_learning_rate
         optimizer.zero_grad(set_to_none=True)
         tick = time.perf_counter()
         loss, parts = row_loss(model, tokenizer, rows["train"][index],
@@ -246,6 +290,10 @@ def main():
     args.out.mkdir(parents=True, exist_ok=True)
     checkpoint = args.out / "native_kv_frontier_head.pt"
     torch.save(model.cell.state_dict(), checkpoint)
+    adapter_dir = None
+    if peft_model is not None:
+        adapter_dir = args.out / "unsloth_adapter"
+        peft_model.save_pretrained(adapter_dir, safe_serialization=True)
     reloaded = NativeKVFrontier(backbone, len(CODEC.actions)).cuda()
     reloaded.cell.load_state_dict(torch.load(checkpoint, map_location="cpu", weights_only=True))
     if evaluate(model, tokenizer, validation[:4], action_vectors) != evaluate(
@@ -261,6 +309,9 @@ def main():
         "data_sha256": {name: sha256(path) for name, path in paths.items()},
         "steps": args.steps, "learning_rate": args.learning_rate,
         "inhibit_start": args.inhibit_start, "seed": args.seed,
+        "unsloth": args.unsloth, "lora_rank": args.lora_rank if args.unsloth else None,
+        "lora_learning_rate": args.lora_learning_rate if args.unsloth else None,
+        "head_warmup": args.head_warmup if args.unsloth else None,
         "before": before, "after": after,
         "loss_first": losses[0], "loss_last": losses[-1],
         "loss_last_25_mean": statistics.mean(losses[-25:]),
@@ -268,11 +319,13 @@ def main():
         "steady_step_seconds": statistics.median(step_times[1:]),
         "peak_cuda_mib": torch.cuda.max_memory_allocated() / 2**20,
         "trainable_parameters": sum(parameter.numel() for parameter in model.cell.parameters()),
-        "backbone_trainable_parameters": sum(parameter.numel() for parameter in backbone.parameters()
-                                             if parameter.requires_grad),
+        "backbone_trainable_parameters": sum(parameter.numel() for parameter in lora_parameters),
+        "lora_changed": any(not torch.equal(before, after.detach().cpu())
+                            for before, after in zip(lora_before, lora_parameters[:2])),
         "changed_head_tensors": changed,
         "task_prefills": model.task_prefills, "suffix_forwards": model.suffix_forwards,
         "checkpoint": str(checkpoint), "checkpoint_bytes": checkpoint.stat().st_size,
+        "adapter_dir": str(adapter_dir) if adapter_dir else None,
         "save_reload_behavior_equal": True,
     }
     (args.out / "report.json").write_text(json.dumps(report, indent=2) + "\n")
