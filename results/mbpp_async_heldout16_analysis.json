@@ -1,0 +1,48 @@
+{
+  "tasks": 16,
+  "bootstrap_seed": 112,
+  "bootstrap_samples": 20000,
+  "pipeline_faster_pairs": 11,
+  "equal_pairs": 0,
+  "mean_seconds_saved": 0.11919,
+  "median_seconds_saved": 0.02535,
+  "mean_saving_95pct_bootstrap": [
+    0.00126,
+    0.30825
+  ],
+  "median_paired_speed_ratio": 1.00616,
+  "paired_solve_mismatches": 0,
+  "same_prompt_output_mismatches_total": 0,
+  "groups": {
+    "pipeline": {
+      "solved": 9,
+      "mean_wall_seconds": 2.52124,
+      "median_wall_seconds": 0.75035,
+      "p95_wall_seconds": 6.4803,
+      "total_model_requests": 58,
+      "total_completed_model_requests": 54,
+      "total_cancelled_model_requests": 4,
+      "total_started_prompt_tokens": 9995,
+      "total_output_tokens": 4479,
+      "total_execution_calls": 48,
+      "total_state_merges": 6,
+      "total_execution_coalesced": 6,
+      "total_sandbox_errors": 0
+    },
+    "barrier": {
+      "solved": 9,
+      "mean_wall_seconds": 2.64043,
+      "median_wall_seconds": 1.0615,
+      "p95_wall_seconds": 6.3508,
+      "total_model_requests": 58,
+      "total_completed_model_requests": 58,
+      "total_cancelled_model_requests": 0,
+      "total_started_prompt_tokens": 9995,
+      "total_output_tokens": 4588,
+      "total_execution_calls": 52,
+      "total_state_merges": 6,
+      "total_execution_coalesced": 6,
+      "total_sandbox_errors": 0
+    }
+  }
+}

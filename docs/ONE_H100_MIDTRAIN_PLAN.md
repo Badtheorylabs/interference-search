@@ -2,7 +2,9 @@
 
 Status: architecture gate still closed, 27 September 2026. The [compact-state pilot report](COMPACT_STATE_PILOT_2026-09-26.md) records full-checkpoint feasibility and a negative matched training result. The [counterexample search test](COUNTEREXAMPLE_PARALLEL_REASONING_2026-09-27.md) then showed exact compact sharing, but no solve advantage over cached factors and only modest parallel-depth savings at much higher verifier work. The resource estimates below remain a planning reference; they are not a go decision for training either mechanism.
 
-The [async native runtime preflight](ASYNC_NATIVE_EXECUTION_2026-09-27.md) now measures a separate speed path: overlapping model and tool stages, and sharing the 4B backbone's prompt KV across state batches. A fixed-policy H100 test won 10/10 paired cases against a level barrier under controlled process latency, with a median paired speed ratio of 1.44×. The random frontier head has not passed a behavior gate, and the cheap-tool Countdown loop has not shown a pipeline speedup. A real workload and optimized cached baseline remain the next systems gate before setting a midtraining target.
+The [async native runtime preflight](ASYNC_NATIVE_EXECUTION_2026-09-27.md) now measures a separate speed path: overlapping model and tool stages, and sharing the 4B backbone's prompt KV across state batches. A fixed-policy H100 test won 10/10 paired cases against a level barrier under controlled process latency, with a median paired speed ratio of 1.44×. The random frontier head has not passed a behavior gate, and the cheap-tool Countdown loop has not shown a pipeline speedup.
+
+That systems gate is now recorded in the [sandboxed MBPP report](MBPP_REAL_EXECUTION_GATE_2026-09-27.md): 47/64 visible-test solves in both arms, with 2.064 seconds mean task latency for the streaming pipeline and 2.265 seconds for the cached vLLM level barrier. The native frontier head was not used for MBPP. Its training target and the stronger concurrent-system comparator still need a separate causal test.
 
 ## Decision
 

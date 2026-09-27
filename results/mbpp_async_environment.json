@@ -1,0 +1,16 @@
+{
+  "vllm": "0.30.0",
+  "torch": "2.13.0",
+  "transformers": "5.17.0",
+  "bwrap": "bubblewrap 0.6.1",
+  "gpu": "NVIDIA H100 PCIe, 580.105.08",
+  "sha256": {
+    "experiments/mbpp_async_benchmark.py": "245583d5105cc273b437755faf5cb841cf4ccd6dae768b849df12ecc03596fad",
+    "interference_search/async_execution.py": "f9e2b8a43bb6bccff8fd3e03df57eede50a73ffef2df4f034b59a6115d638039",
+    "interference_search/mbpp_async_domain.py": "f728277fc5b39729b8211b02a5f0c0b270a92ec1eb091b6422012182ce98ed64",
+    "interference_search/sandboxed_python.py": "f787c7c8792dc3455a91f59f7a1285ff8c9213905e0e3f293a2bcf191856e132",
+    "interference_search/vllm_code_backend.py": "41f222ab651a45f02b4e94271335f015dff36ca89a904103e166b3655fd95477",
+    "results/mbpp_runtime_manifest_replication64.json": "d67b5b1631846c541fd5e849242e5bbfbed7a33b5269d42922614da59d9f2184",
+    "results/mbpp_async_replication64_stream_wait50.json": "3f7d4f7a0e0cac43a146e98facb8cf7c70e669b1fedf77e0bf06886bb4001611"
+  }
+}

@@ -44,3 +44,5 @@ The next meaningful domain must provide **verifiable refutations of reusable sub
 That controlled test is now recorded in the [counterexample search note](COUNTEREXAMPLE_PARALLEL_REASONING_2026-09-27.md). Certified exclusions and compact recovery work as intended, but the cached factor solver matches solve outcomes, and eight-wide batches spend substantially more verifier calls for a modest reduction in dependent rounds.
 
 The next [async native runtime preflight](ASYNC_NATIVE_EXECUTION_2026-09-27.md) shifts the performance target to concurrent model and execution work, with measured H100 prefix reuse through the full backbone. Its speed receipts are separate from a trained reasoning result.
+
+The later [sandboxed MBPP gate](MBPP_REAL_EXECUTION_GATE_2026-09-27.md) measured that runtime with optimized vLLM generation and real Python tests. It found a modest latency gain at equal visible-test solves, mostly from early sibling cancellation; it did not train or evaluate the native frontier head on code tasks.

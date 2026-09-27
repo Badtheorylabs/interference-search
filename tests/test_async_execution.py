@@ -147,3 +147,50 @@ def test_native_priority_orders_bounded_execution_queue():
     result = asyncio.run(AsyncExecutionSearch(execution_workers=1).run(domain, None, 1))
     assert domain.executed == ["B", "A"]
     assert result.execution_calls == 2
+
+
+def test_streamed_proposal_can_revise_while_sibling_is_generating():
+    class StreamDomain(TimedDomain):
+        def __init__(self):
+            super().__init__({"S": ["A", "B"], "A": ["G"]})
+            self.cancelled = 0
+
+        async def propose_stream(self, states, problem):
+            try:
+                for index, state in enumerate(states):
+                    if state == "S":
+                        await asyncio.sleep(0.005)
+                        yield index, [AsyncAction("A")]
+                        await asyncio.sleep(0.08)
+                        yield index, [AsyncAction("B")]
+                    elif state == "A":
+                        await asyncio.sleep(0.005)
+                        yield index, [AsyncAction("G")]
+            except asyncio.CancelledError:
+                self.cancelled += 1
+                raise
+
+        async def propose_batch(self, states, problem):
+            if "S" in states:
+                await asyncio.sleep(0.08)
+            else:
+                await asyncio.sleep(0.005)
+            return [[AsyncAction(child) for child in self.edges.get(state, ())]
+                    for state in states]
+
+    async def compare():
+        pipeline_domain = StreamDomain()
+        pipeline = await AsyncExecutionSearch(
+            model_batch_size=2, execution_workers=2,
+            max_inflight_model_batches=2, mode="pipeline").run(
+                pipeline_domain, None, 4)
+        barrier = await AsyncExecutionSearch(
+            model_batch_size=2, execution_workers=2, mode="barrier").run(
+                StreamDomain(), None, 4)
+        return pipeline_domain, pipeline, barrier
+
+    domain, pipeline, barrier = asyncio.run(compare())
+    assert pipeline.solved and barrier.solved
+    assert pipeline.witness_actions == barrier.witness_actions == ["A", "G"]
+    assert pipeline.wall_seconds < barrier.wall_seconds * 0.5
+    assert domain.cancelled >= 1

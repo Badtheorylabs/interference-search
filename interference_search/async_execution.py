@@ -79,14 +79,16 @@ class AsyncExecutionSearch:
     """
 
     def __init__(self, model_batch_size: int = 8, execution_workers: int = 8,
+                 max_inflight_model_batches: int = 1,
                  mode: str = "pipeline", merge_states: bool = True,
                  dedupe_executions: bool = True, batch_wait_seconds: float = 0.0):
-        if model_batch_size < 1 or execution_workers < 1:
+        if model_batch_size < 1 or execution_workers < 1 or max_inflight_model_batches < 1:
             raise ValueError("batch size and worker count must be positive")
         if mode not in {"pipeline", "barrier"} or batch_wait_seconds < 0:
             raise ValueError("invalid scheduler mode or batch wait")
         self.model_batch_size = model_batch_size
         self.execution_workers = execution_workers
+        self.max_inflight_model_batches = max_inflight_model_batches
         self.mode = mode
         self.merge_states = merge_states
         self.dedupe_executions = dedupe_executions
@@ -120,9 +122,14 @@ class AsyncExecutionSearch:
         executing: dict[asyncio.Task, ExecutionJob] = {}
         active_by_key: dict[Hashable, ExecutionJob] = {}
         execution_cache: dict[Hashable, Any] = {}
-        model_task: asyncio.Task | None = None
-        model_batch: list[Hashable] = []
+        model_tasks: dict[asyncio.Task, int] = {}
+        model_batches: dict[int, list[Hashable]] = {}
+        next_model_batch_id = 0
+        model_events: asyncio.Queue = asyncio.Queue()
+        model_event_task: asyncio.Task | None = None
+        streaming = self.mode == "pipeline" and hasattr(domain, "propose_stream")
         wait_task: asyncio.Task | None = None
+        cancelled_aux: list[asyncio.Task] = []
         batch_wait_expired = False
 
         def witness(key):
@@ -202,9 +209,27 @@ class AsyncExecutionSearch:
             value = domain.execute(job.state, job.action, context)
             return await value if inspect.isawaitable(value) else value
 
-        async def propose(states):
+        async def propose(states, batch_id):
+            if streaming:
+                async for index, actions in domain.propose_stream(states, context):
+                    await model_events.put((batch_id, index, actions))
+                return None
             value = domain.propose_batch(states, context)
             return await value if inspect.isawaitable(value) else value
+
+        def receive_proposals(parent_key, actions):
+            for item in actions:
+                if not isinstance(item, AsyncAction):
+                    raise ValueError("proposer returned a non-AsyncAction")
+                result.proposed_actions += 1
+                add_job(parent_key, item)
+
+        def receive_stream_event(event):
+            batch_id, index, actions = event
+            batch = model_batches[batch_id]
+            if not 0 <= index < len(batch):
+                raise ValueError("stream proposer returned an invalid parent index")
+            receive_proposals(batch[index], actions)
 
         def start_execution_jobs():
             while queued_jobs and len(executing) < self.execution_workers and not result.solved:
@@ -221,9 +246,10 @@ class AsyncExecutionSearch:
             result.peak_graph_nodes = 1
             while True:
                 start_execution_jobs()
-                can_model = (model_task is None and ready and
+                can_model = (len(model_tasks) < self.max_inflight_model_batches and ready and
                              result.expansions < expansion_budget and
-                             (self.mode == "pipeline" or not queued_jobs and not executing))
+                             (self.mode == "pipeline" or
+                              not queued_jobs and not executing and not model_tasks))
                 if can_model:
                     should_wait = (self.batch_wait_seconds > 0 and
                                    len(ready) < self.model_batch_size and executing and
@@ -233,6 +259,7 @@ class AsyncExecutionSearch:
                     if not should_wait or batch_wait_expired:
                         if wait_task is not None:
                             wait_task.cancel()
+                            cancelled_aux.append(wait_task)
                             wait_task = None
                         batch_wait_expired = False
                         count = min(len(ready), self.model_batch_size,
@@ -246,28 +273,46 @@ class AsyncExecutionSearch:
                             nodes[key].expanded = True
                         result.expansions += count
                         result.proposal_batches += 1
-                        model_task = asyncio.create_task(propose([nodes[key].state
-                                                                  for key in model_batch]))
+                        batch_id = next_model_batch_id
+                        next_model_batch_id += 1
+                        model_batches[batch_id] = model_batch
+                        task = asyncio.create_task(propose([nodes[key].state
+                                                            for key in model_batch], batch_id))
+                        model_tasks[task] = batch_id
                 pending = set(executing)
-                if model_task is not None:
-                    pending.add(model_task)
+                if model_tasks:
+                    pending.update(model_tasks)
+                    if streaming and model_event_task is None:
+                        model_event_task = asyncio.create_task(model_events.get())
+                if model_event_task is not None:
+                    pending.add(model_event_task)
                 if wait_task is not None:
                     pending.add(wait_task)
                 if not pending or result.solved:
                     break
                 completed, _ = await asyncio.wait(pending, return_when=asyncio.FIRST_COMPLETED)
-                if model_task in completed:
-                    proposals = model_task.result()
-                    if len(proposals) != len(model_batch):
-                        raise ValueError("proposer must return one action list per state")
-                    for parent_key, actions in zip(model_batch, proposals):
-                        for item in actions:
-                            if not isinstance(item, AsyncAction):
-                                raise ValueError("proposer returned a non-AsyncAction")
-                            result.proposed_actions += 1
-                            add_job(parent_key, item)
-                    model_task = None
-                    model_batch = []
+                if model_event_task in completed:
+                    event = model_event_task.result()
+                    model_event_task = None
+                    receive_stream_event(event)
+                for task in completed:
+                    batch_id = model_tasks.pop(task, None)
+                    if batch_id is None:
+                        continue
+                    proposals = task.result()
+                    model_batch = model_batches[batch_id]
+                    if streaming:
+                        while not model_events.empty():
+                            receive_stream_event(model_events.get_nowait())
+                        if not model_tasks and model_event_task is not None:
+                            model_event_task.cancel()
+                            cancelled_aux.append(model_event_task)
+                            model_event_task = None
+                    else:
+                        if len(proposals) != len(model_batch):
+                            raise ValueError("proposer must return one action list per state")
+                        for parent_key, actions in zip(model_batch, proposals):
+                            receive_proposals(parent_key, actions)
                 if wait_task in completed:
                     wait_task = None
                     batch_wait_expired = True
@@ -288,10 +333,12 @@ class AsyncExecutionSearch:
                     accept_job(job, child_state)
         finally:
             remaining = list(executing)
-            if model_task is not None:
-                remaining.append(model_task)
+            remaining.extend(model_tasks)
             if wait_task is not None:
                 remaining.append(wait_task)
+            if model_event_task is not None:
+                remaining.append(model_event_task)
+            remaining.extend(cancelled_aux)
             result.cancelled_executions = sum(not task.done() for task in executing)
             for task in remaining:
                 task.cancel()
