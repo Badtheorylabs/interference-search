@@ -1,0 +1,48 @@
+{
+  "states": 1,
+  "repetitions": 8,
+  "prefix_tokens": 929,
+  "prompt_cache_unchanged": true,
+  "max_abs_vector_delta": 0.5,
+  "min_cosine": 0.99997228,
+  "exact_action_lists": 0,
+  "top_one_matches": 1,
+  "median_ms": {
+    "backbone_full": 32.738,
+    "backbone_prefix": 28.488
+  },
+  "timings_ms": {
+    "backbone_full": [
+      32.745,
+      32.531,
+      33.273,
+      32.721,
+      32.936,
+      32.732,
+      33.064,
+      32.718
+    ],
+    "backbone_prefix": [
+      28.147,
+      27.594,
+      28.942,
+      28.166,
+      28.616,
+      28.38,
+      29.068,
+      28.597
+    ]
+  },
+  "task_backbone_forwards": {
+    "backbone_full": 1,
+    "backbone_prefix": 1
+  },
+  "state_backbone_forwards": {
+    "backbone_full": 9,
+    "backbone_prefix": 9
+  },
+  "model": "/home/ubuntu/.cache/huggingface/hub/models--Qwen--Qwen3-4B-Base/snapshots/906bfd4b4dc7f14ee4320094d8b41684abff8539",
+  "random_head_seed": 11,
+  "device": "NVIDIA H100 PCIe",
+  "peak_cuda_mib": 8375.37
+}

@@ -1,0 +1,315 @@
+{
+  "config": {
+    "seeds": 10,
+    "model_batch_size": 2,
+    "execution_workers": 2,
+    "tool": "/bin/sleep subprocess",
+    "prefix_tokens": 193,
+    "action_policy": "fixed graph; model forward output discarded"
+  },
+  "groups": [
+    {
+      "arm": "pipeline",
+      "solved": 10,
+      "total": 10,
+      "median_wall_ms": 283.783,
+      "mean_wall_ms": 251.02,
+      "mean_model_batches": 3.7,
+      "mean_tool_calls": 4
+    },
+    {
+      "arm": "barrier",
+      "solved": 10,
+      "total": 10,
+      "median_wall_ms": 383.4,
+      "mean_wall_ms": 366.255,
+      "mean_model_batches": 3,
+      "mean_tool_calls": 5
+    }
+  ],
+  "rows": [
+    {
+      "seed": 0,
+      "arm": "pipeline",
+      "solved": true,
+      "wall_ms": 185.59,
+      "expansions": 3,
+      "model_batches": 3,
+      "tool_calls": 4,
+      "cancelled_tools": 1,
+      "encoder_routes": {
+        "backbone_full": 3,
+        "backbone_prefix": 0
+      }
+    },
+    {
+      "seed": 0,
+      "arm": "barrier",
+      "solved": true,
+      "wall_ms": 336.166,
+      "expansions": 5,
+      "model_batches": 3,
+      "tool_calls": 5,
+      "cancelled_tools": 0,
+      "encoder_routes": {
+        "backbone_full": 3,
+        "backbone_prefix": 0
+      }
+    },
+    {
+      "seed": 1,
+      "arm": "barrier",
+      "solved": true,
+      "wall_ms": 297.276,
+      "expansions": 5,
+      "model_batches": 3,
+      "tool_calls": 5,
+      "cancelled_tools": 0,
+      "encoder_routes": {
+        "backbone_full": 3,
+        "backbone_prefix": 0
+      }
+    },
+    {
+      "seed": 1,
+      "arm": "pipeline",
+      "solved": true,
+      "wall_ms": 185.514,
+      "expansions": 3,
+      "model_batches": 3,
+      "tool_calls": 4,
+      "cancelled_tools": 1,
+      "encoder_routes": {
+        "backbone_full": 3,
+        "backbone_prefix": 0
+      }
+    },
+    {
+      "seed": 2,
+      "arm": "pipeline",
+      "solved": true,
+      "wall_ms": 186.642,
+      "expansions": 3,
+      "model_batches": 3,
+      "tool_calls": 4,
+      "cancelled_tools": 1,
+      "encoder_routes": {
+        "backbone_full": 3,
+        "backbone_prefix": 0
+      }
+    },
+    {
+      "seed": 2,
+      "arm": "barrier",
+      "solved": true,
+      "wall_ms": 305.192,
+      "expansions": 5,
+      "model_batches": 3,
+      "tool_calls": 5,
+      "cancelled_tools": 0,
+      "encoder_routes": {
+        "backbone_full": 3,
+        "backbone_prefix": 0
+      }
+    },
+    {
+      "seed": 3,
+      "arm": "barrier",
+      "solved": true,
+      "wall_ms": 295.879,
+      "expansions": 5,
+      "model_batches": 3,
+      "tool_calls": 5,
+      "cancelled_tools": 0,
+      "encoder_routes": {
+        "backbone_full": 3,
+        "backbone_prefix": 0
+      }
+    },
+    {
+      "seed": 3,
+      "arm": "pipeline",
+      "solved": true,
+      "wall_ms": 190.289,
+      "expansions": 4,
+      "model_batches": 4,
+      "tool_calls": 4,
+      "cancelled_tools": 0,
+      "encoder_routes": {
+        "backbone_full": 4,
+        "backbone_prefix": 0
+      }
+    },
+    {
+      "seed": 4,
+      "arm": "pipeline",
+      "solved": true,
+      "wall_ms": 289.324,
+      "expansions": 4,
+      "model_batches": 4,
+      "tool_calls": 4,
+      "cancelled_tools": 0,
+      "encoder_routes": {
+        "backbone_full": 4,
+        "backbone_prefix": 0
+      }
+    },
+    {
+      "seed": 4,
+      "arm": "barrier",
+      "solved": true,
+      "wall_ms": 377.9,
+      "expansions": 5,
+      "model_batches": 3,
+      "tool_calls": 5,
+      "cancelled_tools": 0,
+      "encoder_routes": {
+        "backbone_full": 3,
+        "backbone_prefix": 0
+      }
+    },
+    {
+      "seed": 5,
+      "arm": "barrier",
+      "solved": true,
+      "wall_ms": 405.437,
+      "expansions": 5,
+      "model_batches": 3,
+      "tool_calls": 5,
+      "cancelled_tools": 0,
+      "encoder_routes": {
+        "backbone_full": 3,
+        "backbone_prefix": 0
+      }
+    },
+    {
+      "seed": 5,
+      "arm": "pipeline",
+      "solved": true,
+      "wall_ms": 307.282,
+      "expansions": 4,
+      "model_batches": 4,
+      "tool_calls": 4,
+      "cancelled_tools": 0,
+      "encoder_routes": {
+        "backbone_full": 4,
+        "backbone_prefix": 0
+      }
+    },
+    {
+      "seed": 6,
+      "arm": "pipeline",
+      "solved": true,
+      "wall_ms": 301.403,
+      "expansions": 4,
+      "model_batches": 4,
+      "tool_calls": 4,
+      "cancelled_tools": 0,
+      "encoder_routes": {
+        "backbone_full": 4,
+        "backbone_prefix": 0
+      }
+    },
+    {
+      "seed": 6,
+      "arm": "barrier",
+      "solved": true,
+      "wall_ms": 439.461,
+      "expansions": 5,
+      "model_batches": 3,
+      "tool_calls": 5,
+      "cancelled_tools": 0,
+      "encoder_routes": {
+        "backbone_full": 3,
+        "backbone_prefix": 0
+      }
+    },
+    {
+      "seed": 7,
+      "arm": "barrier",
+      "solved": true,
+      "wall_ms": 423.652,
+      "expansions": 5,
+      "model_batches": 3,
+      "tool_calls": 5,
+      "cancelled_tools": 0,
+      "encoder_routes": {
+        "backbone_full": 3,
+        "backbone_prefix": 0
+      }
+    },
+    {
+      "seed": 7,
+      "arm": "pipeline",
+      "solved": true,
+      "wall_ms": 296.593,
+      "expansions": 4,
+      "model_batches": 4,
+      "tool_calls": 4,
+      "cancelled_tools": 0,
+      "encoder_routes": {
+        "backbone_full": 4,
+        "backbone_prefix": 0
+      }
+    },
+    {
+      "seed": 8,
+      "arm": "pipeline",
+      "solved": true,
+      "wall_ms": 284.968,
+      "expansions": 4,
+      "model_batches": 4,
+      "tool_calls": 4,
+      "cancelled_tools": 0,
+      "encoder_routes": {
+        "backbone_full": 4,
+        "backbone_prefix": 0
+      }
+    },
+    {
+      "seed": 8,
+      "arm": "barrier",
+      "solved": true,
+      "wall_ms": 392.682,
+      "expansions": 5,
+      "model_batches": 3,
+      "tool_calls": 5,
+      "cancelled_tools": 0,
+      "encoder_routes": {
+        "backbone_full": 3,
+        "backbone_prefix": 0
+      }
+    },
+    {
+      "seed": 9,
+      "arm": "barrier",
+      "solved": true,
+      "wall_ms": 388.901,
+      "expansions": 5,
+      "model_batches": 3,
+      "tool_calls": 5,
+      "cancelled_tools": 0,
+      "encoder_routes": {
+        "backbone_full": 3,
+        "backbone_prefix": 0
+      }
+    },
+    {
+      "seed": 9,
+      "arm": "pipeline",
+      "solved": true,
+      "wall_ms": 282.597,
+      "expansions": 4,
+      "model_batches": 4,
+      "tool_calls": 4,
+      "cancelled_tools": 0,
+      "encoder_routes": {
+        "backbone_full": 4,
+        "backbone_prefix": 0
+      }
+    }
+  ],
+  "model": "/home/ubuntu/.cache/huggingface/hub/models--Qwen--Qwen3-4B-Base/snapshots/906bfd4b4dc7f14ee4320094d8b41684abff8539",
+  "device": "NVIDIA H100 PCIe",
+  "peak_cuda_mib": 8174.12
+}

@@ -2,6 +2,8 @@
 
 Status: architecture gate still closed, 27 September 2026. The [compact-state pilot report](COMPACT_STATE_PILOT_2026-09-26.md) records full-checkpoint feasibility and a negative matched training result. The [counterexample search test](COUNTEREXAMPLE_PARALLEL_REASONING_2026-09-27.md) then showed exact compact sharing, but no solve advantage over cached factors and only modest parallel-depth savings at much higher verifier work. The resource estimates below remain a planning reference; they are not a go decision for training either mechanism.
 
+The [async native runtime preflight](ASYNC_NATIVE_EXECUTION_2026-09-27.md) now measures a separate speed path: overlapping model and tool stages, and sharing the 4B backbone's prompt KV across state batches. A fixed-policy H100 test won 10/10 paired cases against a level barrier under controlled process latency, with a median paired speed ratio of 1.44×. The random frontier head has not passed a behavior gate, and the cheap-tool Countdown loop has not shown a pipeline speedup. A real workload and optimized cached baseline remain the next systems gate before setting a midtraining target.
+
 ## Decision
 
 Use `Qwen/Qwen3-4B-Base` as the first backbone. It is a text model with 4.0B parameters, a conventional Qwen3 decoder, and an Apache 2.0 model card. The newer Qwen3.5-4B-Base is multimodal and has a more involved text architecture. That may be useful later, but it adds integration work to the first test. Pin the chosen checkpoint to an exact Hugging Face revision before any run.
