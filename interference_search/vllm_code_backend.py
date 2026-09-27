@@ -17,12 +17,15 @@ class CodeGeneration:
 
 class VLLMCodeBackend:
     def __init__(self, model_path: str, max_tokens: int = 160,
-                 enforce_eager: bool = True, gpu_memory_utilization: float = 0.45):
+                 enforce_eager: bool = True, gpu_memory_utilization: float = 0.45,
+                 temperature: float = 0.0, top_p: float = 1.0):
         from transformers import AutoTokenizer
         from vllm import AsyncEngineArgs, AsyncLLMEngine
 
         self.model_path = model_path
         self.max_tokens = max_tokens
+        self.temperature = temperature
+        self.top_p = top_p
         self.tokenizer = AutoTokenizer.from_pretrained(model_path, local_files_only=True)
         self.engine_args = AsyncEngineArgs(
             model=model_path, tokenizer=model_path, dtype="bfloat16",
@@ -52,7 +55,8 @@ class VLLMCodeBackend:
         from vllm import SamplingParams
 
         request_id = str(uuid.uuid4())
-        params = SamplingParams(temperature=0.0, max_tokens=self.max_tokens, seed=seed)
+        params = SamplingParams(temperature=self.temperature, top_p=self.top_p,
+                                max_tokens=self.max_tokens, seed=seed)
         started = time.perf_counter()
         self.started_requests += 1
         self.started_prompt_tokens += len(self.tokenizer.encode(

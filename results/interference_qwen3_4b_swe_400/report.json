@@ -1,0 +1,28 @@
+{
+  "status": "native Interference Qwen3 coding midtrain admission",
+  "source_commit": "7f86125aa8c25c6c0ae77df648545a169d1a4113",
+  "steps": 400,
+  "trainable_native_parameters": 36067876,
+  "before": {
+    "rows": 80,
+    "mean_inhibit_target_logp": -2.758658458174695,
+    "mean_zero_target_logp": -2.758658458174695,
+    "mean_inhibit_minus_zero": 0.0,
+    "mean_zero_vs_teacher_kl": 2.6675964277475018e-09
+  },
+  "after": {
+    "rows": 80,
+    "mean_inhibit_target_logp": -2.772065561093668,
+    "mean_zero_target_logp": -2.7641078454975134,
+    "mean_inhibit_minus_zero": -0.007957715596154546,
+    "mean_zero_vs_teacher_kl": 0.0007611259661903707
+  },
+  "loss_first": 0.06158198043704033,
+  "loss_last": 0.02500101365149021,
+  "mean_training_causal_margin": 0.0010713565733779262,
+  "median_step_seconds": 0.7922918905023835,
+  "elapsed_seconds": 347.74996771800215,
+  "peak_cuda_mib": 22699.99951171875,
+  "native_state_path": "runs/interference_qwen3_4b_swe_400/native_interference_state.pt",
+  "native_state_sha256": "966fd823d88d4ca930886ca8029531a876964a98b6cb84d3467833bbc464d0ee"
+}
