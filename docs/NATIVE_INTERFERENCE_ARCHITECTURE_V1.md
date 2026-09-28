@@ -284,6 +284,36 @@ Admission is not passed at 400 steps: decoding is 71.0 percent against the
 additional steps without recipe changes to test whether the plateau persists
 at corpus scale as it did on the eight-task admission set.
 
+## V4a-families resumed arm: 800 cumulative steps
+
+The frozen 400-step native state was resumed for 400 more steps with the
+identical recipe. The resumed before-metrics match the prior after-metrics
+bit for bit. Split unchanged: 246 train, 62 held-out.
+
+Metric | After 400 | After 800
+--- | --- | ---
+Task-conditioned effective rank | 2.51 | 3.05
+Mean family margin | 0.374 | 0.445
+Mean matched cosine | 0.355 | 0.456
+Multiplicity reduction | 0.488 | 0.484
+Candidate decoding | 71.0 percent | 68.5 percent
+Alive accuracy | 64.9 percent | 64.1 percent
+Mean value MSE | 0.240 | 0.247
+
+The 80 percent decoding gate fails under pre-registration. Rank, family
+margin, and equivalence collapse continue to strengthen while greedy
+nearest-neighbor candidate decoding plateaus near 70 percent, the same
+plateau signature observed on the eight-task admission set at 59 percent.
+
+Honest interpretation: the held-out evidence supports representation-level
+structure (rank 3.05 from a frozen baseline of 1.00, family margin 0.445,
+multiplicity reduction 0.484) but not the pre-registered decoding gate. The
+next decision is a gate decision, not a hyperparameter decision: either accept
+that the current nearest-neighbor probe is the wrong instrument for candidate
+decoding and revise V4a's measurement before any further training, or hold the
+gate as written and treat the V4a admission as failed until the readout path
+changes. No weights were adjusted after results were visible.
+
 ## Derived dataset evidence
 
 Applying family derivation to the stored 118-task corpus produced 40 rows with at least four candidates, 64 rows with verifier-certified equivalence classes, and 57 rows with premise groups of size at least two. Outcome vectors, error classes, equivalence classes, and premise groups are computed from stored per-test verifier results, not from model self-report.
