@@ -256,6 +256,34 @@ V4a-families adds three supervised signals the prior admission run lacked:
 
 Evaluation now also reports mean family margin and retrieval multiplicity reduction alongside rank, decoding accuracy, alive accuracy, and value error.
 
+## V4a-families 400-step result
+
+Frozen corpus: 308 qualifying tasks, 306 with verifier equivalence classes,
+306 with premise family groups, average 7.93 candidates per task. Split was
+246 training and 62 held-out tasks. Recipe was the same teacher-only
+permutation-invariant set prediction with the corrected family key and
+subset selection.
+
+Metric | Before | After 400 steps | Gate
+--- | --- | --- | ---
+Candidate decoding | 25.0 percent | 71.0 percent | >80 percent
+Task-conditioned effective rank | 1.00 | 2.51 | >2.5
+Mean matched cosine | 0.003 | 0.355 | -
+Alive accuracy | 35.5 percent | 64.9 percent | -
+Mean value MSE | 0.917 | 0.240 | -
+Mean family margin | 0.000 | 0.374 | -
+Multiplicity reduction | 0.75 | 0.488 | -
+
+Family margin became a live supervised signal for the first time. Equivalence
+collapse is active: retrieval multiplicity falls from four retrieved candidates
+to about two distinct behavioral classes, meaning slots matched to verifier
+equivalents retrieve the same candidate.
+
+Admission is not passed at 400 steps: decoding is 71.0 percent against the
+80 percent gate and rank sits at 2.51. The checkpoint was resumed for 400
+additional steps without recipe changes to test whether the plateau persists
+at corpus scale as it did on the eight-task admission set.
+
 ## Derived dataset evidence
 
 Applying family derivation to the stored 118-task corpus produced 40 rows with at least four candidates, 64 rows with verifier-certified equivalence classes, and 57 rows with premise groups of size at least two. Outcome vectors, error classes, equivalence classes, and premise groups are computed from stored per-test verifier results, not from model self-report.
