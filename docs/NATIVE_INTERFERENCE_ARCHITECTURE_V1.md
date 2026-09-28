@@ -231,3 +231,35 @@ Raw tokens per second is a component measurement. The architecture wins only whe
 Parallel output streams, learned spawn/join, continuous superposition, adaptive latent tool reasoning, and KV-cache synthesis already exist. The candidate contribution is their missing combination: a persistent native hypothesis register with verifier-grounded signed cancellation, certified hard merging, adaptive compute, and concurrent tool actions whose results jointly update the same model state.
 
 Do not claim novelty until a deeper mechanism-level comparison confirms that no cited system implements that complete combination. Closest current references include Multi-Stream LLMs, Adaptive Parallel Reasoning, Parallel-Synthesis, Adaptive Latent Agentic Reasoning, Reasoning by Superposition, Group Think, and The Illusion of Superposition.
+
+## V4a-families: preregistered admission gates
+
+Recorded before any family-supervised run. These gates are frozen; they will not be adjusted after results are seen. The V4a admission baseline was rank 2.83 and candidate decoding 59.4 percent on eight held-out tasks.
+
+| Test | V4a-families admission target |
+| --- | --- |
+| Task-conditioned effective rank | greater than 2.5 |
+| Candidate to matched-slot decoding | greater than 80 percent |
+| Dependent versus unrelated refutation effect | greater than 3x |
+| Matched versus shuffled semantic evidence | clear statistically significant gap |
+| Single-slot intervention | selectively damages the assigned candidate |
+| Static identity removed | specialization remains |
+| Equivalent-candidate merge | live multiplicity decreases |
+| Merge correctness | no material correctness loss |
+| Capacity-matched parameter-count control | native frontier beats a plain FFN adapter |
+
+V4a-families adds three supervised signals the prior admission run lacked:
+
+- stratified candidate selection, so every row carries at least one passing candidate and two distinct behavioral masks;
+- within-family versus between-family embedding margins, so hypotheses sharing a premise converge and hypotheses with distinct premises separate;
+- equivalence collapse, so slots matched to verifier-equivalent candidates converge and agree, reducing live multiplicity.
+
+Evaluation now also reports mean family margin and retrieval multiplicity reduction alongside rank, decoding accuracy, alive accuracy, and value error.
+
+## Derived dataset evidence
+
+Applying family derivation to the stored 118-task corpus produced 40 rows with at least four candidates, 64 rows with verifier-certified equivalence classes, and 57 rows with premise groups of size at least two. Outcome vectors, error classes, equivalence classes, and premise groups are computed from stored per-test verifier results, not from model self-report.
+
+The generator expands the pool across the remaining 309 MBPP tasks. Each row carries a behavioral outcome vector, an error class for failures, an equivalence class, and a premise group derived from the verifier mask. Rows qualify only when they contain at least four candidates spanning at least two behavioral masks.
+
+If the expanded pool cannot produce at least 40 qualifying tasks with family groups and 40 with equivalence classes, family supervision is withdrawn and V4a-families reduces to decoding-only supervision. That fallback is recorded here in advance.
