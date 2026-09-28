@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+title: "Interference Search"
+message: "If you use this software, please cite the paper as below."
+type: software
+authors:
+  - family-names: "Al-ameen"
+    affiliation: "Bad Theory Labs"
+repository-code: "https://github.com/Badtheorylabs/interference-search"
+url: "https://www.badtheorylabs.com/papers/interference-search"
+abstract: "Reason over explicit states, many branches at once: merge duplicates, cancel dead ends, advance together."
+version: "0.1.0"
+date-released: 2026-09-28
+license: "Apache-2.0"
+keywords:
+  - "large language models"
+  - "parallel reasoning"
+  - "search"
+  - "destructive coupling"
+  - "Countdown"
+preferred-citation:
+  type: unpublished
+  title: "Interference Search: Reasoning over merged states, many branches at once"
+  authors:
+    - family-names: "Al-ameen"
+      affiliation: "Bad Theory Labs"
+  year: 2026
+  month: 9
+  url: "https://www.badtheorylabs.com/papers/interference-search"
