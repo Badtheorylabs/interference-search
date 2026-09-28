@@ -32,32 +32,39 @@ def model_config(path, tokenizer):
         tool_error_token_id=tokenizer.convert_tokens_to_ids("<tool_call>"))
 
 
+def family_of(item):
+    return (bool(item["all_passed"]), item["error_class"])
+
+
 def select_candidates(row, rng, count=4):
-    """Stratified across behavioral masks so every row carries genuinely
-    distinct hypotheses: at least one passing candidate and two masks."""
-    candidates = list(row["candidates"])
-    groups = {}
-    for item in candidates:
-        groups.setdefault(tuple(item["outcome_vector"]), []).append(item)
-    keys = list(groups)
-    rng.shuffle(keys)
-    passing = [key for key in keys if all(groups[key][0]["outcome_vector"])]
-    failing = [key for key in keys if not all(groups[key][0]["outcome_vector"])]
-    chosen_keys = []
-    if passing:
-        chosen_keys.append(passing[0])
-    chosen_keys.extend(failing[:2])
-    for key in keys:
-        if key not in chosen_keys:
-            chosen_keys.append(key)
-    selected = []
-    for key in chosen_keys:
-        pool = groups[key]
-        selected.append(pool[rng.randrange(len(pool))])
-        if len(selected) >= count:
-            break
-    rng.shuffle(selected)
-    return selected
+    """Choose a four-candidate subset carrying distinct behavioral masks AND
+    the same-premise family pair when the task supports it, plus an
+    equivalence pair when available. The selection is verifier-certified;
+    the model only sees the task."""
+    candidates = list(row["candidates"])[:16]
+    rng.shuffle(candidates)
+    best, best_score = None, -1
+    for subset in itertools.combinations(range(len(candidates)), count):
+        chosen = [candidates[i] for i in subset]
+        masks = {tuple(item["outcome_vector"]) for item in chosen}
+        families = {}
+        equivalence = False
+        for index, item in enumerate(chosen):
+            families.setdefault(family_of(item), []).append(index)
+        family_pairs = sum(1 for group in families.values() if len(group) >= 2)
+        for index in range(count):
+            for other in range(index + 1, count):
+                if tuple(chosen[index]["outcome_vector"]) == tuple(
+                        chosen[other]["outcome_vector"]):
+                    equivalence = True
+        if len(masks) < 2:
+            continue
+        score = len(masks) + 2 * family_pairs + (3 if equivalence else 0)
+        if score > best_score:
+            best_score, best = score, chosen
+    if best is None:
+        return candidates[:count]
+    return best
 
 
 def task_tokens(tokenizer, row, device):
@@ -100,17 +107,15 @@ def assignment(predicted, targets):
 
 
 def family_pairs(selected):
-    """Same-premise pairs (same error class and failing mask) versus pairs
-    from different behavioral masks."""
+    """Same-premise pairs (same outcome class) versus pairs with distinct
+    premises. Equivalence pairs share the behavioral mask entirely."""
     same, across = [], []
     for left in range(len(selected)):
         for right in range(left + 1, len(selected)):
             a, b = selected[left], selected[right]
             if tuple(a["outcome_vector"]) == tuple(b["outcome_vector"]):
                 continue
-            family_a = (a["all_passed"], a["error_class"], a["failing_mask"])
-            family_b = (b["all_passed"], b["error_class"], b["failing_mask"])
-            if family_a == family_b:
+            if family_of(a) == family_of(b):
                 same.append((left, right))
             else:
                 across.append((left, right))
@@ -208,10 +213,10 @@ def family_gap(embeddings, selected):
             gap = float((normalized[left] * normalized[right]).sum())
             if tuple(a["outcome_vector"]) == tuple(b["outcome_vector"]):
                 within.append(gap)
+            elif family_of(a) == family_of(b):
+                within.append(gap)
             else:
-                family_a = (a["all_passed"], a["error_class"], a["failing_mask"])
-                family_b = (b["all_passed"], b["error_class"], b["failing_mask"])
-                (within if family_a == family_b else across).append(gap)
+                across.append(gap)
     mean_within = statistics.mean(within) if within else 0.0
     mean_across = statistics.mean(across) if across else 0.0
     return mean_within - mean_across
