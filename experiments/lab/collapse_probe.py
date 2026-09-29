@@ -4,19 +4,16 @@ import os
 import sys
 
 import torch
-import torch.nn.functional as F
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from diagnose import slot_stats
 from envs import make_dataset
 from model import InterferenceLM
 from run_lab import D, DEVICE, K, L, VOCAB, build_rows
 
 
 def slot_cos(f):
-    fn = F.normalize(f, dim=-1)
-    c = fn @ fn.transpose(1, 2)
-    off = ~torch.eye(f.size(1), dtype=torch.bool, device=f.device)
-    return c[:, off].mean().item()
+    return slot_stats(f)["slot_cos"]
 
 
 @torch.no_grad()

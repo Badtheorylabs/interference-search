@@ -9,25 +9,21 @@ import torch
 from torch.utils.flop_counter import FlopCounterMode
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from diagnose import build_model, loss_of
 from envs import make_dataset
-from model import InterferenceLM, VanillaLM, match_params, param_count
-from run_lab import BS, D, DEVICE, K, L, VOCAB, build_rows, ce_state
-
-KW = dict(prop_mode="learned", merge_mode="learned", survival_mode="learned")
+from model import param_count
+from run_lab import BS, DEVICE, build_rows
 
 
-def build(mode):
-    target = param_count(InterferenceLM(VOCAB, D, L, k=K))
-    if mode == "vanilla":
-        return match_params(VanillaLM(VOCAB, D, L, n_out=90), target).to(DEVICE)
-    return InterferenceLM(VOCAB, D, L, k=K).to(DEVICE)
+def sync():
+    if DEVICE == "cuda":
+        torch.cuda.synchronize()
 
 
-def loss_of(m, mode, ids, tgt):
-    valid = ids != 0
-    if mode == "vanilla":
-        return ce_state(m(ids, valid=valid).view(-1, 9, 10), tgt)
-    return ce_state(m(ids, valid=valid, **KW)[2], tgt)
+def flops(fn):
+    with FlopCounterMode(display=False) as fc:
+        fn()
+    return fc.get_total_flops()
 
 
 def main():
@@ -37,39 +33,31 @@ def main():
     res = {}
     for mode in ["vanilla", "interference"]:
         torch.manual_seed(0)
-        m = build(mode).train()
-        with FlopCounterMode(display=False) as fc:
-            loss = loss_of(m, mode, ids, tgt)
-        fwd = fc.get_total_flops()
-        with FlopCounterMode(display=False) as fc2:
-            loss = loss_of(m, mode, ids, tgt)
-            loss.backward()
-        total = fc2.get_total_flops()
-        unit_flops = None
+        m = build_model(mode).train()
+        step = lambda: loss_of(m, mode, ids, tgt)
+        fwd = flops(step)
+        fwd_bwd = flops(lambda: step().backward())
+        unit_fwd = None
         if mode == "interference":
-            with FlopCounterMode(display=False) as fc3:
+            def trunk():
                 x = m.tok(ids)
                 for b in m.blocks:
                     x = b(x)
-            unit_flops = fwd - fc3.get_total_flops()
+            unit_fwd = fwd - flops(trunk)
         opt = torch.optim.AdamW(m.parameters(), lr=1e-4)
         for _ in range(5):
-            opt.zero_grad(); loss_of(m, mode, ids, tgt).backward(); opt.step()
-        if DEVICE == "cuda":
-            torch.cuda.synchronize()
-        t0 = time.time()
+            opt.zero_grad(); step().backward(); opt.step()
+        sync(); t0 = time.time()
         for _ in range(50):
-            opt.zero_grad(); loss_of(m, mode, ids, tgt).backward(); opt.step()
-        if DEVICE == "cuda":
-            torch.cuda.synchronize()
-        res[mode] = dict(fwd=fwd, fwd_bwd=total, unit_fwd=unit_flops,
+            opt.zero_grad(); step().backward(); opt.step()
+        sync()
+        res[mode] = dict(fwd=fwd, fwd_bwd=fwd_bwd, unit_fwd=unit_fwd,
                          ms_per_step=(time.time() - t0) / 50 * 1000, params=param_count(m))
         print(mode, res[mode])
-    r = res["interference"]["fwd_bwd"] / res["vanilla"]["fwd_bwd"]
-    w = res["interference"]["ms_per_step"] / res["vanilla"]["ms_per_step"]
-    print(f"FLOPS_RATIO interference/vanilla (fwd+bwd, train mode): {r:.3f}")
-    print(f"WALL_RATIO  interference/vanilla (ms per step): {w:.2f}")
-    print(f"UNIT_SHARE of interference forward FLOPs: {res['interference']['unit_fwd'] / res['interference']['fwd']:.3f}")
+    v, i = res["vanilla"], res["interference"]
+    print(f"FLOPS_RATIO interference/vanilla (fwd+bwd, train mode): {i['fwd_bwd'] / v['fwd_bwd']:.3f}")
+    print(f"WALL_RATIO  interference/vanilla (ms per step): {i['ms_per_step'] / v['ms_per_step']:.2f}")
+    print(f"UNIT_SHARE of interference forward FLOPs: {i['unit_fwd'] / i['fwd']:.3f}")
 
 
 if __name__ == "__main__":

@@ -2,6 +2,8 @@
 import sys
 from pathlib import Path
 
+import pytest
+
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "experiments" / "lab"))
 
 import envs
@@ -60,7 +62,7 @@ def test_make_pairs_labels_are_exact():
 
 
 def test_model_forward_shapes():
-    import torch
+    torch = pytest.importorskip("torch")
     from model import VanillaLM, InterferenceLM, param_count, match_params
     vocab, d, layers, k = 17, 32, 2, 4
     ids = torch.randint(1, vocab, (3, envs.SEQ_PAD))
@@ -78,7 +80,7 @@ def test_model_forward_shapes():
 
 
 def test_match_params_reaches_target():
-    import torch
+    torch = pytest.importorskip("torch")
     from model import VanillaLM, InterferenceLM, param_count, match_params
     vocab, d, layers, k = 17, 32, 2, 4
     v = VanillaLM(vocab, d, layers, n_out=90)
@@ -89,7 +91,7 @@ def test_match_params_reaches_target():
 
 def test_ablation_switches_change_output():
     """merge-off must zero the merge term; survival-off must freeze survival."""
-    import torch
+    torch = pytest.importorskip("torch")
     from model import InterferenceLM
     vocab, d, layers, k = 17, 16, 2, 4
     torch.manual_seed(0)
@@ -110,7 +112,7 @@ def test_ablation_switches_change_output():
 def test_frontier_skips_padded_positions():
     """A row whose tokens are all padding must not advance the frontier: two
     such rows get identical state logits (slot-init only, identical inputs)."""
-    import torch
+    torch = pytest.importorskip("torch")
     from model import InterferenceLM
     vocab, d, layers, k = 17, 16, 2, 4
     torch.manual_seed(0)

@@ -139,7 +139,7 @@ def main():
         g_out = m(probe_ids, valid=probe_valid, **MODES["interference"])[2].float().cpu()
         m_cpu = m.to("cpu")
         c_out = m_cpu(probe_ids.cpu(), valid=probe_valid.cpu(), **MODES["interference"])[2]
-    report["gpu_vs_cpu_max_abs_diff"] = (g_out - c_out).abs().max().item()
+    report["gpu_vs_cpu_rel_diff"] = ((g_out - c_out).abs().max() / c_out.abs().max().clamp_min(1e-9)).item()
 
     # 1. dead parameters
     torch.manual_seed(seed)
@@ -202,7 +202,8 @@ def main():
     print("PARAMS", json.dumps(report["param_counts"]))
     print("FLOPS", json.dumps(report["flops_per_64_rows"]),
           "ratio", round(report["flops_ratio_interference_over_vanilla"], 3))
-    print("GPU_VS_CPU", report["gpu_vs_cpu_max_abs_diff"])
+    print("GPU_VS_CPU_REL", report["gpu_vs_cpu_rel_diff"])
+    print("INIT_MAX_FRONTIER_NORM", max(r["norm"] for r in report["init_trace"]["interference"]))
     print("MERGE_INIT", json.dumps(report["merge_isolated_init"]))
     for mode, rows in report["init_trace"].items():
         pick = [rows[0], rows[1], rows[len(rows) // 2], rows[-1]]

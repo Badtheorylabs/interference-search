@@ -161,6 +161,12 @@ interference hit a max gradient norm of 9.3e10. The survival gate fell to
 accuracy 0.005). Survival-off reached a gradient norm of 8.2e4. There is no
 gradient clipping and no normalization in a 15 to 23 step multiplicative
 recurrence. Seed 0 in the five-seed run shows the same collapse (0.018).
+The instability exists before training: at initialization, the seed-1
+frontier grows from norm 0.5 to 1.2e5 over 23 tokens, while seed 0 grows
+roughly linearly to 4.8. This growth also amplifies float rounding. GPU and
+CPU outputs agree to 2.7e-6 at seed 0 but differ by 5.9 at seed 1, a
+relative error of 2e-4 at that scale. That comes from the recurrence, not
+from the hardware.
 
 **Compute was not matched.** The runner gave vanilla 3.5x the steps on the
 assumption that the unit costs 3.5x the compute. Measured fwd+bwd FLOPs:
