@@ -1,4 +1,4 @@
-# Native Latent Interference — Roadmap
+# Native Latent Interference Roadmap
 
 Mechanism name: **native latent interference**. Not "native reasoning"; that
 claim returns only if the primitive works.
@@ -97,8 +97,30 @@ Corrected five-seed run, depth-3 environment, 400 steps each: all equivalence
 AUC scores tied at chance (0.276 identical across modes), state accuracy
 low, survival-off collapsed. Undertrained, no signal either way. The corrected
 experiment is 2000 steps for interference variants and 7000 for vanilla
-(matched total compute against the unit's ~3.5x per-step cost); results
-appended below when that run completes.
+(matched total compute against the unit's ~3.5x per-step cost).
+
+Corrected five-seed run completed 2026-09-29 (`/tmp/lab_seeds4.log`, averages):
+
+| System | exact state acc | equivalence AUC |
+|---|---|---|
+| vanilla | **0.340** | **0.780** |
+| interference | 0.168 | 0.758 |
+| merge-off | 0.188 | 0.765 |
+| survival-off | 0.040 | 0.862 |
+
+Bottom line, stated honestly: the interference unit currently **loses** to the
+matched vanilla transformer on both metrics. Vanilla trains to ~zero training
+loss; interference variants stall (final losses 0.13–3.8), meaning the frontier
+path is an optimization burden at this budget, not a win. The survival-off
+equivalence score of 0.862 comes from a diverged model (state accuracy 0.04,
+loss 3.8) and is not trustworthy: a broken state head is not evidence of
+equivalence ability. No primitive is demonstrated by this configuration.
+
+Diagnosis queued: the frontier readout fails to train while direct readout
+converges. The next step is a diagnostic run that logs the interference unit's
+internal stats (survival means, support magnitude, merge magnitude, frontier
+norm) across training to see whether the frontier collapses, saturates, or
+never receives useful gradient, before changing any architecture.
 
 ## Rules
 
