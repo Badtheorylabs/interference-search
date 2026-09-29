@@ -13,18 +13,19 @@ import os
 import sys
 import time
 
-import numpy as np
 import torch
 import torch.nn.functional as F
 from torch.utils.data import DataLoader, TensorDataset
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
-from envs import make_dataset, make_pairs, encode_seq, encode_state, SEQ_PAD
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from envs import make_dataset, make_pairs, encode_seq, encode_state
 from model import VanillaLM, InterferenceLM, param_count, match_params
 
 VOCAB = 17          # PAD + 16 alphabet symbols
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
-D, L, K, STEPS, LR, BS = 128, 3, 8, 400, 3e-3, 32
+D, L, K, LR, BS = 128, 3, 8, 3e-3, 32
+STEPS_INT = 2000              # interference variants
+STEPS_VAN = 7000              # vanilla gets 3.5x steps: unit costs ~3.5x more
 
 
 def build_rows(groups):
@@ -43,16 +44,6 @@ def build_rows(groups):
                 test_ids.append(enc); test_tgt.append(tgt)
     return ((torch.tensor(train_ids, dtype=torch.long), torch.tensor(train_tgt, dtype=torch.long)),
             (torch.tensor(test_ids, dtype=torch.long), torch.tensor(test_tgt, dtype=torch.long)))
-
-
-def state_loss(model, batch, pair=False):
-    ids, tgt = batch
-    valid = (ids != 0)
-    if pair:
-        logits, _, _ = model(ids, valid=valid, pair=True)
-        return F.cross_entropy(logits, tgt[:, 0])
-    _, _, state_logits = model(ids, valid=valid)
-    return ce_state(state_logits, tgt)
 
 
 def ce_state(state_logits, tgt):
@@ -93,13 +84,15 @@ def soft_agreement(model, a, b, vanilla=False):
 
 def evaluate_equiv(model, pairs, labels, vanilla=False):
     scores = [soft_agreement(model, a, b, vanilla) for (a, b) in pairs]
-    # accuracy over the best threshold the model's own scores support:
-    # pick the threshold maximizing held-out accuracy on these labeled pairs
-    best = 0.5
-    for t in [i / 100 for i in range(10, 96, 1)]:
-        acc = sum(((s > t) == (y == 1)) for s, y in zip(scores, labels)) / len(scores)
-        best = max(best, acc)
-    return best
+    # Ranking quality: probability a true same-state pair scores above a true
+    # different-state pair (AUC). No fitted threshold on eval data.
+    pos = [s for s, y in zip(scores, labels) if y == 1]
+    neg = [s for s, y in zip(scores, labels) if y == 0]
+    if not pos or not neg:
+        return 0.0
+    wins = sum(p > n for p in pos for n in neg)
+    ties = sum(p == n for p in pos for n in neg)
+    return (wins + 0.5 * ties) / (len(pos) * len(neg))
 
 
 def run(name, mode, seed=0):
@@ -131,10 +124,11 @@ def run(name, mode, seed=0):
         out = model(ids, valid=valid, **kw)
         return ce_state(out[2], tgt)
 
+    steps = STEPS_VAN if mode == "vanilla" else STEPS_INT
     t0 = time.time()
     data = iter(train_loader)
     losses = []
-    for step in range(STEPS):
+    for step in range(steps):
         try:
             batch = next(data)
         except StopIteration:
@@ -167,7 +161,7 @@ def run(name, mode, seed=0):
     pairs, labels = make_pairs(make_dataset(seed=seed + 991))
     acc_eq = evaluate_equiv(model, pairs, labels, vanilla=(mode == "vanilla"))
 
-    res = {"run": name, "mode": mode, "params": int(params), "steps": STEPS,
+    res = {"run": name, "mode": mode, "params": int(params), "steps": steps,
            "train_seconds": round(dt, 1), "final_loss": losses[-1],
            "exact_state_accuracy": acc_state, "equivalence_agreement": acc_eq,
            "device": DEVICE}
@@ -176,20 +170,6 @@ def run(name, mode, seed=0):
     json.dump(res, open(path, "w"), indent=1)
     print(json.dumps(res))
     return res
-
-
-def evaluate_vanilla_equiv(model, pairs, labels):
-    model.eval()
-    ok, total = 0, 0
-    with torch.no_grad():
-        for (a, b), y in zip(pairs, labels):
-            ia = torch.tensor([encode_seq(a)], device=DEVICE)
-            ib = torch.tensor([encode_seq(b)], device=DEVICE)
-            pa = model(ia, valid=(ia != 0)).view(-1, 9, 10).argmax(-1)[0]
-            pb = model(ib, valid=(ib != 0)).view(-1, 9, 10).argmax(-1)[0]
-            agree = int((pa == pb).all().item())
-            ok += int((agree == 1) == (y == 1)); total += 1
-    return ok / max(total, 1)
 
 
 if __name__ == "__main__":

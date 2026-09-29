@@ -69,36 +69,36 @@ collapse can be measured without philosophical argument.
 
 | Question | Experiment | Status |
 |---|---|---|
-| Can a model maintain multiple latent states? | Latent frontier benchmark | Partial yes. Interference unit doubles held-out state accuracy (22.9% → 46.9%) at equal parameters. |
-| Can states interact? | Learned interference task | Not demonstrated at this scale; relation stats show no separation yet. |
-| Can it recognize equivalent states? | Countdown multiset collapse | Weak yes: soft-agreement equivalence 68.8% vanilla → 73.5% interference. |
-| Can it merge them? | State-collapse benchmark | No: merge-off scores the same as interference (71.5% vs 73.5%). Merge is dead weight at 400 steps. |
-| Can it suppress invalid states? | Dead-end benchmark | Currently harmful: survival-off beats full interference on state accuracy (63.5% vs 46.9%). Needs schedule or objective change. |
+| Can a model maintain multiple latent states? | Latent frontier benchmark | Unknown. First measured advantage was a memorization artifact (see retraction below). |
+| Can states interact? | Learned interference task | Not demonstrated. |
+| Can it recognize equivalent states? | Countdown multiset collapse | Unknown pending corrected run; threshold artifact removed. |
+| Can it merge them? | State-collapse benchmark | Not demonstrated; merge-off ablation tied with interference. |
+| Can it suppress invalid states? | Dead-end benchmark | Not demonstrated; survival gate needs schedule or objective change. |
 | Can it advance a frontier without external search? | End-to-end reasoning benchmark | queued |
-| Does it beat an ordinary transformer at matched compute? | Matched-compute baseline | Yes on state tracking, no on merging. First positive primitive signal. |
+| Does it beat an ordinary transformer at matched compute? | Matched-compute baseline | Unknown pending corrected run (step budget matched to unit cost). |
 | Does it scale? | 100M → 500M → 1B → 4B | forbidden until rows above pass |
 
 Lab run 2026-09-29 (`experiments/lab/results/lab_*.json`): 858k vanilla vs
 758k interference params, 400 steps, held-out trajectories within states.
 
-Five-seed run 2026-09-29 (`run_lab.py 0 1 2 3 4`, averages):
+**Retraction (same day).** Two bugs invalidated every number above the line
+before the next section. First, the environment emitted duplicate trajectories
+(pair-ordering variants of the same move sequence), so identical trajectories
+leaked into train and test: the single-seed and five-seed results above
+measured memorization, not state identity. Second, the equivalence metric
+picked its threshold by best-of-86 fitting on the evaluation pairs, inflating
+every equivalence score. Both fixed: trajectory dedup in `envs.py`, and the
+threshold-free AUC metric in `evaluate_equiv` (probability a true same-state
+pair outranks a true different-state pair). The deeper environment (depth 3,
+192 groups, ~2000 trajectories) replaced the old shallow one. Tests:
+`tests/test_interference_lab.py`, 10 passed on the H100.
 
-| System | exact state acc | equivalence |
-|---|---|---|
-| vanilla | 0.252 | 0.699 |
-| interference | 0.296 | **0.775** |
-| merge-off | 0.333 | 0.733 |
-| survival-off | **0.396** | 0.757 |
-
-Read honestly: the interference unit beats the matched vanilla transformer on
-zero-shot state equivalence across seeds (0.699 → 0.775). That is the first
-genuine positive signal for the primitive. But merge-off and survival-off both
-beat full interference on held-out state accuracy, meaning the merge and
-survival operators currently cost more than they give: merge does not pull its
-weight and survival hurts state tracking. Next experiment: isolate why —
-either the operators need schedule/objective, or this task is too easy to
-justify a frontier and needs harder exact-state depth (three-number states,
-deeper trajectories).
+Corrected five-seed run, depth-3 environment, 400 steps each: all equivalence
+AUC scores tied at chance (0.276 identical across modes), state accuracy
+low, survival-off collapsed. Undertrained, no signal either way. The corrected
+experiment is 2000 steps for interference variants and 7000 for vanilla
+(matched total compute against the unit's ~3.5x per-step cost); results
+appended below when that run completes.
 
 ## Rules
 
