@@ -190,6 +190,67 @@ anything else:
 3. Check the frontier trace (slot cosine well below 1, finite norms)
    before running any comparison.
 
+## Experiment 2: search inside the forward pass
+
+The first lab asked the model to follow one path, so there was nothing to
+search. This experiment gives it the start numbers and a target, and the
+network runs the search itself: `frontier_env.py`, `frontier_model.py`,
+`run_frontier.py`, tests in `tests/test_frontier_lab.py`.
+
+**Task.** Four numbers from 1 to 13 and a target from 1 to 120. Can the
+target be reached using every number once? Move rules come from the paper's
+solver (`interference_search.countdown.children`), with values capped at
+120. All 1,820 start sets are enumerated. Train and test use disjoint start
+sets (80/20), and labels are balanced per target. Measured shortcuts on the
+test set: target frequency scores AUC 0.500, and nearest training start set
+scores 0.651.
+
+**Network (FrontierNet).** A frontier of K=4 latent states advances one
+move at a time:
+
+| Paper, outside the model | Here, inside the forward pass |
+|---|---|
+| Environment executes moves | A learned arithmetic layer maps each number pair and op to a new number vector, plus a learned legality score |
+| Judge cancels dead ends | A learned survival score picks the K states that advance (top-K, Gumbel exploration in training) |
+| States interact | Candidates attend to each other and to the target before being scored |
+| Identical states merge | Candidates whose latent state vectors have cosine > 0.98 collapse into one, pooling their support |
+| Survivors advance together | The loop runs for 3 moves; the answer is whether the kept frontier hits the target |
+
+Numbers are never snapped back to symbols. Two paths reach the same latent
+state only if the network learned to put them there.
+
+**Training signals.** Physics (true value and legality of every move the
+network expands) and outcome (for reachable examples, the likelihood that
+the frontier's own path hits the target). The final hit is decoded with
+detached heads, so the outcome loss cannot fake a hit. No label says which
+state should survive or which states are the same.
+
+**Reference points** (seed 0, exact moves, K=4): random pruning solves 6%
+of reachable test problems, and an oracle judge solves 100%. So K=4 is
+tight, and survival has to do real work.
+
+**Ladder and compute.** Measured fwd+bwd MFLOPs per example: vanilla 95,
+frontier 345, +survival 459, +interference 573, full 573. `vanilla_matched`
+(d=512, 6 layers, 19M params) costs 567 MFLOPs, matching full. `vanilla_aux`
+adds the same move-physics labels the frontier gets. Every model trains for
+3,000 steps at batch size 128.
+
+**Metrics, all checked against exact state identity.** reach AUC;
+frontier solve rate (did the kept states really reach the target);
+survival AUC (does the score rank states that can still reach the target
+above dead ones); path invariance AUC (do two paths to the same state have
+closer latent states than two different states); merge precision and
+recall; distinct and dead states kept; physics decode accuracy.
+
+**Bug found and fixed before the real run.** An illegal move left a
+partial state (one number missing). The metrics counted it as a real
+state, which could have produced false hits. True values of such children
+are now zeroed, so they can never count, and `test_illegal_move_kills_true_state`
+pins this. The pilot numbers from before the fix are discarded; the
+five-seed run is on the fixed code.
+
+Results: pending the five-seed run.
+
 ## Rules
 
 - Smallest possible system first. The lab is ~0.5M–few-M parameters, CPU/GPU
