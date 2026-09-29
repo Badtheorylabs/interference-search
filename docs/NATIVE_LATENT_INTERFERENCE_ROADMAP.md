@@ -69,13 +69,13 @@ collapse can be measured without philosophical argument.
 
 | Question | Experiment | Status |
 |---|---|---|
-| Can a model maintain multiple latent states? | Latent frontier benchmark | Unknown. First measured advantage was a memorization artifact (see retraction below). |
-| Can states interact? | Learned interference task | Not demonstrated. |
-| Can it recognize equivalent states? | Countdown multiset collapse | Unknown pending corrected run; threshold artifact removed. |
-| Can it merge them? | State-collapse benchmark | Not demonstrated; merge-off ablation tied with interference. |
-| Can it suppress invalid states? | Dead-end benchmark | Not demonstrated; survival gate needs schedule or objective change. |
+| Can a model maintain multiple latent states? | Latent frontier benchmark | No, not in this implementation. All K slots collapse to one state (slot cosine 1.0). |
+| Can states interact? | Learned interference task | Not tested. With identical slots there is nothing to interact. |
+| Can it recognize equivalent states? | Countdown multiset collapse | Not tested. The pair set has no hard negatives; a shortcut scores AUC 0.993. |
+| Can it merge them? | State-collapse benchmark | Not tested. The merge update reflects slots through their mean instead of pulling them together. |
+| Can it suppress invalid states? | Dead-end benchmark | Not tested. The survival gate drives the frontier to 1e-11 during training. |
 | Can it advance a frontier without external search? | End-to-end reasoning benchmark | queued |
-| Does it beat an ordinary transformer at matched compute? | Matched-compute baseline | Unknown pending corrected run (step budget matched to unit cost). |
+| Does it beat an ordinary transformer at matched compute? | Matched-compute baseline | Not yet tested. The last comparison gave vanilla about 3.6x the FLOPs (see audit). |
 | Does it scale? | 100M → 500M → 1B → 4B | forbidden until rows above pass |
 
 Lab run 2026-09-29 (`experiments/lab/results/lab_*.json`): 858k vanilla vs
@@ -108,19 +108,81 @@ Corrected five-seed run completed 2026-09-29 (`/tmp/lab_seeds4.log`, averages):
 | merge-off | 0.188 | 0.765 |
 | survival-off | 0.040 | 0.862 |
 
-Bottom line, stated honestly: the interference unit currently **loses** to the
-matched vanilla transformer on both metrics. Vanilla trains to ~zero training
-loss; interference variants stall (final losses 0.13–3.8), meaning the frontier
-path is an optimization burden at this budget, not a win. The survival-off
-equivalence score of 0.862 comes from a diverged model (state accuracy 0.04,
-loss 3.8) and is not trustworthy: a broken state head is not evidence of
-equivalence ability. No primitive is demonstrated by this configuration.
+This run does not test the primitive. The audit below shows why, and it
+also voids the earlier positive result: neither number says anything about
+native latent interference.
 
-Diagnosis queued: the frontier readout fails to train while direct readout
-converges. The next step is a diagnostic run that logs the interference unit's
-internal stats (survival means, support magnitude, merge magnitude, frontier
-norm) across training to see whether the frontier collapses, saturates, or
-never receives useful gradient, before changing any architecture.
+### Audit, 2026-09-29
+
+Tools: `audit_data.py`, `diagnose.py`, `collapse_probe.py`, and
+`measure_compute.py`, run on the Spark GB10.
+
+**The task does not require state tracking.**
+
+- Each seed's 192 groups come from only 2 starting number sets.
+- Looking up the final move token in a table of training rows scores
+  0.31 to 0.40 held-out state accuracy across seeds 0 to 4. Vanilla scored
+  0.31 and 0.37 on seeds 0 and 1. Vanilla performs like that lookup table.
+- The model never sees the starting numbers. In 106 of 178 depth-2 test rows
+  the answer contains a number that appears nowhere in the input. It can only
+  be recovered by recognizing which of the two start sets the operands came
+  from.
+- Every depth-3 test row (206 of 206) has a one-number answer: the result of
+  the final move. That is arithmetic on the last token, not trajectory
+  tracking.
+- 232 of 384 "held-out" trajectories have their commutative twin (a*b for
+  b*a) in training.
+
+**The equivalence test does not measure equivalence.** All 269 positive
+pairs share a start set, and all 131 negatives come from different start
+sets. `make_pairs` skips same-start negatives, so there are 0 hard
+negatives. Counting shared operand digits, with no state tracking at all,
+scores AUC 0.993.
+
+**The model does not branch, merge, or feed back.**
+
+- Branching: the slots start at norm 0.23, while trunk tokens have norm
+  13.3. The proposal update is dominated by the token, which is the same
+  for every slot, so slot updates have cosine 0.9996 at the first step.
+  With merge off, the slot cosine is 0.9992 after 8 steps and stays at 1.0
+  through training. The K=8 frontier is one state copied 8 times.
+- Merge: the merge coefficients sum to 1.99 per slot (equiv 0.50 x alpha
+  0.49 x 8 partners). The update `f_i + sum_j c(f_j - f_i)` with a sum of 2
+  gives `2*mean - f_i`. That reflects each slot through the mean instead of
+  pulling slots together: deviation cosine before vs after is -0.90, and
+  the spread ratio is 1.01.
+- Feedback: `unit.up`, `head`, and `pair_head` (17,540 params) receive no
+  gradient. The unit's `x + up(mean f)` output is thrown away, so the
+  frontier never writes back into the token stream.
+
+**The full model diverges numerically.** Equal-step training, seed 0:
+interference hit a max gradient norm of 9.3e10. The survival gate fell to
+1e-11 and the frontier norm to 5.6e-9, so the state head reads zeros (test
+accuracy 0.005). Survival-off reached a gradient norm of 8.2e4. There is no
+gradient clipping and no normalization in a 15 to 23 step multiplicative
+recurrence. Seed 0 in the five-seed run shows the same collapse (0.018).
+
+**Compute was not matched.** The runner gave vanilla 3.5x the steps on the
+assumption that the unit costs 3.5x the compute. Measured fwd+bwd FLOPs:
+interference/vanilla = 0.969. The 3.47x is wall time from the per-token
+Python loop. Vanilla therefore got about 3.6x the FLOPs. At equal steps
+(seed 0): vanilla 0.292, merge-off 0.237, survival-off 0.216, interference
+0.005. Parameters are also mismatched: 858,019 vs 758,502. `run_lab.py`
+now uses equal steps.
+
+Verdict: the environment cannot distinguish state tracking from lookup, and
+the model does not implement branching or merging. Fix both before running
+anything else:
+
+1. Environment: put the start numbers in the input, draw many start sets
+   per seed, split held-out data by computation rather than by commutative
+   twin, and include same-start hard negatives at matched depth.
+2. Model: give each slot its own identity (a larger slot init or per-slot
+   input projection), normalize the merge coefficients (softmax over
+   partners, sum at most 1), write the frontier back into the stream,
+   normalize the recurrence, and clip gradients.
+3. Check the frontier trace (slot cosine well below 1, finite norms)
+   before running any comparison.
 
 ## Rules
 

@@ -24,8 +24,11 @@ from model import VanillaLM, InterferenceLM, param_count, match_params
 VOCAB = 17          # PAD + 16 alphabet symbols
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 D, L, K, LR, BS = 128, 3, 8, 3e-3, 32
-STEPS_INT = 2000              # interference variants
-STEPS_VAN = 7000              # vanilla gets 3.5x steps: unit costs ~3.5x more
+# Equal steps is equal compute. Measured with measure_compute.py (train mode,
+# fwd+bwd): interference/vanilla FLOPs = 0.969. The unit's 3.5x wall time is
+# a sequential per-token Python loop (launch latency), not arithmetic.
+STEPS_INT = 2000
+STEPS_VAN = 2000
 
 
 def build_rows(groups):
