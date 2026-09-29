@@ -80,9 +80,25 @@ collapse can be measured without philosophical argument.
 
 Lab run 2026-09-29 (`experiments/lab/results/lab_*.json`): 858k vanilla vs
 758k interference params, 400 steps, held-out trajectories within states.
-Next experiment: survival-off as the default frontier while fixing why the
-survival gate hurts early training (likely zeroing slots before relations
-are learned), and giving merge a real reason to fire.
+
+Five-seed run 2026-09-29 (`run_lab.py 0 1 2 3 4`, averages):
+
+| System | exact state acc | equivalence |
+|---|---|---|
+| vanilla | 0.252 | 0.699 |
+| interference | 0.296 | **0.775** |
+| merge-off | 0.333 | 0.733 |
+| survival-off | **0.396** | 0.757 |
+
+Read honestly: the interference unit beats the matched vanilla transformer on
+zero-shot state equivalence across seeds (0.699 → 0.775). That is the first
+genuine positive signal for the primitive. But merge-off and survival-off both
+beat full interference on held-out state accuracy, meaning the merge and
+survival operators currently cost more than they give: merge does not pull its
+weight and survival hurts state tracking. Next experiment: isolate why —
+either the operators need schedule/objective, or this task is too easy to
+justify a frontier and needs harder exact-state depth (three-number states,
+deeper trajectories).
 
 ## Rules
 

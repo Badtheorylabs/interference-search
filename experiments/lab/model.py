@@ -76,6 +76,11 @@ class InterfereUnit(nn.Module):
         self.rel = nn.Linear(2 * d, 3)          # support / conflict / equivalence
         self.alpha = nn.Linear(2 * d, 1)         # learned merge mixing
         self.surv = nn.Linear(2 * d + 3, 1)
+        # survival starts near open: a random sigmoid(~0) gate multiplied per token
+        # collapses the frontier (0.5^10) before relations are learned, which the
+        # first run measured as survival hurting state accuracy. Start at ~0.95.
+        nn.init.constant_(self.surv.bias, 3.0)
+        nn.init.zeros_(self.surv.weight)
         self.up = nn.Linear(d, d)
 
     def forward(self, f, x, prop_mode="learned", merge_mode="learned", survival_mode="learned"):

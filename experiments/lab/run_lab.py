@@ -193,5 +193,14 @@ def evaluate_vanilla_equiv(model, pairs, labels):
 
 
 if __name__ == "__main__":
-    for mode in ["vanilla", "interference", "merge_off", "survival_off"]:
-        run(f"lab_{mode}", mode)
+    seeds = [int(s) for s in sys.argv[1:]] or [0]
+    agg = {}
+    for seed in seeds:
+        for mode in ["vanilla", "interference", "merge_off", "survival_off"]:
+            r = run(f"lab_{mode}_s{seed}", mode, seed=seed)
+            agg.setdefault(mode, []).append((r["exact_state_accuracy"], r["equivalence_agreement"]))
+    print("\n=== summary across seeds", seeds, "===")
+    for mode, vals in agg.items():
+        st = sum(v[0] for v in vals) / len(vals)
+        eq = sum(v[1] for v in vals) / len(vals)
+        print(mode, "state_acc", round(st, 3), "equiv", round(eq, 3))
