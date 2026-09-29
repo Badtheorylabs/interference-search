@@ -1,0 +1,49 @@
+{
+ "run": "+interference",
+ "seed": 1,
+ "steps": 3000,
+ "params": 510332,
+ "train_seconds": 84.8,
+ "log": [
+  {
+   "step": 600,
+   "loss": 6.1206,
+   "grad_norm": 6.219
+  },
+  {
+   "step": 1200,
+   "loss": 5.4633,
+   "grad_norm": 5.512
+  },
+  {
+   "step": 1800,
+   "loss": 5.0447,
+   "grad_norm": 4.712
+  },
+  {
+   "step": 2400,
+   "loss": 5.3721,
+   "grad_norm": 5.361
+  },
+  {
+   "step": 3000,
+   "loss": 4.2807,
+   "grad_norm": 3.993
+  }
+ ],
+ "device": "cuda",
+ "reach_auc": 0.7935069444444445,
+ "reach_acc": 0.7222222222222222,
+ "frontier_solve_rate": 0.4638888888888889,
+ "physics_decode_acc": 0.9598692291312747,
+ "physics_legal_acc": 0.997200522157881,
+ "survival_auc_step1": 0.6370280492380435,
+ "path_invariance_auc": 0.9528992703775014,
+ "same_state_cos": 0.9716668025533999,
+ "diff_state_cos": 0.6854360072116014,
+ "merge_precision": 0.4623364077558249,
+ "merge_recall": 0.7483340158594245,
+ "kept_distinct_states_step2": 2.990972222222222,
+ "kept_dead_states_step2": 0.0,
+ "train_split_reach_auc": 0.8700848765432099
+}

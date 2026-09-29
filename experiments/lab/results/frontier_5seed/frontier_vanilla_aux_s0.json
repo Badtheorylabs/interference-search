@@ -1,0 +1,38 @@
+{
+ "run": "vanilla_aux",
+ "seed": 0,
+ "steps": 3000,
+ "params": 3937113,
+ "train_seconds": 26.4,
+ "log": [
+  {
+   "step": 600,
+   "loss": 0.7123,
+   "grad_norm": 6.411
+  },
+  {
+   "step": 1200,
+   "loss": 0.5583,
+   "grad_norm": 2.825
+  },
+  {
+   "step": 1800,
+   "loss": 0.5783,
+   "grad_norm": 3.164
+  },
+  {
+   "step": 2400,
+   "loss": 0.5899,
+   "grad_norm": 5.152
+  },
+  {
+   "step": 3000,
+   "loss": 0.629,
+   "grad_norm": 3.182
+  }
+ ],
+ "device": "cuda",
+ "reach_auc": 0.7668229166666667,
+ "reach_acc": 0.6979166666666666,
+ "train_split_reach_auc": 0.7985108024691357
+}

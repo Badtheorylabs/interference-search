@@ -69,13 +69,13 @@ collapse can be measured without philosophical argument.
 
 | Question | Experiment | Status |
 |---|---|---|
-| Can a model maintain multiple latent states? | Latent frontier benchmark | No, not in this implementation. All K slots collapse to one state (slot cosine 1.0). |
-| Can states interact? | Learned interference task | Not tested. With identical slots there is nothing to interact. |
-| Can it recognize equivalent states? | Countdown multiset collapse | Not tested. The pair set has no hard negatives; a shortcut scores AUC 0.993. |
-| Can it merge them? | State-collapse benchmark | Not tested. The merge update reflects slots through their mean instead of pulling them together. |
-| Can it suppress invalid states? | Dead-end benchmark | Not tested. The survival gate drives the frontier to 1e-11 during training. |
-| Can it advance a frontier without external search? | End-to-end reasoning benchmark | queued |
-| Does it beat an ordinary transformer at matched compute? | Matched-compute baseline | Not yet tested. The last comparison gave vanilla about 3.6x the FLOPs (see audit). |
+| Can a model maintain multiple latent states? | Latent frontier benchmark | Yes, in Experiment 2. The frontier keeps 3.9 distinct true states out of 4 places (full model, five seeds). |
+| Can states interact? | Learned interference task | Built, not yet useful. The interference layer ties the no-interference model (Experiment 2). |
+| Can it recognize equivalent states? | Countdown multiset collapse | Yes. Path invariance AUC 0.95 to 1.0 on unseen start sets: different move orders to the same numbers land close together. |
+| Can it merge them? | State-collapse benchmark | Partly. Merge raises solve rate on all 5 seeds, but only 34% of merges combine truly identical states. |
+| Can it suppress invalid states? | Dead-end benchmark | Yes, partly. Learned survival raises frontier solve rate from 13% to 48%; survival AUC 0.64 to 0.69. |
+| Can it advance a frontier without external search? | End-to-end reasoning benchmark | Yes, on 4-number Countdown. The frontier's own kept states really hit the target in 56% of reachable unseen problems, with no search loop outside the forward pass. |
+| Does it beat an ordinary transformer at matched compute? | Matched-compute baseline | Yes, on this task. Full model reach AUC 0.848 vs 0.708 for a plain transformer at the same FLOPs, and 0.748 for a plain transformer given the same move labels; 5 of 5 seeds each. |
 | Does it scale? | 100M → 500M → 1B → 4B | forbidden until rows above pass |
 
 Lab run 2026-09-29 (`experiments/lab/results/lab_*.json`): 858k vanilla vs
@@ -249,7 +249,67 @@ are now zeroed, so they can never count, and `test_illegal_move_kills_true_state
 pins this. The pilot numbers from before the fix are discarded; the
 five-seed run is on the fixed code.
 
-Results: pending the five-seed run.
+Results: five seeds, 3,000 steps each, on the fixed code (Spark GB10,
+`experiments/lab/results/frontier_5seed/`). Test start sets never appear
+in training.
+
+| Model | Reach AUC (test) | Frontier really solves | Survival AUC | Path invariance AUC |
+|---|---|---|---|---|
+| vanilla (3.2M params) | 0.735 | n/a | n/a | n/a |
+| vanilla_aux (+ move labels) | 0.748 | n/a | n/a | n/a |
+| vanilla_matched (19M, same FLOPs as full) | 0.708 | n/a | n/a | n/a |
+| frontier (random pruning) | 0.617 | 13% | n/a | 0.998 |
+| +survival | 0.810 | 48% | 0.644 | 0.969 |
+| +interference | 0.808 | 48% | 0.643 | 0.953 |
+| full (+merge, 0.5M params) | **0.848** | **56%** | **0.693** | 0.958 |
+
+Per-seed paired differences in reach AUC:
+- full minus vanilla_aux: +0.100 (full wins 5 of 5 seeds)
+- full minus vanilla_matched: +0.140 (5 of 5)
+- +survival minus frontier: +0.193 (5 of 5)
+- full minus +interference: +0.041 (5 of 5; the solve rate also rises in all 5)
+- +interference minus +survival: -0.003 (2 of 5), no effect
+
+What this shows:
+
+1. **Native search beats a plain transformer.** The full model is 6x
+   smaller than the plain transformer and uses the same compute as the
+   compute-matched one, and it wins on all 5 seeds. Scaling the plain
+   transformer up to the same FLOPs made it worse (0.708): more compute in
+   the plain architecture does not buy search.
+2. **The learned judge does real work.** Random pruning with K=4 solves
+   13%; learned survival solves 48%. For reference, exact moves with random
+   pruning solve 6%, and with an oracle judge 100%. Survival AUC 0.64 to
+   0.69 means it ranks states that can still reach the target above dead
+   ones, well above chance but far from the oracle.
+3. **Merge adds on top of survival.** full beats +interference on all 5
+   seeds (+0.041 AUC, +8 points solve rate). It keeps 3.9 distinct states
+   in its 4 frontier places, against 3.0 without merge.
+4. **Paths to the same state converge inside the network.** Path invariance
+   AUC is 0.95 to 1.0: two different move orders reaching the same numbers
+   have much closer latent states (cosine ~0.97) than different states
+   (~0.63 to 0.69). Nothing trains this directly. It comes from the shared
+   number code.
+
+What this does not show:
+
+- **Interference, as built, contributes nothing measurable.** +interference
+  ties +survival (2 of 5 seeds, -0.003). The attention layer between
+  candidates is not yet earning its compute.
+- **Merge precision is low (0.34).** Only a third of the merges combine
+  truly identical states; the rest combine different states that look
+  alike. The 0.98 threshold is too loose for how this network spaces its
+  states. Merge still helps because it frees frontier places, but it is
+  not yet a faithful identical-state merge.
+- **No generalization yet beyond 4 numbers, 1 to 13, targets up to 120.**
+  Depth is only 3 moves.
+- **vanilla_matched is a single configuration** (d=512, 6 layers) at the
+  same learning rate. A tuned wider or deeper plain model could do better.
+
+Next: fix merge precision (tighter threshold or a learned identity check
+graded against exact state identity); find out why interference adds
+nothing (target information may already reach the survival score
+directly); then 5 numbers and deeper search.
 
 ## Rules
 
