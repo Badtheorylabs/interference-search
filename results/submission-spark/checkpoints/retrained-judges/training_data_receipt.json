@@ -1,0 +1,11 @@
+{
+  "sources": 800,
+  "states": 632279,
+  "alive": 16344,
+  "sizes": [
+    4,
+    5
+  ],
+  "tensor_sha256": "6d9fc36dde34921b3cc5f8e316a594f2ed57e6d8a29fff9d7bac93faa003d746",
+  "order": "sorted exact states per source, then fixed seed-1 shuffle; differs from historical unsorted state iteration"
+}

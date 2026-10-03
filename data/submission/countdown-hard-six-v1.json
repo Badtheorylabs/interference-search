@@ -1,0 +1,1610 @@
+{
+  "version": 1,
+  "seed": 20261004,
+  "parent_sha256": "afb38abf391fb44660e319b7a12acfe9e07384f045197b750493ecdfe5503e81",
+  "generalisation": [
+    {
+      "numbers": [
+        7,
+        10,
+        21,
+        3,
+        23,
+        60
+      ],
+      "target": 846,
+      "solution": "(23 * (60 - 21)) - ((7 + 10) * 3)",
+      "problem_id": "23b34a06bea1c26f379a",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 24
+    },
+    {
+      "numbers": [
+        11,
+        92,
+        15,
+        10,
+        7,
+        20
+      ],
+      "target": 906,
+      "solution": "((10 * 20) - 15) + (7 * (11 + 92))",
+      "problem_id": "dc8d3cb05389a1aeddb9",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 16
+    },
+    {
+      "numbers": [
+        12,
+        87,
+        13,
+        24,
+        6,
+        18
+      ],
+      "target": 857,
+      "solution": "12 + ((((87 * 18) - 6) / 24) * 13)",
+      "problem_id": "8401ca99e08c1c3b265d",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 18
+    },
+    {
+      "numbers": [
+        99,
+        25,
+        16,
+        8,
+        1,
+        21
+      ],
+      "target": 881,
+      "solution": "((25 + (8 + 16)) * (21 - 1)) - 99",
+      "problem_id": "27c0d8eedd3384b2efe0",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 21
+    },
+    {
+      "numbers": [
+        31,
+        11,
+        13,
+        8,
+        12,
+        11
+      ],
+      "target": 856,
+      "solution": "31 + ((11 - 8) * (11 * (13 + 12)))",
+      "problem_id": "d759424940fcccdaac10",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 18
+    },
+    {
+      "numbers": [
+        16,
+        15,
+        32,
+        17,
+        9,
+        25
+      ],
+      "target": 644,
+      "solution": "32 + ((9 + 25) * ((17 + 16) - 15))",
+      "problem_id": "865f7a4282f799a0e729",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 24
+    },
+    {
+      "numbers": [
+        100,
+        23,
+        24,
+        20,
+        14,
+        4
+      ],
+      "target": 655,
+      "solution": "23 + (4 * (20 + ((14 + 24) + 100)))",
+      "problem_id": "12f0a52b77f5de28f85f",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 18
+    },
+    {
+      "numbers": [
+        13,
+        82,
+        24,
+        13,
+        21,
+        13
+      ],
+      "target": 877,
+      "solution": "((13 + (13 + 13)) * 21) + (82 - 24)",
+      "problem_id": "6a1c33afd44897b6c1ef",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 18
+    },
+    {
+      "numbers": [
+        7,
+        16,
+        17,
+        71,
+        1,
+        23
+      ],
+      "target": 621,
+      "solution": "(((17 + 71) / (1 + 7)) + 16) * 23",
+      "problem_id": "1f283356d8c709ae1023",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 21
+    },
+    {
+      "numbers": [
+        100,
+        11,
+        11,
+        6,
+        15,
+        15
+      ],
+      "target": 762,
+      "solution": "(15 + 15) + ((11 + (100 + 11)) * 6)",
+      "problem_id": "ec2529bea8c1e5842acb",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 18
+    },
+    {
+      "numbers": [
+        59,
+        7,
+        4,
+        21,
+        3,
+        18
+      ],
+      "target": 772,
+      "solution": "((3 * ((59 - 18) + 21)) + 7) * 4",
+      "problem_id": "ae60c70f84dca6fb1be7",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 14
+    },
+    {
+      "numbers": [
+        57,
+        12,
+        20,
+        18,
+        24,
+        2
+      ],
+      "target": 905,
+      "solution": "((24 - 2) * (18 + 20)) + (12 + 57)",
+      "problem_id": "9522937f99694edc3152",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 16
+    },
+    {
+      "numbers": [
+        15,
+        21,
+        9,
+        1,
+        22,
+        77
+      ],
+      "target": 975,
+      "solution": "((9 - 1) * (77 + (21 + 22))) + 15",
+      "problem_id": "933cd96e9724b0b8e0e4",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 9
+    },
+    {
+      "numbers": [
+        17,
+        18,
+        6,
+        22,
+        5,
+        91
+      ],
+      "target": 987,
+      "solution": "((6 * 91) - 18) + ((22 + 5) * 17)",
+      "problem_id": "1e5e063a8c029e774441",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 13
+    },
+    {
+      "numbers": [
+        19,
+        13,
+        64,
+        14,
+        16,
+        1
+      ],
+      "target": 577,
+      "solution": "1 + ((16 * 64) - ((13 + 19) * 14))",
+      "problem_id": "58b12fd27953b15c67a0",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 22
+    },
+    {
+      "numbers": [
+        4,
+        6,
+        17,
+        8,
+        6,
+        35
+      ],
+      "target": 873,
+      "solution": "(17 * ((35 - 8) + (4 * 6))) + 6",
+      "problem_id": "584e23700e5c5358808e",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 22
+    },
+    {
+      "numbers": [
+        19,
+        24,
+        15,
+        94,
+        24,
+        9
+      ],
+      "target": 25,
+      "solution": "(15 * (9 + 24)) - ((24 - 19) * 94)",
+      "problem_id": "11569299298bbb84ebc6",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 14
+    },
+    {
+      "numbers": [
+        1,
+        12,
+        78,
+        16,
+        19,
+        3
+      ],
+      "target": 693,
+      "solution": "(((19 * 16) - (78 - 1)) * 3) + 12",
+      "problem_id": "4689479570c3ec806c28",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 20
+    },
+    {
+      "numbers": [
+        30,
+        22,
+        13,
+        5,
+        12,
+        6
+      ],
+      "target": 899,
+      "solution": "((30 * 22) + ((6 + 12) * 13)) + 5",
+      "problem_id": "deac71f9985694a996f8",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 20
+    },
+    {
+      "numbers": [
+        40,
+        17,
+        8,
+        9,
+        16,
+        9
+      ],
+      "target": 652,
+      "solution": "((17 * ((9 + 9) * 16)) / 8) + 40",
+      "problem_id": "dd5e4e3d0d6474e58255",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 16
+    },
+    {
+      "numbers": [
+        5,
+        10,
+        30,
+        11,
+        4,
+        6
+      ],
+      "target": 916,
+      "solution": "(6 * (10 + (5 * 30))) - (11 * 4)",
+      "problem_id": "2deba6b78d9c23003dd0",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 17
+    },
+    {
+      "numbers": [
+        7,
+        9,
+        10,
+        8,
+        42,
+        9
+      ],
+      "target": 637,
+      "solution": "((9 * (9 + (7 * 8))) + 42) + 10",
+      "problem_id": "a4aead02ba3a3ffcbd67",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 24
+    },
+    {
+      "numbers": [
+        9,
+        10,
+        64,
+        16,
+        25,
+        21
+      ],
+      "target": 883,
+      "solution": "((64 + 9) * 21) - ((10 + 16) * 25)",
+      "problem_id": "42b02ec762cc629ce0fb",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 6
+    },
+    {
+      "numbers": [
+        17,
+        12,
+        7,
+        90,
+        24,
+        13
+      ],
+      "target": 868,
+      "solution": "((24 - 13) * (90 - 12)) + (17 - 7)",
+      "problem_id": "63ea4dfd5ceadae8d80e",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 21
+    },
+    {
+      "numbers": [
+        20,
+        10,
+        18,
+        19,
+        81,
+        6
+      ],
+      "target": 449,
+      "solution": "81 + (((19 * 10) - 6) * (20 - 18))",
+      "problem_id": "10db305be9e57ac9aa6a",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 21
+    },
+    {
+      "numbers": [
+        18,
+        16,
+        20,
+        19,
+        17,
+        73
+      ],
+      "target": 957,
+      "solution": "73 + ((16 * (17 + (18 + 19))) + 20)",
+      "problem_id": "99c79df3da5f783dddb0",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 24
+    },
+    {
+      "numbers": [
+        18,
+        68,
+        14,
+        1,
+        24,
+        25
+      ],
+      "target": 896,
+      "solution": "(24 * (25 - 1)) + (68 + (18 * 14))",
+      "problem_id": "ee36ec90717bd6f660be",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 24
+    },
+    {
+      "numbers": [
+        3,
+        4,
+        92,
+        13,
+        19,
+        16
+      ],
+      "target": 817,
+      "solution": "((((3 + 92) + 13) / 4) + 16) * 19",
+      "problem_id": "785ff56e4ff44c715100",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 23
+    },
+    {
+      "numbers": [
+        32,
+        4,
+        25,
+        21,
+        4,
+        21
+      ],
+      "target": 936,
+      "solution": "((25 * (21 + (4 * 4))) - 21) + 32",
+      "problem_id": "b9957d6a80ac799cf20f",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 12
+    },
+    {
+      "numbers": [
+        10,
+        4,
+        3,
+        7,
+        53,
+        22
+      ],
+      "target": 695,
+      "solution": "((7 * 4) - 22) + (53 * (10 + 3))",
+      "problem_id": "1ff3f14f2e46f4969d96",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 20
+    },
+    {
+      "numbers": [
+        19,
+        14,
+        58,
+        12,
+        23,
+        10
+      ],
+      "target": 964,
+      "solution": "((58 - 14) * (12 + 10)) - (23 - 19)",
+      "problem_id": "fe35b14910e92643b7b8",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 22
+    },
+    {
+      "numbers": [
+        23,
+        7,
+        57,
+        1,
+        7,
+        25
+      ],
+      "target": 963,
+      "solution": "((57 - (7 + 7)) * 23) - (25 + 1)",
+      "problem_id": "fb33f1e354bae9674f1a",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 18
+    },
+    {
+      "numbers": [
+        3,
+        71,
+        6,
+        21,
+        9,
+        23
+      ],
+      "target": 775,
+      "solution": "(((6 + 71) + (21 * 9)) * 3) - 23",
+      "problem_id": "c5c90d36916d94bdefc6",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 11
+    },
+    {
+      "numbers": [
+        6,
+        68,
+        23,
+        18,
+        1,
+        23
+      ],
+      "target": 501,
+      "solution": "((1 + 6) * 23) + ((23 - 18) * 68)",
+      "problem_id": "52930895e845f9d7001d",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 24
+    },
+    {
+      "numbers": [
+        83,
+        22,
+        20,
+        7,
+        21,
+        8
+      ],
+      "target": 417,
+      "solution": "(20 * 21) - ((7 + 83) / (8 + 22))",
+      "problem_id": "7457de5956ce82e83acb",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 16
+    },
+    {
+      "numbers": [
+        74,
+        4,
+        6,
+        15,
+        2,
+        12
+      ],
+      "target": 983,
+      "solution": "15 + ((4 * 2) + (12 * (6 + 74)))",
+      "problem_id": "a90fec695448d4575fde",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 17
+    },
+    {
+      "numbers": [
+        13,
+        6,
+        2,
+        10,
+        39,
+        5
+      ],
+      "target": 907,
+      "solution": "((6 + 2) * (10 * 5)) + (13 * 39)",
+      "problem_id": "21116c6627d7f8cbd84c",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 20
+    },
+    {
+      "numbers": [
+        31,
+        9,
+        4,
+        15,
+        6,
+        6
+      ],
+      "target": 991,
+      "solution": "31 + (((6 * 6) + 4) * (15 + 9))",
+      "problem_id": "dd8344f2470e7c0892f7",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 11
+    },
+    {
+      "numbers": [
+        24,
+        6,
+        13,
+        8,
+        91,
+        17
+      ],
+      "target": 978,
+      "solution": "(6 * 91) + ((24 + (17 + 13)) * 8)",
+      "problem_id": "b1eb77faeace4822caaf",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 24
+    },
+    {
+      "numbers": [
+        25,
+        6,
+        5,
+        5,
+        91,
+        8
+      ],
+      "target": 919,
+      "solution": "(6 * ((25 * 5) + (8 + 5))) + 91",
+      "problem_id": "d1d17c1ca834f6afb4b9",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 8
+    },
+    {
+      "numbers": [
+        12,
+        23,
+        12,
+        15,
+        18,
+        90
+      ],
+      "target": 724,
+      "solution": "(23 * ((90 / 18) + (15 + 12))) - 12",
+      "problem_id": "c9c3365abbf632ba5fe5",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 8
+    },
+    {
+      "numbers": [
+        23,
+        7,
+        99,
+        18,
+        6,
+        17
+      ],
+      "target": 461,
+      "solution": "((17 + 18) / 7) + (6 * (99 - 23))",
+      "problem_id": "93d53f3143b1a82bbd2d",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 10
+    },
+    {
+      "numbers": [
+        97,
+        24,
+        4,
+        23,
+        15,
+        10
+      ],
+      "target": 377,
+      "solution": "(((24 + (23 - 15)) - 4) * 10) + 97",
+      "problem_id": "6885f43015e046cb7d21",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 18
+    },
+    {
+      "numbers": [
+        23,
+        2,
+        58,
+        7,
+        1,
+        1
+      ],
+      "target": 831,
+      "solution": "23 + ((1 + 1) * ((7 * 58) - 2))",
+      "problem_id": "dd23654ad75f06e10864",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 13
+    },
+    {
+      "numbers": [
+        25,
+        76,
+        11,
+        16,
+        17,
+        24
+      ],
+      "target": 751,
+      "solution": "(24 * (76 - (16 + 11))) - (25 * 17)",
+      "problem_id": "474ccd120a9920453bee",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 13
+    },
+    {
+      "numbers": [
+        1,
+        1,
+        30,
+        18,
+        2,
+        23
+      ],
+      "target": 948,
+      "solution": "((2 * 30) + (23 * 18)) * (1 + 1)",
+      "problem_id": "cfe98ab7e67dbc40c1eb",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 11
+    },
+    {
+      "numbers": [
+        7,
+        6,
+        16,
+        16,
+        6,
+        93
+      ],
+      "target": 352,
+      "solution": "(7 * ((16 / 16) + (6 * 6))) + 93",
+      "problem_id": "b14e20048b1b0c9e4f8d",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 4
+    },
+    {
+      "numbers": [
+        8,
+        5,
+        1,
+        5,
+        92,
+        16
+      ],
+      "target": 985,
+      "solution": "(((8 + 92) * (5 + 5)) + 1) - 16",
+      "problem_id": "55bde5410bd9d105b7a9",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 12
+    },
+    {
+      "numbers": [
+        14,
+        14,
+        4,
+        24,
+        81,
+        15
+      ],
+      "target": 946,
+      "solution": "(4 * ((14 * 24) - (15 + 81))) - 14",
+      "problem_id": "0e02342c056964ccd6cb",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 22
+    },
+    {
+      "numbers": [
+        1,
+        23,
+        14,
+        85,
+        14,
+        19
+      ],
+      "target": 257,
+      "solution": "(((19 + 23) * (1 + 85)) - 14) / 14",
+      "problem_id": "d0686440443829decd19",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 8
+    },
+    {
+      "numbers": [
+        2,
+        18,
+        33,
+        20,
+        15,
+        17
+      ],
+      "target": 929,
+      "solution": "((18 + (20 / 2)) * (17 + 15)) + 33",
+      "problem_id": "76acb2385786abc6289f",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 17
+    },
+    {
+      "numbers": [
+        15,
+        16,
+        1,
+        25,
+        11,
+        37
+      ],
+      "target": 657,
+      "solution": "(15 * (16 - 1)) + ((11 * 37) + 25)",
+      "problem_id": "b3cc1685aa9d7b117008",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 13
+    },
+    {
+      "numbers": [
+        5,
+        80,
+        5,
+        3,
+        16,
+        21
+      ],
+      "target": 933,
+      "solution": "3 * (16 + ((5 * 80) - (5 * 21)))",
+      "problem_id": "7cf696405e0ae917bbfb",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 16
+    },
+    {
+      "numbers": [
+        34,
+        13,
+        24,
+        13,
+        20,
+        24
+      ],
+      "target": 755,
+      "solution": "((24 + (24 - 13)) * (34 - 13)) + 20",
+      "problem_id": "643a5b8e65a388166258",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 18
+    },
+    {
+      "numbers": [
+        1,
+        24,
+        91,
+        24,
+        15,
+        21
+      ],
+      "target": 298,
+      "solution": "((((24 + 21) * 91) / 15) + 1) + 24",
+      "problem_id": "8083b46236d298615856",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 24
+    },
+    {
+      "numbers": [
+        23,
+        59,
+        25,
+        14,
+        20,
+        18
+      ],
+      "target": 989,
+      "solution": "23 + (((25 - 18) * 20) + (14 * 59))",
+      "problem_id": "9c1df153890f8cdd4e2a",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 16
+    },
+    {
+      "numbers": [
+        24,
+        16,
+        27,
+        2,
+        5,
+        18
+      ],
+      "target": 859,
+      "solution": "(16 * ((18 + 24) + (5 * 2))) + 27",
+      "problem_id": "38a3250b73c335bf7714",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 11
+    },
+    {
+      "numbers": [
+        68,
+        3,
+        11,
+        23,
+        20,
+        7
+      ],
+      "target": 829,
+      "solution": "(7 + 3) + ((23 + 68) * (20 - 11))",
+      "problem_id": "2827e3355c6e426494c0",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 12
+    },
+    {
+      "numbers": [
+        20,
+        8,
+        16,
+        92,
+        4,
+        24
+      ],
+      "target": 699,
+      "solution": "((8 + 20) * 24) + ((92 + 16) / 4)",
+      "problem_id": "0b425b884dd800b873b2",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 8
+    },
+    {
+      "numbers": [
+        8,
+        15,
+        5,
+        17,
+        78,
+        3
+      ],
+      "target": 948,
+      "solution": "(78 * (8 + 5)) - ((17 * 3) + 15)",
+      "problem_id": "10b52b11789874b76600",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 23
+    },
+    {
+      "numbers": [
+        21,
+        22,
+        17,
+        20,
+        79,
+        24
+      ],
+      "target": 335,
+      "solution": "(17 * 79) - ((22 - 20) * (21 * 24))",
+      "problem_id": "5bdc0c8b0f8480596d06",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 22
+    },
+    {
+      "numbers": [
+        74,
+        7,
+        9,
+        17,
+        1,
+        8
+      ],
+      "target": 922,
+      "solution": "(9 * 74) + (1 + (17 * (8 + 7)))",
+      "problem_id": "e57e14167fa689155cc0",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 13
+    },
+    {
+      "numbers": [
+        23,
+        21,
+        18,
+        37,
+        16,
+        23
+      ],
+      "target": 879,
+      "solution": "(21 - 16) + ((37 - 18) * (23 + 23))",
+      "problem_id": "b53280f643775dda80cb",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 12
+    },
+    {
+      "numbers": [
+        14,
+        11,
+        1,
+        67,
+        15,
+        19
+      ],
+      "target": 591,
+      "solution": "((67 + 14) * 11) - (15 * (19 + 1))",
+      "problem_id": "dc6de6208b74515a30b2",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 18
+    },
+    {
+      "numbers": [
+        9,
+        17,
+        9,
+        8,
+        7,
+        41
+      ],
+      "target": 981,
+      "solution": "(41 + ((17 * 8) / (9 - 7))) * 9",
+      "problem_id": "f4263967dd541853c2cd",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 10
+    },
+    {
+      "numbers": [
+        25,
+        10,
+        22,
+        52,
+        11,
+        3
+      ],
+      "target": 716,
+      "solution": "((11 + (25 + (22 * 10))) * 3) - 52",
+      "problem_id": "fb168203055ec840d456",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 23
+    },
+    {
+      "numbers": [
+        8,
+        4,
+        4,
+        22,
+        75,
+        21
+      ],
+      "target": 993,
+      "solution": "75 + ((21 - 4) * (22 + (8 * 4)))",
+      "problem_id": "4e772049300879006454",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 6
+    },
+    {
+      "numbers": [
+        94,
+        12,
+        22,
+        11,
+        18,
+        21
+      ],
+      "target": 568,
+      "solution": "((21 + (12 * 18)) * (22 / 11)) + 94",
+      "problem_id": "29528c0d3a7649cf2ab0",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 11
+    },
+    {
+      "numbers": [
+        24,
+        9,
+        23,
+        51,
+        12,
+        3
+      ],
+      "target": 830,
+      "solution": "(51 + (12 * ((24 * 3) - 9))) + 23",
+      "problem_id": "3a87beaece5007a37dff",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 22
+    },
+    {
+      "numbers": [
+        5,
+        18,
+        6,
+        5,
+        92,
+        21
+      ],
+      "target": 793,
+      "solution": "((5 + 18) * 5) + ((92 + 21) * 6)",
+      "problem_id": "a0d3357a51dd6c4990bd",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 14
+    },
+    {
+      "numbers": [
+        5,
+        90,
+        17,
+        24,
+        10,
+        10
+      ],
+      "target": 923,
+      "solution": "(17 * ((24 + 10) + (10 + 5))) + 90",
+      "problem_id": "fbd43ded9f0fceeec3c3",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 18
+    },
+    {
+      "numbers": [
+        8,
+        15,
+        25,
+        77,
+        25,
+        9
+      ],
+      "target": 247,
+      "solution": "77 + (((15 + 25) * (25 + 9)) / 8)",
+      "problem_id": "ce9c99202958c5f6e42d",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 10
+    },
+    {
+      "numbers": [
+        75,
+        3,
+        6,
+        6,
+        11,
+        21
+      ],
+      "target": 898,
+      "solution": "(11 * (75 + 6)) + (21 / (6 - 3))",
+      "problem_id": "252fa43d38ffb03851f0",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 12
+    },
+    {
+      "numbers": [
+        23,
+        18,
+        17,
+        6,
+        69,
+        23
+      ],
+      "target": 958,
+      "solution": "(23 / 23) + ((69 + 18) * (17 - 6))",
+      "problem_id": "23dcc2b2309c510080dc",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 16
+    },
+    {
+      "numbers": [
+        19,
+        13,
+        66,
+        9,
+        24,
+        16
+      ],
+      "target": 867,
+      "solution": "((24 + 66) * 9) + (19 * (16 - 13))",
+      "problem_id": "b6c916fa563d5fd345ac",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 24
+    },
+    {
+      "numbers": [
+        18,
+        8,
+        16,
+        68,
+        10,
+        5
+      ],
+      "target": 901,
+      "solution": "5 + ((16 - 8) * ((18 * 10) - 68))",
+      "problem_id": "2e4998ea6c684d38119c",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 22
+    },
+    {
+      "numbers": [
+        13,
+        2,
+        86,
+        17,
+        9,
+        13
+      ],
+      "target": 681,
+      "solution": "(((86 * 13) + 17) * 9) / (13 + 2)",
+      "problem_id": "a1c4b1e2c97f090a43fd",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 12
+    },
+    {
+      "numbers": [
+        21,
+        16,
+        7,
+        7,
+        7,
+        39
+      ],
+      "target": 914,
+      "solution": "((16 * (7 + (7 * 7))) + 39) - 21",
+      "problem_id": "a5e8cbd102248c61b5bb",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 18
+    },
+    {
+      "numbers": [
+        57,
+        5,
+        4,
+        6,
+        18,
+        22
+      ],
+      "target": 534,
+      "solution": "(18 * (57 - (4 * 5))) - (22 * 6)",
+      "problem_id": "e2b9a497bc3c7f48e7c4",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 16
+    },
+    {
+      "numbers": [
+        61,
+        17,
+        2,
+        21,
+        18,
+        21
+      ],
+      "target": 950,
+      "solution": "(((2 * 17) + 21) * 18) - (61 - 21)",
+      "problem_id": "7c7c03630792e6ab8f09",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 12
+    },
+    {
+      "numbers": [
+        12,
+        10,
+        15,
+        85,
+        11,
+        16
+      ],
+      "target": 743,
+      "solution": "(((85 - 11) * 12) - (16 * 10)) + 15",
+      "problem_id": "73c28987acdbe395fd17",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 21
+    },
+    {
+      "numbers": [
+        1,
+        5,
+        20,
+        2,
+        81,
+        20
+      ],
+      "target": 931,
+      "solution": "(((20 * (1 + 20)) + 5) * 2) + 81",
+      "problem_id": "8ae9e617f8e312385bc3",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 20
+    },
+    {
+      "numbers": [
+        2,
+        13,
+        5,
+        1,
+        1,
+        81
+      ],
+      "target": 829,
+      "solution": "((1 + (2 * 81)) * 5) + (1 + 13)",
+      "problem_id": "29f44f2c3cd4f35d3fa0",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 12
+    },
+    {
+      "numbers": [
+        21,
+        11,
+        10,
+        35,
+        4,
+        14
+      ],
+      "target": 813,
+      "solution": "(4 * ((14 * (35 - 21)) + 10)) - 11",
+      "problem_id": "e5f98065e1764ebe91a7",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 14
+    },
+    {
+      "numbers": [
+        4,
+        82,
+        9,
+        7,
+        1,
+        10
+      ],
+      "target": 970,
+      "solution": "(7 * 82) + ((9 * 4) * (10 + 1))",
+      "problem_id": "9008a356274262903fb6",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 21
+    },
+    {
+      "numbers": [
+        95,
+        11,
+        15,
+        22,
+        19,
+        17
+      ],
+      "target": 387,
+      "solution": "(11 + 15) + ((95 * 19) / (22 - 17))",
+      "problem_id": "f5f4fd8884c1076ea8c0",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 22
+    },
+    {
+      "numbers": [
+        14,
+        1,
+        14,
+        24,
+        92,
+        19
+      ],
+      "target": 725,
+      "solution": "(19 * (24 - 1)) + ((14 * 14) + 92)",
+      "problem_id": "f752d8cd0f1a1935afcb",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 13
+    },
+    {
+      "numbers": [
+        25,
+        3,
+        16,
+        9,
+        95,
+        23
+      ],
+      "target": 781,
+      "solution": "(9 * (95 + 25)) - (23 * (16 - 3))",
+      "problem_id": "6d7ce9c09035cf695bfe",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 22
+    },
+    {
+      "numbers": [
+        12,
+        25,
+        99,
+        10,
+        3,
+        13
+      ],
+      "target": 997,
+      "solution": "(13 * 99) - (10 * ((12 / 3) + 25))",
+      "problem_id": "7aa237ef9f6cb976c5c4",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 23
+    },
+    {
+      "numbers": [
+        78,
+        17,
+        10,
+        15,
+        10,
+        16
+      ],
+      "target": 291,
+      "solution": "((78 - (10 + 17)) * (16 - 10)) - 15",
+      "problem_id": "3480dd19a2fc27194b87",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 20
+    },
+    {
+      "numbers": [
+        63,
+        7,
+        18,
+        7,
+        6,
+        15
+      ],
+      "target": 883,
+      "solution": "15 + (((7 + (18 * 6)) * 7) + 63)",
+      "problem_id": "99f6b7f0b54fec5acbcb",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 12
+    },
+    {
+      "numbers": [
+        25,
+        8,
+        20,
+        49,
+        6,
+        14
+      ],
+      "target": 904,
+      "solution": "(6 * (8 + 25)) + ((14 * 49) + 20)",
+      "problem_id": "a0365d69675d47222660",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 22
+    },
+    {
+      "numbers": [
+        15,
+        11,
+        77,
+        15,
+        2,
+        18
+      ],
+      "target": 815,
+      "solution": "((18 * (15 + 77)) - (15 + 11)) / 2",
+      "problem_id": "404f49fde6da2584e297",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 14
+    },
+    {
+      "numbers": [
+        14,
+        91,
+        17,
+        3,
+        10,
+        24
+      ],
+      "target": 801,
+      "solution": "((10 * 91) + 14) - ((17 + 24) * 3)",
+      "problem_id": "3e5dfeadf717b3ade40d",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 23
+    },
+    {
+      "numbers": [
+        16,
+        50,
+        14,
+        3,
+        16,
+        4
+      ],
+      "target": 309,
+      "solution": "(50 / (14 - 4)) + ((3 + 16) * 16)",
+      "problem_id": "effeda8f7167273e2dd8",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 16
+    },
+    {
+      "numbers": [
+        25,
+        3,
+        39,
+        25,
+        1,
+        17
+      ],
+      "target": 470,
+      "solution": "(17 * 25) + (3 * ((39 + 1) - 25))",
+      "problem_id": "ff05ee8c51fee0060e43",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 24
+    },
+    {
+      "numbers": [
+        10,
+        32,
+        18,
+        25,
+        4,
+        16
+      ],
+      "target": 411,
+      "solution": "(((32 + 18) * 10) - (4 * 16)) - 25",
+      "problem_id": "66d8aaa1ba74be2a23a4",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 17
+    },
+    {
+      "numbers": [
+        19,
+        13,
+        1,
+        11,
+        18,
+        97
+      ],
+      "target": 847,
+      "solution": "19 + (((13 * 11) - 97) * (18 / 1))",
+      "problem_id": "e6099d2fd535bf78aa9d",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 15
+    },
+    {
+      "numbers": [
+        93,
+        23,
+        16,
+        7,
+        11,
+        10
+      ],
+      "target": 526,
+      "solution": "((7 * 93) - 10) - (23 * (16 - 11))",
+      "problem_id": "b47ebf1d32b8c31cde9b",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 22
+    },
+    {
+      "numbers": [
+        25,
+        9,
+        23,
+        21,
+        32,
+        14
+      ],
+      "target": 362,
+      "solution": "(25 - 23) * (((14 - 9) * 32) + 21)",
+      "problem_id": "5beb6efe82c5721fa801",
+      "n_numbers": 6,
+      "cohort": "hard",
+      "solution_paths": 18
+    }
+  ],
+  "main": [],
+  "attempts": 51491,
+  "selection": "exact solution operation paths <=24; no judge score consulted"
+}

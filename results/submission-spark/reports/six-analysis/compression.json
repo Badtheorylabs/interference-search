@@ -1,0 +1,2274 @@
+[
+  {
+    "method": "beam",
+    "budget": 500,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "beam",
+    "budget": 500,
+    "depth": 2,
+    "raw_candidates_mean": 229.62,
+    "unique_states_mean": 186.558,
+    "raw_to_unique_ratio": 1.2308236580580838
+  },
+  {
+    "method": "beam",
+    "budget": 1500,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "beam",
+    "budget": 1500,
+    "depth": 2,
+    "raw_candidates_mean": 503.64,
+    "unique_states_mean": 358.74,
+    "raw_to_unique_ratio": 1.4039136979427997
+  },
+  {
+    "method": "beam",
+    "budget": 1500,
+    "depth": 3,
+    "raw_candidates_mean": 275.36,
+    "unique_states_mean": 225.983,
+    "raw_to_unique_ratio": 1.2184987366306315
+  },
+  {
+    "method": "beam",
+    "budget": 1500,
+    "depth": 4,
+    "raw_candidates_mean": 44.925925925925924,
+    "unique_states_mean": 36.98888888888889,
+    "raw_to_unique_ratio": 1.2145789526384299
+  },
+  {
+    "method": "beam",
+    "budget": 5000,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "beam",
+    "budget": 5000,
+    "depth": 2,
+    "raw_candidates_mean": 503.64,
+    "unique_states_mean": 358.74,
+    "raw_to_unique_ratio": 1.4039136979427997
+  },
+  {
+    "method": "beam",
+    "budget": 5000,
+    "depth": 3,
+    "raw_candidates_mean": 304.62,
+    "unique_states_mean": 249.83,
+    "raw_to_unique_ratio": 1.2193091302085417
+  },
+  {
+    "method": "beam",
+    "budget": 5000,
+    "depth": 4,
+    "raw_candidates_mean": 154.28,
+    "unique_states_mean": 128.64,
+    "raw_to_unique_ratio": 1.19931592039801
+  },
+  {
+    "method": "beam",
+    "budget": 5000,
+    "depth": 5,
+    "raw_candidates_mean": 19.434,
+    "unique_states_mean": 16.494,
+    "raw_to_unique_ratio": 1.178246635140051
+  },
+  {
+    "method": "beam",
+    "budget": 15000,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "beam",
+    "budget": 15000,
+    "depth": 2,
+    "raw_candidates_mean": 503.64,
+    "unique_states_mean": 358.74,
+    "raw_to_unique_ratio": 1.4039136979427997
+  },
+  {
+    "method": "beam",
+    "budget": 15000,
+    "depth": 3,
+    "raw_candidates_mean": 304.62,
+    "unique_states_mean": 249.83,
+    "raw_to_unique_ratio": 1.2193091302085417
+  },
+  {
+    "method": "beam",
+    "budget": 15000,
+    "depth": 4,
+    "raw_candidates_mean": 154.28,
+    "unique_states_mean": 128.64,
+    "raw_to_unique_ratio": 1.19931592039801
+  },
+  {
+    "method": "beam",
+    "budget": 15000,
+    "depth": 5,
+    "raw_candidates_mean": 19.434,
+    "unique_states_mean": 16.494,
+    "raw_to_unique_ratio": 1.178246635140051
+  },
+  {
+    "method": "best_first",
+    "budget": 500,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "best_first",
+    "budget": 500,
+    "depth": 2,
+    "raw_candidates_mean": 226.55,
+    "unique_states_mean": 184.721,
+    "raw_to_unique_ratio": 1.2264442050443642
+  },
+  {
+    "method": "best_first",
+    "budget": 500,
+    "depth": 3,
+    "raw_candidates_mean": 24.181818181818183,
+    "unique_states_mean": 20.272727272727273,
+    "raw_to_unique_ratio": 1.1928251121076232
+  },
+  {
+    "method": "best_first",
+    "budget": 1500,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "best_first",
+    "budget": 1500,
+    "depth": 2,
+    "raw_candidates_mean": 779.7,
+    "unique_states_mean": 484.929,
+    "raw_to_unique_ratio": 1.6078642440439734
+  },
+  {
+    "method": "best_first",
+    "budget": 1500,
+    "depth": 3,
+    "raw_candidates_mean": 107.27692307692308,
+    "unique_states_mean": 82.61384615384615,
+    "raw_to_unique_ratio": 1.298534423359839
+  },
+  {
+    "method": "best_first",
+    "budget": 5000,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "best_first",
+    "budget": 5000,
+    "depth": 2,
+    "raw_candidates_mean": 1164.13,
+    "unique_states_mean": 608.33,
+    "raw_to_unique_ratio": 1.9136488419114626
+  },
+  {
+    "method": "best_first",
+    "budget": 5000,
+    "depth": 3,
+    "raw_candidates_mean": 1740.29,
+    "unique_states_mean": 1160.238,
+    "raw_to_unique_ratio": 1.499942253227355
+  },
+  {
+    "method": "best_first",
+    "budget": 5000,
+    "depth": 4,
+    "raw_candidates_mean": 19.65,
+    "unique_states_mean": 16.105,
+    "raw_to_unique_ratio": 1.220117975783918
+  },
+  {
+    "method": "best_first",
+    "budget": 5000,
+    "depth": 5,
+    "raw_candidates_mean": 4.464285714285714,
+    "unique_states_mean": 4.178571428571429,
+    "raw_to_unique_ratio": 1.0683760683760684
+  },
+  {
+    "method": "best_first",
+    "budget": 15000,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "best_first",
+    "budget": 15000,
+    "depth": 2,
+    "raw_candidates_mean": 1208.88,
+    "unique_states_mean": 620.4,
+    "raw_to_unique_ratio": 1.948549323017408
+  },
+  {
+    "method": "best_first",
+    "budget": 15000,
+    "depth": 3,
+    "raw_candidates_mean": 5970.61,
+    "unique_states_mean": 2992.022,
+    "raw_to_unique_ratio": 1.9955100597522344
+  },
+  {
+    "method": "best_first",
+    "budget": 15000,
+    "depth": 4,
+    "raw_candidates_mean": 87.46739130434783,
+    "unique_states_mean": 73.80434782608695,
+    "raw_to_unique_ratio": 1.1851251840942563
+  },
+  {
+    "method": "best_first",
+    "budget": 15000,
+    "depth": 5,
+    "raw_candidates_mean": 10.601204819277108,
+    "unique_states_mean": 9.310843373493976,
+    "raw_to_unique_ratio": 1.138586956521739
+  },
+  {
+    "method": "bfs",
+    "budget": 500,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "bfs",
+    "budget": 500,
+    "depth": 2,
+    "raw_candidates_mean": 437.317,
+    "unique_states_mean": 328.103,
+    "raw_to_unique_ratio": 1.3328649844713398
+  },
+  {
+    "method": "bfs",
+    "budget": 1500,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "bfs",
+    "budget": 1500,
+    "depth": 2,
+    "raw_candidates_mean": 1267.756,
+    "unique_states_mean": 639.14,
+    "raw_to_unique_ratio": 1.983534123979097
+  },
+  {
+    "method": "bfs",
+    "budget": 1500,
+    "depth": 3,
+    "raw_candidates_mean": 234.5655172413793,
+    "unique_states_mean": 145.61724137931034,
+    "raw_to_unique_ratio": 1.6108361552487627
+  },
+  {
+    "method": "bfs",
+    "budget": 5000,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "bfs",
+    "budget": 5000,
+    "depth": 2,
+    "raw_candidates_mean": 1304.18,
+    "unique_states_mean": 646.13,
+    "raw_to_unique_ratio": 2.0184482998777336
+  },
+  {
+    "method": "bfs",
+    "budget": 5000,
+    "depth": 3,
+    "raw_candidates_mean": 3424.586,
+    "unique_states_mean": 1674.071,
+    "raw_to_unique_ratio": 2.0456635351786154
+  },
+  {
+    "method": "bfs",
+    "budget": 15000,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "bfs",
+    "budget": 15000,
+    "depth": 2,
+    "raw_candidates_mean": 1304.18,
+    "unique_states_mean": 646.13,
+    "raw_to_unique_ratio": 2.0184482998777336
+  },
+  {
+    "method": "bfs",
+    "budget": 15000,
+    "depth": 3,
+    "raw_candidates_mean": 11206.24,
+    "unique_states_mean": 4508.253,
+    "raw_to_unique_ratio": 2.485716751034159
+  },
+  {
+    "method": "bfs",
+    "budget": 15000,
+    "depth": 4,
+    "raw_candidates_mean": 3267.846,
+    "unique_states_mean": 1376.716,
+    "raw_to_unique_ratio": 2.3736529538408795
+  },
+  {
+    "method": "factorial_m0j0s0",
+    "budget": 500,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "factorial_m0j0s0",
+    "budget": 500,
+    "depth": 2,
+    "raw_candidates_mean": 117.499,
+    "unique_states_mean": 101.723,
+    "raw_to_unique_ratio": 1.155087836575799
+  },
+  {
+    "method": "factorial_m0j0s0",
+    "budget": 500,
+    "depth": 3,
+    "raw_candidates_mean": 168.417,
+    "unique_states_mean": 147.853,
+    "raw_to_unique_ratio": 1.1390840902788582
+  },
+  {
+    "method": "factorial_m0j0s0",
+    "budget": 500,
+    "depth": 4,
+    "raw_candidates_mean": 105.373,
+    "unique_states_mean": 95.409,
+    "raw_to_unique_ratio": 1.1044345921244327
+  },
+  {
+    "method": "factorial_m0j0s0",
+    "budget": 500,
+    "depth": 5,
+    "raw_candidates_mean": 22.283283283283282,
+    "unique_states_mean": 20.55755755755756,
+    "raw_to_unique_ratio": 1.0839460485952184
+  },
+  {
+    "method": "factorial_m0j0s0",
+    "budget": 1500,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "factorial_m0j0s0",
+    "budget": 1500,
+    "depth": 2,
+    "raw_candidates_mean": 150.133,
+    "unique_states_mean": 126.635,
+    "raw_to_unique_ratio": 1.1855569155446757
+  },
+  {
+    "method": "factorial_m0j0s0",
+    "budget": 1500,
+    "depth": 3,
+    "raw_candidates_mean": 292.658,
+    "unique_states_mean": 247.065,
+    "raw_to_unique_ratio": 1.184538481776051
+  },
+  {
+    "method": "factorial_m0j0s0",
+    "budget": 1500,
+    "depth": 4,
+    "raw_candidates_mean": 299.757,
+    "unique_states_mean": 253.333,
+    "raw_to_unique_ratio": 1.1832528727011482
+  },
+  {
+    "method": "factorial_m0j0s0",
+    "budget": 1500,
+    "depth": 5,
+    "raw_candidates_mean": 150.323,
+    "unique_states_mean": 113.711,
+    "raw_to_unique_ratio": 1.3219741273931283
+  },
+  {
+    "method": "factorial_m0j0s0",
+    "budget": 5000,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "factorial_m0j0s0",
+    "budget": 5000,
+    "depth": 2,
+    "raw_candidates_mean": 150.133,
+    "unique_states_mean": 126.635,
+    "raw_to_unique_ratio": 1.1855569155446757
+  },
+  {
+    "method": "factorial_m0j0s0",
+    "budget": 5000,
+    "depth": 3,
+    "raw_candidates_mean": 293.064,
+    "unique_states_mean": 247.364,
+    "raw_to_unique_ratio": 1.1847479827299041
+  },
+  {
+    "method": "factorial_m0j0s0",
+    "budget": 5000,
+    "depth": 4,
+    "raw_candidates_mean": 301.855,
+    "unique_states_mean": 254.843,
+    "raw_to_unique_ratio": 1.1844743626468062
+  },
+  {
+    "method": "factorial_m0j0s0",
+    "budget": 5000,
+    "depth": 5,
+    "raw_candidates_mean": 154.737,
+    "unique_states_mean": 116.244,
+    "raw_to_unique_ratio": 1.3311396717249924
+  },
+  {
+    "method": "factorial_m0j0s0",
+    "budget": 15000,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "factorial_m0j0s0",
+    "budget": 15000,
+    "depth": 2,
+    "raw_candidates_mean": 150.133,
+    "unique_states_mean": 126.635,
+    "raw_to_unique_ratio": 1.1855569155446757
+  },
+  {
+    "method": "factorial_m0j0s0",
+    "budget": 15000,
+    "depth": 3,
+    "raw_candidates_mean": 293.064,
+    "unique_states_mean": 247.364,
+    "raw_to_unique_ratio": 1.1847479827299041
+  },
+  {
+    "method": "factorial_m0j0s0",
+    "budget": 15000,
+    "depth": 4,
+    "raw_candidates_mean": 301.855,
+    "unique_states_mean": 254.843,
+    "raw_to_unique_ratio": 1.1844743626468062
+  },
+  {
+    "method": "factorial_m0j0s0",
+    "budget": 15000,
+    "depth": 5,
+    "raw_candidates_mean": 154.737,
+    "unique_states_mean": 116.244,
+    "raw_to_unique_ratio": 1.3311396717249924
+  },
+  {
+    "method": "factorial_m0j0s1",
+    "budget": 500,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "factorial_m0j0s1",
+    "budget": 500,
+    "depth": 2,
+    "raw_candidates_mean": 437.285,
+    "unique_states_mean": 319.267,
+    "raw_to_unique_ratio": 1.3696529863719082
+  },
+  {
+    "method": "factorial_m0j0s1",
+    "budget": 1500,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "factorial_m0j0s1",
+    "budget": 1500,
+    "depth": 2,
+    "raw_candidates_mean": 504.377,
+    "unique_states_mean": 355.28,
+    "raw_to_unique_ratio": 1.419660549425805
+  },
+  {
+    "method": "factorial_m0j0s1",
+    "budget": 1500,
+    "depth": 3,
+    "raw_candidates_mean": 302.586,
+    "unique_states_mean": 267.963,
+    "raw_to_unique_ratio": 1.1292081369442797
+  },
+  {
+    "method": "factorial_m0j0s1",
+    "budget": 1500,
+    "depth": 4,
+    "raw_candidates_mean": 151.091,
+    "unique_states_mean": 139.127,
+    "raw_to_unique_ratio": 1.085993372961395
+  },
+  {
+    "method": "factorial_m0j0s1",
+    "budget": 1500,
+    "depth": 5,
+    "raw_candidates_mean": 48.062,
+    "unique_states_mean": 43.262,
+    "raw_to_unique_ratio": 1.1109518746243816
+  },
+  {
+    "method": "factorial_m0j0s1",
+    "budget": 5000,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "factorial_m0j0s1",
+    "budget": 5000,
+    "depth": 2,
+    "raw_candidates_mean": 504.377,
+    "unique_states_mean": 355.28,
+    "raw_to_unique_ratio": 1.419660549425805
+  },
+  {
+    "method": "factorial_m0j0s1",
+    "budget": 5000,
+    "depth": 3,
+    "raw_candidates_mean": 302.586,
+    "unique_states_mean": 267.963,
+    "raw_to_unique_ratio": 1.1292081369442797
+  },
+  {
+    "method": "factorial_m0j0s1",
+    "budget": 5000,
+    "depth": 4,
+    "raw_candidates_mean": 151.091,
+    "unique_states_mean": 139.127,
+    "raw_to_unique_ratio": 1.085993372961395
+  },
+  {
+    "method": "factorial_m0j0s1",
+    "budget": 5000,
+    "depth": 5,
+    "raw_candidates_mean": 48.062,
+    "unique_states_mean": 43.262,
+    "raw_to_unique_ratio": 1.1109518746243816
+  },
+  {
+    "method": "factorial_m0j0s1",
+    "budget": 15000,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "factorial_m0j0s1",
+    "budget": 15000,
+    "depth": 2,
+    "raw_candidates_mean": 504.377,
+    "unique_states_mean": 355.28,
+    "raw_to_unique_ratio": 1.419660549425805
+  },
+  {
+    "method": "factorial_m0j0s1",
+    "budget": 15000,
+    "depth": 3,
+    "raw_candidates_mean": 302.586,
+    "unique_states_mean": 267.963,
+    "raw_to_unique_ratio": 1.1292081369442797
+  },
+  {
+    "method": "factorial_m0j0s1",
+    "budget": 15000,
+    "depth": 4,
+    "raw_candidates_mean": 151.091,
+    "unique_states_mean": 139.127,
+    "raw_to_unique_ratio": 1.085993372961395
+  },
+  {
+    "method": "factorial_m0j0s1",
+    "budget": 15000,
+    "depth": 5,
+    "raw_candidates_mean": 48.062,
+    "unique_states_mean": 43.262,
+    "raw_to_unique_ratio": 1.1109518746243816
+  },
+  {
+    "method": "factorial_m0j1s0",
+    "budget": 500,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "factorial_m0j1s0",
+    "budget": 500,
+    "depth": 2,
+    "raw_candidates_mean": 206.18,
+    "unique_states_mean": 154.283,
+    "raw_to_unique_ratio": 1.3363753621591492
+  },
+  {
+    "method": "factorial_m0j1s0",
+    "budget": 500,
+    "depth": 3,
+    "raw_candidates_mean": 30.142857142857142,
+    "unique_states_mean": 18.857142857142858,
+    "raw_to_unique_ratio": 1.5984848484848484
+  },
+  {
+    "method": "factorial_m0j1s0",
+    "budget": 1500,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "factorial_m0j1s0",
+    "budget": 1500,
+    "depth": 2,
+    "raw_candidates_mean": 499.3,
+    "unique_states_mean": 327.44,
+    "raw_to_unique_ratio": 1.5248595162472514
+  },
+  {
+    "method": "factorial_m0j1s0",
+    "budget": 1500,
+    "depth": 3,
+    "raw_candidates_mean": 194.09,
+    "unique_states_mean": 110.835,
+    "raw_to_unique_ratio": 1.7511616366671179
+  },
+  {
+    "method": "factorial_m0j1s0",
+    "budget": 5000,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "factorial_m0j1s0",
+    "budget": 5000,
+    "depth": 2,
+    "raw_candidates_mean": 499.6,
+    "unique_states_mean": 327.63,
+    "raw_to_unique_ratio": 1.5248908830082715
+  },
+  {
+    "method": "factorial_m0j1s0",
+    "budget": 5000,
+    "depth": 3,
+    "raw_candidates_mean": 326.07,
+    "unique_states_mean": 191.16,
+    "raw_to_unique_ratio": 1.7057438794726931
+  },
+  {
+    "method": "factorial_m0j1s0",
+    "budget": 5000,
+    "depth": 4,
+    "raw_candidates_mean": 96.19,
+    "unique_states_mean": 58.95,
+    "raw_to_unique_ratio": 1.631721798134012
+  },
+  {
+    "method": "factorial_m0j1s0",
+    "budget": 5000,
+    "depth": 5,
+    "raw_candidates_mean": 27.294,
+    "unique_states_mean": 13.31,
+    "raw_to_unique_ratio": 2.0506386175807663
+  },
+  {
+    "method": "factorial_m0j1s0",
+    "budget": 15000,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "factorial_m0j1s0",
+    "budget": 15000,
+    "depth": 2,
+    "raw_candidates_mean": 499.6,
+    "unique_states_mean": 327.63,
+    "raw_to_unique_ratio": 1.5248908830082715
+  },
+  {
+    "method": "factorial_m0j1s0",
+    "budget": 15000,
+    "depth": 3,
+    "raw_candidates_mean": 326.07,
+    "unique_states_mean": 191.16,
+    "raw_to_unique_ratio": 1.7057438794726931
+  },
+  {
+    "method": "factorial_m0j1s0",
+    "budget": 15000,
+    "depth": 4,
+    "raw_candidates_mean": 96.19,
+    "unique_states_mean": 58.95,
+    "raw_to_unique_ratio": 1.631721798134012
+  },
+  {
+    "method": "factorial_m0j1s0",
+    "budget": 15000,
+    "depth": 5,
+    "raw_candidates_mean": 27.294,
+    "unique_states_mean": 13.31,
+    "raw_to_unique_ratio": 2.0506386175807663
+  },
+  {
+    "method": "factorial_m0j1s1",
+    "budget": 500,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "factorial_m0j1s1",
+    "budget": 500,
+    "depth": 2,
+    "raw_candidates_mean": 208.6,
+    "unique_states_mean": 155.986,
+    "raw_to_unique_ratio": 1.3372995012372906
+  },
+  {
+    "method": "factorial_m0j1s1",
+    "budget": 1500,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "factorial_m0j1s1",
+    "budget": 1500,
+    "depth": 2,
+    "raw_candidates_mean": 503.79,
+    "unique_states_mean": 329.75,
+    "raw_to_unique_ratio": 1.5277937831690676
+  },
+  {
+    "method": "factorial_m0j1s1",
+    "budget": 1500,
+    "depth": 3,
+    "raw_candidates_mean": 189.73,
+    "unique_states_mean": 93.949,
+    "raw_to_unique_ratio": 2.019499941457599
+  },
+  {
+    "method": "factorial_m0j1s1",
+    "budget": 5000,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "factorial_m0j1s1",
+    "budget": 5000,
+    "depth": 2,
+    "raw_candidates_mean": 503.79,
+    "unique_states_mean": 329.75,
+    "raw_to_unique_ratio": 1.5277937831690676
+  },
+  {
+    "method": "factorial_m0j1s1",
+    "budget": 5000,
+    "depth": 3,
+    "raw_candidates_mean": 305.83,
+    "unique_states_mean": 144.07,
+    "raw_to_unique_ratio": 2.122787533837718
+  },
+  {
+    "method": "factorial_m0j1s1",
+    "budget": 5000,
+    "depth": 4,
+    "raw_candidates_mean": 155.49,
+    "unique_states_mean": 64.88,
+    "raw_to_unique_ratio": 2.3965782983970407
+  },
+  {
+    "method": "factorial_m0j1s1",
+    "budget": 5000,
+    "depth": 5,
+    "raw_candidates_mean": 27.353535353535353,
+    "unique_states_mean": 10.281818181818181,
+    "raw_to_unique_ratio": 2.66037921210335
+  },
+  {
+    "method": "factorial_m0j1s1",
+    "budget": 15000,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "factorial_m0j1s1",
+    "budget": 15000,
+    "depth": 2,
+    "raw_candidates_mean": 503.79,
+    "unique_states_mean": 329.75,
+    "raw_to_unique_ratio": 1.5277937831690676
+  },
+  {
+    "method": "factorial_m0j1s1",
+    "budget": 15000,
+    "depth": 3,
+    "raw_candidates_mean": 305.83,
+    "unique_states_mean": 144.07,
+    "raw_to_unique_ratio": 2.122787533837718
+  },
+  {
+    "method": "factorial_m0j1s1",
+    "budget": 15000,
+    "depth": 4,
+    "raw_candidates_mean": 155.49,
+    "unique_states_mean": 64.88,
+    "raw_to_unique_ratio": 2.3965782983970407
+  },
+  {
+    "method": "factorial_m0j1s1",
+    "budget": 15000,
+    "depth": 5,
+    "raw_candidates_mean": 27.353535353535353,
+    "unique_states_mean": 10.281818181818181,
+    "raw_to_unique_ratio": 2.66037921210335
+  },
+  {
+    "method": "factorial_m1j0s0",
+    "budget": 500,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "factorial_m1j0s0",
+    "budget": 500,
+    "depth": 2,
+    "raw_candidates_mean": 118.008,
+    "unique_states_mean": 101.177,
+    "raw_to_unique_ratio": 1.1663520365300415
+  },
+  {
+    "method": "factorial_m1j0s0",
+    "budget": 500,
+    "depth": 3,
+    "raw_candidates_mean": 163.978,
+    "unique_states_mean": 144.973,
+    "raw_to_unique_ratio": 1.1310933760079462
+  },
+  {
+    "method": "factorial_m1j0s0",
+    "budget": 500,
+    "depth": 4,
+    "raw_candidates_mean": 105.293,
+    "unique_states_mean": 96.627,
+    "raw_to_unique_ratio": 1.0896850776698024
+  },
+  {
+    "method": "factorial_m1j0s0",
+    "budget": 500,
+    "depth": 5,
+    "raw_candidates_mean": 24.57314629258517,
+    "unique_states_mean": 22.88376753507014,
+    "raw_to_unique_ratio": 1.073824327874595
+  },
+  {
+    "method": "factorial_m1j0s0",
+    "budget": 1500,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "factorial_m1j0s0",
+    "budget": 1500,
+    "depth": 2,
+    "raw_candidates_mean": 152.917,
+    "unique_states_mean": 128.905,
+    "raw_to_unique_ratio": 1.1862767154105738
+  },
+  {
+    "method": "factorial_m1j0s0",
+    "budget": 1500,
+    "depth": 3,
+    "raw_candidates_mean": 281.988,
+    "unique_states_mean": 244.673,
+    "raw_to_unique_ratio": 1.1525096761800444
+  },
+  {
+    "method": "factorial_m1j0s0",
+    "budget": 1500,
+    "depth": 4,
+    "raw_candidates_mean": 290.262,
+    "unique_states_mean": 255.458,
+    "raw_to_unique_ratio": 1.1362415739573628
+  },
+  {
+    "method": "factorial_m1j0s0",
+    "budget": 1500,
+    "depth": 5,
+    "raw_candidates_mean": 150.389,
+    "unique_states_mean": 121.331,
+    "raw_to_unique_ratio": 1.2394936166354849
+  },
+  {
+    "method": "factorial_m1j0s0",
+    "budget": 5000,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "factorial_m1j0s0",
+    "budget": 5000,
+    "depth": 2,
+    "raw_candidates_mean": 152.917,
+    "unique_states_mean": 128.905,
+    "raw_to_unique_ratio": 1.1862767154105738
+  },
+  {
+    "method": "factorial_m1j0s0",
+    "budget": 5000,
+    "depth": 3,
+    "raw_candidates_mean": 282.196,
+    "unique_states_mean": 244.862,
+    "raw_to_unique_ratio": 1.1524695542795533
+  },
+  {
+    "method": "factorial_m1j0s0",
+    "budget": 5000,
+    "depth": 4,
+    "raw_candidates_mean": 291.644,
+    "unique_states_mean": 256.569,
+    "raw_to_unique_ratio": 1.1367078641612978
+  },
+  {
+    "method": "factorial_m1j0s0",
+    "budget": 5000,
+    "depth": 5,
+    "raw_candidates_mean": 152.941,
+    "unique_states_mean": 123.061,
+    "raw_to_unique_ratio": 1.242806413079692
+  },
+  {
+    "method": "factorial_m1j0s0",
+    "budget": 15000,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "factorial_m1j0s0",
+    "budget": 15000,
+    "depth": 2,
+    "raw_candidates_mean": 152.917,
+    "unique_states_mean": 128.905,
+    "raw_to_unique_ratio": 1.1862767154105738
+  },
+  {
+    "method": "factorial_m1j0s0",
+    "budget": 15000,
+    "depth": 3,
+    "raw_candidates_mean": 282.196,
+    "unique_states_mean": 244.862,
+    "raw_to_unique_ratio": 1.1524695542795533
+  },
+  {
+    "method": "factorial_m1j0s0",
+    "budget": 15000,
+    "depth": 4,
+    "raw_candidates_mean": 291.644,
+    "unique_states_mean": 256.569,
+    "raw_to_unique_ratio": 1.1367078641612978
+  },
+  {
+    "method": "factorial_m1j0s0",
+    "budget": 15000,
+    "depth": 5,
+    "raw_candidates_mean": 152.941,
+    "unique_states_mean": 123.061,
+    "raw_to_unique_ratio": 1.242806413079692
+  },
+  {
+    "method": "factorial_m1j0s1",
+    "budget": 500,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "factorial_m1j0s1",
+    "budget": 500,
+    "depth": 2,
+    "raw_candidates_mean": 437.297,
+    "unique_states_mean": 325.756,
+    "raw_to_unique_ratio": 1.3424065865248838
+  },
+  {
+    "method": "factorial_m1j0s1",
+    "budget": 1500,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "factorial_m1j0s1",
+    "budget": 1500,
+    "depth": 2,
+    "raw_candidates_mean": 504.844,
+    "unique_states_mean": 364.386,
+    "raw_to_unique_ratio": 1.3854648641824878
+  },
+  {
+    "method": "factorial_m1j0s1",
+    "budget": 1500,
+    "depth": 3,
+    "raw_candidates_mean": 302.71,
+    "unique_states_mean": 270.971,
+    "raw_to_unique_ratio": 1.1171306154533143
+  },
+  {
+    "method": "factorial_m1j0s1",
+    "budget": 1500,
+    "depth": 4,
+    "raw_candidates_mean": 150.903,
+    "unique_states_mean": 140.832,
+    "raw_to_unique_ratio": 1.071510736196319
+  },
+  {
+    "method": "factorial_m1j0s1",
+    "budget": 1500,
+    "depth": 5,
+    "raw_candidates_mean": 48.097,
+    "unique_states_mean": 44.209,
+    "raw_to_unique_ratio": 1.0879458933701283
+  },
+  {
+    "method": "factorial_m1j0s1",
+    "budget": 5000,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "factorial_m1j0s1",
+    "budget": 5000,
+    "depth": 2,
+    "raw_candidates_mean": 504.844,
+    "unique_states_mean": 364.386,
+    "raw_to_unique_ratio": 1.3854648641824878
+  },
+  {
+    "method": "factorial_m1j0s1",
+    "budget": 5000,
+    "depth": 3,
+    "raw_candidates_mean": 302.71,
+    "unique_states_mean": 270.971,
+    "raw_to_unique_ratio": 1.1171306154533143
+  },
+  {
+    "method": "factorial_m1j0s1",
+    "budget": 5000,
+    "depth": 4,
+    "raw_candidates_mean": 150.903,
+    "unique_states_mean": 140.832,
+    "raw_to_unique_ratio": 1.071510736196319
+  },
+  {
+    "method": "factorial_m1j0s1",
+    "budget": 5000,
+    "depth": 5,
+    "raw_candidates_mean": 48.097,
+    "unique_states_mean": 44.209,
+    "raw_to_unique_ratio": 1.0879458933701283
+  },
+  {
+    "method": "factorial_m1j0s1",
+    "budget": 15000,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "factorial_m1j0s1",
+    "budget": 15000,
+    "depth": 2,
+    "raw_candidates_mean": 504.844,
+    "unique_states_mean": 364.386,
+    "raw_to_unique_ratio": 1.3854648641824878
+  },
+  {
+    "method": "factorial_m1j0s1",
+    "budget": 15000,
+    "depth": 3,
+    "raw_candidates_mean": 302.71,
+    "unique_states_mean": 270.971,
+    "raw_to_unique_ratio": 1.1171306154533143
+  },
+  {
+    "method": "factorial_m1j0s1",
+    "budget": 15000,
+    "depth": 4,
+    "raw_candidates_mean": 150.903,
+    "unique_states_mean": 140.832,
+    "raw_to_unique_ratio": 1.071510736196319
+  },
+  {
+    "method": "factorial_m1j0s1",
+    "budget": 15000,
+    "depth": 5,
+    "raw_candidates_mean": 48.097,
+    "unique_states_mean": 44.209,
+    "raw_to_unique_ratio": 1.0879458933701283
+  },
+  {
+    "method": "factorial_m1j1s0",
+    "budget": 500,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "factorial_m1j1s0",
+    "budget": 500,
+    "depth": 2,
+    "raw_candidates_mean": 226.55,
+    "unique_states_mean": 184.721,
+    "raw_to_unique_ratio": 1.2264442050443642
+  },
+  {
+    "method": "factorial_m1j1s0",
+    "budget": 500,
+    "depth": 3,
+    "raw_candidates_mean": 24.181818181818183,
+    "unique_states_mean": 20.272727272727273,
+    "raw_to_unique_ratio": 1.1928251121076232
+  },
+  {
+    "method": "factorial_m1j1s0",
+    "budget": 1500,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "factorial_m1j1s0",
+    "budget": 1500,
+    "depth": 2,
+    "raw_candidates_mean": 496.66,
+    "unique_states_mean": 355.88,
+    "raw_to_unique_ratio": 1.3955827807125998
+  },
+  {
+    "method": "factorial_m1j1s0",
+    "budget": 1500,
+    "depth": 3,
+    "raw_candidates_mean": 278.11,
+    "unique_states_mean": 235.953,
+    "raw_to_unique_ratio": 1.1786669379071255
+  },
+  {
+    "method": "factorial_m1j1s0",
+    "budget": 1500,
+    "depth": 4,
+    "raw_candidates_mean": 24.0,
+    "unique_states_mean": 20.3,
+    "raw_to_unique_ratio": 1.1822660098522169
+  },
+  {
+    "method": "factorial_m1j1s0",
+    "budget": 1500,
+    "depth": 5,
+    "raw_candidates_mean": 2.9368421052631577,
+    "unique_states_mean": 2.9368421052631577,
+    "raw_to_unique_ratio": 1.0
+  },
+  {
+    "method": "factorial_m1j1s0",
+    "budget": 5000,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "factorial_m1j1s0",
+    "budget": 5000,
+    "depth": 2,
+    "raw_candidates_mean": 496.66,
+    "unique_states_mean": 355.88,
+    "raw_to_unique_ratio": 1.3955827807125998
+  },
+  {
+    "method": "factorial_m1j1s0",
+    "budget": 5000,
+    "depth": 3,
+    "raw_candidates_mean": 316.51,
+    "unique_states_mean": 269.24,
+    "raw_to_unique_ratio": 1.1755682662308722
+  },
+  {
+    "method": "factorial_m1j1s0",
+    "budget": 5000,
+    "depth": 4,
+    "raw_candidates_mean": 82.69,
+    "unique_states_mean": 74.08,
+    "raw_to_unique_ratio": 1.1162257019438444
+  },
+  {
+    "method": "factorial_m1j1s0",
+    "budget": 5000,
+    "depth": 5,
+    "raw_candidates_mean": 19.41111111111111,
+    "unique_states_mean": 16.391919191919193,
+    "raw_to_unique_ratio": 1.1841878235149126
+  },
+  {
+    "method": "factorial_m1j1s0",
+    "budget": 15000,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "factorial_m1j1s0",
+    "budget": 15000,
+    "depth": 2,
+    "raw_candidates_mean": 496.66,
+    "unique_states_mean": 355.88,
+    "raw_to_unique_ratio": 1.3955827807125998
+  },
+  {
+    "method": "factorial_m1j1s0",
+    "budget": 15000,
+    "depth": 3,
+    "raw_candidates_mean": 316.51,
+    "unique_states_mean": 269.24,
+    "raw_to_unique_ratio": 1.1755682662308722
+  },
+  {
+    "method": "factorial_m1j1s0",
+    "budget": 15000,
+    "depth": 4,
+    "raw_candidates_mean": 82.69,
+    "unique_states_mean": 74.08,
+    "raw_to_unique_ratio": 1.1162257019438444
+  },
+  {
+    "method": "factorial_m1j1s0",
+    "budget": 15000,
+    "depth": 5,
+    "raw_candidates_mean": 19.41111111111111,
+    "unique_states_mean": 16.391919191919193,
+    "raw_to_unique_ratio": 1.1841878235149126
+  },
+  {
+    "method": "factorial_m1j1s1",
+    "budget": 500,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "factorial_m1j1s1",
+    "budget": 500,
+    "depth": 2,
+    "raw_candidates_mean": 229.62,
+    "unique_states_mean": 186.558,
+    "raw_to_unique_ratio": 1.2308236580580838
+  },
+  {
+    "method": "factorial_m1j1s1",
+    "budget": 1500,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "factorial_m1j1s1",
+    "budget": 1500,
+    "depth": 2,
+    "raw_candidates_mean": 503.64,
+    "unique_states_mean": 358.74,
+    "raw_to_unique_ratio": 1.4039136979427997
+  },
+  {
+    "method": "factorial_m1j1s1",
+    "budget": 1500,
+    "depth": 3,
+    "raw_candidates_mean": 275.36,
+    "unique_states_mean": 225.983,
+    "raw_to_unique_ratio": 1.2184987366306315
+  },
+  {
+    "method": "factorial_m1j1s1",
+    "budget": 1500,
+    "depth": 4,
+    "raw_candidates_mean": 44.925925925925924,
+    "unique_states_mean": 36.98888888888889,
+    "raw_to_unique_ratio": 1.2145789526384299
+  },
+  {
+    "method": "factorial_m1j1s1",
+    "budget": 5000,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "factorial_m1j1s1",
+    "budget": 5000,
+    "depth": 2,
+    "raw_candidates_mean": 503.64,
+    "unique_states_mean": 358.74,
+    "raw_to_unique_ratio": 1.4039136979427997
+  },
+  {
+    "method": "factorial_m1j1s1",
+    "budget": 5000,
+    "depth": 3,
+    "raw_candidates_mean": 304.62,
+    "unique_states_mean": 249.83,
+    "raw_to_unique_ratio": 1.2193091302085417
+  },
+  {
+    "method": "factorial_m1j1s1",
+    "budget": 5000,
+    "depth": 4,
+    "raw_candidates_mean": 154.28,
+    "unique_states_mean": 128.64,
+    "raw_to_unique_ratio": 1.19931592039801
+  },
+  {
+    "method": "factorial_m1j1s1",
+    "budget": 5000,
+    "depth": 5,
+    "raw_candidates_mean": 16.498989898989898,
+    "unique_states_mean": 14.145454545454545,
+    "raw_to_unique_ratio": 1.1663810339902885
+  },
+  {
+    "method": "factorial_m1j1s1",
+    "budget": 15000,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "factorial_m1j1s1",
+    "budget": 15000,
+    "depth": 2,
+    "raw_candidates_mean": 503.64,
+    "unique_states_mean": 358.74,
+    "raw_to_unique_ratio": 1.4039136979427997
+  },
+  {
+    "method": "factorial_m1j1s1",
+    "budget": 15000,
+    "depth": 3,
+    "raw_candidates_mean": 304.62,
+    "unique_states_mean": 249.83,
+    "raw_to_unique_ratio": 1.2193091302085417
+  },
+  {
+    "method": "factorial_m1j1s1",
+    "budget": 15000,
+    "depth": 4,
+    "raw_candidates_mean": 154.28,
+    "unique_states_mean": 128.64,
+    "raw_to_unique_ratio": 1.19931592039801
+  },
+  {
+    "method": "factorial_m1j1s1",
+    "budget": 15000,
+    "depth": 5,
+    "raw_candidates_mean": 16.498989898989898,
+    "unique_states_mean": 14.145454545454545,
+    "raw_to_unique_ratio": 1.1663810339902885
+  },
+  {
+    "method": "frontier_without_merging",
+    "budget": 500,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "frontier_without_merging",
+    "budget": 500,
+    "depth": 2,
+    "raw_candidates_mean": 208.6,
+    "unique_states_mean": 155.986,
+    "raw_to_unique_ratio": 1.3372995012372906
+  },
+  {
+    "method": "frontier_without_merging",
+    "budget": 1500,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "frontier_without_merging",
+    "budget": 1500,
+    "depth": 2,
+    "raw_candidates_mean": 503.79,
+    "unique_states_mean": 329.75,
+    "raw_to_unique_ratio": 1.5277937831690676
+  },
+  {
+    "method": "frontier_without_merging",
+    "budget": 1500,
+    "depth": 3,
+    "raw_candidates_mean": 189.73,
+    "unique_states_mean": 93.949,
+    "raw_to_unique_ratio": 2.019499941457599
+  },
+  {
+    "method": "frontier_without_merging",
+    "budget": 5000,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "frontier_without_merging",
+    "budget": 5000,
+    "depth": 2,
+    "raw_candidates_mean": 503.79,
+    "unique_states_mean": 329.75,
+    "raw_to_unique_ratio": 1.5277937831690676
+  },
+  {
+    "method": "frontier_without_merging",
+    "budget": 5000,
+    "depth": 3,
+    "raw_candidates_mean": 305.83,
+    "unique_states_mean": 144.07,
+    "raw_to_unique_ratio": 2.122787533837718
+  },
+  {
+    "method": "frontier_without_merging",
+    "budget": 5000,
+    "depth": 4,
+    "raw_candidates_mean": 155.49,
+    "unique_states_mean": 64.88,
+    "raw_to_unique_ratio": 2.3965782983970407
+  },
+  {
+    "method": "frontier_without_merging",
+    "budget": 5000,
+    "depth": 5,
+    "raw_candidates_mean": 27.353535353535353,
+    "unique_states_mean": 10.281818181818181,
+    "raw_to_unique_ratio": 2.66037921210335
+  },
+  {
+    "method": "frontier_without_merging",
+    "budget": 15000,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "frontier_without_merging",
+    "budget": 15000,
+    "depth": 2,
+    "raw_candidates_mean": 503.79,
+    "unique_states_mean": 329.75,
+    "raw_to_unique_ratio": 1.5277937831690676
+  },
+  {
+    "method": "frontier_without_merging",
+    "budget": 15000,
+    "depth": 3,
+    "raw_candidates_mean": 305.83,
+    "unique_states_mean": 144.07,
+    "raw_to_unique_ratio": 2.122787533837718
+  },
+  {
+    "method": "frontier_without_merging",
+    "budget": 15000,
+    "depth": 4,
+    "raw_candidates_mean": 155.49,
+    "unique_states_mean": 64.88,
+    "raw_to_unique_ratio": 2.3965782983970407
+  },
+  {
+    "method": "frontier_without_merging",
+    "budget": 15000,
+    "depth": 5,
+    "raw_candidates_mean": 27.353535353535353,
+    "unique_states_mean": 10.281818181818181,
+    "raw_to_unique_ratio": 2.66037921210335
+  },
+  {
+    "method": "full_interference_search",
+    "budget": 500,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "full_interference_search",
+    "budget": 500,
+    "depth": 2,
+    "raw_candidates_mean": 229.62,
+    "unique_states_mean": 186.558,
+    "raw_to_unique_ratio": 1.2308236580580838
+  },
+  {
+    "method": "full_interference_search",
+    "budget": 1500,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "full_interference_search",
+    "budget": 1500,
+    "depth": 2,
+    "raw_candidates_mean": 503.64,
+    "unique_states_mean": 358.74,
+    "raw_to_unique_ratio": 1.4039136979427997
+  },
+  {
+    "method": "full_interference_search",
+    "budget": 1500,
+    "depth": 3,
+    "raw_candidates_mean": 275.36,
+    "unique_states_mean": 225.983,
+    "raw_to_unique_ratio": 1.2184987366306315
+  },
+  {
+    "method": "full_interference_search",
+    "budget": 1500,
+    "depth": 4,
+    "raw_candidates_mean": 44.925925925925924,
+    "unique_states_mean": 36.98888888888889,
+    "raw_to_unique_ratio": 1.2145789526384299
+  },
+  {
+    "method": "full_interference_search",
+    "budget": 5000,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "full_interference_search",
+    "budget": 5000,
+    "depth": 2,
+    "raw_candidates_mean": 503.64,
+    "unique_states_mean": 358.74,
+    "raw_to_unique_ratio": 1.4039136979427997
+  },
+  {
+    "method": "full_interference_search",
+    "budget": 5000,
+    "depth": 3,
+    "raw_candidates_mean": 304.62,
+    "unique_states_mean": 249.83,
+    "raw_to_unique_ratio": 1.2193091302085417
+  },
+  {
+    "method": "full_interference_search",
+    "budget": 5000,
+    "depth": 4,
+    "raw_candidates_mean": 154.28,
+    "unique_states_mean": 128.64,
+    "raw_to_unique_ratio": 1.19931592039801
+  },
+  {
+    "method": "full_interference_search",
+    "budget": 5000,
+    "depth": 5,
+    "raw_candidates_mean": 16.498989898989898,
+    "unique_states_mean": 14.145454545454545,
+    "raw_to_unique_ratio": 1.1663810339902885
+  },
+  {
+    "method": "full_interference_search",
+    "budget": 15000,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "full_interference_search",
+    "budget": 15000,
+    "depth": 2,
+    "raw_candidates_mean": 503.64,
+    "unique_states_mean": 358.74,
+    "raw_to_unique_ratio": 1.4039136979427997
+  },
+  {
+    "method": "full_interference_search",
+    "budget": 15000,
+    "depth": 3,
+    "raw_candidates_mean": 304.62,
+    "unique_states_mean": 249.83,
+    "raw_to_unique_ratio": 1.2193091302085417
+  },
+  {
+    "method": "full_interference_search",
+    "budget": 15000,
+    "depth": 4,
+    "raw_candidates_mean": 154.28,
+    "unique_states_mean": 128.64,
+    "raw_to_unique_ratio": 1.19931592039801
+  },
+  {
+    "method": "full_interference_search",
+    "budget": 15000,
+    "depth": 5,
+    "raw_candidates_mean": 16.498989898989898,
+    "unique_states_mean": 14.145454545454545,
+    "raw_to_unique_ratio": 1.1663810339902885
+  },
+  {
+    "method": "hand_bound_frontier",
+    "budget": 500,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "hand_bound_frontier",
+    "budget": 500,
+    "depth": 2,
+    "raw_candidates_mean": 437.297,
+    "unique_states_mean": 325.756,
+    "raw_to_unique_ratio": 1.3424065865248838
+  },
+  {
+    "method": "hand_bound_frontier",
+    "budget": 1500,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "hand_bound_frontier",
+    "budget": 1500,
+    "depth": 2,
+    "raw_candidates_mean": 504.844,
+    "unique_states_mean": 364.386,
+    "raw_to_unique_ratio": 1.3854648641824878
+  },
+  {
+    "method": "hand_bound_frontier",
+    "budget": 1500,
+    "depth": 3,
+    "raw_candidates_mean": 302.712,
+    "unique_states_mean": 271.018,
+    "raw_to_unique_ratio": 1.1169442620047376
+  },
+  {
+    "method": "hand_bound_frontier",
+    "budget": 1500,
+    "depth": 4,
+    "raw_candidates_mean": 150.887,
+    "unique_states_mean": 141.022,
+    "raw_to_unique_ratio": 1.069953624257208
+  },
+  {
+    "method": "hand_bound_frontier",
+    "budget": 1500,
+    "depth": 5,
+    "raw_candidates_mean": 48.08,
+    "unique_states_mean": 44.356,
+    "raw_to_unique_ratio": 1.083957074578411
+  },
+  {
+    "method": "hand_bound_frontier",
+    "budget": 5000,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "hand_bound_frontier",
+    "budget": 5000,
+    "depth": 2,
+    "raw_candidates_mean": 504.844,
+    "unique_states_mean": 364.386,
+    "raw_to_unique_ratio": 1.3854648641824878
+  },
+  {
+    "method": "hand_bound_frontier",
+    "budget": 5000,
+    "depth": 3,
+    "raw_candidates_mean": 302.712,
+    "unique_states_mean": 271.018,
+    "raw_to_unique_ratio": 1.1169442620047376
+  },
+  {
+    "method": "hand_bound_frontier",
+    "budget": 5000,
+    "depth": 4,
+    "raw_candidates_mean": 150.887,
+    "unique_states_mean": 141.022,
+    "raw_to_unique_ratio": 1.069953624257208
+  },
+  {
+    "method": "hand_bound_frontier",
+    "budget": 5000,
+    "depth": 5,
+    "raw_candidates_mean": 48.08,
+    "unique_states_mean": 44.356,
+    "raw_to_unique_ratio": 1.083957074578411
+  },
+  {
+    "method": "hand_bound_frontier",
+    "budget": 15000,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "hand_bound_frontier",
+    "budget": 15000,
+    "depth": 2,
+    "raw_candidates_mean": 504.844,
+    "unique_states_mean": 364.386,
+    "raw_to_unique_ratio": 1.3854648641824878
+  },
+  {
+    "method": "hand_bound_frontier",
+    "budget": 15000,
+    "depth": 3,
+    "raw_candidates_mean": 302.712,
+    "unique_states_mean": 271.018,
+    "raw_to_unique_ratio": 1.1169442620047376
+  },
+  {
+    "method": "hand_bound_frontier",
+    "budget": 15000,
+    "depth": 4,
+    "raw_candidates_mean": 150.887,
+    "unique_states_mean": 141.022,
+    "raw_to_unique_ratio": 1.069953624257208
+  },
+  {
+    "method": "hand_bound_frontier",
+    "budget": 15000,
+    "depth": 5,
+    "raw_candidates_mean": 48.08,
+    "unique_states_mean": 44.356,
+    "raw_to_unique_ratio": 1.083957074578411
+  },
+  {
+    "method": "independent_parallel",
+    "budget": 500,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "independent_parallel",
+    "budget": 500,
+    "depth": 2,
+    "raw_candidates_mean": 208.621,
+    "unique_states_mean": 172.616,
+    "raw_to_unique_ratio": 1.2085843722482272
+  },
+  {
+    "method": "independent_parallel",
+    "budget": 1500,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "independent_parallel",
+    "budget": 1500,
+    "depth": 2,
+    "raw_candidates_mean": 504.083,
+    "unique_states_mean": 354.452,
+    "raw_to_unique_ratio": 1.4221474275783463
+  },
+  {
+    "method": "independent_parallel",
+    "budget": 1500,
+    "depth": 3,
+    "raw_candidates_mean": 189.544,
+    "unique_states_mean": 173.92,
+    "raw_to_unique_ratio": 1.089834406623735
+  },
+  {
+    "method": "independent_parallel",
+    "budget": 1500,
+    "depth": 4,
+    "raw_candidates_mean": 9.333333333333334,
+    "unique_states_mean": 9.333333333333334,
+    "raw_to_unique_ratio": 1.0
+  },
+  {
+    "method": "independent_parallel",
+    "budget": 5000,
+    "depth": 1,
+    "raw_candidates_mean": 101.345,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 2.450314313346228
+  },
+  {
+    "method": "independent_parallel",
+    "budget": 5000,
+    "depth": 2,
+    "raw_candidates_mean": 1020.065,
+    "unique_states_mean": 477.872,
+    "raw_to_unique_ratio": 2.13459880470084
+  },
+  {
+    "method": "independent_parallel",
+    "budget": 5000,
+    "depth": 3,
+    "raw_candidates_mean": 482.238,
+    "unique_states_mean": 418.778,
+    "raw_to_unique_ratio": 1.1515361360911986
+  },
+  {
+    "method": "independent_parallel",
+    "budget": 5000,
+    "depth": 4,
+    "raw_candidates_mean": 238.364,
+    "unique_states_mean": 221.659,
+    "raw_to_unique_ratio": 1.0753635088130868
+  },
+  {
+    "method": "independent_parallel",
+    "budget": 5000,
+    "depth": 5,
+    "raw_candidates_mean": 65.28,
+    "unique_states_mean": 58.834,
+    "raw_to_unique_ratio": 1.1095624978753782
+  },
+  {
+    "method": "independent_parallel",
+    "budget": 15000,
+    "depth": 1,
+    "raw_candidates_mean": 162.187,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 3.9213491295938105
+  },
+  {
+    "method": "independent_parallel",
+    "budget": 15000,
+    "depth": 2,
+    "raw_candidates_mean": 1686.028,
+    "unique_states_mean": 511.46,
+    "raw_to_unique_ratio": 3.296500215070582
+  },
+  {
+    "method": "independent_parallel",
+    "budget": 15000,
+    "depth": 3,
+    "raw_candidates_mean": 950.019,
+    "unique_states_mean": 728.674,
+    "raw_to_unique_ratio": 1.3037640975250935
+  },
+  {
+    "method": "independent_parallel",
+    "budget": 15000,
+    "depth": 4,
+    "raw_candidates_mean": 469.765,
+    "unique_states_mean": 409.756,
+    "raw_to_unique_ratio": 1.146450570583469
+  },
+  {
+    "method": "independent_parallel",
+    "budget": 15000,
+    "depth": 5,
+    "raw_candidates_mean": 133.842,
+    "unique_states_mean": 107.499,
+    "raw_to_unique_ratio": 1.2450534423576034
+  },
+  {
+    "method": "merging_without_learned_judge",
+    "budget": 500,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "merging_without_learned_judge",
+    "budget": 500,
+    "depth": 2,
+    "raw_candidates_mean": 437.297,
+    "unique_states_mean": 325.756,
+    "raw_to_unique_ratio": 1.3424065865248838
+  },
+  {
+    "method": "merging_without_learned_judge",
+    "budget": 1500,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "merging_without_learned_judge",
+    "budget": 1500,
+    "depth": 2,
+    "raw_candidates_mean": 504.844,
+    "unique_states_mean": 364.386,
+    "raw_to_unique_ratio": 1.3854648641824878
+  },
+  {
+    "method": "merging_without_learned_judge",
+    "budget": 1500,
+    "depth": 3,
+    "raw_candidates_mean": 302.71,
+    "unique_states_mean": 270.971,
+    "raw_to_unique_ratio": 1.1171306154533143
+  },
+  {
+    "method": "merging_without_learned_judge",
+    "budget": 1500,
+    "depth": 4,
+    "raw_candidates_mean": 150.903,
+    "unique_states_mean": 140.832,
+    "raw_to_unique_ratio": 1.071510736196319
+  },
+  {
+    "method": "merging_without_learned_judge",
+    "budget": 1500,
+    "depth": 5,
+    "raw_candidates_mean": 48.097,
+    "unique_states_mean": 44.209,
+    "raw_to_unique_ratio": 1.0879458933701283
+  },
+  {
+    "method": "merging_without_learned_judge",
+    "budget": 5000,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "merging_without_learned_judge",
+    "budget": 5000,
+    "depth": 2,
+    "raw_candidates_mean": 504.844,
+    "unique_states_mean": 364.386,
+    "raw_to_unique_ratio": 1.3854648641824878
+  },
+  {
+    "method": "merging_without_learned_judge",
+    "budget": 5000,
+    "depth": 3,
+    "raw_candidates_mean": 302.71,
+    "unique_states_mean": 270.971,
+    "raw_to_unique_ratio": 1.1171306154533143
+  },
+  {
+    "method": "merging_without_learned_judge",
+    "budget": 5000,
+    "depth": 4,
+    "raw_candidates_mean": 150.903,
+    "unique_states_mean": 140.832,
+    "raw_to_unique_ratio": 1.071510736196319
+  },
+  {
+    "method": "merging_without_learned_judge",
+    "budget": 5000,
+    "depth": 5,
+    "raw_candidates_mean": 48.097,
+    "unique_states_mean": 44.209,
+    "raw_to_unique_ratio": 1.0879458933701283
+  },
+  {
+    "method": "merging_without_learned_judge",
+    "budget": 15000,
+    "depth": 1,
+    "raw_candidates_mean": 47.29,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 1.1433752417794971
+  },
+  {
+    "method": "merging_without_learned_judge",
+    "budget": 15000,
+    "depth": 2,
+    "raw_candidates_mean": 504.844,
+    "unique_states_mean": 364.386,
+    "raw_to_unique_ratio": 1.3854648641824878
+  },
+  {
+    "method": "merging_without_learned_judge",
+    "budget": 15000,
+    "depth": 3,
+    "raw_candidates_mean": 302.71,
+    "unique_states_mean": 270.971,
+    "raw_to_unique_ratio": 1.1171306154533143
+  },
+  {
+    "method": "merging_without_learned_judge",
+    "budget": 15000,
+    "depth": 4,
+    "raw_candidates_mean": 150.903,
+    "unique_states_mean": 140.832,
+    "raw_to_unique_ratio": 1.071510736196319
+  },
+  {
+    "method": "merging_without_learned_judge",
+    "budget": 15000,
+    "depth": 5,
+    "raw_candidates_mean": 48.097,
+    "unique_states_mean": 44.209,
+    "raw_to_unique_ratio": 1.0879458933701283
+  },
+  {
+    "method": "single_line",
+    "budget": 500,
+    "depth": 1,
+    "raw_candidates_mean": 133.854,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 3.2363152804642166
+  },
+  {
+    "method": "single_line",
+    "budget": 500,
+    "depth": 2,
+    "raw_candidates_mean": 62.029,
+    "unique_states_mean": 53.819,
+    "raw_to_unique_ratio": 1.1525483565283636
+  },
+  {
+    "method": "single_line",
+    "budget": 500,
+    "depth": 3,
+    "raw_candidates_mean": 37.142,
+    "unique_states_mean": 34.758,
+    "raw_to_unique_ratio": 1.0685885263824155
+  },
+  {
+    "method": "single_line",
+    "budget": 500,
+    "depth": 4,
+    "raw_candidates_mean": 18.404,
+    "unique_states_mean": 17.906,
+    "raw_to_unique_ratio": 1.027811906623478
+  },
+  {
+    "method": "single_line",
+    "budget": 500,
+    "depth": 5,
+    "raw_candidates_mean": 6.04,
+    "unique_states_mean": 6.002,
+    "raw_to_unique_ratio": 1.0063312229256913
+  },
+  {
+    "method": "single_line",
+    "budget": 1500,
+    "depth": 1,
+    "raw_candidates_mean": 301.34,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 7.2857833655706
+  },
+  {
+    "method": "single_line",
+    "budget": 1500,
+    "depth": 2,
+    "raw_candidates_mean": 196.939,
+    "unique_states_mean": 151.693,
+    "raw_to_unique_ratio": 1.2982734865814507
+  },
+  {
+    "method": "single_line",
+    "budget": 1500,
+    "depth": 3,
+    "raw_candidates_mean": 113.329,
+    "unique_states_mean": 104.786,
+    "raw_to_unique_ratio": 1.081528066726471
+  },
+  {
+    "method": "single_line",
+    "budget": 1500,
+    "depth": 4,
+    "raw_candidates_mean": 53.484,
+    "unique_states_mean": 51.722,
+    "raw_to_unique_ratio": 1.0340667414253122
+  },
+  {
+    "method": "single_line",
+    "budget": 1500,
+    "depth": 5,
+    "raw_candidates_mean": 17.205,
+    "unique_states_mean": 16.782,
+    "raw_to_unique_ratio": 1.0252055774043618
+  },
+  {
+    "method": "single_line",
+    "budget": 5000,
+    "depth": 1,
+    "raw_candidates_mean": 816.159,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 19.733051257253386
+  },
+  {
+    "method": "single_line",
+    "budget": 5000,
+    "depth": 2,
+    "raw_candidates_mean": 537.232,
+    "unique_states_mean": 309.11,
+    "raw_to_unique_ratio": 1.7379961825887225
+  },
+  {
+    "method": "single_line",
+    "budget": 5000,
+    "depth": 3,
+    "raw_candidates_mean": 318.586,
+    "unique_states_mean": 279.795,
+    "raw_to_unique_ratio": 1.1386407905788167
+  },
+  {
+    "method": "single_line",
+    "budget": 5000,
+    "depth": 4,
+    "raw_candidates_mean": 157.558,
+    "unique_states_mean": 148.136,
+    "raw_to_unique_ratio": 1.0636037155046714
+  },
+  {
+    "method": "single_line",
+    "budget": 5000,
+    "depth": 5,
+    "raw_candidates_mean": 51.427,
+    "unique_states_mean": 47.45,
+    "raw_to_unique_ratio": 1.0838145416227607
+  },
+  {
+    "method": "single_line",
+    "budget": 15000,
+    "depth": 1,
+    "raw_candidates_mean": 1714.203,
+    "unique_states_mean": 41.36,
+    "raw_to_unique_ratio": 41.44591392649903
+  },
+  {
+    "method": "single_line",
+    "budget": 15000,
+    "depth": 2,
+    "raw_candidates_mean": 1140.074,
+    "unique_states_mean": 408.187,
+    "raw_to_unique_ratio": 2.7930188859517817
+  },
+  {
+    "method": "single_line",
+    "budget": 15000,
+    "depth": 3,
+    "raw_candidates_mean": 681.072,
+    "unique_states_mean": 542.44,
+    "raw_to_unique_ratio": 1.2555711230735196
+  },
+  {
+    "method": "single_line",
+    "budget": 15000,
+    "depth": 4,
+    "raw_candidates_mean": 337.306,
+    "unique_states_mean": 301.332,
+    "raw_to_unique_ratio": 1.1193832716073966
+  },
+  {
+    "method": "single_line",
+    "budget": 15000,
+    "depth": 5,
+    "raw_candidates_mean": 110.652,
+    "unique_states_mean": 92.889,
+    "raw_to_unique_ratio": 1.1912282401576075
+  }
+]

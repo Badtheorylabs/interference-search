@@ -1,0 +1,2738 @@
+[
+  {
+    "cohort": "all",
+    "budget": 500,
+    "contrast": "three_way_interaction",
+    "problems": 100,
+    "effect": 0.006,
+    "problem_cluster_ci95": [
+      -0.014000000000000002,
+      0.026999999999999996
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 500,
+    "contrast": "merging_main_effect",
+    "problems": 100,
+    "effect": 0.0015,
+    "problem_cluster_ci95": [
+      -0.0035000000000000005,
+      0.006750000000000001
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 500,
+    "contrast": "judge_main_effect",
+    "problems": 100,
+    "effect": -0.024,
+    "problem_cluster_ci95": [
+      -0.03125000000000001,
+      -0.0175
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 500,
+    "contrast": "synchrony_main_effect",
+    "problems": 100,
+    "effect": -0.024,
+    "problem_cluster_ci95": [
+      -0.031249999999999997,
+      -0.0175
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 500,
+    "contrast": "merge_judge_interaction",
+    "problems": 100,
+    "effect": -0.003,
+    "problem_cluster_ci95": [
+      -0.013000000000000003,
+      0.007012499999999934
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 500,
+    "contrast": "merge_sync_interaction",
+    "problems": 100,
+    "effect": -0.003,
+    "problem_cluster_ci95": [
+      -0.013999999999999999,
+      0.006999999999999999
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 500,
+    "contrast": "judge_sync_interaction",
+    "problems": 100,
+    "effect": 0.048,
+    "problem_cluster_ci95": [
+      0.035,
+      0.06251249999999994
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 500,
+    "contrast": "full_beyond_sum_of_individual_components",
+    "problems": 100,
+    "effect": 0.03900000000000001,
+    "problem_cluster_ci95": [
+      0.008000000000000005,
+      0.073
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 500,
+    "contrast": "merging_effect_with_judge_and_sync",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 500,
+    "contrast": "judge_effect_with_merge_and_sync",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 500,
+    "contrast": "sync_effect_with_merge_and_judge",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 500,
+    "contrast": "full_minus_no_components",
+    "problems": 100,
+    "effect": -0.045,
+    "problem_cluster_ci95": [
+      -0.061000000000000006,
+      -0.030000000000000006
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 500,
+    "contrast": "full_minus_beam",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "all",
+    "budget": 500,
+    "contrast": "full_minus_best_first",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "all",
+    "budget": 500,
+    "contrast": "full_minus_bfs",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "all",
+    "budget": 500,
+    "contrast": "full_minus_frontier_without_merging",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "all",
+    "budget": 500,
+    "contrast": "full_minus_hand_bound_frontier",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "all",
+    "budget": 500,
+    "contrast": "full_minus_independent_parallel",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "all",
+    "budget": 500,
+    "contrast": "full_minus_merging_without_learned_judge",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "all",
+    "budget": 500,
+    "contrast": "full_minus_single_line",
+    "problems": 100,
+    "effect": -0.059000000000000004,
+    "problem_cluster_ci95": [
+      -0.07902500000000001,
+      -0.041999999999999996
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.8189894035458565e-12
+  },
+  {
+    "cohort": "all",
+    "budget": 1500,
+    "contrast": "three_way_interaction",
+    "problems": 100,
+    "effect": -0.061000000000000006,
+    "problem_cluster_ci95": [
+      -0.12399999999999999,
+      -0.002
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 1500,
+    "contrast": "merging_main_effect",
+    "problems": 100,
+    "effect": 0.02675,
+    "problem_cluster_ci95": [
+      0.01075,
+      0.04375
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 1500,
+    "contrast": "judge_main_effect",
+    "problems": 100,
+    "effect": -0.11725000000000002,
+    "problem_cluster_ci95": [
+      -0.13875,
+      -0.09749375
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 1500,
+    "contrast": "synchrony_main_effect",
+    "problems": 100,
+    "effect": -0.08725,
+    "problem_cluster_ci95": [
+      -0.1125,
+      -0.06475
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 1500,
+    "contrast": "merge_judge_interaction",
+    "problems": 100,
+    "effect": 0.035500000000000004,
+    "problem_cluster_ci95": [
+      0.0020000000000000035,
+      0.0705
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 1500,
+    "contrast": "merge_sync_interaction",
+    "problems": 100,
+    "effect": -0.05849999999999999,
+    "problem_cluster_ci95": [
+      -0.0990125,
+      -0.019999999999999997
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 1500,
+    "contrast": "judge_sync_interaction",
+    "problems": 100,
+    "effect": 0.0855,
+    "problem_cluster_ci95": [
+      0.0555,
+      0.11650000000000002
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 1500,
+    "contrast": "full_beyond_sum_of_individual_components",
+    "problems": 100,
+    "effect": 0.09299999999999999,
+    "problem_cluster_ci95": [
+      0.038000000000000006,
+      0.14699999999999996
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 1500,
+    "contrast": "merging_effect_with_judge_and_sync",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 1500,
+    "contrast": "judge_effect_with_merge_and_sync",
+    "problems": 100,
+    "effect": -0.072,
+    "problem_cluster_ci95": [
+      -0.091,
+      -0.05399999999999999
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 1500,
+    "contrast": "sync_effect_with_merge_and_judge",
+    "problems": 100,
+    "effect": -0.08900000000000001,
+    "problem_cluster_ci95": [
+      -0.149,
+      -0.038
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 1500,
+    "contrast": "full_minus_no_components",
+    "problems": 100,
+    "effect": -0.193,
+    "problem_cluster_ci95": [
+      -0.23600000000000002,
+      -0.15500000000000003
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 1500,
+    "contrast": "full_minus_beam",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "all",
+    "budget": 1500,
+    "contrast": "full_minus_best_first",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "all",
+    "budget": 1500,
+    "contrast": "full_minus_bfs",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "all",
+    "budget": 1500,
+    "contrast": "full_minus_frontier_without_merging",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "all",
+    "budget": 1500,
+    "contrast": "full_minus_hand_bound_frontier",
+    "problems": 100,
+    "effect": -0.06799999999999999,
+    "problem_cluster_ci95": [
+      -0.087,
+      -0.051
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.1368683772161599e-13
+  },
+  {
+    "cohort": "all",
+    "budget": 1500,
+    "contrast": "full_minus_independent_parallel",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "all",
+    "budget": 1500,
+    "contrast": "full_minus_merging_without_learned_judge",
+    "problems": 100,
+    "effect": -0.072,
+    "problem_cluster_ci95": [
+      -0.092,
+      -0.05400000000000001
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.421085471520197e-14
+  },
+  {
+    "cohort": "all",
+    "budget": 1500,
+    "contrast": "full_minus_single_line",
+    "problems": 100,
+    "effect": -0.17600000000000005,
+    "problem_cluster_ci95": [
+      -0.21100000000000002,
+      -0.145
+    ],
+    "paired_problem_sign_test_p_unadjusted": 5.293955920339389e-23
+  },
+  {
+    "cohort": "all",
+    "budget": 5000,
+    "contrast": "three_way_interaction",
+    "problems": 100,
+    "effect": 0.185,
+    "problem_cluster_ci95": [
+      0.07997499999999999,
+      0.2929999999999999
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 5000,
+    "contrast": "merging_main_effect",
+    "problems": 100,
+    "effect": 0.07375,
+    "problem_cluster_ci95": [
+      0.04225,
+      0.10501249999999993
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 5000,
+    "contrast": "judge_main_effect",
+    "problems": 100,
+    "effect": 0.4532499999999999,
+    "problem_cluster_ci95": [
+      0.38699999999999996,
+      0.52075
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 5000,
+    "contrast": "synchrony_main_effect",
+    "problems": 100,
+    "effect": -0.08224999999999999,
+    "problem_cluster_ci95": [
+      -0.12500624999999999,
+      -0.039493750000000036
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 5000,
+    "contrast": "merge_judge_interaction",
+    "problems": 100,
+    "effect": 0.1325,
+    "problem_cluster_ci95": [
+      0.07248749999999998,
+      0.19599999999999998
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 5000,
+    "contrast": "merge_sync_interaction",
+    "problems": 100,
+    "effect": 0.0675,
+    "problem_cluster_ci95": [
+      0.012487500000000004,
+      0.126
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 5000,
+    "contrast": "judge_sync_interaction",
+    "problems": 100,
+    "effect": 0.1045,
+    "problem_cluster_ci95": [
+      0.0305,
+      0.1800125
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 5000,
+    "contrast": "full_beyond_sum_of_individual_components",
+    "problems": 100,
+    "effect": 0.21200000000000002,
+    "problem_cluster_ci95": [
+      0.11599999999999999,
+      0.31000000000000005
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 5000,
+    "contrast": "merging_effect_with_judge_and_sync",
+    "problems": 100,
+    "effect": 0.22,
+    "problem_cluster_ci95": [
+      0.13975000000000004,
+      0.31
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 5000,
+    "contrast": "judge_effect_with_merge_and_sync",
+    "problems": 100,
+    "effect": 0.618,
+    "problem_cluster_ci95": [
+      0.531,
+      0.7060000000000002
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 5000,
+    "contrast": "sync_effect_with_merge_and_judge",
+    "problems": 100,
+    "effect": 0.05,
+    "problem_cluster_ci95": [
+      -0.04,
+      0.14
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 5000,
+    "contrast": "full_minus_no_components",
+    "problems": 100,
+    "effect": 0.49099999999999994,
+    "problem_cluster_ci95": [
+      0.4039749999999999,
+      0.5769999999999998
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 5000,
+    "contrast": "full_minus_beam",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "all",
+    "budget": 5000,
+    "contrast": "full_minus_best_first",
+    "problems": 100,
+    "effect": 0.6,
+    "problem_cluster_ci95": [
+      0.49,
+      0.7
+    ],
+    "paired_problem_sign_test_p_unadjusted": 2.256224720942433e-16
+  },
+  {
+    "cohort": "all",
+    "budget": 5000,
+    "contrast": "full_minus_bfs",
+    "problems": 100,
+    "effect": 0.69,
+    "problem_cluster_ci95": [
+      0.6,
+      0.78
+    ],
+    "paired_problem_sign_test_p_unadjusted": 3.3881317890171987e-21
+  },
+  {
+    "cohort": "all",
+    "budget": 5000,
+    "contrast": "full_minus_frontier_without_merging",
+    "problems": 100,
+    "effect": 0.22,
+    "problem_cluster_ci95": [
+      0.14,
+      0.30024999999999863
+    ],
+    "paired_problem_sign_test_p_unadjusted": 2.9802322387695245e-06
+  },
+  {
+    "cohort": "all",
+    "budget": 5000,
+    "contrast": "full_minus_hand_bound_frontier",
+    "problems": 100,
+    "effect": 0.622,
+    "problem_cluster_ci95": [
+      0.5329999999999999,
+      0.7060000000000002
+    ],
+    "paired_problem_sign_test_p_unadjusted": 3.1373521126788953e-13
+  },
+  {
+    "cohort": "all",
+    "budget": 5000,
+    "contrast": "full_minus_independent_parallel",
+    "problems": 100,
+    "effect": 0.162,
+    "problem_cluster_ci95": [
+      0.078,
+      0.24602499999999988
+    ],
+    "paired_problem_sign_test_p_unadjusted": 0.000810008773862339
+  },
+  {
+    "cohort": "all",
+    "budget": 5000,
+    "contrast": "full_minus_merging_without_learned_judge",
+    "problems": 100,
+    "effect": 0.618,
+    "problem_cluster_ci95": [
+      0.531975,
+      0.705
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.3812783597891579e-12
+  },
+  {
+    "cohort": "all",
+    "budget": 5000,
+    "contrast": "full_minus_single_line",
+    "problems": 100,
+    "effect": 0.26999999999999996,
+    "problem_cluster_ci95": [
+      0.18500000000000003,
+      0.3549999999999999
+    ],
+    "paired_problem_sign_test_p_unadjusted": 3.6700459237993036e-05
+  },
+  {
+    "cohort": "all",
+    "budget": 15000,
+    "contrast": "three_way_interaction",
+    "problems": 100,
+    "effect": 0.185,
+    "problem_cluster_ci95": [
+      0.077,
+      0.293
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 15000,
+    "contrast": "merging_main_effect",
+    "problems": 100,
+    "effect": 0.07375,
+    "problem_cluster_ci95": [
+      0.040993750000000016,
+      0.10550625
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 15000,
+    "contrast": "judge_main_effect",
+    "problems": 100,
+    "effect": 0.4532499999999999,
+    "problem_cluster_ci95": [
+      0.38425000000000004,
+      0.5185
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 15000,
+    "contrast": "synchrony_main_effect",
+    "problems": 100,
+    "effect": -0.08224999999999999,
+    "problem_cluster_ci95": [
+      -0.12425624999999998,
+      -0.039000000000000014
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 15000,
+    "contrast": "merge_judge_interaction",
+    "problems": 100,
+    "effect": 0.1325,
+    "problem_cluster_ci95": [
+      0.068,
+      0.1990124999999999
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 15000,
+    "contrast": "merge_sync_interaction",
+    "problems": 100,
+    "effect": 0.0675,
+    "problem_cluster_ci95": [
+      0.012000000000000005,
+      0.12099999999999998
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 15000,
+    "contrast": "judge_sync_interaction",
+    "problems": 100,
+    "effect": 0.1045,
+    "problem_cluster_ci95": [
+      0.033,
+      0.1800249999999999
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 15000,
+    "contrast": "full_beyond_sum_of_individual_components",
+    "problems": 100,
+    "effect": 0.21200000000000002,
+    "problem_cluster_ci95": [
+      0.115,
+      0.3150249999999999
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 15000,
+    "contrast": "merging_effect_with_judge_and_sync",
+    "problems": 100,
+    "effect": 0.22,
+    "problem_cluster_ci95": [
+      0.14,
+      0.31
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 15000,
+    "contrast": "judge_effect_with_merge_and_sync",
+    "problems": 100,
+    "effect": 0.618,
+    "problem_cluster_ci95": [
+      0.528,
+      0.7040000000000002
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 15000,
+    "contrast": "sync_effect_with_merge_and_judge",
+    "problems": 100,
+    "effect": 0.05,
+    "problem_cluster_ci95": [
+      -0.04,
+      0.15
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 15000,
+    "contrast": "full_minus_no_components",
+    "problems": 100,
+    "effect": 0.49099999999999994,
+    "problem_cluster_ci95": [
+      0.401,
+      0.5750249999999998
+    ]
+  },
+  {
+    "cohort": "all",
+    "budget": 15000,
+    "contrast": "full_minus_beam",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "all",
+    "budget": 15000,
+    "contrast": "full_minus_best_first",
+    "problems": 100,
+    "effect": -0.07,
+    "problem_cluster_ci95": [
+      -0.17,
+      0.03
+    ],
+    "paired_problem_sign_test_p_unadjusted": 0.24778856337070607
+  },
+  {
+    "cohort": "all",
+    "budget": 15000,
+    "contrast": "full_minus_bfs",
+    "problems": 100,
+    "effect": 0.69,
+    "problem_cluster_ci95": [
+      0.6,
+      0.78
+    ],
+    "paired_problem_sign_test_p_unadjusted": 3.3881317890171987e-21
+  },
+  {
+    "cohort": "all",
+    "budget": 15000,
+    "contrast": "full_minus_frontier_without_merging",
+    "problems": 100,
+    "effect": 0.22,
+    "problem_cluster_ci95": [
+      0.14,
+      0.3
+    ],
+    "paired_problem_sign_test_p_unadjusted": 2.9802322387695245e-06
+  },
+  {
+    "cohort": "all",
+    "budget": 15000,
+    "contrast": "full_minus_hand_bound_frontier",
+    "problems": 100,
+    "effect": 0.622,
+    "problem_cluster_ci95": [
+      0.5299499999999999,
+      0.709025
+    ],
+    "paired_problem_sign_test_p_unadjusted": 3.1373521126788953e-13
+  },
+  {
+    "cohort": "all",
+    "budget": 15000,
+    "contrast": "full_minus_independent_parallel",
+    "problems": 100,
+    "effect": -0.12599999999999997,
+    "problem_cluster_ci95": [
+      -0.214,
+      -0.046
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "all",
+    "budget": 15000,
+    "contrast": "full_minus_merging_without_learned_judge",
+    "problems": 100,
+    "effect": 0.618,
+    "problem_cluster_ci95": [
+      0.529,
+      0.7040000000000001
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.3812783597891579e-12
+  },
+  {
+    "cohort": "all",
+    "budget": 15000,
+    "contrast": "full_minus_single_line",
+    "problems": 100,
+    "effect": 0.000999999999999996,
+    "problem_cluster_ci95": [
+      -0.085025,
+      0.081
+    ],
+    "paired_problem_sign_test_p_unadjusted": 0.032992618426475655
+  },
+  {
+    "cohort": "random",
+    "budget": 500,
+    "contrast": "three_way_interaction",
+    "problems": 100,
+    "effect": 0.006,
+    "problem_cluster_ci95": [
+      -0.014000000000000002,
+      0.026999999999999993
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 500,
+    "contrast": "merging_main_effect",
+    "problems": 100,
+    "effect": 0.0015,
+    "problem_cluster_ci95": [
+      -0.0032500000000000007,
+      0.006999999999999999
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 500,
+    "contrast": "judge_main_effect",
+    "problems": 100,
+    "effect": -0.024,
+    "problem_cluster_ci95": [
+      -0.031,
+      -0.0175
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 500,
+    "contrast": "synchrony_main_effect",
+    "problems": 100,
+    "effect": -0.024,
+    "problem_cluster_ci95": [
+      -0.03175,
+      -0.017493750000000034
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 500,
+    "contrast": "merge_judge_interaction",
+    "problems": 100,
+    "effect": -0.003,
+    "problem_cluster_ci95": [
+      -0.013500000000000002,
+      0.0075
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 500,
+    "contrast": "merge_sync_interaction",
+    "problems": 100,
+    "effect": -0.003,
+    "problem_cluster_ci95": [
+      -0.013499999999999998,
+      0.006999999999999999
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 500,
+    "contrast": "judge_sync_interaction",
+    "problems": 100,
+    "effect": 0.048,
+    "problem_cluster_ci95": [
+      0.035,
+      0.0625
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 500,
+    "contrast": "full_beyond_sum_of_individual_components",
+    "problems": 100,
+    "effect": 0.03900000000000001,
+    "problem_cluster_ci95": [
+      0.009975,
+      0.07200000000000001
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 500,
+    "contrast": "merging_effect_with_judge_and_sync",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 500,
+    "contrast": "judge_effect_with_merge_and_sync",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 500,
+    "contrast": "sync_effect_with_merge_and_judge",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 500,
+    "contrast": "full_minus_no_components",
+    "problems": 100,
+    "effect": -0.045,
+    "problem_cluster_ci95": [
+      -0.061000000000000006,
+      -0.03
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 500,
+    "contrast": "full_minus_beam",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "random",
+    "budget": 500,
+    "contrast": "full_minus_best_first",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "random",
+    "budget": 500,
+    "contrast": "full_minus_bfs",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "random",
+    "budget": 500,
+    "contrast": "full_minus_frontier_without_merging",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "random",
+    "budget": 500,
+    "contrast": "full_minus_hand_bound_frontier",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "random",
+    "budget": 500,
+    "contrast": "full_minus_independent_parallel",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "random",
+    "budget": 500,
+    "contrast": "full_minus_merging_without_learned_judge",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "random",
+    "budget": 500,
+    "contrast": "full_minus_single_line",
+    "problems": 100,
+    "effect": -0.059000000000000004,
+    "problem_cluster_ci95": [
+      -0.079025,
+      -0.04197500000000013
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.8189894035458565e-12
+  },
+  {
+    "cohort": "random",
+    "budget": 1500,
+    "contrast": "three_way_interaction",
+    "problems": 100,
+    "effect": -0.061000000000000006,
+    "problem_cluster_ci95": [
+      -0.12502500000000003,
+      -0.001999999999999999
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 1500,
+    "contrast": "merging_main_effect",
+    "problems": 100,
+    "effect": 0.02675,
+    "problem_cluster_ci95": [
+      0.011,
+      0.043250000000000004
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 1500,
+    "contrast": "judge_main_effect",
+    "problems": 100,
+    "effect": -0.11725000000000002,
+    "problem_cluster_ci95": [
+      -0.13875,
+      -0.09725
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 1500,
+    "contrast": "synchrony_main_effect",
+    "problems": 100,
+    "effect": -0.08725,
+    "problem_cluster_ci95": [
+      -0.11200625000000003,
+      -0.066
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 1500,
+    "contrast": "merge_judge_interaction",
+    "problems": 100,
+    "effect": 0.035500000000000004,
+    "problem_cluster_ci95": [
+      0.002999999999999999,
+      0.07101249999999994
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 1500,
+    "contrast": "merge_sync_interaction",
+    "problems": 100,
+    "effect": -0.05849999999999999,
+    "problem_cluster_ci95": [
+      -0.0990125,
+      -0.022
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 1500,
+    "contrast": "judge_sync_interaction",
+    "problems": 100,
+    "effect": 0.0855,
+    "problem_cluster_ci95": [
+      0.054987499999999995,
+      0.11801249999999995
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 1500,
+    "contrast": "full_beyond_sum_of_individual_components",
+    "problems": 100,
+    "effect": 0.09299999999999999,
+    "problem_cluster_ci95": [
+      0.03897500000000001,
+      0.15
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 1500,
+    "contrast": "merging_effect_with_judge_and_sync",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 1500,
+    "contrast": "judge_effect_with_merge_and_sync",
+    "problems": 100,
+    "effect": -0.072,
+    "problem_cluster_ci95": [
+      -0.092,
+      -0.05397500000000012
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 1500,
+    "contrast": "sync_effect_with_merge_and_judge",
+    "problems": 100,
+    "effect": -0.08900000000000001,
+    "problem_cluster_ci95": [
+      -0.149,
+      -0.039
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 1500,
+    "contrast": "full_minus_no_components",
+    "problems": 100,
+    "effect": -0.193,
+    "problem_cluster_ci95": [
+      -0.234,
+      -0.154
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 1500,
+    "contrast": "full_minus_beam",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "random",
+    "budget": 1500,
+    "contrast": "full_minus_best_first",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "random",
+    "budget": 1500,
+    "contrast": "full_minus_bfs",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "random",
+    "budget": 1500,
+    "contrast": "full_minus_frontier_without_merging",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "random",
+    "budget": 1500,
+    "contrast": "full_minus_hand_bound_frontier",
+    "problems": 100,
+    "effect": -0.06799999999999999,
+    "problem_cluster_ci95": [
+      -0.088,
+      -0.048999999999999995
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.1368683772161599e-13
+  },
+  {
+    "cohort": "random",
+    "budget": 1500,
+    "contrast": "full_minus_independent_parallel",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "random",
+    "budget": 1500,
+    "contrast": "full_minus_merging_without_learned_judge",
+    "problems": 100,
+    "effect": -0.072,
+    "problem_cluster_ci95": [
+      -0.09200000000000001,
+      -0.053
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.421085471520197e-14
+  },
+  {
+    "cohort": "random",
+    "budget": 1500,
+    "contrast": "full_minus_single_line",
+    "problems": 100,
+    "effect": -0.17600000000000005,
+    "problem_cluster_ci95": [
+      -0.20900000000000002,
+      -0.14597500000000013
+    ],
+    "paired_problem_sign_test_p_unadjusted": 5.293955920339389e-23
+  },
+  {
+    "cohort": "random",
+    "budget": 5000,
+    "contrast": "three_way_interaction",
+    "problems": 100,
+    "effect": 0.185,
+    "problem_cluster_ci95": [
+      0.07900000000000001,
+      0.295
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 5000,
+    "contrast": "merging_main_effect",
+    "problems": 100,
+    "effect": 0.07375,
+    "problem_cluster_ci95": [
+      0.041493749999999996,
+      0.10475624999999995
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 5000,
+    "contrast": "judge_main_effect",
+    "problems": 100,
+    "effect": 0.4532499999999999,
+    "problem_cluster_ci95": [
+      0.38199999999999995,
+      0.5207499999999999
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 5000,
+    "contrast": "synchrony_main_effect",
+    "problems": 100,
+    "effect": -0.08224999999999999,
+    "problem_cluster_ci95": [
+      -0.12524999999999997,
+      -0.040493750000000044
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 5000,
+    "contrast": "merge_judge_interaction",
+    "problems": 100,
+    "effect": 0.1325,
+    "problem_cluster_ci95": [
+      0.06949999999999999,
+      0.19751249999999995
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 5000,
+    "contrast": "merge_sync_interaction",
+    "problems": 100,
+    "effect": 0.0675,
+    "problem_cluster_ci95": [
+      0.009500000000000012,
+      0.12601249999999994
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 5000,
+    "contrast": "judge_sync_interaction",
+    "problems": 100,
+    "effect": 0.1045,
+    "problem_cluster_ci95": [
+      0.028487499999999992,
+      0.183
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 5000,
+    "contrast": "full_beyond_sum_of_individual_components",
+    "problems": 100,
+    "effect": 0.21200000000000002,
+    "problem_cluster_ci95": [
+      0.11599999999999999,
+      0.31302499999999994
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 5000,
+    "contrast": "merging_effect_with_judge_and_sync",
+    "problems": 100,
+    "effect": 0.22,
+    "problem_cluster_ci95": [
+      0.13,
+      0.31
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 5000,
+    "contrast": "judge_effect_with_merge_and_sync",
+    "problems": 100,
+    "effect": 0.618,
+    "problem_cluster_ci95": [
+      0.532,
+      0.7040000000000002
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 5000,
+    "contrast": "sync_effect_with_merge_and_judge",
+    "problems": 100,
+    "effect": 0.05,
+    "problem_cluster_ci95": [
+      -0.04,
+      0.14
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 5000,
+    "contrast": "full_minus_no_components",
+    "problems": 100,
+    "effect": 0.49099999999999994,
+    "problem_cluster_ci95": [
+      0.401,
+      0.5750249999999998
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 5000,
+    "contrast": "full_minus_beam",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "random",
+    "budget": 5000,
+    "contrast": "full_minus_best_first",
+    "problems": 100,
+    "effect": 0.6,
+    "problem_cluster_ci95": [
+      0.49,
+      0.7
+    ],
+    "paired_problem_sign_test_p_unadjusted": 2.256224720942433e-16
+  },
+  {
+    "cohort": "random",
+    "budget": 5000,
+    "contrast": "full_minus_bfs",
+    "problems": 100,
+    "effect": 0.69,
+    "problem_cluster_ci95": [
+      0.6,
+      0.78
+    ],
+    "paired_problem_sign_test_p_unadjusted": 3.3881317890171987e-21
+  },
+  {
+    "cohort": "random",
+    "budget": 5000,
+    "contrast": "full_minus_frontier_without_merging",
+    "problems": 100,
+    "effect": 0.22,
+    "problem_cluster_ci95": [
+      0.13975000000000004,
+      0.3
+    ],
+    "paired_problem_sign_test_p_unadjusted": 2.9802322387695245e-06
+  },
+  {
+    "cohort": "random",
+    "budget": 5000,
+    "contrast": "full_minus_hand_bound_frontier",
+    "problems": 100,
+    "effect": 0.622,
+    "problem_cluster_ci95": [
+      0.534975,
+      0.71
+    ],
+    "paired_problem_sign_test_p_unadjusted": 3.1373521126788953e-13
+  },
+  {
+    "cohort": "random",
+    "budget": 5000,
+    "contrast": "full_minus_independent_parallel",
+    "problems": 100,
+    "effect": 0.162,
+    "problem_cluster_ci95": [
+      0.07697499999999999,
+      0.23999999999999996
+    ],
+    "paired_problem_sign_test_p_unadjusted": 0.000810008773862339
+  },
+  {
+    "cohort": "random",
+    "budget": 5000,
+    "contrast": "full_minus_merging_without_learned_judge",
+    "problems": 100,
+    "effect": 0.618,
+    "problem_cluster_ci95": [
+      0.531,
+      0.704025
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.3812783597891579e-12
+  },
+  {
+    "cohort": "random",
+    "budget": 5000,
+    "contrast": "full_minus_single_line",
+    "problems": 100,
+    "effect": 0.26999999999999996,
+    "problem_cluster_ci95": [
+      0.182975,
+      0.35702499999999987
+    ],
+    "paired_problem_sign_test_p_unadjusted": 3.6700459237993036e-05
+  },
+  {
+    "cohort": "random",
+    "budget": 15000,
+    "contrast": "three_way_interaction",
+    "problems": 100,
+    "effect": 0.185,
+    "problem_cluster_ci95": [
+      0.08299999999999999,
+      0.2860249999999999
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 15000,
+    "contrast": "merging_main_effect",
+    "problems": 100,
+    "effect": 0.07375,
+    "problem_cluster_ci95": [
+      0.0437375,
+      0.10550624999999998
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 15000,
+    "contrast": "judge_main_effect",
+    "problems": 100,
+    "effect": 0.4532499999999999,
+    "problem_cluster_ci95": [
+      0.38624375,
+      0.5185
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 15000,
+    "contrast": "synchrony_main_effect",
+    "problems": 100,
+    "effect": -0.08224999999999999,
+    "problem_cluster_ci95": [
+      -0.12650625000000001,
+      -0.040249999999999994
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 15000,
+    "contrast": "merge_judge_interaction",
+    "problems": 100,
+    "effect": 0.1325,
+    "problem_cluster_ci95": [
+      0.06899999999999999,
+      0.198
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 15000,
+    "contrast": "merge_sync_interaction",
+    "problems": 100,
+    "effect": 0.0675,
+    "problem_cluster_ci95": [
+      0.012987499999999999,
+      0.12251249999999994
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 15000,
+    "contrast": "judge_sync_interaction",
+    "problems": 100,
+    "effect": 0.1045,
+    "problem_cluster_ci95": [
+      0.03,
+      0.18201249999999997
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 15000,
+    "contrast": "full_beyond_sum_of_individual_components",
+    "problems": 100,
+    "effect": 0.21200000000000002,
+    "problem_cluster_ci95": [
+      0.11600000000000002,
+      0.3110249999999999
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 15000,
+    "contrast": "merging_effect_with_judge_and_sync",
+    "problems": 100,
+    "effect": 0.22,
+    "problem_cluster_ci95": [
+      0.14,
+      0.31
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 15000,
+    "contrast": "judge_effect_with_merge_and_sync",
+    "problems": 100,
+    "effect": 0.618,
+    "problem_cluster_ci95": [
+      0.5329999999999999,
+      0.7040000000000001
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 15000,
+    "contrast": "sync_effect_with_merge_and_judge",
+    "problems": 100,
+    "effect": 0.05,
+    "problem_cluster_ci95": [
+      -0.04024999999999999,
+      0.15
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 15000,
+    "contrast": "full_minus_no_components",
+    "problems": 100,
+    "effect": 0.49099999999999994,
+    "problem_cluster_ci95": [
+      0.39997499999999986,
+      0.575
+    ]
+  },
+  {
+    "cohort": "random",
+    "budget": 15000,
+    "contrast": "full_minus_beam",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "random",
+    "budget": 15000,
+    "contrast": "full_minus_best_first",
+    "problems": 100,
+    "effect": -0.07,
+    "problem_cluster_ci95": [
+      -0.17,
+      0.03
+    ],
+    "paired_problem_sign_test_p_unadjusted": 0.24778856337070607
+  },
+  {
+    "cohort": "random",
+    "budget": 15000,
+    "contrast": "full_minus_bfs",
+    "problems": 100,
+    "effect": 0.69,
+    "problem_cluster_ci95": [
+      0.59,
+      0.77
+    ],
+    "paired_problem_sign_test_p_unadjusted": 3.3881317890171987e-21
+  },
+  {
+    "cohort": "random",
+    "budget": 15000,
+    "contrast": "full_minus_frontier_without_merging",
+    "problems": 100,
+    "effect": 0.22,
+    "problem_cluster_ci95": [
+      0.14,
+      0.31
+    ],
+    "paired_problem_sign_test_p_unadjusted": 2.9802322387695245e-06
+  },
+  {
+    "cohort": "random",
+    "budget": 15000,
+    "contrast": "full_minus_hand_bound_frontier",
+    "problems": 100,
+    "effect": 0.622,
+    "problem_cluster_ci95": [
+      0.532,
+      0.705
+    ],
+    "paired_problem_sign_test_p_unadjusted": 3.1373521126788953e-13
+  },
+  {
+    "cohort": "random",
+    "budget": 15000,
+    "contrast": "full_minus_independent_parallel",
+    "problems": 100,
+    "effect": -0.12599999999999997,
+    "problem_cluster_ci95": [
+      -0.21102500000000002,
+      -0.04500000000000001
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "random",
+    "budget": 15000,
+    "contrast": "full_minus_merging_without_learned_judge",
+    "problems": 100,
+    "effect": 0.618,
+    "problem_cluster_ci95": [
+      0.536,
+      0.703
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.3812783597891579e-12
+  },
+  {
+    "cohort": "random",
+    "budget": 15000,
+    "contrast": "full_minus_single_line",
+    "problems": 100,
+    "effect": 0.000999999999999996,
+    "problem_cluster_ci95": [
+      -0.08100000000000002,
+      0.077
+    ],
+    "paired_problem_sign_test_p_unadjusted": 0.032992618426475655
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 500,
+    "contrast": "three_way_interaction",
+    "problems": 100,
+    "effect": 0.006,
+    "problem_cluster_ci95": [
+      -0.014025000000000003,
+      0.027000000000000003
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 500,
+    "contrast": "merging_main_effect",
+    "problems": 100,
+    "effect": 0.0015,
+    "problem_cluster_ci95": [
+      -0.0035062500000000007,
+      0.006749999999999999
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 500,
+    "contrast": "judge_main_effect",
+    "problems": 100,
+    "effect": -0.024,
+    "problem_cluster_ci95": [
+      -0.0315,
+      -0.0175
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 500,
+    "contrast": "synchrony_main_effect",
+    "problems": 100,
+    "effect": -0.024,
+    "problem_cluster_ci95": [
+      -0.0315,
+      -0.0175
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 500,
+    "contrast": "merge_judge_interaction",
+    "problems": 100,
+    "effect": -0.003,
+    "problem_cluster_ci95": [
+      -0.013000000000000001,
+      0.006999999999999999
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 500,
+    "contrast": "merge_sync_interaction",
+    "problems": 100,
+    "effect": -0.003,
+    "problem_cluster_ci95": [
+      -0.013500000000000002,
+      0.007012499999999933
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 500,
+    "contrast": "judge_sync_interaction",
+    "problems": 100,
+    "effect": 0.048,
+    "problem_cluster_ci95": [
+      0.035,
+      0.062
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 500,
+    "contrast": "full_beyond_sum_of_individual_components",
+    "problems": 100,
+    "effect": 0.03900000000000001,
+    "problem_cluster_ci95": [
+      0.008000000000000002,
+      0.07200000000000001
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 500,
+    "contrast": "merging_effect_with_judge_and_sync",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 500,
+    "contrast": "judge_effect_with_merge_and_sync",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 500,
+    "contrast": "sync_effect_with_merge_and_judge",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 500,
+    "contrast": "full_minus_no_components",
+    "problems": 100,
+    "effect": -0.045,
+    "problem_cluster_ci95": [
+      -0.062,
+      -0.030000000000000006
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 500,
+    "contrast": "full_minus_beam",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 500,
+    "contrast": "full_minus_best_first",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 500,
+    "contrast": "full_minus_bfs",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 500,
+    "contrast": "full_minus_frontier_without_merging",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 500,
+    "contrast": "full_minus_hand_bound_frontier",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 500,
+    "contrast": "full_minus_independent_parallel",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 500,
+    "contrast": "full_minus_merging_without_learned_judge",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 500,
+    "contrast": "full_minus_single_line",
+    "problems": 100,
+    "effect": -0.059000000000000004,
+    "problem_cluster_ci95": [
+      -0.07800000000000001,
+      -0.040999999999999995
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.8189894035458565e-12
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 1500,
+    "contrast": "three_way_interaction",
+    "problems": 100,
+    "effect": -0.061000000000000006,
+    "problem_cluster_ci95": [
+      -0.12499999999999999,
+      -0.0030000000000000005
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 1500,
+    "contrast": "merging_main_effect",
+    "problems": 100,
+    "effect": 0.02675,
+    "problem_cluster_ci95": [
+      0.01175,
+      0.043
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 1500,
+    "contrast": "judge_main_effect",
+    "problems": 100,
+    "effect": -0.11725000000000002,
+    "problem_cluster_ci95": [
+      -0.13849999999999998,
+      -0.09650000000000002
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 1500,
+    "contrast": "synchrony_main_effect",
+    "problems": 100,
+    "effect": -0.08725,
+    "problem_cluster_ci95": [
+      -0.11249999999999999,
+      -0.06525
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 1500,
+    "contrast": "merge_judge_interaction",
+    "problems": 100,
+    "effect": 0.035500000000000004,
+    "problem_cluster_ci95": [
+      0.0029874999999999993,
+      0.06899999999999999
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 1500,
+    "contrast": "merge_sync_interaction",
+    "problems": 100,
+    "effect": -0.05849999999999999,
+    "problem_cluster_ci95": [
+      -0.09899999999999999,
+      -0.023
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 1500,
+    "contrast": "judge_sync_interaction",
+    "problems": 100,
+    "effect": 0.0855,
+    "problem_cluster_ci95": [
+      0.05398750000000001,
+      0.11600000000000002
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 1500,
+    "contrast": "full_beyond_sum_of_individual_components",
+    "problems": 100,
+    "effect": 0.09299999999999999,
+    "problem_cluster_ci95": [
+      0.042,
+      0.15
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 1500,
+    "contrast": "merging_effect_with_judge_and_sync",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 1500,
+    "contrast": "judge_effect_with_merge_and_sync",
+    "problems": 100,
+    "effect": -0.072,
+    "problem_cluster_ci95": [
+      -0.092,
+      -0.053000000000000005
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 1500,
+    "contrast": "sync_effect_with_merge_and_judge",
+    "problems": 100,
+    "effect": -0.08900000000000001,
+    "problem_cluster_ci95": [
+      -0.14800000000000002,
+      -0.039
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 1500,
+    "contrast": "full_minus_no_components",
+    "problems": 100,
+    "effect": -0.193,
+    "problem_cluster_ci95": [
+      -0.234,
+      -0.15300000000000002
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 1500,
+    "contrast": "full_minus_beam",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 1500,
+    "contrast": "full_minus_best_first",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 1500,
+    "contrast": "full_minus_bfs",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 1500,
+    "contrast": "full_minus_frontier_without_merging",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 1500,
+    "contrast": "full_minus_hand_bound_frontier",
+    "problems": 100,
+    "effect": -0.06799999999999999,
+    "problem_cluster_ci95": [
+      -0.08800000000000001,
+      -0.05
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.1368683772161599e-13
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 1500,
+    "contrast": "full_minus_independent_parallel",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 1500,
+    "contrast": "full_minus_merging_without_learned_judge",
+    "problems": 100,
+    "effect": -0.072,
+    "problem_cluster_ci95": [
+      -0.092,
+      -0.053
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.421085471520197e-14
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 1500,
+    "contrast": "full_minus_single_line",
+    "problems": 100,
+    "effect": -0.17600000000000005,
+    "problem_cluster_ci95": [
+      -0.21000000000000005,
+      -0.145
+    ],
+    "paired_problem_sign_test_p_unadjusted": 5.293955920339389e-23
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 5000,
+    "contrast": "three_way_interaction",
+    "problems": 100,
+    "effect": 0.185,
+    "problem_cluster_ci95": [
+      0.08300000000000002,
+      0.291
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 5000,
+    "contrast": "merging_main_effect",
+    "problems": 100,
+    "effect": 0.07375,
+    "problem_cluster_ci95": [
+      0.044250000000000005,
+      0.10600624999999997
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 5000,
+    "contrast": "judge_main_effect",
+    "problems": 100,
+    "effect": 0.4532499999999999,
+    "problem_cluster_ci95": [
+      0.3829875,
+      0.5177499999999999
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 5000,
+    "contrast": "synchrony_main_effect",
+    "problems": 100,
+    "effect": -0.08224999999999999,
+    "problem_cluster_ci95": [
+      -0.12624999999999997,
+      -0.04224375000000004
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 5000,
+    "contrast": "merge_judge_interaction",
+    "problems": 100,
+    "effect": 0.1325,
+    "problem_cluster_ci95": [
+      0.06699999999999998,
+      0.20101249999999996
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 5000,
+    "contrast": "merge_sync_interaction",
+    "problems": 100,
+    "effect": 0.0675,
+    "problem_cluster_ci95": [
+      0.010500000000000002,
+      0.12851249999999997
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 5000,
+    "contrast": "judge_sync_interaction",
+    "problems": 100,
+    "effect": 0.1045,
+    "problem_cluster_ci95": [
+      0.029500000000000005,
+      0.17952499999999988
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 5000,
+    "contrast": "full_beyond_sum_of_individual_components",
+    "problems": 100,
+    "effect": 0.21200000000000002,
+    "problem_cluster_ci95": [
+      0.11200000000000002,
+      0.312
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 5000,
+    "contrast": "merging_effect_with_judge_and_sync",
+    "problems": 100,
+    "effect": 0.22,
+    "problem_cluster_ci95": [
+      0.14,
+      0.31
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 5000,
+    "contrast": "judge_effect_with_merge_and_sync",
+    "problems": 100,
+    "effect": 0.618,
+    "problem_cluster_ci95": [
+      0.53,
+      0.7020000000000001
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 5000,
+    "contrast": "sync_effect_with_merge_and_judge",
+    "problems": 100,
+    "effect": 0.05,
+    "problem_cluster_ci95": [
+      -0.04,
+      0.14
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 5000,
+    "contrast": "full_minus_no_components",
+    "problems": 100,
+    "effect": 0.49099999999999994,
+    "problem_cluster_ci95": [
+      0.4040000000000001,
+      0.5710249999999998
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 5000,
+    "contrast": "full_minus_beam",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 5000,
+    "contrast": "full_minus_best_first",
+    "problems": 100,
+    "effect": 0.6,
+    "problem_cluster_ci95": [
+      0.49975,
+      0.7
+    ],
+    "paired_problem_sign_test_p_unadjusted": 2.256224720942433e-16
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 5000,
+    "contrast": "full_minus_bfs",
+    "problems": 100,
+    "effect": 0.69,
+    "problem_cluster_ci95": [
+      0.6,
+      0.78
+    ],
+    "paired_problem_sign_test_p_unadjusted": 3.3881317890171987e-21
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 5000,
+    "contrast": "full_minus_frontier_without_merging",
+    "problems": 100,
+    "effect": 0.22,
+    "problem_cluster_ci95": [
+      0.14,
+      0.31
+    ],
+    "paired_problem_sign_test_p_unadjusted": 2.9802322387695245e-06
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 5000,
+    "contrast": "full_minus_hand_bound_frontier",
+    "problems": 100,
+    "effect": 0.622,
+    "problem_cluster_ci95": [
+      0.536,
+      0.7090000000000001
+    ],
+    "paired_problem_sign_test_p_unadjusted": 3.1373521126788953e-13
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 5000,
+    "contrast": "full_minus_independent_parallel",
+    "problems": 100,
+    "effect": 0.162,
+    "problem_cluster_ci95": [
+      0.078,
+      0.24200000000000002
+    ],
+    "paired_problem_sign_test_p_unadjusted": 0.000810008773862339
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 5000,
+    "contrast": "full_minus_merging_without_learned_judge",
+    "problems": 100,
+    "effect": 0.618,
+    "problem_cluster_ci95": [
+      0.532,
+      0.7040000000000001
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.3812783597891579e-12
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 5000,
+    "contrast": "full_minus_single_line",
+    "problems": 100,
+    "effect": 0.26999999999999996,
+    "problem_cluster_ci95": [
+      0.181975,
+      0.355025
+    ],
+    "paired_problem_sign_test_p_unadjusted": 3.6700459237993036e-05
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 15000,
+    "contrast": "three_way_interaction",
+    "problems": 100,
+    "effect": 0.185,
+    "problem_cluster_ci95": [
+      0.08200000000000002,
+      0.29100000000000004
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 15000,
+    "contrast": "merging_main_effect",
+    "problems": 100,
+    "effect": 0.07375,
+    "problem_cluster_ci95": [
+      0.04049375,
+      0.10425000000000001
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 15000,
+    "contrast": "judge_main_effect",
+    "problems": 100,
+    "effect": 0.4532499999999999,
+    "problem_cluster_ci95": [
+      0.3839937499999999,
+      0.5217562499999999
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 15000,
+    "contrast": "synchrony_main_effect",
+    "problems": 100,
+    "effect": -0.08224999999999999,
+    "problem_cluster_ci95": [
+      -0.12451250000000003,
+      -0.04249375000000004
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 15000,
+    "contrast": "merge_judge_interaction",
+    "problems": 100,
+    "effect": 0.1325,
+    "problem_cluster_ci95": [
+      0.06749999999999999,
+      0.19699999999999993
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 15000,
+    "contrast": "merge_sync_interaction",
+    "problems": 100,
+    "effect": 0.0675,
+    "problem_cluster_ci95": [
+      0.012975000000000004,
+      0.12499999999999999
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 15000,
+    "contrast": "judge_sync_interaction",
+    "problems": 100,
+    "effect": 0.1045,
+    "problem_cluster_ci95": [
+      0.028999999999999998,
+      0.17851249999999994
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 15000,
+    "contrast": "full_beyond_sum_of_individual_components",
+    "problems": 100,
+    "effect": 0.21200000000000002,
+    "problem_cluster_ci95": [
+      0.118,
+      0.31802499999999995
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 15000,
+    "contrast": "merging_effect_with_judge_and_sync",
+    "problems": 100,
+    "effect": 0.22,
+    "problem_cluster_ci95": [
+      0.13,
+      0.31
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 15000,
+    "contrast": "judge_effect_with_merge_and_sync",
+    "problems": 100,
+    "effect": 0.618,
+    "problem_cluster_ci95": [
+      0.524,
+      0.7040249999999999
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 15000,
+    "contrast": "sync_effect_with_merge_and_judge",
+    "problems": 100,
+    "effect": 0.05,
+    "problem_cluster_ci95": [
+      -0.05,
+      0.14
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 15000,
+    "contrast": "full_minus_no_components",
+    "problems": 100,
+    "effect": 0.49099999999999994,
+    "problem_cluster_ci95": [
+      0.3969749999999999,
+      0.5730249999999999
+    ]
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 15000,
+    "contrast": "full_minus_beam",
+    "problems": 100,
+    "effect": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 15000,
+    "contrast": "full_minus_best_first",
+    "problems": 100,
+    "effect": -0.07,
+    "problem_cluster_ci95": [
+      -0.17,
+      0.03
+    ],
+    "paired_problem_sign_test_p_unadjusted": 0.24778856337070607
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 15000,
+    "contrast": "full_minus_bfs",
+    "problems": 100,
+    "effect": 0.69,
+    "problem_cluster_ci95": [
+      0.59,
+      0.78
+    ],
+    "paired_problem_sign_test_p_unadjusted": 3.3881317890171987e-21
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 15000,
+    "contrast": "full_minus_frontier_without_merging",
+    "problems": 100,
+    "effect": 0.22,
+    "problem_cluster_ci95": [
+      0.14,
+      0.31
+    ],
+    "paired_problem_sign_test_p_unadjusted": 2.9802322387695245e-06
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 15000,
+    "contrast": "full_minus_hand_bound_frontier",
+    "problems": 100,
+    "effect": 0.622,
+    "problem_cluster_ci95": [
+      0.531975,
+      0.7030000000000001
+    ],
+    "paired_problem_sign_test_p_unadjusted": 3.1373521126788953e-13
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 15000,
+    "contrast": "full_minus_independent_parallel",
+    "problems": 100,
+    "effect": -0.12599999999999997,
+    "problem_cluster_ci95": [
+      -0.210025,
+      -0.042
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 15000,
+    "contrast": "full_minus_merging_without_learned_judge",
+    "problems": 100,
+    "effect": 0.618,
+    "problem_cluster_ci95": [
+      0.528,
+      0.7010000000000001
+    ],
+    "paired_problem_sign_test_p_unadjusted": 1.3812783597891579e-12
+  },
+  {
+    "cohort": "stratum_>20",
+    "budget": 15000,
+    "contrast": "full_minus_single_line",
+    "problems": 100,
+    "effect": 0.000999999999999996,
+    "problem_cluster_ci95": [
+      -0.080025,
+      0.08002499999999985
+    ],
+    "paired_problem_sign_test_p_unadjusted": 0.032992618426475655
+  }
+]

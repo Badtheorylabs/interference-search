@@ -1,0 +1,5 @@
+{
+  "landlock": true,
+  "seccomp": true,
+  "filesystem_network_process_probes": 4
+}

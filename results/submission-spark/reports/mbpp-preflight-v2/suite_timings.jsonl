@@ -1,0 +1,6 @@
+{"method":"independent_sampling","seed":0,"budget":1500,"wall_seconds":42.953412658534944}
+{"method":"transcript","seed":0,"budget":1500,"wall_seconds":23.013805335387588}
+{"method":"linear_state","seed":0,"budget":1500,"wall_seconds":41.10964767821133}
+{"method":"frontier_no_merge","seed":0,"budget":1500,"wall_seconds":29.63952716719359}
+{"method":"interference_search","seed":0,"budget":1500,"wall_seconds":29.868127738125622}
+{"method":"legacy_behaviour_merge","seed":0,"budget":1500,"wall_seconds":21.37052694428712}

@@ -1,0 +1,11 @@
+{
+  "seed": 3,
+  "weights_sha256": "fbfb54003be3232f32958e1e553d570eb8c9eca9418b02fca2682b7db3834461",
+  "epochs": 6,
+  "training_tensor_sha256": "6d9fc36dde34921b3cc5f8e316a594f2ed57e6d8a29fff9d7bac93faa003d746",
+  "sizes": [
+    4,
+    5
+  ],
+  "wall_seconds": 327.09820867329836
+}
