@@ -1,0 +1,35 @@
+{
+  "problem_ids": [
+    161,
+    773
+  ],
+  "data_hash": "ca95deaa9a01ef0a6f439f88bcf0dd3db3563d22f22aad6cae04ebb9a8d8c8e9",
+  "seeds": [
+    0
+  ],
+  "budgets": [
+    1500
+  ],
+  "budget_unit": "total_tokens",
+  "arms": [
+    "independent_sampling",
+    "transcript",
+    "linear_state",
+    "frontier_no_merge",
+    "interference_search",
+    "legacy_behaviour_merge"
+  ],
+  "width": 3,
+  "temperature": 0.8,
+  "top_p": 0.95,
+  "top_k": 20,
+  "enable_thinking": false,
+  "max_new_tokens": 320,
+  "batch_size": 8,
+  "selection": "fixed SHA256 order, no screening on model success",
+  "source_hashes": {
+    "run_mbpp.py": "4d08ad69a1a7c987307ac81cd838c796409a3fbab6826fc4f1a195ca66693f71",
+    "spark_qwen.py": "a85f9b5c1c45ba1dbda702b0c3858d56f4c5800b691e2919527b556f5b804404",
+    "spark_sandbox.py": "b5cc5e39cf26aa963ecce12331ce59974ef8ee8a83cd21a53a5dfaa78fa9277a"
+  }
+}

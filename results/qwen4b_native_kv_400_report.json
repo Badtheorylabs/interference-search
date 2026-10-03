@@ -1,0 +1,123 @@
+{
+  "status": "trained native frontier on Qwen3-4B hidden states and live task KV",
+  "claim_boundary": "native-head stage; Qwen backbone frozen; Countdown generator only",
+  "model": "Qwen/Qwen3-4B-Base",
+  "revision": "906bfd4b4dc7f14ee4320094d8b41684abff8539",
+  "git_commit": "a28c8fb3616a33a0dd4367467548355823413910",
+  "training_script_sha256": "8bcf5124e56c74f2be441f99aa060a4b9e341e8dd3dab6fe05bd4aa7515e08e5",
+  "data_sha256": {
+    "train": "ed0b325e72d7cdbe0019f0b033663fab6cfd5843340dcdc9ca0b609106445e51",
+    "validation": "fce9b23a0e5e72f986c6ef9084e9be38dd9aea7631256c18f4a1f9e205c2d045",
+    "test_5_numbers": "1f88db6dd0af1180d5ad8b6048e9732504ea7b15a94cdd01e448288222153e74"
+  },
+  "steps": 400,
+  "learning_rate": 0.0001,
+  "inhibit_start": 300,
+  "seed": 17,
+  "before": {
+    "validation": {
+      "zero": {
+        "rows": 50,
+        "alive_states": 103,
+        "exact_target_top1_rate": 0.1941747572815534,
+        "winning_action_top1_rate": 0.3883495145631068,
+        "known_refuted_action_top1_rate": 0.08737864077669903,
+        "refutation_match_positive": 0.2909101241827011,
+        "refutation_match_negative": 0.2911698365211487,
+        "refutation_match_gap": -0.0002597123384475708
+      },
+      "inhibit": {
+        "rows": 50,
+        "alive_states": 103,
+        "exact_target_top1_rate": 0.1941747572815534,
+        "winning_action_top1_rate": 0.3883495145631068,
+        "known_refuted_action_top1_rate": 0.08737864077669903,
+        "refutation_match_positive": 0.2909101241827011,
+        "refutation_match_negative": 0.2911698365211487,
+        "refutation_match_gap": -0.0002597123384475708
+      }
+    },
+    "test_5_numbers": {
+      "zero": {
+        "rows": 50,
+        "alive_states": 159,
+        "exact_target_top1_rate": 0.050314465408805034,
+        "winning_action_top1_rate": 0.32075471698113206,
+        "known_refuted_action_top1_rate": 0.0392156862745098,
+        "refutation_match_positive": 0.293354304432869,
+        "refutation_match_negative": 0.29358268797397613,
+        "refutation_match_gap": -0.00022838354110715775
+      },
+      "inhibit": {
+        "rows": 50,
+        "alive_states": 159,
+        "exact_target_top1_rate": 0.050314465408805034,
+        "winning_action_top1_rate": 0.32075471698113206,
+        "known_refuted_action_top1_rate": 0.0392156862745098,
+        "refutation_match_positive": 0.293354304432869,
+        "refutation_match_negative": 0.29358268797397613,
+        "refutation_match_gap": -0.00022838354110715775
+      }
+    }
+  },
+  "after": {
+    "validation": {
+      "zero": {
+        "rows": 50,
+        "alive_states": 103,
+        "exact_target_top1_rate": 0.22330097087378642,
+        "winning_action_top1_rate": 0.22330097087378642,
+        "known_refuted_action_top1_rate": 0.10679611650485436,
+        "refutation_match_positive": 0.4836648398637772,
+        "refutation_match_negative": 0.480532528758049,
+        "refutation_match_gap": 0.003132311105728147
+      },
+      "inhibit": {
+        "rows": 50,
+        "alive_states": 103,
+        "exact_target_top1_rate": 0.22330097087378642,
+        "winning_action_top1_rate": 0.22330097087378642,
+        "known_refuted_action_top1_rate": 0.0970873786407767,
+        "refutation_match_positive": 0.4836648398637772,
+        "refutation_match_negative": 0.480532528758049,
+        "refutation_match_gap": 0.003132311105728147
+      }
+    },
+    "test_5_numbers": {
+      "zero": {
+        "rows": 50,
+        "alive_states": 159,
+        "exact_target_top1_rate": 0.24528301886792453,
+        "winning_action_top1_rate": 0.24528301886792453,
+        "known_refuted_action_top1_rate": 0.058823529411764705,
+        "refutation_match_positive": 0.4721926325559616,
+        "refutation_match_negative": 0.4771019297838211,
+        "refutation_match_gap": -0.004909297227859488
+      },
+      "inhibit": {
+        "rows": 50,
+        "alive_states": 159,
+        "exact_target_top1_rate": 0.25157232704402516,
+        "winning_action_top1_rate": 0.25157232704402516,
+        "known_refuted_action_top1_rate": 0.049019607843137254,
+        "refutation_match_positive": 0.4721926325559616,
+        "refutation_match_negative": 0.4771019297838211,
+        "refutation_match_gap": -0.004909297227859488
+      }
+    }
+  },
+  "loss_first": 3.7280328273773193,
+  "loss_last": 3.4364073276519775,
+  "loss_last_25_mean": 3.0859149074554444,
+  "training_seconds": 47.02505678500165,
+  "steady_step_seconds": 0.0805623909982387,
+  "peak_cuda_mib": 9688.189453125,
+  "trainable_parameters": 85655042,
+  "backbone_trainable_parameters": 0,
+  "changed_head_tensors": 20,
+  "task_prefills": 604,
+  "suffix_forwards": 604,
+  "checkpoint": "runs/qwen4b_native_kv_400/native_kv_frontier_head.pt",
+  "checkpoint_bytes": 342628769,
+  "save_reload_behavior_equal": true
+}

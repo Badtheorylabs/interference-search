@@ -1,0 +1,97 @@
+{
+  "status": "inference_smoke_only",
+  "model": "/home/ubuntu/.cache/huggingface/hub/models--Qwen--Qwen3-4B-Base/snapshots/906bfd4b4dc7f14ee4320094d8b41684abff8539",
+  "frontier_head": "random_initialization",
+  "device": "NVIDIA H100 PCIe",
+  "torch": "2.7.0",
+  "budget": 8,
+  "state_mode": "auto",
+  "prefix_cache_min_work": 768,
+  "load_seconds": 5.86,
+  "warmup_seconds": 0.784,
+  "peak_cuda_mib": 8045.62,
+  "summary": {
+    "pipeline": {
+      "median_wall_seconds": 0.2477,
+      "runs": 2
+    },
+    "barrier": {
+      "median_wall_seconds": 0.1534,
+      "runs": 2
+    }
+  },
+  "arms": [
+    {
+      "mode": "pipeline",
+      "solved": false,
+      "wall_seconds": 0.343,
+      "expansions": 8,
+      "proposal_batches": 3,
+      "proposed_actions": 30,
+      "execution_calls": 30,
+      "state_merges": 2,
+      "peak_graph_nodes": 29,
+      "prepare_calls": 1,
+      "observations": 30,
+      "predictions_recorded": 30,
+      "encoder_routes": {
+        "backbone_full": 3,
+        "backbone_prefix": 0
+      }
+    },
+    {
+      "mode": "barrier",
+      "solved": false,
+      "wall_seconds": 0.1518,
+      "expansions": 8,
+      "proposal_batches": 3,
+      "proposed_actions": 30,
+      "execution_calls": 30,
+      "state_merges": 2,
+      "peak_graph_nodes": 29,
+      "prepare_calls": 1,
+      "observations": 30,
+      "predictions_recorded": 30,
+      "encoder_routes": {
+        "backbone_full": 3,
+        "backbone_prefix": 0
+      }
+    },
+    {
+      "mode": "barrier",
+      "solved": false,
+      "wall_seconds": 0.155,
+      "expansions": 8,
+      "proposal_batches": 3,
+      "proposed_actions": 30,
+      "execution_calls": 30,
+      "state_merges": 2,
+      "peak_graph_nodes": 29,
+      "prepare_calls": 1,
+      "observations": 30,
+      "predictions_recorded": 30,
+      "encoder_routes": {
+        "backbone_full": 3,
+        "backbone_prefix": 0
+      }
+    },
+    {
+      "mode": "pipeline",
+      "solved": false,
+      "wall_seconds": 0.1523,
+      "expansions": 8,
+      "proposal_batches": 3,
+      "proposed_actions": 30,
+      "execution_calls": 30,
+      "state_merges": 2,
+      "peak_graph_nodes": 29,
+      "prepare_calls": 1,
+      "observations": 30,
+      "predictions_recorded": 30,
+      "encoder_routes": {
+        "backbone_full": 3,
+        "backbone_prefix": 0
+      }
+    }
+  ]
+}

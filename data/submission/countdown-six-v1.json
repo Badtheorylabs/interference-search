@@ -1,0 +1,1707 @@
+{
+  "version": 1,
+  "main": [
+    {
+      "numbers": [
+        6,
+        75,
+        22,
+        24,
+        24,
+        4
+      ],
+      "target": 627,
+      "solution": "(4 + ((75 - 6) + (24 * 24))) - 22",
+      "problem_id": "1d2bc0c9a9d9d04b8ec6",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 536,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        21,
+        13,
+        53,
+        19,
+        6,
+        8
+      ],
+      "target": 253,
+      "solution": "(19 + (6 + (13 * 21))) - (53 - 8)",
+      "problem_id": "e6b68e4fad6448c6ac80",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 556,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        1,
+        35,
+        10,
+        22,
+        20,
+        11
+      ],
+      "target": 390,
+      "solution": "(35 * 11) + (10 / ((22 * 1) - 20))",
+      "problem_id": "1567f6d76ad2499752f6",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 271,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        13,
+        8,
+        75,
+        11,
+        24,
+        22
+      ],
+      "target": 127,
+      "solution": "(11 + ((75 + 8) - 13)) + (24 + 22)",
+      "problem_id": "39bf3534676ed528790d",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 3199,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        8,
+        21,
+        37,
+        9,
+        14,
+        9
+      ],
+      "target": 51,
+      "solution": "(8 + ((37 + 21) - 14)) - (9 / 9)",
+      "problem_id": "fcb8c9597cc1ad665fb9",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 2414,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        4,
+        9,
+        72,
+        6,
+        4,
+        22
+      ],
+      "target": 648,
+      "solution": "(72 + 9) * ((22 + (4 + 6)) / 4)",
+      "problem_id": "974a528357a0a55dae7d",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 1490,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        22,
+        24,
+        13,
+        3,
+        14,
+        76
+      ],
+      "target": 457,
+      "solution": "(((24 - 22) * (76 * 3)) - 13) + 14",
+      "problem_id": "f5e059d6a059aff11433",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 67,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        2,
+        9,
+        78,
+        17,
+        17,
+        1
+      ],
+      "target": 119,
+      "solution": "(9 - 2) + ((1 * 17) + (17 + 78))",
+      "problem_id": "0d1598f4fb73af1098a5",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 3826,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        28,
+        22,
+        6,
+        14,
+        15,
+        8
+      ],
+      "target": 966,
+      "solution": "(22 * (14 + 28)) + (6 * (15 - 8))",
+      "problem_id": "de4fb882e1a6f3e3e520",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 588,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        18,
+        10,
+        57,
+        10,
+        1,
+        8
+      ],
+      "target": 550,
+      "solution": "((57 * 10) + 8) - ((10 + 18) * 1)",
+      "problem_id": "644a4a09cba2f2a6c556",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 1091,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        4,
+        8,
+        15,
+        98,
+        24,
+        20
+      ],
+      "target": 597,
+      "solution": "(8 + ((98 - 4) + 15)) + (24 * 20)",
+      "problem_id": "9d843db061af9c3b1532",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 384,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        30,
+        5,
+        12,
+        11,
+        2,
+        17
+      ],
+      "target": 149,
+      "solution": "(((2 * 11) * 12) - (17 * 5)) - 30",
+      "problem_id": "66923bd05eea9baf220e",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 451,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        68,
+        20,
+        2,
+        10,
+        10,
+        18
+      ],
+      "target": 192,
+      "solution": "(20 - 10) + (10 + ((18 + 68) * 2))",
+      "problem_id": "c79d4ce4148b2b5b66af",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 854,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        3,
+        32,
+        17,
+        19,
+        5,
+        4
+      ],
+      "target": 230,
+      "solution": "(19 + (5 * 3)) + ((32 + 17) * 4)",
+      "problem_id": "24c67d7d6b44f46fa545",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 290,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        22,
+        10,
+        11,
+        14,
+        85,
+        2
+      ],
+      "target": 318,
+      "solution": "14 + ((((22 * 11) - 85) * 2) - 10)",
+      "problem_id": "c05a45137b4abb6ea085",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 244,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        51,
+        15,
+        14,
+        11,
+        1,
+        14
+      ],
+      "target": 106,
+      "solution": "(14 + (1 + (51 + 11))) + (15 + 14)",
+      "problem_id": "07953745c30b2494c5ce",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 2856,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        23,
+        4,
+        19,
+        15,
+        53,
+        10
+      ],
+      "target": 744,
+      "solution": "((23 - 15) + 4) * (19 + (53 - 10))",
+      "problem_id": "07d2a26602e962685018",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 145,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        1,
+        10,
+        18,
+        85,
+        19,
+        5
+      ],
+      "target": 126,
+      "solution": "(((85 + 19) - (5 + 1)) + 18) + 10",
+      "problem_id": "dd0ba906e9a2b7a0f525",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 3053,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        14,
+        25,
+        12,
+        25,
+        38,
+        20
+      ],
+      "target": 134,
+      "solution": "((38 + 25) + (20 + 14)) + (12 + 25)",
+      "problem_id": "0284b68e2c8fcacf5855",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 2742,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        21,
+        95,
+        22,
+        14,
+        8,
+        13
+      ],
+      "target": 87,
+      "solution": "(((95 - 22) + 14) * 8) / (21 - 13)",
+      "problem_id": "ed49d7fc716b713b6874",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 9506,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        82,
+        1,
+        1,
+        8,
+        5,
+        3
+      ],
+      "target": 415,
+      "solution": "((8 / 1) + ((5 * 82) - 3)) * 1",
+      "problem_id": "7e885bb0dc63c0f773e0",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 1865,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        34,
+        13,
+        3,
+        15,
+        23,
+        5
+      ],
+      "target": 401,
+      "solution": "(13 * ((3 + 34) - 15)) + (5 * 23)",
+      "problem_id": "5abccc81d000174527fb",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 126,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        20,
+        25,
+        29,
+        18,
+        1,
+        1
+      ],
+      "target": 92,
+      "solution": "1 * ((20 + (1 * (25 + 18))) + 29)",
+      "problem_id": "78690766408ee355eddf",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 7709,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        24,
+        6,
+        55,
+        20,
+        1,
+        15
+      ],
+      "target": 80,
+      "solution": "55 + (((24 / 1) + 6) - (20 - 15))",
+      "problem_id": "ddb58639c15e565d6e9e",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 4260,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        2,
+        21,
+        52,
+        8,
+        20,
+        4
+      ],
+      "target": 153,
+      "solution": "((((2 + 20) * 4) + 52) + 21) - 8",
+      "problem_id": "68d08c91e81bd4fc9490",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 761,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        24,
+        14,
+        45,
+        2,
+        21,
+        1
+      ],
+      "target": 740,
+      "solution": "(21 - 1) * ((45 + 14) - (24 - 2))",
+      "problem_id": "4b7dedc4b1bc07d53430",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 144,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        25,
+        11,
+        9,
+        14,
+        13,
+        83
+      ],
+      "target": 362,
+      "solution": "(9 * (14 + 13)) + ((25 + 83) + 11)",
+      "problem_id": "8fae00f6174189880337",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 135,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        25,
+        4,
+        24,
+        16,
+        50,
+        15
+      ],
+      "target": 627,
+      "solution": "(4 + 15) * ((50 - (25 + 16)) + 24)",
+      "problem_id": "b3b671d39c63c8faca0c",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 153,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        21,
+        1,
+        40,
+        11,
+        18,
+        16
+      ],
+      "target": 106,
+      "solution": "(((18 + 40) + 21) + (11 / 1)) + 16",
+      "problem_id": "ab347b01a3c79ab8860b",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 2931,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        16,
+        99,
+        14,
+        19,
+        9,
+        18
+      ],
+      "target": 319,
+      "solution": "((18 + 16) - (19 - 14)) * (99 / 9)",
+      "problem_id": "e08c0231effd794520a8",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 243,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        37,
+        21,
+        4,
+        13,
+        22,
+        24
+      ],
+      "target": 396,
+      "solution": "(22 + 4) + ((21 + (24 * 13)) + 37)",
+      "problem_id": "e0848f4cc90123bc3b92",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 1026,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        6,
+        2,
+        15,
+        20,
+        99,
+        2
+      ],
+      "target": 132,
+      "solution": "((2 + 15) - 6) + ((2 + 99) + 20)",
+      "problem_id": "e4029693c24eb4037026",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 5022,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        51,
+        16,
+        7,
+        4,
+        3,
+        17
+      ],
+      "target": 92,
+      "solution": "51 + ((17 + (4 + (16 - 3))) + 7)",
+      "problem_id": "f5e5a2af85d6b28f4759",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 3940,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        1,
+        23,
+        24,
+        34,
+        9,
+        12
+      ],
+      "target": 102,
+      "solution": "(12 + (24 + 23)) + ((34 + 9) * 1)",
+      "problem_id": "2a3540ad1daed1c90709",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 3753,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        94,
+        14,
+        8,
+        18,
+        13,
+        24
+      ],
+      "target": 528,
+      "solution": "(18 / (24 / 8)) * ((13 * 14) - 94)",
+      "problem_id": "c425448d8a16001da4fd",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 396,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        22,
+        8,
+        25,
+        18,
+        10,
+        43
+      ],
+      "target": 249,
+      "solution": "((10 + (18 * 22)) - (25 * 8)) + 43",
+      "problem_id": "ed2b35d85ea8eab7d407",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 509,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        19,
+        13,
+        6,
+        6,
+        90,
+        2
+      ],
+      "target": 127,
+      "solution": "((2 * 19) + (6 + (6 + 90))) - 13",
+      "problem_id": "6b20dfc516988495e87f",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 763,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        14,
+        17,
+        21,
+        8,
+        25,
+        62
+      ],
+      "target": 128,
+      "solution": "14 + (((8 * 21) + (25 - 17)) - 62)",
+      "problem_id": "fc3691f8b2254d3bca1f",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 988,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        9,
+        24,
+        15,
+        55,
+        4,
+        15
+      ],
+      "target": 22,
+      "solution": "((((9 + 15) + 55) - 15) + 24) / 4",
+      "problem_id": "94f8553158c4bb7753ee",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 1514,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        5,
+        22,
+        25,
+        68,
+        11,
+        23
+      ],
+      "target": 727,
+      "solution": "(22 + ((11 * 68) - 25)) - (23 - 5)",
+      "problem_id": "a562fec46ce64b103808",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 415,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        16,
+        1,
+        14,
+        5,
+        4,
+        44
+      ],
+      "target": 84,
+      "solution": "(5 + 4) + (16 + ((1 + 44) + 14))",
+      "problem_id": "817c6cb7d568dd4a03a0",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 3667,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        9,
+        90,
+        8,
+        8,
+        4,
+        24
+      ],
+      "target": 655,
+      "solution": "(((4 + 90) - 8) * 8) - (24 + 9)",
+      "problem_id": "135a99c2960f044559ff",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 232,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        10,
+        19,
+        9,
+        62,
+        11,
+        16
+      ],
+      "target": 114,
+      "solution": "(10 - (((11 - 9) + 62) / 16)) * 19",
+      "problem_id": "89c63682e06c9eeb8de1",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 1777,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        4,
+        13,
+        73,
+        15,
+        15,
+        15
+      ],
+      "target": 71,
+      "solution": "(((15 / 15) * 73) - 13) + (15 - 4)",
+      "problem_id": "154c5797252569eab185",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 10278,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        23,
+        14,
+        53,
+        6,
+        22,
+        5
+      ],
+      "target": 206,
+      "solution": "(14 + (5 * 22)) + ((23 + 53) + 6)",
+      "problem_id": "0458869f6593ed0b44a5",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 582,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        13,
+        12,
+        24,
+        79,
+        8,
+        1
+      ],
+      "target": 135,
+      "solution": "((13 + (8 + 79)) - 1) + (12 + 24)",
+      "problem_id": "6bf251450346ab3ac057",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 2830,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        10,
+        5,
+        80,
+        15,
+        19,
+        11
+      ],
+      "target": 60,
+      "solution": "((15 + (80 - 11)) - 10) - (19 - 5)",
+      "problem_id": "dd30ea090e55245d5aa0",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 3617,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        16,
+        12,
+        86,
+        5,
+        11,
+        22
+      ],
+      "target": 935,
+      "solution": "(((86 * 11) + 22) - 5) - (16 + 12)",
+      "problem_id": "09e7cb059d492d506594",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 787,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        18,
+        2,
+        95,
+        20,
+        18,
+        14
+      ],
+      "target": 147,
+      "solution": "(((2 * 18) + 20) + 95) - (18 - 14)",
+      "problem_id": "5741e0b6d905388ed3b2",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 1384,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        1,
+        2,
+        16,
+        14,
+        85,
+        12
+      ],
+      "target": 108,
+      "solution": "((1 + (14 + 85)) - 16) + (12 * 2)",
+      "problem_id": "bf199471b75cc1d11abb",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 1300,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        1,
+        11,
+        4,
+        19,
+        23,
+        65
+      ],
+      "target": 143,
+      "solution": "(1 * (4 * (65 - (23 + 11)))) + 19",
+      "problem_id": "6503fe85196a40b72273",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 229,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        26,
+        12,
+        12,
+        6,
+        6,
+        8
+      ],
+      "target": 98,
+      "solution": "((12 * 8) - (6 + 6)) + (26 - 12)",
+      "problem_id": "f879a10b95d24daf9e2b",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 3147,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        4,
+        14,
+        8,
+        14,
+        14,
+        85
+      ],
+      "target": 229,
+      "solution": "(8 * 14) + ((14 + (85 + 4)) + 14)",
+      "problem_id": "3ba15ea3ddbad69052ee",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 1728,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        2,
+        5,
+        3,
+        21,
+        55,
+        3
+      ],
+      "target": 63,
+      "solution": "((3 * 2) * 21) - (3 + (55 + 5))",
+      "problem_id": "e225530ad133440d1200",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 4740,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        12,
+        23,
+        6,
+        1,
+        44,
+        20
+      ],
+      "target": 492,
+      "solution": "12 * (((44 * 1) + 23) - (20 + 6))",
+      "problem_id": "57f677c41abd886ae171",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 714,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        12,
+        17,
+        14,
+        43,
+        22,
+        7
+      ],
+      "target": 198,
+      "solution": "(12 * 43) - ((17 + (14 * 22)) - 7)",
+      "problem_id": "eacc1034127ccfffd46b",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 773,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        19,
+        60,
+        8,
+        24,
+        17,
+        7
+      ],
+      "target": 151,
+      "solution": "(60 + 19) + ((7 + 17) * (24 / 8))",
+      "problem_id": "147d336ff6629aad9edc",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 158,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        68,
+        18,
+        21,
+        15,
+        15,
+        22
+      ],
+      "target": 890,
+      "solution": "((68 + 21) * (22 * 15)) / (15 + 18)",
+      "problem_id": "abe7a369fca040338ed0",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 200,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        15,
+        19,
+        65,
+        11,
+        19,
+        6
+      ],
+      "target": 758,
+      "solution": "(11 * (65 + 6)) - ((19 - 15) + 19)",
+      "problem_id": "f86f556be64be3aff783",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 102,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        25,
+        19,
+        17,
+        4,
+        34,
+        16
+      ],
+      "target": 101,
+      "solution": "((19 + 16) + 34) + ((25 - 17) * 4)",
+      "problem_id": "a435c6af465f3c1933e6",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 365,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        11,
+        29,
+        14,
+        6,
+        7,
+        13
+      ],
+      "target": 344,
+      "solution": "((13 * 6) - 14) + (7 * (11 + 29))",
+      "problem_id": "481a898c15cca6a36193",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 190,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        16,
+        14,
+        4,
+        4,
+        60,
+        8
+      ],
+      "target": 248,
+      "solution": "(((8 + 14) + (60 - 4)) - 16) * 4",
+      "problem_id": "9cbebdf7add50591fa69",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 2089,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        69,
+        4,
+        24,
+        5,
+        20,
+        4
+      ],
+      "target": 416,
+      "solution": "((20 + 4) * (24 - 4)) - (69 - 5)",
+      "problem_id": "b30d220b1b1c8257adf6",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 1828,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        15,
+        15,
+        12,
+        85,
+        18,
+        24
+      ],
+      "target": 61,
+      "solution": "(12 + ((85 - (24 - 18)) - 15)) - 15",
+      "problem_id": "f36151a98b6dcbb65fac",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 5857,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        16,
+        9,
+        11,
+        15,
+        6,
+        45
+      ],
+      "target": 119,
+      "solution": "(11 + ((9 * 16) - 45)) + (15 - 6)",
+      "problem_id": "8e693c837f5fac2e62e3",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 2742,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        2,
+        15,
+        8,
+        25,
+        67,
+        6
+      ],
+      "target": 60,
+      "solution": "(((6 * 2) * 25) * 15) / (8 + 67)",
+      "problem_id": "5907780bea410a31dc7f",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 1232,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        8,
+        1,
+        24,
+        1,
+        20,
+        30
+      ],
+      "target": 385,
+      "solution": "(((20 + (1 + 30)) * 8) + 1) - 24",
+      "problem_id": "49f0f920fc6d822166b5",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 199,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        19,
+        20,
+        12,
+        5,
+        16,
+        30
+      ],
+      "target": 92,
+      "solution": "(((19 - 5) + 30) + 20) + (16 + 12)",
+      "problem_id": "e82661d2544c45d025b4",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 3057,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        23,
+        5,
+        38,
+        12,
+        16,
+        23
+      ],
+      "target": 924,
+      "solution": "(23 + 5) * (((38 + 23) - 12) - 16)",
+      "problem_id": "cc49c97ec27149174401",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 564,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        3,
+        7,
+        17,
+        89,
+        21,
+        4
+      ],
+      "target": 537,
+      "solution": "((((17 * 21) / 3) - 7) * 4) + 89",
+      "problem_id": "7534bba198d2b08c7f7d",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 214,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        25,
+        21,
+        15,
+        12,
+        24,
+        47
+      ],
+      "target": 96,
+      "solution": "(((25 + 21) + 12) + 47) - (24 - 15)",
+      "problem_id": "be47117c53eea4f2c1d8",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 3550,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        15,
+        72,
+        9,
+        7,
+        14,
+        18
+      ],
+      "target": 660,
+      "solution": "((72 * 9) + 18) - ((14 + 7) - 15)",
+      "problem_id": "ddb84539187a2e90ec0d",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 538,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        4,
+        20,
+        82,
+        7,
+        1,
+        19
+      ],
+      "target": 36,
+      "solution": "(1 + ((19 * 7) - 82)) - (20 - 4)",
+      "problem_id": "630ed08f44c54b9f8f66",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 940,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        18,
+        55,
+        21,
+        16,
+        20,
+        18
+      ],
+      "target": 112,
+      "solution": "(16 + (18 + (55 + 21))) + (20 - 18)",
+      "problem_id": "007e189cf10301df1777",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 5908,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        57,
+        9,
+        20,
+        11,
+        4,
+        19
+      ],
+      "target": 705,
+      "solution": "(57 * 9) + ((20 + 4) * (19 - 11))",
+      "problem_id": "699bf551efc58bf0ee5d",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 213,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        14,
+        61,
+        12,
+        3,
+        22,
+        15
+      ],
+      "target": 977,
+      "solution": "((22 * (61 - 14)) - (15 * 3)) - 12",
+      "problem_id": "b427281a5a6af465f00a",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 63,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        4,
+        9,
+        14,
+        15,
+        8,
+        31
+      ],
+      "target": 900,
+      "solution": "((31 + 14) / 9) * (15 * (8 + 4))",
+      "problem_id": "1e7451896ae333f0650e",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 231,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        33,
+        5,
+        22,
+        2,
+        8,
+        25
+      ],
+      "target": 231,
+      "solution": "(((22 * 8) - 5) + 33) + (25 + 2)",
+      "problem_id": "d485d9e62c7872900c5a",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 1013,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        14,
+        3,
+        13,
+        8,
+        22,
+        57
+      ],
+      "target": 157,
+      "solution": "(57 + ((8 * 14) - 22)) + (13 - 3)",
+      "problem_id": "b5d2bda9af2de258796a",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 890,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        18,
+        35,
+        3,
+        18,
+        10,
+        5
+      ],
+      "target": 56,
+      "solution": "(10 + ((35 / 5) + (18 + 18))) + 3",
+      "problem_id": "f4b8c8f8e20903a0b062",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 1953,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        5,
+        9,
+        35,
+        15,
+        1,
+        22
+      ],
+      "target": 805,
+      "solution": "(1 * 35) * (15 + ((22 - 9) - 5))",
+      "problem_id": "a7479f217be0499b0f16",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 413,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        19,
+        85,
+        3,
+        5,
+        21,
+        15
+      ],
+      "target": 99,
+      "solution": "(19 * 3) + (((85 / 5) - 15) * 21)",
+      "problem_id": "1de1f4b3280337481f0b",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 616,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        13,
+        5,
+        2,
+        78,
+        21,
+        5
+      ],
+      "target": 125,
+      "solution": "(78 + 21) + (2 * ((13 + 5) - 5))",
+      "problem_id": "18277346cf40aa2f5cd9",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 1973,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        21,
+        12,
+        92,
+        6,
+        5,
+        16
+      ],
+      "target": 164,
+      "solution": "(6 * 12) + ((5 + (16 + 92)) - 21)",
+      "problem_id": "3724d3cdca7e1c0a9378",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 1094,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        23,
+        5,
+        63,
+        4,
+        18,
+        18
+      ],
+      "target": 28,
+      "solution": "(18 * 5) - (18 + ((63 - 23) + 4))",
+      "problem_id": "6ee1d6f0ad0db386a24a",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 1273,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        12,
+        11,
+        4,
+        1,
+        92,
+        23
+      ],
+      "target": 61,
+      "solution": "(((4 * (92 / 23)) - 11) * 12) + 1",
+      "problem_id": "cabecb04f6b189a197cd",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 809,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        45,
+        23,
+        8,
+        3,
+        7,
+        6
+      ],
+      "target": 80,
+      "solution": "((45 + (7 - 6)) + 23) + (8 + 3)",
+      "problem_id": "64239fbb470171c3bf67",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 4092,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        7,
+        11,
+        16,
+        20,
+        77,
+        22
+      ],
+      "target": 818,
+      "solution": "((22 - 11) * 77) - ((16 - 7) + 20)",
+      "problem_id": "56f952cead932a78ead3",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 88,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        20,
+        23,
+        8,
+        9,
+        24,
+        99
+      ],
+      "target": 183,
+      "solution": "(20 + 9) + (((8 + 23) + 99) + 24)",
+      "problem_id": "2241cc73095c3281845f",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 2769,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        3,
+        1,
+        32,
+        4,
+        4,
+        3
+      ],
+      "target": 176,
+      "solution": "(32 * 1) + ((3 * 4) * (4 * 3))",
+      "problem_id": "d3bc529c590088358f66",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 1007,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        6,
+        64,
+        21,
+        3,
+        15,
+        20
+      ],
+      "target": 963,
+      "solution": "((6 / 3) + (21 + (15 * 64))) - 20",
+      "problem_id": "90ebe6a0b82943b10b3f",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 282,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        21,
+        2,
+        3,
+        1,
+        80,
+        17
+      ],
+      "target": 204,
+      "solution": "17 + ((2 * (80 + 3)) + (21 * 1))",
+      "problem_id": "10b6f021337d40010961",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 938,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        76,
+        7,
+        6,
+        21,
+        6,
+        13
+      ],
+      "target": 170,
+      "solution": "7 + (((21 * (6 + 6)) - 13) - 76)",
+      "problem_id": "06d8e5c8c922a8d3daf2",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 371,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        25,
+        11,
+        18,
+        52,
+        4,
+        14
+      ],
+      "target": 782,
+      "solution": "(14 * ((52 + 25) - 18)) - (11 * 4)",
+      "problem_id": "a9cebb13ef3ac837aa65",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 66,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        15,
+        21,
+        1,
+        5,
+        32,
+        2
+      ],
+      "target": 499,
+      "solution": "((32 * 15) - (5 - 1)) + (21 + 2)",
+      "problem_id": "01b0ce6ca339c3077c75",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 512,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        23,
+        18,
+        4,
+        1,
+        82,
+        2
+      ],
+      "target": 106,
+      "solution": "(((23 - 1) + 2) / 4) + (18 + 82)",
+      "problem_id": "37be6f30a5196dfce300",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 666,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        12,
+        10,
+        4,
+        3,
+        2,
+        34
+      ],
+      "target": 30,
+      "solution": "(((4 + 10) - 12) + 34) - (2 * 3)",
+      "problem_id": "14a99d6a656bf9a28b8d",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 5545,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        24,
+        16,
+        22,
+        4,
+        25,
+        56
+      ],
+      "target": 553,
+      "solution": "((16 * 24) + (25 + 56)) + (4 * 22)",
+      "problem_id": "1bb3f320379e881a7d60",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 115,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        33,
+        4,
+        10,
+        10,
+        12,
+        18
+      ],
+      "target": 418,
+      "solution": "(33 * 12) + ((4 * (18 - 10)) - 10)",
+      "problem_id": "e8fbcd229e89002446fd",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 1283,
+      "stratum": ">20"
+    },
+    {
+      "numbers": [
+        7,
+        5,
+        100,
+        25,
+        19,
+        20
+      ],
+      "target": 133,
+      "solution": "((100 / 25) * ((19 - 7) + 20)) + 5",
+      "problem_id": "2cf4ea7f9f4abd8bae5c",
+      "cohort": "random",
+      "n_numbers": 6,
+      "solution_paths": 2511,
+      "stratum": ">20"
+    }
+  ],
+  "parent_manifest": "countdown-v1.json",
+  "selection": "all 100 prospectively frozen random six-number problems; no score selection"
+}

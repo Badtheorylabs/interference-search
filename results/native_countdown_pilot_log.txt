@@ -1,0 +1,33 @@
+2026-09-26 21:14:36.392037: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-09-26 21:14:36.415126: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1790457276.441330  441959 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1790457276.449655  441959 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1790457276.470526  441959 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1790457276.470577  441959 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1790457276.470580  441959 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1790457276.470582  441959 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2026-09-26 21:14:36.476294: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:03<00:06,  3.25s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:07<00:03,  3.70s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:07<00:00,  2.43s/it]
+{"mode": "zero", "step": 1, "loss": 3.778796911239624, "elapsed_s": 0.9}
+{"mode": "zero", "step": 25, "loss": 3.7852118015289307, "elapsed_s": 10.2}
+{"mode": "zero", "step": 50, "loss": 2.6464614868164062, "elapsed_s": 19.9}
+{"mode": "zero", "step": 75, "loss": 4.050261974334717, "elapsed_s": 29.6}
+{"mode": "zero", "step": 100, "loss": 3.8326268196105957, "elapsed_s": 39.3}
+{"mode": "zero", "step": 125, "loss": 3.90108585357666, "elapsed_s": 49.0}
+{"mode": "zero", "step": 150, "loss": 4.356775283813477, "elapsed_s": 58.5}
+{"mode": "zero", "step": 175, "loss": 4.230213165283203, "elapsed_s": 68.0}
+{"mode": "zero", "step": 200, "loss": 3.401881217956543, "elapsed_s": 78.2}
+{"completed_arm": "zero", "after": {"validation": {"rows": 100, "winning_action_rate_on_alive_states": 0.30454545454545456, "alive_states": 220, "known_refuted_action_top1_rate": 0.12380952380952381, "refuted_action_opportunities": 210, "refutation_match_selectivity": 0.0, "mean_score_change_on_refuted_actions": 0.0}, "test_5_numbers": {"rows": 100, "winning_action_rate_on_alive_states": 0.21843003412969283, "alive_states": 293, "known_refuted_action_top1_rate": 0.07246376811594203, "refuted_action_opportunities": 207, "refutation_match_selectivity": 2.384185791015625e-09, "mean_score_change_on_refuted_actions": 0.0}}}
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:02<00:04,  2.25s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:03<00:01,  1.48s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.07s/it]
+{"mode": "inhibit", "step": 1, "loss": 3.775928020477295, "elapsed_s": 0.5}
+{"mode": "inhibit", "step": 25, "loss": 4.696324825286865, "elapsed_s": 10.5}
+{"mode": "inhibit", "step": 50, "loss": 2.663688898086548, "elapsed_s": 20.2}
+{"mode": "inhibit", "step": 75, "loss": 4.107896327972412, "elapsed_s": 29.7}
+{"mode": "inhibit", "step": 100, "loss": 3.745311975479126, "elapsed_s": 39.3}
+{"mode": "inhibit", "step": 125, "loss": 3.8121612071990967, "elapsed_s": 48.9}
+{"mode": "inhibit", "step": 150, "loss": 4.669143199920654, "elapsed_s": 58.5}
+{"mode": "inhibit", "step": 175, "loss": 4.334959030151367, "elapsed_s": 68.1}
+{"mode": "inhibit", "step": 200, "loss": 3.2537200450897217, "elapsed_s": 77.6}
+{"completed_arm": "inhibit", "after": {"validation": {"rows": 100, "winning_action_rate_on_alive_states": 0.30454545454545456, "alive_states": 220, "known_refuted_action_top1_rate": 0.12380952380952381, "refuted_action_opportunities": 210, "refutation_match_selectivity": 0.0, "mean_score_change_on_refuted_actions": 0.0}, "test_5_numbers": {"rows": 100, "winning_action_rate_on_alive_states": 0.21843003412969283, "alive_states": 293, "known_refuted_action_top1_rate": 0.07246376811594203, "refuted_action_opportunities": 207, "refutation_match_selectivity": 0.0, "mean_score_change_on_refuted_actions": 0.0}}}

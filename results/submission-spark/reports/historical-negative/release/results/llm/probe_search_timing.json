@@ -1,0 +1,7 @@
+{
+ "note": "probe.py --timing-only on an Apple M2, 16 GB. Layer-28 probe as the judge, environment enumerates moves, 30 hard 4-number problems (seed 11), timed one problem at a time. AUCs from this mode are placeholders and are omitted.",
+ "solved": 15,
+ "of": 30,
+ "seconds_per_problem": 15.20176798600005,
+ "generated_tokens": 0
+}

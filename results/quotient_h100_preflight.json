@@ -1,0 +1,48 @@
+{
+  "status": "architecture preflight only",
+  "device": "cuda",
+  "seed": 23,
+  "torch": "2.7.0",
+  "cases": [
+    {
+      "decisions": 12,
+      "represented_assignments": 1852,
+      "reachable_nodes": 18,
+      "certified_refutations": 6,
+      "update_ms": 0.283,
+      "cold_log_partition_backward_ms": 147.046,
+      "steady_log_partition_backward_ms": 6.731,
+      "best_ms": 0.926
+    },
+    {
+      "decisions": 20,
+      "represented_assignments": 290784,
+      "reachable_nodes": 30,
+      "certified_refutations": 10,
+      "update_ms": 0.39,
+      "cold_log_partition_backward_ms": 14.532,
+      "steady_log_partition_backward_ms": 16.897,
+      "best_ms": 0.749
+    },
+    {
+      "decisions": 28,
+      "represented_assignments": 36530944,
+      "reachable_nodes": 42,
+      "certified_refutations": 14,
+      "update_ms": 1.341,
+      "cold_log_partition_backward_ms": 24.692,
+      "steady_log_partition_backward_ms": 25.97,
+      "best_ms": 0.775
+    },
+    {
+      "decisions": 36,
+      "represented_assignments": 6234837696,
+      "reachable_nodes": 54,
+      "certified_refutations": 18,
+      "update_ms": 4.168,
+      "cold_log_partition_backward_ms": 32.445,
+      "steady_log_partition_backward_ms": 31.091,
+      "best_ms": 0.99
+    }
+  ]
+}

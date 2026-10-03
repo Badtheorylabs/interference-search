@@ -1,0 +1,315 @@
+[
+  {
+    "n_numbers": 4,
+    "attempted": 250,
+    "exact_graph_completed": 250,
+    "failed_attempts": []
+  },
+  {
+    "n_numbers": 6,
+    "attempted": 100,
+    "exact_graph_completed": 100,
+    "failed_attempts": []
+  },
+  {
+    "n_numbers": 7,
+    "attempted": 100,
+    "exact_graph_completed": 79,
+    "failed_attempts": [
+      {
+        "problem_id": "46d958daf5a569f2a12a",
+        "n_numbers": 7,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 2.2880537062883377
+      },
+      {
+        "problem_id": "c785190598a476e19752",
+        "n_numbers": 7,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 1.7399274222552776
+      },
+      {
+        "problem_id": "ffc875aaf160bdb9b0d8",
+        "n_numbers": 7,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 1.7255395846441388
+      },
+      {
+        "problem_id": "2c784d0f895787878c4a",
+        "n_numbers": 7,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 2.664371684193611
+      },
+      {
+        "problem_id": "171fc71a76d33a5569b1",
+        "n_numbers": 7,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 1.7210972327739
+      },
+      {
+        "problem_id": "ed374d20808fdb215e24",
+        "n_numbers": 7,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 1.853228491730988
+      },
+      {
+        "problem_id": "48e97eabd510297a8a4c",
+        "n_numbers": 7,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 1.5468997787684202
+      },
+      {
+        "problem_id": "a5fdf6f09d8fcef3db71",
+        "n_numbers": 7,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 2.663542876020074
+      },
+      {
+        "problem_id": "42272e825f6df14fadba",
+        "n_numbers": 7,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 1.907800522632897
+      },
+      {
+        "problem_id": "88db527d7512a9ba79f0",
+        "n_numbers": 7,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 2.134927898645401
+      },
+      {
+        "problem_id": "341be4a01e4081d88d51",
+        "n_numbers": 7,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 2.701723695732653
+      },
+      {
+        "problem_id": "1e7db68d6a7c4f3c5a68",
+        "n_numbers": 7,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 3.117657922208309
+      },
+      {
+        "problem_id": "78e067407537e3e7e5dd",
+        "n_numbers": 7,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 2.2775382762774825
+      },
+      {
+        "problem_id": "17023322b1912b8b99ba",
+        "n_numbers": 7,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 1.9496670672670007
+      },
+      {
+        "problem_id": "22feaaabb54ec96dbefe",
+        "n_numbers": 7,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 2.266280616633594
+      },
+      {
+        "problem_id": "ed14e674f3b0527cc602",
+        "n_numbers": 7,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 3.5726564722135663
+      },
+      {
+        "problem_id": "45e297010d98d9001c78",
+        "n_numbers": 7,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 2.232671933248639
+      },
+      {
+        "problem_id": "61492ea2e9022a6b3110",
+        "n_numbers": 7,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 3.1112456703558564
+      },
+      {
+        "problem_id": "cfa31b6e21ed27ec653a",
+        "n_numbers": 7,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 3.1337027745321393
+      },
+      {
+        "problem_id": "f5d772642cf9f692f1b6",
+        "n_numbers": 7,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 2.515808862634003
+      },
+      {
+        "problem_id": "9df5d80428f1f6af5989",
+        "n_numbers": 7,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 2.4112454866990447
+      }
+    ]
+  },
+  {
+    "n_numbers": 8,
+    "attempted": 20,
+    "exact_graph_completed": 0,
+    "failed_attempts": [
+      {
+        "problem_id": "deb705e205a847c1ab3d",
+        "n_numbers": 8,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 1.9356757830828428
+      },
+      {
+        "problem_id": "892e24fcc61ddfa2baab",
+        "n_numbers": 8,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 2.0292608877643943
+      },
+      {
+        "problem_id": "2ee52dd26dad4fbdab0c",
+        "n_numbers": 8,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 2.1980430390685797
+      },
+      {
+        "problem_id": "4e308224d675444d6492",
+        "n_numbers": 8,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 1.5781100448220968
+      },
+      {
+        "problem_id": "aca32912889b682b1aab",
+        "n_numbers": 8,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 2.355070942081511
+      },
+      {
+        "problem_id": "59b8c0c223353047487c",
+        "n_numbers": 8,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 1.9454494155943394
+      },
+      {
+        "problem_id": "f330b7f787acbdd1af7f",
+        "n_numbers": 8,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 1.7941642412915826
+      },
+      {
+        "problem_id": "dccb03444ab0961e7ffb",
+        "n_numbers": 8,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 1.7083817142993212
+      },
+      {
+        "problem_id": "02e222c234aba2df9c75",
+        "n_numbers": 8,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 1.8289330145344138
+      },
+      {
+        "problem_id": "d70c2507ee2ae3ebb503",
+        "n_numbers": 8,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 2.2683322662487626
+      },
+      {
+        "problem_id": "e6937f0e8143e362331d",
+        "n_numbers": 8,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 2.252640187740326
+      },
+      {
+        "problem_id": "cb2aa0c031c3fbe6ecf0",
+        "n_numbers": 8,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 1.9445897759869695
+      },
+      {
+        "problem_id": "ffeb9830834d8e06fa66",
+        "n_numbers": 8,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 1.8792832707986236
+      },
+      {
+        "problem_id": "5842b80d49432fea6515",
+        "n_numbers": 8,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 1.919693686068058
+      },
+      {
+        "problem_id": "fff0cf05ee85ff0b2333",
+        "n_numbers": 8,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 1.8321011904627085
+      },
+      {
+        "problem_id": "fc8c8370cfb89a08486a",
+        "n_numbers": 8,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 1.8770072348415852
+      },
+      {
+        "problem_id": "81a4256bfdd3a3772e33",
+        "n_numbers": 8,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 1.6143887033686042
+      },
+      {
+        "problem_id": "3d15524a4e74a79e001a",
+        "n_numbers": 8,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 1.7489691777154803
+      },
+      {
+        "problem_id": "df406221fa899f586db8",
+        "n_numbers": 8,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 1.8308390332385898
+      },
+      {
+        "problem_id": "3d2994c33ac0fef9d68b",
+        "n_numbers": 8,
+        "feasible": false,
+        "error": "exact graph exceeds 500000 unique states",
+        "wall_seconds": 1.5516525860875845
+      }
+    ]
+  }
+]

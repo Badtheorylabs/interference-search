@@ -1,0 +1,1133 @@
+{
+  "dataset": "mbpp_sanitized.json",
+  "dataset_sha256": "ca95deaa9a01ef0a6f439f88bcf0dd3db3563d22f22aad6cae04ebb9a8d8c8e9",
+  "selection": "model-blind seed 314159 sample; first 64 reference-passing tasks excluding the prior 32 task IDs; frozen before replication run",
+  "seed": 314159,
+  "screen": 128,
+  "task_ids": [
+    167,
+    267,
+    273,
+    106,
+    284,
+    605,
+    286,
+    477,
+    163,
+    140,
+    585,
+    610,
+    754,
+    58,
+    224,
+    473,
+    596,
+    131,
+    164,
+    293,
+    3,
+    474,
+    119,
+    643,
+    259,
+    280,
+    456,
+    300,
+    735,
+    574,
+    307,
+    792,
+    111,
+    272,
+    260,
+    579,
+    783,
+    773,
+    611,
+    244,
+    755,
+    251,
+    283,
+    19,
+    587,
+    109,
+    725,
+    637,
+    99,
+    274,
+    757,
+    728,
+    245,
+    804,
+    135,
+    103,
+    124,
+    57,
+    470,
+    798,
+    569,
+    430,
+    61,
+    250
+  ],
+  "reference_preflight": [
+    {
+      "task_id": 167,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 63.891
+    },
+    {
+      "task_id": 267,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 100.427
+    },
+    {
+      "task_id": 273,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 104.066
+    },
+    {
+      "task_id": 96,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 100.832
+    },
+    {
+      "task_id": 106,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 102.151
+    },
+    {
+      "task_id": 586,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 102.304
+    },
+    {
+      "task_id": 284,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 87.745
+    },
+    {
+      "task_id": 605,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 100.07
+    },
+    {
+      "task_id": 286,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 89.325
+    },
+    {
+      "task_id": 477,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 90.874
+    },
+    {
+      "task_id": 163,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 91.213
+    },
+    {
+      "task_id": 140,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 99.546
+    },
+    {
+      "task_id": 585,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 90.132
+    },
+    {
+      "task_id": 610,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 74.755
+    },
+    {
+      "task_id": 754,
+      "passed": 4,
+      "total": 4,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 91.545
+    },
+    {
+      "task_id": 58,
+      "passed": 4,
+      "total": 4,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 95.253
+    },
+    {
+      "task_id": 224,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 90.93
+    },
+    {
+      "task_id": 473,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 88.628
+    },
+    {
+      "task_id": 800,
+      "passed": 4,
+      "total": 4,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 81.49
+    },
+    {
+      "task_id": 596,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 94.71
+    },
+    {
+      "task_id": 131,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 56.874
+    },
+    {
+      "task_id": 164,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 76.504
+    },
+    {
+      "task_id": 293,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 90.251
+    },
+    {
+      "task_id": 3,
+      "passed": 4,
+      "total": 4,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 90.659
+    },
+    {
+      "task_id": 474,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 90.244
+    },
+    {
+      "task_id": 119,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 94.651
+    },
+    {
+      "task_id": 643,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 87.593
+    },
+    {
+      "task_id": 259,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 98.54
+    },
+    {
+      "task_id": 304,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 88.436
+    },
+    {
+      "task_id": 280,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 81.41
+    },
+    {
+      "task_id": 456,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 89.393
+    },
+    {
+      "task_id": 300,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 84.932
+    },
+    {
+      "task_id": 735,
+      "passed": 5,
+      "total": 5,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 75.101
+    },
+    {
+      "task_id": 574,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 52.458
+    },
+    {
+      "task_id": 307,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 95.048
+    },
+    {
+      "task_id": 792,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 75.206
+    },
+    {
+      "task_id": 91,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 91.639
+    },
+    {
+      "task_id": 111,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 89.747
+    },
+    {
+      "task_id": 272,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 92.765
+    },
+    {
+      "task_id": 260,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 86.999
+    },
+    {
+      "task_id": 579,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 89.667
+    },
+    {
+      "task_id": 783,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 87.852
+    },
+    {
+      "task_id": 773,
+      "passed": 4,
+      "total": 4,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 88.305
+    },
+    {
+      "task_id": 611,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 91.731
+    },
+    {
+      "task_id": 244,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 89.062
+    },
+    {
+      "task_id": 755,
+      "passed": 4,
+      "total": 4,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 94.01
+    },
+    {
+      "task_id": 251,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 87.067
+    },
+    {
+      "task_id": 283,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 88.291
+    },
+    {
+      "task_id": 19,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 92.41
+    },
+    {
+      "task_id": 587,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 55.032
+    },
+    {
+      "task_id": 109,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 83.746
+    },
+    {
+      "task_id": 725,
+      "passed": 4,
+      "total": 4,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 92.063
+    },
+    {
+      "task_id": 638,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 99.314
+    },
+    {
+      "task_id": 637,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 56.184
+    },
+    {
+      "task_id": 99,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 87.543
+    },
+    {
+      "task_id": 274,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 96.819
+    },
+    {
+      "task_id": 757,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 88.6
+    },
+    {
+      "task_id": 728,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 77.687
+    },
+    {
+      "task_id": 245,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 77.715
+    },
+    {
+      "task_id": 804,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 89.392
+    },
+    {
+      "task_id": 135,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 69.665
+    },
+    {
+      "task_id": 103,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 82.571
+    },
+    {
+      "task_id": 124,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 68.879
+    },
+    {
+      "task_id": 57,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 90.958
+    },
+    {
+      "task_id": 470,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 92.376
+    },
+    {
+      "task_id": 798,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 88.822
+    },
+    {
+      "task_id": 569,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 88.939
+    },
+    {
+      "task_id": 430,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 64.415
+    },
+    {
+      "task_id": 61,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 94.114
+    },
+    {
+      "task_id": 250,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 97.015
+    },
+    {
+      "task_id": 406,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 97.172
+    },
+    {
+      "task_id": 803,
+      "passed": 6,
+      "total": 6,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 83.297
+    },
+    {
+      "task_id": 16,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 78.721
+    },
+    {
+      "task_id": 108,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 75.938
+    },
+    {
+      "task_id": 591,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 88.183
+    },
+    {
+      "task_id": 419,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 101.106
+    },
+    {
+      "task_id": 94,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 70.611
+    },
+    {
+      "task_id": 479,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 94.394
+    },
+    {
+      "task_id": 614,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 88.141
+    },
+    {
+      "task_id": 123,
+      "passed": 2,
+      "total": 3,
+      "all_passed": false,
+      "sandbox_error": null,
+      "wall_ms": 2197.362
+    },
+    {
+      "task_id": 310,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 93.242
+    },
+    {
+      "task_id": 577,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 89.133
+    },
+    {
+      "task_id": 428,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 90.566
+    },
+    {
+      "task_id": 161,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 84.706
+    },
+    {
+      "task_id": 592,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 90.846
+    },
+    {
+      "task_id": 292,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 73.849
+    },
+    {
+      "task_id": 98,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 106.077
+    },
+    {
+      "task_id": 265,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 75.62
+    },
+    {
+      "task_id": 271,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 93.618
+    },
+    {
+      "task_id": 564,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 93.977
+    },
+    {
+      "task_id": 775,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 88.102
+    },
+    {
+      "task_id": 620,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 96.325
+    },
+    {
+      "task_id": 105,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 71.931
+    },
+    {
+      "task_id": 741,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 91.872
+    },
+    {
+      "task_id": 631,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 97.054
+    },
+    {
+      "task_id": 295,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 104.234
+    },
+    {
+      "task_id": 422,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 91.941
+    },
+    {
+      "task_id": 388,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 92.058
+    },
+    {
+      "task_id": 8,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 85.112
+    },
+    {
+      "task_id": 401,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 96.644
+    },
+    {
+      "task_id": 115,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 88.583
+    },
+    {
+      "task_id": 721,
+      "passed": 4,
+      "total": 4,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 76.458
+    },
+    {
+      "task_id": 237,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 93.074
+    },
+    {
+      "task_id": 68,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 76.368
+    },
+    {
+      "task_id": 462,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 96.501
+    },
+    {
+      "task_id": 415,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 65.956
+    },
+    {
+      "task_id": 63,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 74.897
+    },
+    {
+      "task_id": 788,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 91.197
+    },
+    {
+      "task_id": 794,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 91.949
+    },
+    {
+      "task_id": 130,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 86.895
+    },
+    {
+      "task_id": 85,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 92.367
+    },
+    {
+      "task_id": 276,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 89.759
+    },
+    {
+      "task_id": 168,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 90.056
+    },
+    {
+      "task_id": 787,
+      "passed": 4,
+      "total": 4,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 88.753
+    },
+    {
+      "task_id": 784,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 77.587
+    },
+    {
+      "task_id": 766,
+      "passed": 4,
+      "total": 4,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 97.796
+    },
+    {
+      "task_id": 626,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 87.312
+    },
+    {
+      "task_id": 390,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 90.619
+    },
+    {
+      "task_id": 606,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 67.54
+    },
+    {
+      "task_id": 453,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 61.087
+    },
+    {
+      "task_id": 104,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 90.79
+    },
+    {
+      "task_id": 625,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 94.121
+    },
+    {
+      "task_id": 740,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 92.819
+    },
+    {
+      "task_id": 222,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 88.995
+    },
+    {
+      "task_id": 799,
+      "passed": 7,
+      "total": 7,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 92.49
+    },
+    {
+      "task_id": 93,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 93.206
+    },
+    {
+      "task_id": 730,
+      "passed": 4,
+      "total": 4,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 70.513
+    },
+    {
+      "task_id": 781,
+      "passed": 3,
+      "total": 3,
+      "all_passed": true,
+      "sandbox_error": null,
+      "wall_ms": 77.384
+    }
+  ],
+  "excluded_prior_ids": [
+    6,
+    9,
+    64,
+    91,
+    96,
+    113,
+    116,
+    130,
+    160,
+    162,
+    229,
+    246,
+    276,
+    278,
+    304,
+    306,
+    396,
+    405,
+    409,
+    436,
+    468,
+    572,
+    582,
+    586,
+    606,
+    638,
+    720,
+    726,
+    766,
+    796,
+    800,
+    806
+  ]
+}

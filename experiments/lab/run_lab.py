@@ -1,0 +1,189 @@
+"""Matched-compute runner: vanilla transformer vs interference model.
+
+Task: read a move trajectory, predict the exact remaining multiset (outcome
+supervision only, no judge labels). Equivalence is tested zero-shot: two
+trajectories are equivalent iff the model's predicted states agree, with no
+pair supervision. Ablations: merge-off and survival-off attribute any gain to
+the named operator rather than extra parameters.
+
+Reports experiments/lab/results/<run>.json and prints a summary.
+"""
+import json
+import os
+import sys
+import time
+
+import torch
+import torch.nn.functional as F
+from torch.utils.data import DataLoader, TensorDataset
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from envs import make_dataset, make_pairs, encode_seq, encode_state
+from model import VanillaLM, InterferenceLM, param_count, match_params
+
+VOCAB = 17          # PAD + 16 alphabet symbols
+DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+D, L, K, LR, BS = 128, 3, 8, 3e-3, 32
+# Equal steps is equal compute. Measured with measure_compute.py (train mode,
+# fwd+bwd): interference/vanilla FLOPs = 0.969. The unit's 3.5x wall time is
+# a sequential per-token Python loop (launch latency), not arithmetic.
+STEPS_INT = 2000
+STEPS_VAN = 2000
+
+
+def build_rows(groups):
+    """Per-group split: most trajectories of a state train, a couple hold out.
+    The held-out trajectory belongs to a state the model saw via other paths."""
+    train_ids, train_tgt, test_ids, test_tgt = [], [], [], []
+    for g in groups:
+        seqs = g["seqs"][:8]
+        tgt = encode_state(g["state"])
+        n_keep = max(1, len(seqs) - 2)
+        for i, seq in enumerate(seqs):
+            enc = encode_seq(list(seq))
+            if i < n_keep:
+                train_ids.append(enc); train_tgt.append(tgt)
+            else:
+                test_ids.append(enc); test_tgt.append(tgt)
+    return ((torch.tensor(train_ids, dtype=torch.long), torch.tensor(train_tgt, dtype=torch.long)),
+            (torch.tensor(test_ids, dtype=torch.long), torch.tensor(test_tgt, dtype=torch.long)))
+
+
+def ce_state(state_logits, tgt):
+    # state_logits (B,9,10); tgt (B,9) digit classes
+    return F.cross_entropy(state_logits.reshape(-1, 10), tgt.reshape(-1))
+
+
+def evaluate_state(model, loader, **kw):
+    model.eval()
+    correct, total = 0, 0
+    with torch.no_grad():
+        for ids, tgt in loader:
+            ids, tgt = ids.to(DEVICE), tgt.to(DEVICE)
+            _, _, state_logits = model(ids, valid=(ids != 0), **kw)
+            pred = state_logits.argmax(-1)
+            exact = (pred == tgt).all(dim=1)
+            correct += exact.sum().item(); total += len(tgt)
+    return correct / max(total, 1)
+
+
+def soft_agreement(model, a, b, vanilla=False):
+    """Probability under the model that two trajectories reach the same state:
+    per-digit predicted distributions multiplied position-wise. Purely the
+    model's own readout; no external judge."""
+    model.eval()
+    with torch.no_grad():
+        ia = torch.tensor([encode_seq(a)], device=DEVICE)
+        ib = torch.tensor([encode_seq(b)], device=DEVICE)
+        if vanilla:
+            pa = model(ia, valid=(ia != 0)).view(1, 9, 10).softmax(-1)[0]
+            pb = model(ib, valid=(ib != 0)).view(1, 9, 10).softmax(-1)[0]
+        else:
+            pa = model(ia, valid=(ia != 0))[2].softmax(-1)[0]
+            pb = model(ib, valid=(ib != 0))[2].softmax(-1)[0]
+        agree = (pa * pb).sum(-1)          # per-digit prob both predict same digit
+        return float(agree.mean().item())   # averaged over 9 digit slots
+
+
+def evaluate_equiv(model, pairs, labels, vanilla=False):
+    scores = [soft_agreement(model, a, b, vanilla) for (a, b) in pairs]
+    # Ranking quality: probability a true same-state pair scores above a true
+    # different-state pair (AUC). No fitted threshold on eval data.
+    pos = [s for s, y in zip(scores, labels) if y == 1]
+    neg = [s for s, y in zip(scores, labels) if y == 0]
+    if not pos or not neg:
+        return 0.0
+    wins = sum(p > n for p in pos for n in neg)
+    ties = sum(p == n for p in pos for n in neg)
+    return (wins + 0.5 * ties) / (len(pos) * len(neg))
+
+
+def run(name, mode, seed=0):
+    torch.manual_seed(seed)
+    groups = make_dataset(seed=seed)
+    (train_ids, train_tgt), (test_ids, test_tgt) = build_rows(groups)
+    train = TensorDataset(train_ids, train_tgt)
+    test = TensorDataset(test_ids, test_tgt)
+    train_loader = DataLoader(train, batch_size=BS, shuffle=True)
+    test_loader = DataLoader(test, batch_size=BS)
+
+    if mode == "vanilla":
+        model = VanillaLM(VOCAB, D, L, n_out=90)
+    else:
+        model = InterferenceLM(VOCAB, D, L, k=K)
+    model = match_params(model, param_count(InterferenceLM(VOCAB, D, L, k=K)))
+    model = model.to(DEVICE)
+    params = param_count(model)
+    opt = torch.optim.AdamW(model.parameters(), lr=LR)
+
+    def fwd(batch, **kw):
+        ids, tgt = batch
+        ids, tgt = ids.to(DEVICE), tgt.to(DEVICE)
+        valid = (ids != 0)
+        if mode == "vanilla":
+            out = model(ids, valid=valid)
+            logits = out.view(-1, 9, 10)
+            return ce_state(logits, tgt)
+        out = model(ids, valid=valid, **kw)
+        return ce_state(out[2], tgt)
+
+    steps = STEPS_VAN if mode == "vanilla" else STEPS_INT
+    t0 = time.time()
+    data = iter(train_loader)
+    losses = []
+    for step in range(steps):
+        try:
+            batch = next(data)
+        except StopIteration:
+            data = iter(train_loader)
+            batch = next(data)
+        loss = fwd(batch,
+                   prop_mode="learned",
+                   merge_mode="learned" if mode != "merge_off" else "off",
+                   survival_mode="learned" if mode != "survival_off" else "one")
+        opt.zero_grad(); loss.backward(); opt.step()
+        losses.append(loss.item())
+    dt = time.time() - t0
+
+    kw = dict(prop_mode="learned",
+              merge_mode="learned" if mode != "merge_off" else "off",
+              survival_mode="learned" if mode != "survival_off" else "one")
+    if mode == "vanilla":
+        model.eval()
+        correct, total = 0, 0
+        with torch.no_grad():
+            for ids, tgt in test_loader:
+                ids, tgt = ids.to(DEVICE), tgt.to(DEVICE)
+                logits = model(ids, valid=(ids != 0)).view(-1, 9, 10)
+                pred = logits.argmax(-1)
+                correct += (pred == tgt).all(dim=1).sum().item(); total += len(tgt)
+        acc_state = correct / max(total, 1)
+    else:
+        acc_state = evaluate_state(model, test_loader, **kw)
+
+    pairs, labels = make_pairs(make_dataset(seed=seed + 991))
+    acc_eq = evaluate_equiv(model, pairs, labels, vanilla=(mode == "vanilla"))
+
+    res = {"run": name, "mode": mode, "params": int(params), "steps": steps,
+           "train_seconds": round(dt, 1), "final_loss": losses[-1],
+           "exact_state_accuracy": acc_state, "equivalence_agreement": acc_eq,
+           "device": DEVICE}
+    os.makedirs(os.path.join(os.path.dirname(__file__), "results"), exist_ok=True)
+    path = os.path.join(os.path.dirname(__file__), "results", f"{name}.json")
+    json.dump(res, open(path, "w"), indent=1)
+    print(json.dumps(res))
+    return res
+
+
+if __name__ == "__main__":
+    seeds = [int(s) for s in sys.argv[1:]] or [0]
+    agg = {}
+    for seed in seeds:
+        for mode in ["vanilla", "interference", "merge_off", "survival_off"]:
+            r = run(f"lab_{mode}_s{seed}", mode, seed=seed)
+            agg.setdefault(mode, []).append((r["exact_state_accuracy"], r["equivalence_agreement"]))
+    print("\n=== summary across seeds", seeds, "===")
+    for mode, vals in agg.items():
+        st = sum(v[0] for v in vals) / len(vals)
+        eq = sum(v[1] for v in vals) / len(vals)
+        print(mode, "state_acc", round(st, 3), "equiv", round(eq, 3))

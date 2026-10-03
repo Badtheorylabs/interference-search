@@ -30,6 +30,7 @@ PAD = [0.0] * N_FEAT
 
 def encode(states, target, max_n=7):
     """Batch of states -> (features, mask). `target` is one int or a list with one per state."""
+    max_n = max(max_n, max((len(state) for state in states), default=0))
     ts = target if isinstance(target, list) else [target] * len(states)
     feats, mask = [], []
     for s, t in zip(states, ts):

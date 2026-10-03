@@ -1,0 +1,4082 @@
+[
+  {
+    "cohort": "all",
+    "method": "beam",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 276.91,
+    "states_judged_mean": 214.61,
+    "states_expanded_mean": 8.48,
+    "states_merged_mean": 48.992,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 2.0,
+    "wall_seconds_mean": 0.0004427448334172368,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "all",
+    "method": "beam",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 838.42,
+    "states_judged_mean": 628.61,
+    "states_expanded_mean": 32.97,
+    "states_merged_mean": 202.35,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 3.27,
+    "wall_seconds_mean": 0.0013474309211596847,
+    "work_used_mean": 1500.0
+  },
+  {
+    "cohort": "all",
+    "method": "beam",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.69,
+    "problem_cluster_ci95": [
+      0.6,
+      0.78
+    ],
+    "states_proposed_mean": 1029.264,
+    "states_judged_mean": 778.57,
+    "states_expanded_mean": 55.33,
+    "states_merged_mean": 234.2,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.0016875295145437122,
+    "work_used_mean": 1863.164
+  },
+  {
+    "cohort": "all",
+    "method": "beam",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.69,
+    "problem_cluster_ci95": [
+      0.6,
+      0.78
+    ],
+    "states_proposed_mean": 1029.264,
+    "states_judged_mean": 778.57,
+    "states_expanded_mean": 55.33,
+    "states_merged_mean": 234.2,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.0016737211626023055,
+    "work_used_mean": 1863.164
+  },
+  {
+    "cohort": "all",
+    "method": "best_first",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 276.5,
+    "states_judged_mean": 214.97,
+    "states_expanded_mean": 8.53,
+    "states_merged_mean": 48.189,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 8.53,
+    "wall_seconds_mean": 0.0004707221109420061,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "all",
+    "method": "best_first",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 896.72,
+    "states_judged_mean": 573.45,
+    "states_expanded_mean": 29.83,
+    "states_merged_mean": 316.732,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 29.83,
+    "wall_seconds_mean": 0.0015088468492031098,
+    "work_used_mean": 1500.0
+  },
+  {
+    "cohort": "all",
+    "method": "best_first",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.09,
+    "problem_cluster_ci95": [
+      0.04,
+      0.15
+    ],
+    "states_proposed_mean": 2956.265,
+    "states_judged_mean": 1807.42,
+    "states_expanded_mean": 131.1,
+    "states_merged_mean": 1142.531,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 131.1,
+    "wall_seconds_mean": 0.00516481003165245,
+    "work_used_mean": 4894.785
+  },
+  {
+    "cohort": "all",
+    "method": "best_first",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.76,
+    "problem_cluster_ci95": [
+      0.67,
+      0.84
+    ],
+    "states_proposed_mean": 7316.049,
+    "states_judged_mean": 3720.96,
+    "states_expanded_mean": 368.33,
+    "states_merged_mean": 3586.639,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 368.33,
+    "wall_seconds_mean": 0.014076746156439186,
+    "work_used_mean": 11405.339
+  },
+  {
+    "cohort": "all",
+    "method": "bfs",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 484.607,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 15.393,
+    "states_merged_mean": 115.144,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 15.393,
+    "wall_seconds_mean": 0.0006827196273952723,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "all",
+    "method": "bfs",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 1451.094,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 48.906,
+    "states_merged_mean": 686.136,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 48.906,
+    "wall_seconds_mean": 0.002120186957530677,
+    "work_used_mean": 1500.0
+  },
+  {
+    "cohort": "all",
+    "method": "bfs",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 4776.056,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 223.944,
+    "states_merged_mean": 2414.495,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 223.944,
+    "wall_seconds_mean": 0.007239194341003894,
+    "work_used_mean": 5000.0
+  },
+  {
+    "cohort": "all",
+    "method": "bfs",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 14191.633,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 808.367,
+    "states_merged_mean": 8307.532,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 808.367,
+    "wall_seconds_mean": 0.02279724948015064,
+    "work_used_mean": 15000.0
+  },
+  {
+    "cohort": "all",
+    "method": "factorial_m0j0s0",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.045,
+    "problem_cluster_ci95": [
+      0.031,
+      0.062
+    ],
+    "states_proposed_mean": 460.84,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 32.405,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 32.405,
+    "wall_seconds_mean": 0.000777763020247221,
+    "work_used_mean": 493.245
+  },
+  {
+    "cohort": "all",
+    "method": "factorial_m0j0s0",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.193,
+    "problem_cluster_ci95": [
+      0.15400000000000003,
+      0.23199999999999998
+    ],
+    "states_proposed_mean": 940.161,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 101.006,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 101.006,
+    "wall_seconds_mean": 0.0015732690449804067,
+    "work_used_mean": 1041.167
+  },
+  {
+    "cohort": "all",
+    "method": "factorial_m0j0s0",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.19899999999999998,
+    "problem_cluster_ci95": [
+      0.15997499999999998,
+      0.23900000000000002
+    ],
+    "states_proposed_mean": 947.079,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 102.623,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 102.623,
+    "wall_seconds_mean": 0.0015732759349048138,
+    "work_used_mean": 1049.702
+  },
+  {
+    "cohort": "all",
+    "method": "factorial_m0j0s0",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.19899999999999998,
+    "problem_cluster_ci95": [
+      0.159,
+      0.24
+    ],
+    "states_proposed_mean": 947.079,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 102.623,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 102.623,
+    "wall_seconds_mean": 0.001569444166496396,
+    "work_used_mean": 1049.702
+  },
+  {
+    "cohort": "all",
+    "method": "factorial_m0j0s1",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 484.575,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 15.425,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 2.0,
+    "wall_seconds_mean": 0.0006671133516356349,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "all",
+    "method": "factorial_m0j0s1",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.077,
+    "problem_cluster_ci95": [
+      0.057999999999999996,
+      0.09602499999999987
+    ],
+    "states_proposed_mean": 1053.406,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 64.337,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.0015788082340732216,
+    "work_used_mean": 1117.743
+  },
+  {
+    "cohort": "all",
+    "method": "factorial_m0j0s1",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.077,
+    "problem_cluster_ci95": [
+      0.059,
+      0.096
+    ],
+    "states_proposed_mean": 1053.406,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 64.337,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.001570722441188991,
+    "work_used_mean": 1117.743
+  },
+  {
+    "cohort": "all",
+    "method": "factorial_m0j0s1",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.077,
+    "problem_cluster_ci95": [
+      0.059000000000000004,
+      0.09500000000000001
+    ],
+    "states_proposed_mean": 1053.406,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 64.337,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.0015654782066121698,
+    "work_used_mean": 1117.743
+  },
+  {
+    "cohort": "all",
+    "method": "factorial_m0j1s0",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 255.58,
+    "states_judged_mean": 236.52,
+    "states_expanded_mean": 7.9,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.165,
+    "sequential_rounds_mean": 7.9,
+    "wall_seconds_mean": 0.0004595827916637063,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "all",
+    "method": "factorial_m0j1s0",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 740.68,
+    "states_judged_mean": 732.01,
+    "states_expanded_mean": 27.31,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 14.277,
+    "sequential_rounds_mean": 27.31,
+    "wall_seconds_mean": 0.0013541044173762202,
+    "work_used_mean": 1500.0
+  },
+  {
+    "cohort": "all",
+    "method": "factorial_m0j1s0",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.58,
+    "problem_cluster_ci95": [
+      0.48,
+      0.68
+    ],
+    "states_proposed_mean": 996.444,
+    "states_judged_mean": 969.15,
+    "states_expanded_mean": 52.34,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 100.16,
+    "sequential_rounds_mean": 52.34,
+    "wall_seconds_mean": 0.0018273770129308105,
+    "work_used_mean": 2017.934
+  },
+  {
+    "cohort": "all",
+    "method": "factorial_m0j1s0",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.58,
+    "problem_cluster_ci95": [
+      0.48,
+      0.68
+    ],
+    "states_proposed_mean": 996.444,
+    "states_judged_mean": 969.15,
+    "states_expanded_mean": 52.34,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 100.16,
+    "sequential_rounds_mean": 52.34,
+    "wall_seconds_mean": 0.0018217678498476744,
+    "work_used_mean": 2017.934
+  },
+  {
+    "cohort": "all",
+    "method": "factorial_m0j1s1",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 255.89,
+    "states_judged_mean": 236.25,
+    "states_expanded_mean": 7.86,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 2.0,
+    "wall_seconds_mean": 0.0004049705034121871,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "all",
+    "method": "factorial_m0j1s1",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 740.81,
+    "states_judged_mean": 731.97,
+    "states_expanded_mean": 27.22,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 13.962,
+    "sequential_rounds_mean": 3.0,
+    "wall_seconds_mean": 0.0012639510091394185,
+    "work_used_mean": 1500.0
+  },
+  {
+    "cohort": "all",
+    "method": "factorial_m0j1s1",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.47,
+    "problem_cluster_ci95": [
+      0.38,
+      0.57
+    ],
+    "states_proposed_mean": 1039.48,
+    "states_judged_mean": 1012.4,
+    "states_expanded_mean": 57.33,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 137.08,
+    "sequential_rounds_mean": 4.99,
+    "wall_seconds_mean": 0.0018015045272186398,
+    "work_used_mean": 2109.21
+  },
+  {
+    "cohort": "all",
+    "method": "factorial_m0j1s1",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.47,
+    "problem_cluster_ci95": [
+      0.37,
+      0.57
+    ],
+    "states_proposed_mean": 1039.48,
+    "states_judged_mean": 1012.4,
+    "states_expanded_mean": 57.33,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 137.08,
+    "sequential_rounds_mean": 4.99,
+    "wall_seconds_mean": 0.0017949135126546026,
+    "work_used_mean": 2109.21
+  },
+  {
+    "cohort": "all",
+    "method": "factorial_m1j0s0",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.051000000000000004,
+    "problem_cluster_ci95": [
+      0.034,
+      0.07100000000000001
+    ],
+    "states_proposed_mean": 459.093,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 32.871,
+    "states_merged_mean": 52.118,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 32.871,
+    "wall_seconds_mean": 0.0007712639616802335,
+    "work_used_mean": 491.964
+  },
+  {
+    "cohort": "all",
+    "method": "factorial_m1j0s0",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.21599999999999997,
+    "problem_cluster_ci95": [
+      0.17600000000000002,
+      0.259
+    ],
+    "states_proposed_mean": 922.846,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 99.678,
+    "states_merged_mean": 131.119,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 99.678,
+    "wall_seconds_mean": 0.0015411236826330423,
+    "work_used_mean": 1022.524
+  },
+  {
+    "cohort": "all",
+    "method": "factorial_m1j0s0",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.21899999999999997,
+    "problem_cluster_ci95": [
+      0.18097500000000002,
+      0.26099999999999995
+    ],
+    "states_proposed_mean": 926.988,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 100.625,
+    "states_merged_mean": 132.231,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 100.625,
+    "wall_seconds_mean": 0.0015401819050312041,
+    "work_used_mean": 1027.613
+  },
+  {
+    "cohort": "all",
+    "method": "factorial_m1j0s0",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.21899999999999997,
+    "problem_cluster_ci95": [
+      0.18000000000000005,
+      0.26102499999999995
+    ],
+    "states_proposed_mean": 926.988,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 100.625,
+    "states_merged_mean": 132.231,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 100.625,
+    "wall_seconds_mean": 0.0015370657676830888,
+    "work_used_mean": 1027.613
+  },
+  {
+    "cohort": "all",
+    "method": "factorial_m1j0s1",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 484.587,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 15.413,
+    "states_merged_mean": 117.471,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 2.0,
+    "wall_seconds_mean": 0.0006482927985489368,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "all",
+    "method": "factorial_m1j0s1",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.07200000000000001,
+    "problem_cluster_ci95": [
+      0.054000000000000006,
+      0.092
+    ],
+    "states_proposed_mean": 1053.844,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 64.421,
+    "states_merged_mean": 192.086,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.0015283375745639206,
+    "work_used_mean": 1118.265
+  },
+  {
+    "cohort": "all",
+    "method": "factorial_m1j0s1",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.07200000000000001,
+    "problem_cluster_ci95": [
+      0.053,
+      0.09299999999999999
+    ],
+    "states_proposed_mean": 1053.844,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 64.421,
+    "states_merged_mean": 192.086,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.0015255199801176786,
+    "work_used_mean": 1118.265
+  },
+  {
+    "cohort": "all",
+    "method": "factorial_m1j0s1",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.07200000000000001,
+    "problem_cluster_ci95": [
+      0.05499999999999999,
+      0.09200000000000001
+    ],
+    "states_proposed_mean": 1053.844,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 64.421,
+    "states_merged_mean": 192.086,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.001520427125506103,
+    "work_used_mean": 1118.265
+  },
+  {
+    "cohort": "all",
+    "method": "factorial_m1j1s0",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 276.5,
+    "states_judged_mean": 214.97,
+    "states_expanded_mean": 8.53,
+    "states_merged_mean": 48.189,
+    "states_pruned_mean": 0.19,
+    "sequential_rounds_mean": 8.53,
+    "wall_seconds_mean": 0.00047634004428982735,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "all",
+    "method": "factorial_m1j1s0",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.08900000000000001,
+    "problem_cluster_ci95": [
+      0.04,
+      0.149
+    ],
+    "states_proposed_mean": 828.618,
+    "states_judged_mean": 631.16,
+    "states_expanded_mean": 32.51,
+    "states_merged_mean": 189.792,
+    "states_pruned_mean": 25.529,
+    "sequential_rounds_mean": 32.51,
+    "wall_seconds_mean": 0.0014320234060287477,
+    "work_used_mean": 1492.288
+  },
+  {
+    "cohort": "all",
+    "method": "factorial_m1j1s0",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.64,
+    "problem_cluster_ci95": [
+      0.54,
+      0.73
+    ],
+    "states_proposed_mean": 962.367,
+    "states_judged_mean": 740.56,
+    "states_expanded_mean": 48.43,
+    "states_merged_mean": 205.579,
+    "states_pruned_mean": 86.28,
+    "sequential_rounds_mean": 48.43,
+    "wall_seconds_mean": 0.0016724214171990753,
+    "work_used_mean": 1751.357
+  },
+  {
+    "cohort": "all",
+    "method": "factorial_m1j1s0",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.64,
+    "problem_cluster_ci95": [
+      0.55,
+      0.73
+    ],
+    "states_proposed_mean": 962.367,
+    "states_judged_mean": 740.56,
+    "states_expanded_mean": 48.43,
+    "states_merged_mean": 205.579,
+    "states_pruned_mean": 86.28,
+    "sequential_rounds_mean": 48.43,
+    "wall_seconds_mean": 0.001667639311403036,
+    "work_used_mean": 1751.357
+  },
+  {
+    "cohort": "all",
+    "method": "factorial_m1j1s1",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 276.91,
+    "states_judged_mean": 214.61,
+    "states_expanded_mean": 8.48,
+    "states_merged_mean": 48.992,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 2.0,
+    "wall_seconds_mean": 0.0004274436021223664,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "all",
+    "method": "factorial_m1j1s1",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 838.42,
+    "states_judged_mean": 628.61,
+    "states_expanded_mean": 32.97,
+    "states_merged_mean": 202.35,
+    "states_pruned_mean": 27.06,
+    "sequential_rounds_mean": 3.27,
+    "wall_seconds_mean": 0.0013292755149304867,
+    "work_used_mean": 1500.0
+  },
+  {
+    "cohort": "all",
+    "method": "factorial_m1j1s1",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.69,
+    "problem_cluster_ci95": [
+      0.59975,
+      0.78
+    ],
+    "states_proposed_mean": 1026.164,
+    "states_judged_mean": 778.57,
+    "states_expanded_mean": 54.32,
+    "states_merged_mean": 233.59,
+    "states_pruned_mean": 124.93,
+    "sequential_rounds_mean": 4.99,
+    "wall_seconds_mean": 0.0016594034750014545,
+    "work_used_mean": 1859.054
+  },
+  {
+    "cohort": "all",
+    "method": "factorial_m1j1s1",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.69,
+    "problem_cluster_ci95": [
+      0.6,
+      0.78
+    ],
+    "states_proposed_mean": 1026.164,
+    "states_judged_mean": 778.57,
+    "states_expanded_mean": 54.32,
+    "states_merged_mean": 233.59,
+    "states_pruned_mean": 124.93,
+    "sequential_rounds_mean": 4.99,
+    "wall_seconds_mean": 0.0016524029718711973,
+    "work_used_mean": 1859.054
+  },
+  {
+    "cohort": "all",
+    "method": "frontier_without_merging",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 255.89,
+    "states_judged_mean": 236.25,
+    "states_expanded_mean": 7.86,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 2.0,
+    "wall_seconds_mean": 0.000407915435731411,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "all",
+    "method": "frontier_without_merging",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 740.81,
+    "states_judged_mean": 731.97,
+    "states_expanded_mean": 27.22,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 13.962,
+    "sequential_rounds_mean": 3.0,
+    "wall_seconds_mean": 0.0012680704072117806,
+    "work_used_mean": 1500.0
+  },
+  {
+    "cohort": "all",
+    "method": "frontier_without_merging",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.47,
+    "problem_cluster_ci95": [
+      0.38,
+      0.57
+    ],
+    "states_proposed_mean": 1039.48,
+    "states_judged_mean": 1012.4,
+    "states_expanded_mean": 57.33,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 137.08,
+    "sequential_rounds_mean": 4.99,
+    "wall_seconds_mean": 0.0018075457764789463,
+    "work_used_mean": 2109.21
+  },
+  {
+    "cohort": "all",
+    "method": "frontier_without_merging",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.47,
+    "problem_cluster_ci95": [
+      0.37975000000000003,
+      0.57
+    ],
+    "states_proposed_mean": 1039.48,
+    "states_judged_mean": 1012.4,
+    "states_expanded_mean": 57.33,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 137.08,
+    "sequential_rounds_mean": 4.99,
+    "wall_seconds_mean": 0.0018027117950841784,
+    "work_used_mean": 2109.21
+  },
+  {
+    "cohort": "all",
+    "method": "full_interference_search",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 276.91,
+    "states_judged_mean": 214.61,
+    "states_expanded_mean": 8.48,
+    "states_merged_mean": 48.992,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 2.0,
+    "wall_seconds_mean": 0.0004316604323685169,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "all",
+    "method": "full_interference_search",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 838.42,
+    "states_judged_mean": 628.61,
+    "states_expanded_mean": 32.97,
+    "states_merged_mean": 202.35,
+    "states_pruned_mean": 27.06,
+    "sequential_rounds_mean": 3.27,
+    "wall_seconds_mean": 0.0013344792295247316,
+    "work_used_mean": 1500.0
+  },
+  {
+    "cohort": "all",
+    "method": "full_interference_search",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.69,
+    "problem_cluster_ci95": [
+      0.6,
+      0.78
+    ],
+    "states_proposed_mean": 1026.164,
+    "states_judged_mean": 778.57,
+    "states_expanded_mean": 54.32,
+    "states_merged_mean": 233.59,
+    "states_pruned_mean": 124.93,
+    "sequential_rounds_mean": 4.99,
+    "wall_seconds_mean": 0.0016666800156235695,
+    "work_used_mean": 1859.054
+  },
+  {
+    "cohort": "all",
+    "method": "full_interference_search",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.69,
+    "problem_cluster_ci95": [
+      0.59,
+      0.78
+    ],
+    "states_proposed_mean": 1026.164,
+    "states_judged_mean": 778.57,
+    "states_expanded_mean": 54.32,
+    "states_merged_mean": 233.59,
+    "states_pruned_mean": 124.93,
+    "sequential_rounds_mean": 4.99,
+    "wall_seconds_mean": 0.001661219796165824,
+    "work_used_mean": 1859.054
+  },
+  {
+    "cohort": "all",
+    "method": "hand_bound_frontier",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 484.587,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 15.413,
+    "states_merged_mean": 117.471,
+    "states_pruned_mean": 0.308,
+    "sequential_rounds_mean": 2.0,
+    "wall_seconds_mean": 0.0008384011555463076,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "all",
+    "method": "hand_bound_frontier",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.06799999999999999,
+    "problem_cluster_ci95": [
+      0.05,
+      0.08800000000000001
+    ],
+    "states_proposed_mean": 1053.813,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 64.441,
+    "states_merged_mean": 191.671,
+    "states_pruned_mean": 13.199,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.0019293907955288887,
+    "work_used_mean": 1118.254
+  },
+  {
+    "cohort": "all",
+    "method": "hand_bound_frontier",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.06799999999999999,
+    "problem_cluster_ci95": [
+      0.049,
+      0.088
+    ],
+    "states_proposed_mean": 1053.813,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 64.441,
+    "states_merged_mean": 191.671,
+    "states_pruned_mean": 13.199,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.0019052320662885905,
+    "work_used_mean": 1118.254
+  },
+  {
+    "cohort": "all",
+    "method": "hand_bound_frontier",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.06799999999999999,
+    "problem_cluster_ci95": [
+      0.049,
+      0.08899999999999998
+    ],
+    "states_proposed_mean": 1053.813,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 64.441,
+    "states_merged_mean": 191.671,
+    "states_pruned_mean": 13.199,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.001900263491086662,
+    "work_used_mean": 1118.254
+  },
+  {
+    "cohort": "all",
+    "method": "independent_parallel",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 255.911,
+    "states_judged_mean": 236.216,
+    "states_expanded_mean": 7.873,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 2.0,
+    "wall_seconds_mean": 0.0004965469548478723,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "all",
+    "method": "independent_parallel",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 740.945,
+    "states_judged_mean": 731.724,
+    "states_expanded_mean": 27.331,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 3.003,
+    "wall_seconds_mean": 0.0014220847962424159,
+    "work_used_mean": 1500.0
+  },
+  {
+    "cohort": "all",
+    "method": "independent_parallel",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.528,
+    "problem_cluster_ci95": [
+      0.46800000000000014,
+      0.5830249999999999
+    ],
+    "states_proposed_mean": 1907.292,
+    "states_judged_mean": 1835.035,
+    "states_expanded_mean": 107.009,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 9.339,
+    "wall_seconds_mean": 0.004334861315786838,
+    "work_used_mean": 3849.336
+  },
+  {
+    "cohort": "all",
+    "method": "independent_parallel",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.8160000000000001,
+    "problem_cluster_ci95": [
+      0.773,
+      0.856
+    ],
+    "states_proposed_mean": 3401.841,
+    "states_judged_mean": 3265.639,
+    "states_expanded_mean": 201.391,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 16.719,
+    "wall_seconds_mean": 0.007563958405517042,
+    "work_used_mean": 6868.871
+  },
+  {
+    "cohort": "all",
+    "method": "merging_without_learned_judge",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 484.587,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 15.413,
+    "states_merged_mean": 117.471,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 2.0,
+    "wall_seconds_mean": 0.0006507003093138337,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "all",
+    "method": "merging_without_learned_judge",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.07200000000000001,
+    "problem_cluster_ci95": [
+      0.05399999999999999,
+      0.09199999999999997
+    ],
+    "states_proposed_mean": 1053.844,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 64.421,
+    "states_merged_mean": 192.086,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.001535500436089933,
+    "work_used_mean": 1118.265
+  },
+  {
+    "cohort": "all",
+    "method": "merging_without_learned_judge",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.07200000000000001,
+    "problem_cluster_ci95": [
+      0.05397499999999999,
+      0.092
+    ],
+    "states_proposed_mean": 1053.844,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 64.421,
+    "states_merged_mean": 192.086,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.0015324369054287672,
+    "work_used_mean": 1118.265
+  },
+  {
+    "cohort": "all",
+    "method": "merging_without_learned_judge",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.07200000000000001,
+    "problem_cluster_ci95": [
+      0.053,
+      0.092
+    ],
+    "states_proposed_mean": 1053.844,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 64.421,
+    "states_merged_mean": 192.086,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.001526539263315499,
+    "work_used_mean": 1118.265
+  },
+  {
+    "cohort": "all",
+    "method": "single_line",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.059,
+    "problem_cluster_ci95": [
+      0.041999999999999996,
+      0.079
+    ],
+    "states_proposed_mean": 257.469,
+    "states_judged_mean": 221.339,
+    "states_expanded_mean": 10.783,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 10.783,
+    "wall_seconds_mean": 0.00045190864708274605,
+    "work_used_mean": 489.591
+  },
+  {
+    "cohort": "all",
+    "method": "single_line",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.17600000000000002,
+    "problem_cluster_ci95": [
+      0.14500000000000002,
+      0.21100000000000002
+    ],
+    "states_proposed_mean": 682.297,
+    "states_judged_mean": 656.035,
+    "states_expanded_mean": 30.209,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 30.209,
+    "wall_seconds_mean": 0.001218977376818657,
+    "work_used_mean": 1368.541
+  },
+  {
+    "cohort": "all",
+    "method": "single_line",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.4200000000000001,
+    "problem_cluster_ci95": [
+      0.368,
+      0.477
+    ],
+    "states_proposed_mean": 1880.962,
+    "states_judged_mean": 1820.889,
+    "states_expanded_mean": 85.046,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 85.046,
+    "wall_seconds_mean": 0.0033778213849291207,
+    "work_used_mean": 3786.897
+  },
+  {
+    "cohort": "all",
+    "method": "single_line",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.6890000000000001,
+    "problem_cluster_ci95": [
+      0.634975,
+      0.7410000000000001
+    ],
+    "states_proposed_mean": 3983.307,
+    "states_judged_mean": 3867.735,
+    "states_expanded_mean": 180.865,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 180.865,
+    "wall_seconds_mean": 0.0071633943002671,
+    "work_used_mean": 8031.907
+  },
+  {
+    "cohort": "random",
+    "method": "beam",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 276.91,
+    "states_judged_mean": 214.61,
+    "states_expanded_mean": 8.48,
+    "states_merged_mean": 48.992,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 2.0,
+    "wall_seconds_mean": 0.0004427448334172368,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "random",
+    "method": "beam",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 838.42,
+    "states_judged_mean": 628.61,
+    "states_expanded_mean": 32.97,
+    "states_merged_mean": 202.35,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 3.27,
+    "wall_seconds_mean": 0.0013474309211596847,
+    "work_used_mean": 1500.0
+  },
+  {
+    "cohort": "random",
+    "method": "beam",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.69,
+    "problem_cluster_ci95": [
+      0.59,
+      0.78
+    ],
+    "states_proposed_mean": 1029.264,
+    "states_judged_mean": 778.57,
+    "states_expanded_mean": 55.33,
+    "states_merged_mean": 234.2,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.0016875295145437122,
+    "work_used_mean": 1863.164
+  },
+  {
+    "cohort": "random",
+    "method": "beam",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.69,
+    "problem_cluster_ci95": [
+      0.6,
+      0.78
+    ],
+    "states_proposed_mean": 1029.264,
+    "states_judged_mean": 778.57,
+    "states_expanded_mean": 55.33,
+    "states_merged_mean": 234.2,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.0016737211626023055,
+    "work_used_mean": 1863.164
+  },
+  {
+    "cohort": "random",
+    "method": "best_first",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 276.5,
+    "states_judged_mean": 214.97,
+    "states_expanded_mean": 8.53,
+    "states_merged_mean": 48.189,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 8.53,
+    "wall_seconds_mean": 0.0004707221109420061,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "random",
+    "method": "best_first",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 896.72,
+    "states_judged_mean": 573.45,
+    "states_expanded_mean": 29.83,
+    "states_merged_mean": 316.732,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 29.83,
+    "wall_seconds_mean": 0.0015088468492031098,
+    "work_used_mean": 1500.0
+  },
+  {
+    "cohort": "random",
+    "method": "best_first",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.09,
+    "problem_cluster_ci95": [
+      0.04,
+      0.15
+    ],
+    "states_proposed_mean": 2956.265,
+    "states_judged_mean": 1807.42,
+    "states_expanded_mean": 131.1,
+    "states_merged_mean": 1142.531,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 131.1,
+    "wall_seconds_mean": 0.00516481003165245,
+    "work_used_mean": 4894.785
+  },
+  {
+    "cohort": "random",
+    "method": "best_first",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.76,
+    "problem_cluster_ci95": [
+      0.68,
+      0.84
+    ],
+    "states_proposed_mean": 7316.049,
+    "states_judged_mean": 3720.96,
+    "states_expanded_mean": 368.33,
+    "states_merged_mean": 3586.639,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 368.33,
+    "wall_seconds_mean": 0.014076746156439186,
+    "work_used_mean": 11405.339
+  },
+  {
+    "cohort": "random",
+    "method": "bfs",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 484.607,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 15.393,
+    "states_merged_mean": 115.144,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 15.393,
+    "wall_seconds_mean": 0.0006827196273952723,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "random",
+    "method": "bfs",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 1451.094,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 48.906,
+    "states_merged_mean": 686.136,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 48.906,
+    "wall_seconds_mean": 0.002120186957530677,
+    "work_used_mean": 1500.0
+  },
+  {
+    "cohort": "random",
+    "method": "bfs",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 4776.056,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 223.944,
+    "states_merged_mean": 2414.495,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 223.944,
+    "wall_seconds_mean": 0.007239194341003894,
+    "work_used_mean": 5000.0
+  },
+  {
+    "cohort": "random",
+    "method": "bfs",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 14191.633,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 808.367,
+    "states_merged_mean": 8307.532,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 808.367,
+    "wall_seconds_mean": 0.02279724948015064,
+    "work_used_mean": 15000.0
+  },
+  {
+    "cohort": "random",
+    "method": "factorial_m0j0s0",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.045,
+    "problem_cluster_ci95": [
+      0.029975,
+      0.06000000000000001
+    ],
+    "states_proposed_mean": 460.84,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 32.405,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 32.405,
+    "wall_seconds_mean": 0.000777763020247221,
+    "work_used_mean": 493.245
+  },
+  {
+    "cohort": "random",
+    "method": "factorial_m0j0s0",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.193,
+    "problem_cluster_ci95": [
+      0.153,
+      0.234
+    ],
+    "states_proposed_mean": 940.161,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 101.006,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 101.006,
+    "wall_seconds_mean": 0.0015732690449804067,
+    "work_used_mean": 1041.167
+  },
+  {
+    "cohort": "random",
+    "method": "factorial_m0j0s0",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.19899999999999998,
+    "problem_cluster_ci95": [
+      0.158,
+      0.24100000000000005
+    ],
+    "states_proposed_mean": 947.079,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 102.623,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 102.623,
+    "wall_seconds_mean": 0.0015732759349048138,
+    "work_used_mean": 1049.702
+  },
+  {
+    "cohort": "random",
+    "method": "factorial_m0j0s0",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.19899999999999998,
+    "problem_cluster_ci95": [
+      0.16,
+      0.24200000000000002
+    ],
+    "states_proposed_mean": 947.079,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 102.623,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 102.623,
+    "wall_seconds_mean": 0.001569444166496396,
+    "work_used_mean": 1049.702
+  },
+  {
+    "cohort": "random",
+    "method": "factorial_m0j0s1",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 484.575,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 15.425,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 2.0,
+    "wall_seconds_mean": 0.0006671133516356349,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "random",
+    "method": "factorial_m0j0s1",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.077,
+    "problem_cluster_ci95": [
+      0.05800000000000001,
+      0.096
+    ],
+    "states_proposed_mean": 1053.406,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 64.337,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.0015788082340732216,
+    "work_used_mean": 1117.743
+  },
+  {
+    "cohort": "random",
+    "method": "factorial_m0j0s1",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.077,
+    "problem_cluster_ci95": [
+      0.05899999999999998,
+      0.09799999999999998
+    ],
+    "states_proposed_mean": 1053.406,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 64.337,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.001570722441188991,
+    "work_used_mean": 1117.743
+  },
+  {
+    "cohort": "random",
+    "method": "factorial_m0j0s1",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.077,
+    "problem_cluster_ci95": [
+      0.059,
+      0.09699999999999999
+    ],
+    "states_proposed_mean": 1053.406,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 64.337,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.0015654782066121698,
+    "work_used_mean": 1117.743
+  },
+  {
+    "cohort": "random",
+    "method": "factorial_m0j1s0",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 255.58,
+    "states_judged_mean": 236.52,
+    "states_expanded_mean": 7.9,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.165,
+    "sequential_rounds_mean": 7.9,
+    "wall_seconds_mean": 0.0004595827916637063,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "random",
+    "method": "factorial_m0j1s0",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 740.68,
+    "states_judged_mean": 732.01,
+    "states_expanded_mean": 27.31,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 14.277,
+    "sequential_rounds_mean": 27.31,
+    "wall_seconds_mean": 0.0013541044173762202,
+    "work_used_mean": 1500.0
+  },
+  {
+    "cohort": "random",
+    "method": "factorial_m0j1s0",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.58,
+    "problem_cluster_ci95": [
+      0.48,
+      0.68
+    ],
+    "states_proposed_mean": 996.444,
+    "states_judged_mean": 969.15,
+    "states_expanded_mean": 52.34,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 100.16,
+    "sequential_rounds_mean": 52.34,
+    "wall_seconds_mean": 0.0018273770129308105,
+    "work_used_mean": 2017.934
+  },
+  {
+    "cohort": "random",
+    "method": "factorial_m0j1s0",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.58,
+    "problem_cluster_ci95": [
+      0.48,
+      0.67
+    ],
+    "states_proposed_mean": 996.444,
+    "states_judged_mean": 969.15,
+    "states_expanded_mean": 52.34,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 100.16,
+    "sequential_rounds_mean": 52.34,
+    "wall_seconds_mean": 0.0018217678498476744,
+    "work_used_mean": 2017.934
+  },
+  {
+    "cohort": "random",
+    "method": "factorial_m0j1s1",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 255.89,
+    "states_judged_mean": 236.25,
+    "states_expanded_mean": 7.86,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 2.0,
+    "wall_seconds_mean": 0.0004049705034121871,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "random",
+    "method": "factorial_m0j1s1",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 740.81,
+    "states_judged_mean": 731.97,
+    "states_expanded_mean": 27.22,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 13.962,
+    "sequential_rounds_mean": 3.0,
+    "wall_seconds_mean": 0.0012639510091394185,
+    "work_used_mean": 1500.0
+  },
+  {
+    "cohort": "random",
+    "method": "factorial_m0j1s1",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.47,
+    "problem_cluster_ci95": [
+      0.38,
+      0.57
+    ],
+    "states_proposed_mean": 1039.48,
+    "states_judged_mean": 1012.4,
+    "states_expanded_mean": 57.33,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 137.08,
+    "sequential_rounds_mean": 4.99,
+    "wall_seconds_mean": 0.0018015045272186398,
+    "work_used_mean": 2109.21
+  },
+  {
+    "cohort": "random",
+    "method": "factorial_m0j1s1",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.47,
+    "problem_cluster_ci95": [
+      0.37,
+      0.57
+    ],
+    "states_proposed_mean": 1039.48,
+    "states_judged_mean": 1012.4,
+    "states_expanded_mean": 57.33,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 137.08,
+    "sequential_rounds_mean": 4.99,
+    "wall_seconds_mean": 0.0017949135126546026,
+    "work_used_mean": 2109.21
+  },
+  {
+    "cohort": "random",
+    "method": "factorial_m1j0s0",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.051000000000000004,
+    "problem_cluster_ci95": [
+      0.034,
+      0.07100000000000001
+    ],
+    "states_proposed_mean": 459.093,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 32.871,
+    "states_merged_mean": 52.118,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 32.871,
+    "wall_seconds_mean": 0.0007712639616802335,
+    "work_used_mean": 491.964
+  },
+  {
+    "cohort": "random",
+    "method": "factorial_m1j0s0",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.21599999999999997,
+    "problem_cluster_ci95": [
+      0.17600000000000002,
+      0.262
+    ],
+    "states_proposed_mean": 922.846,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 99.678,
+    "states_merged_mean": 131.119,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 99.678,
+    "wall_seconds_mean": 0.0015411236826330423,
+    "work_used_mean": 1022.524
+  },
+  {
+    "cohort": "random",
+    "method": "factorial_m1j0s0",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.21899999999999997,
+    "problem_cluster_ci95": [
+      0.17900000000000002,
+      0.262
+    ],
+    "states_proposed_mean": 926.988,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 100.625,
+    "states_merged_mean": 132.231,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 100.625,
+    "wall_seconds_mean": 0.0015401819050312041,
+    "work_used_mean": 1027.613
+  },
+  {
+    "cohort": "random",
+    "method": "factorial_m1j0s0",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.21899999999999997,
+    "problem_cluster_ci95": [
+      0.17900000000000002,
+      0.261
+    ],
+    "states_proposed_mean": 926.988,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 100.625,
+    "states_merged_mean": 132.231,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 100.625,
+    "wall_seconds_mean": 0.0015370657676830888,
+    "work_used_mean": 1027.613
+  },
+  {
+    "cohort": "random",
+    "method": "factorial_m1j0s1",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 484.587,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 15.413,
+    "states_merged_mean": 117.471,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 2.0,
+    "wall_seconds_mean": 0.0006482927985489368,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "random",
+    "method": "factorial_m1j0s1",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.07200000000000001,
+    "problem_cluster_ci95": [
+      0.05399999999999999,
+      0.092
+    ],
+    "states_proposed_mean": 1053.844,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 64.421,
+    "states_merged_mean": 192.086,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.0015283375745639206,
+    "work_used_mean": 1118.265
+  },
+  {
+    "cohort": "random",
+    "method": "factorial_m1j0s1",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.07200000000000001,
+    "problem_cluster_ci95": [
+      0.053,
+      0.09299999999999999
+    ],
+    "states_proposed_mean": 1053.844,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 64.421,
+    "states_merged_mean": 192.086,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.0015255199801176786,
+    "work_used_mean": 1118.265
+  },
+  {
+    "cohort": "random",
+    "method": "factorial_m1j0s1",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.07200000000000001,
+    "problem_cluster_ci95": [
+      0.05399999999999999,
+      0.09399999999999999
+    ],
+    "states_proposed_mean": 1053.844,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 64.421,
+    "states_merged_mean": 192.086,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.001520427125506103,
+    "work_used_mean": 1118.265
+  },
+  {
+    "cohort": "random",
+    "method": "factorial_m1j1s0",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 276.5,
+    "states_judged_mean": 214.97,
+    "states_expanded_mean": 8.53,
+    "states_merged_mean": 48.189,
+    "states_pruned_mean": 0.19,
+    "sequential_rounds_mean": 8.53,
+    "wall_seconds_mean": 0.00047634004428982735,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "random",
+    "method": "factorial_m1j1s0",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.08900000000000001,
+    "problem_cluster_ci95": [
+      0.039,
+      0.149
+    ],
+    "states_proposed_mean": 828.618,
+    "states_judged_mean": 631.16,
+    "states_expanded_mean": 32.51,
+    "states_merged_mean": 189.792,
+    "states_pruned_mean": 25.529,
+    "sequential_rounds_mean": 32.51,
+    "wall_seconds_mean": 0.0014320234060287477,
+    "work_used_mean": 1492.288
+  },
+  {
+    "cohort": "random",
+    "method": "factorial_m1j1s0",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.64,
+    "problem_cluster_ci95": [
+      0.55,
+      0.73
+    ],
+    "states_proposed_mean": 962.367,
+    "states_judged_mean": 740.56,
+    "states_expanded_mean": 48.43,
+    "states_merged_mean": 205.579,
+    "states_pruned_mean": 86.28,
+    "sequential_rounds_mean": 48.43,
+    "wall_seconds_mean": 0.0016724214171990753,
+    "work_used_mean": 1751.357
+  },
+  {
+    "cohort": "random",
+    "method": "factorial_m1j1s0",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.64,
+    "problem_cluster_ci95": [
+      0.55,
+      0.74
+    ],
+    "states_proposed_mean": 962.367,
+    "states_judged_mean": 740.56,
+    "states_expanded_mean": 48.43,
+    "states_merged_mean": 205.579,
+    "states_pruned_mean": 86.28,
+    "sequential_rounds_mean": 48.43,
+    "wall_seconds_mean": 0.001667639311403036,
+    "work_used_mean": 1751.357
+  },
+  {
+    "cohort": "random",
+    "method": "factorial_m1j1s1",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 276.91,
+    "states_judged_mean": 214.61,
+    "states_expanded_mean": 8.48,
+    "states_merged_mean": 48.992,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 2.0,
+    "wall_seconds_mean": 0.0004274436021223664,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "random",
+    "method": "factorial_m1j1s1",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 838.42,
+    "states_judged_mean": 628.61,
+    "states_expanded_mean": 32.97,
+    "states_merged_mean": 202.35,
+    "states_pruned_mean": 27.06,
+    "sequential_rounds_mean": 3.27,
+    "wall_seconds_mean": 0.0013292755149304867,
+    "work_used_mean": 1500.0
+  },
+  {
+    "cohort": "random",
+    "method": "factorial_m1j1s1",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.69,
+    "problem_cluster_ci95": [
+      0.6,
+      0.78
+    ],
+    "states_proposed_mean": 1026.164,
+    "states_judged_mean": 778.57,
+    "states_expanded_mean": 54.32,
+    "states_merged_mean": 233.59,
+    "states_pruned_mean": 124.93,
+    "sequential_rounds_mean": 4.99,
+    "wall_seconds_mean": 0.0016594034750014545,
+    "work_used_mean": 1859.054
+  },
+  {
+    "cohort": "random",
+    "method": "factorial_m1j1s1",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.69,
+    "problem_cluster_ci95": [
+      0.6,
+      0.78
+    ],
+    "states_proposed_mean": 1026.164,
+    "states_judged_mean": 778.57,
+    "states_expanded_mean": 54.32,
+    "states_merged_mean": 233.59,
+    "states_pruned_mean": 124.93,
+    "sequential_rounds_mean": 4.99,
+    "wall_seconds_mean": 0.0016524029718711973,
+    "work_used_mean": 1859.054
+  },
+  {
+    "cohort": "random",
+    "method": "frontier_without_merging",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 255.89,
+    "states_judged_mean": 236.25,
+    "states_expanded_mean": 7.86,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 2.0,
+    "wall_seconds_mean": 0.000407915435731411,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "random",
+    "method": "frontier_without_merging",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 740.81,
+    "states_judged_mean": 731.97,
+    "states_expanded_mean": 27.22,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 13.962,
+    "sequential_rounds_mean": 3.0,
+    "wall_seconds_mean": 0.0012680704072117806,
+    "work_used_mean": 1500.0
+  },
+  {
+    "cohort": "random",
+    "method": "frontier_without_merging",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.47,
+    "problem_cluster_ci95": [
+      0.37,
+      0.57
+    ],
+    "states_proposed_mean": 1039.48,
+    "states_judged_mean": 1012.4,
+    "states_expanded_mean": 57.33,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 137.08,
+    "sequential_rounds_mean": 4.99,
+    "wall_seconds_mean": 0.0018075457764789463,
+    "work_used_mean": 2109.21
+  },
+  {
+    "cohort": "random",
+    "method": "frontier_without_merging",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.47,
+    "problem_cluster_ci95": [
+      0.37,
+      0.57
+    ],
+    "states_proposed_mean": 1039.48,
+    "states_judged_mean": 1012.4,
+    "states_expanded_mean": 57.33,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 137.08,
+    "sequential_rounds_mean": 4.99,
+    "wall_seconds_mean": 0.0018027117950841784,
+    "work_used_mean": 2109.21
+  },
+  {
+    "cohort": "random",
+    "method": "full_interference_search",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 276.91,
+    "states_judged_mean": 214.61,
+    "states_expanded_mean": 8.48,
+    "states_merged_mean": 48.992,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 2.0,
+    "wall_seconds_mean": 0.0004316604323685169,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "random",
+    "method": "full_interference_search",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 838.42,
+    "states_judged_mean": 628.61,
+    "states_expanded_mean": 32.97,
+    "states_merged_mean": 202.35,
+    "states_pruned_mean": 27.06,
+    "sequential_rounds_mean": 3.27,
+    "wall_seconds_mean": 0.0013344792295247316,
+    "work_used_mean": 1500.0
+  },
+  {
+    "cohort": "random",
+    "method": "full_interference_search",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.69,
+    "problem_cluster_ci95": [
+      0.6,
+      0.78
+    ],
+    "states_proposed_mean": 1026.164,
+    "states_judged_mean": 778.57,
+    "states_expanded_mean": 54.32,
+    "states_merged_mean": 233.59,
+    "states_pruned_mean": 124.93,
+    "sequential_rounds_mean": 4.99,
+    "wall_seconds_mean": 0.0016666800156235695,
+    "work_used_mean": 1859.054
+  },
+  {
+    "cohort": "random",
+    "method": "full_interference_search",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.69,
+    "problem_cluster_ci95": [
+      0.59,
+      0.77
+    ],
+    "states_proposed_mean": 1026.164,
+    "states_judged_mean": 778.57,
+    "states_expanded_mean": 54.32,
+    "states_merged_mean": 233.59,
+    "states_pruned_mean": 124.93,
+    "sequential_rounds_mean": 4.99,
+    "wall_seconds_mean": 0.001661219796165824,
+    "work_used_mean": 1859.054
+  },
+  {
+    "cohort": "random",
+    "method": "hand_bound_frontier",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 484.587,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 15.413,
+    "states_merged_mean": 117.471,
+    "states_pruned_mean": 0.308,
+    "sequential_rounds_mean": 2.0,
+    "wall_seconds_mean": 0.0008384011555463076,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "random",
+    "method": "hand_bound_frontier",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.06799999999999999,
+    "problem_cluster_ci95": [
+      0.048999999999999995,
+      0.087
+    ],
+    "states_proposed_mean": 1053.813,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 64.441,
+    "states_merged_mean": 191.671,
+    "states_pruned_mean": 13.199,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.0019293907955288887,
+    "work_used_mean": 1118.254
+  },
+  {
+    "cohort": "random",
+    "method": "hand_bound_frontier",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.06799999999999999,
+    "problem_cluster_ci95": [
+      0.049974999999999985,
+      0.08700000000000001
+    ],
+    "states_proposed_mean": 1053.813,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 64.441,
+    "states_merged_mean": 191.671,
+    "states_pruned_mean": 13.199,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.0019052320662885905,
+    "work_used_mean": 1118.254
+  },
+  {
+    "cohort": "random",
+    "method": "hand_bound_frontier",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.06799999999999999,
+    "problem_cluster_ci95": [
+      0.04999999999999999,
+      0.08800000000000001
+    ],
+    "states_proposed_mean": 1053.813,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 64.441,
+    "states_merged_mean": 191.671,
+    "states_pruned_mean": 13.199,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.001900263491086662,
+    "work_used_mean": 1118.254
+  },
+  {
+    "cohort": "random",
+    "method": "independent_parallel",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 255.911,
+    "states_judged_mean": 236.216,
+    "states_expanded_mean": 7.873,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 2.0,
+    "wall_seconds_mean": 0.0004965469548478723,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "random",
+    "method": "independent_parallel",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 740.945,
+    "states_judged_mean": 731.724,
+    "states_expanded_mean": 27.331,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 3.003,
+    "wall_seconds_mean": 0.0014220847962424159,
+    "work_used_mean": 1500.0
+  },
+  {
+    "cohort": "random",
+    "method": "independent_parallel",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.528,
+    "problem_cluster_ci95": [
+      0.469,
+      0.582
+    ],
+    "states_proposed_mean": 1907.292,
+    "states_judged_mean": 1835.035,
+    "states_expanded_mean": 107.009,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 9.339,
+    "wall_seconds_mean": 0.004334861315786838,
+    "work_used_mean": 3849.336
+  },
+  {
+    "cohort": "random",
+    "method": "independent_parallel",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.8160000000000001,
+    "problem_cluster_ci95": [
+      0.7760000000000001,
+      0.8560000000000001
+    ],
+    "states_proposed_mean": 3401.841,
+    "states_judged_mean": 3265.639,
+    "states_expanded_mean": 201.391,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 16.719,
+    "wall_seconds_mean": 0.007563958405517042,
+    "work_used_mean": 6868.871
+  },
+  {
+    "cohort": "random",
+    "method": "merging_without_learned_judge",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 484.587,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 15.413,
+    "states_merged_mean": 117.471,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 2.0,
+    "wall_seconds_mean": 0.0006507003093138337,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "random",
+    "method": "merging_without_learned_judge",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.07200000000000001,
+    "problem_cluster_ci95": [
+      0.05499999999999999,
+      0.091
+    ],
+    "states_proposed_mean": 1053.844,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 64.421,
+    "states_merged_mean": 192.086,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.001535500436089933,
+    "work_used_mean": 1118.265
+  },
+  {
+    "cohort": "random",
+    "method": "merging_without_learned_judge",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.07200000000000001,
+    "problem_cluster_ci95": [
+      0.053,
+      0.091
+    ],
+    "states_proposed_mean": 1053.844,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 64.421,
+    "states_merged_mean": 192.086,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.0015324369054287672,
+    "work_used_mean": 1118.265
+  },
+  {
+    "cohort": "random",
+    "method": "merging_without_learned_judge",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.07200000000000001,
+    "problem_cluster_ci95": [
+      0.05399999999999999,
+      0.09299999999999999
+    ],
+    "states_proposed_mean": 1053.844,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 64.421,
+    "states_merged_mean": 192.086,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.001526539263315499,
+    "work_used_mean": 1118.265
+  },
+  {
+    "cohort": "random",
+    "method": "single_line",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.059,
+    "problem_cluster_ci95": [
+      0.041999999999999996,
+      0.079
+    ],
+    "states_proposed_mean": 257.469,
+    "states_judged_mean": 221.339,
+    "states_expanded_mean": 10.783,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 10.783,
+    "wall_seconds_mean": 0.00045190864708274605,
+    "work_used_mean": 489.591
+  },
+  {
+    "cohort": "random",
+    "method": "single_line",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.17600000000000002,
+    "problem_cluster_ci95": [
+      0.14500000000000002,
+      0.20900000000000002
+    ],
+    "states_proposed_mean": 682.297,
+    "states_judged_mean": 656.035,
+    "states_expanded_mean": 30.209,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 30.209,
+    "wall_seconds_mean": 0.001218977376818657,
+    "work_used_mean": 1368.541
+  },
+  {
+    "cohort": "random",
+    "method": "single_line",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.4200000000000001,
+    "problem_cluster_ci95": [
+      0.36699999999999994,
+      0.4780249999999999
+    ],
+    "states_proposed_mean": 1880.962,
+    "states_judged_mean": 1820.889,
+    "states_expanded_mean": 85.046,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 85.046,
+    "wall_seconds_mean": 0.0033778213849291207,
+    "work_used_mean": 3786.897
+  },
+  {
+    "cohort": "random",
+    "method": "single_line",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.6890000000000001,
+    "problem_cluster_ci95": [
+      0.634,
+      0.7430249999999999
+    ],
+    "states_proposed_mean": 3983.307,
+    "states_judged_mean": 3867.735,
+    "states_expanded_mean": 180.865,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 180.865,
+    "wall_seconds_mean": 0.0071633943002671,
+    "work_used_mean": 8031.907
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "beam",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 276.91,
+    "states_judged_mean": 214.61,
+    "states_expanded_mean": 8.48,
+    "states_merged_mean": 48.992,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 2.0,
+    "wall_seconds_mean": 0.0004427448334172368,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "beam",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 838.42,
+    "states_judged_mean": 628.61,
+    "states_expanded_mean": 32.97,
+    "states_merged_mean": 202.35,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 3.27,
+    "wall_seconds_mean": 0.0013474309211596847,
+    "work_used_mean": 1500.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "beam",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.69,
+    "problem_cluster_ci95": [
+      0.59,
+      0.78
+    ],
+    "states_proposed_mean": 1029.264,
+    "states_judged_mean": 778.57,
+    "states_expanded_mean": 55.33,
+    "states_merged_mean": 234.2,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.0016875295145437122,
+    "work_used_mean": 1863.164
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "beam",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.69,
+    "problem_cluster_ci95": [
+      0.6,
+      0.78
+    ],
+    "states_proposed_mean": 1029.264,
+    "states_judged_mean": 778.57,
+    "states_expanded_mean": 55.33,
+    "states_merged_mean": 234.2,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.0016737211626023055,
+    "work_used_mean": 1863.164
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "best_first",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 276.5,
+    "states_judged_mean": 214.97,
+    "states_expanded_mean": 8.53,
+    "states_merged_mean": 48.189,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 8.53,
+    "wall_seconds_mean": 0.0004707221109420061,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "best_first",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 896.72,
+    "states_judged_mean": 573.45,
+    "states_expanded_mean": 29.83,
+    "states_merged_mean": 316.732,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 29.83,
+    "wall_seconds_mean": 0.0015088468492031098,
+    "work_used_mean": 1500.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "best_first",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.09,
+    "problem_cluster_ci95": [
+      0.04,
+      0.15
+    ],
+    "states_proposed_mean": 2956.265,
+    "states_judged_mean": 1807.42,
+    "states_expanded_mean": 131.1,
+    "states_merged_mean": 1142.531,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 131.1,
+    "wall_seconds_mean": 0.00516481003165245,
+    "work_used_mean": 4894.785
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "best_first",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.76,
+    "problem_cluster_ci95": [
+      0.67,
+      0.84
+    ],
+    "states_proposed_mean": 7316.049,
+    "states_judged_mean": 3720.96,
+    "states_expanded_mean": 368.33,
+    "states_merged_mean": 3586.639,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 368.33,
+    "wall_seconds_mean": 0.014076746156439186,
+    "work_used_mean": 11405.339
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "bfs",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 484.607,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 15.393,
+    "states_merged_mean": 115.144,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 15.393,
+    "wall_seconds_mean": 0.0006827196273952723,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "bfs",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 1451.094,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 48.906,
+    "states_merged_mean": 686.136,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 48.906,
+    "wall_seconds_mean": 0.002120186957530677,
+    "work_used_mean": 1500.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "bfs",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 4776.056,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 223.944,
+    "states_merged_mean": 2414.495,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 223.944,
+    "wall_seconds_mean": 0.007239194341003894,
+    "work_used_mean": 5000.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "bfs",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 14191.633,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 808.367,
+    "states_merged_mean": 8307.532,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 808.367,
+    "wall_seconds_mean": 0.02279724948015064,
+    "work_used_mean": 15000.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "factorial_m0j0s0",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.045,
+    "problem_cluster_ci95": [
+      0.031,
+      0.061
+    ],
+    "states_proposed_mean": 460.84,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 32.405,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 32.405,
+    "wall_seconds_mean": 0.000777763020247221,
+    "work_used_mean": 493.245
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "factorial_m0j0s0",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.193,
+    "problem_cluster_ci95": [
+      0.15400000000000003,
+      0.23600000000000002
+    ],
+    "states_proposed_mean": 940.161,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 101.006,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 101.006,
+    "wall_seconds_mean": 0.0015732690449804067,
+    "work_used_mean": 1041.167
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "factorial_m0j0s0",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.19899999999999998,
+    "problem_cluster_ci95": [
+      0.15900000000000003,
+      0.24100000000000005
+    ],
+    "states_proposed_mean": 947.079,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 102.623,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 102.623,
+    "wall_seconds_mean": 0.0015732759349048138,
+    "work_used_mean": 1049.702
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "factorial_m0j0s0",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.19899999999999998,
+    "problem_cluster_ci95": [
+      0.16,
+      0.242
+    ],
+    "states_proposed_mean": 947.079,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 102.623,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 102.623,
+    "wall_seconds_mean": 0.001569444166496396,
+    "work_used_mean": 1049.702
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "factorial_m0j0s1",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 484.575,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 15.425,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 2.0,
+    "wall_seconds_mean": 0.0006671133516356349,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "factorial_m0j0s1",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.077,
+    "problem_cluster_ci95": [
+      0.05800000000000001,
+      0.09600000000000002
+    ],
+    "states_proposed_mean": 1053.406,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 64.337,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.0015788082340732216,
+    "work_used_mean": 1117.743
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "factorial_m0j0s1",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.077,
+    "problem_cluster_ci95": [
+      0.059,
+      0.09699999999999999
+    ],
+    "states_proposed_mean": 1053.406,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 64.337,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.001570722441188991,
+    "work_used_mean": 1117.743
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "factorial_m0j0s1",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.077,
+    "problem_cluster_ci95": [
+      0.059,
+      0.09600000000000002
+    ],
+    "states_proposed_mean": 1053.406,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 64.337,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.0015654782066121698,
+    "work_used_mean": 1117.743
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "factorial_m0j1s0",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 255.58,
+    "states_judged_mean": 236.52,
+    "states_expanded_mean": 7.9,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.165,
+    "sequential_rounds_mean": 7.9,
+    "wall_seconds_mean": 0.0004595827916637063,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "factorial_m0j1s0",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 740.68,
+    "states_judged_mean": 732.01,
+    "states_expanded_mean": 27.31,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 14.277,
+    "sequential_rounds_mean": 27.31,
+    "wall_seconds_mean": 0.0013541044173762202,
+    "work_used_mean": 1500.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "factorial_m0j1s0",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.58,
+    "problem_cluster_ci95": [
+      0.48,
+      0.67
+    ],
+    "states_proposed_mean": 996.444,
+    "states_judged_mean": 969.15,
+    "states_expanded_mean": 52.34,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 100.16,
+    "sequential_rounds_mean": 52.34,
+    "wall_seconds_mean": 0.0018273770129308105,
+    "work_used_mean": 2017.934
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "factorial_m0j1s0",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.58,
+    "problem_cluster_ci95": [
+      0.48,
+      0.67
+    ],
+    "states_proposed_mean": 996.444,
+    "states_judged_mean": 969.15,
+    "states_expanded_mean": 52.34,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 100.16,
+    "sequential_rounds_mean": 52.34,
+    "wall_seconds_mean": 0.0018217678498476744,
+    "work_used_mean": 2017.934
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "factorial_m0j1s1",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 255.89,
+    "states_judged_mean": 236.25,
+    "states_expanded_mean": 7.86,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 2.0,
+    "wall_seconds_mean": 0.0004049705034121871,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "factorial_m0j1s1",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 740.81,
+    "states_judged_mean": 731.97,
+    "states_expanded_mean": 27.22,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 13.962,
+    "sequential_rounds_mean": 3.0,
+    "wall_seconds_mean": 0.0012639510091394185,
+    "work_used_mean": 1500.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "factorial_m0j1s1",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.47,
+    "problem_cluster_ci95": [
+      0.37,
+      0.56
+    ],
+    "states_proposed_mean": 1039.48,
+    "states_judged_mean": 1012.4,
+    "states_expanded_mean": 57.33,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 137.08,
+    "sequential_rounds_mean": 4.99,
+    "wall_seconds_mean": 0.0018015045272186398,
+    "work_used_mean": 2109.21
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "factorial_m0j1s1",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.47,
+    "problem_cluster_ci95": [
+      0.38,
+      0.5602499999999987
+    ],
+    "states_proposed_mean": 1039.48,
+    "states_judged_mean": 1012.4,
+    "states_expanded_mean": 57.33,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 137.08,
+    "sequential_rounds_mean": 4.99,
+    "wall_seconds_mean": 0.0017949135126546026,
+    "work_used_mean": 2109.21
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "factorial_m1j0s0",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.051000000000000004,
+    "problem_cluster_ci95": [
+      0.034,
+      0.071
+    ],
+    "states_proposed_mean": 459.093,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 32.871,
+    "states_merged_mean": 52.118,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 32.871,
+    "wall_seconds_mean": 0.0007712639616802335,
+    "work_used_mean": 491.964
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "factorial_m1j0s0",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.21599999999999997,
+    "problem_cluster_ci95": [
+      0.17600000000000005,
+      0.2620249999999999
+    ],
+    "states_proposed_mean": 922.846,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 99.678,
+    "states_merged_mean": 131.119,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 99.678,
+    "wall_seconds_mean": 0.0015411236826330423,
+    "work_used_mean": 1022.524
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "factorial_m1j0s0",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.21899999999999997,
+    "problem_cluster_ci95": [
+      0.17900000000000002,
+      0.262
+    ],
+    "states_proposed_mean": 926.988,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 100.625,
+    "states_merged_mean": 132.231,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 100.625,
+    "wall_seconds_mean": 0.0015401819050312041,
+    "work_used_mean": 1027.613
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "factorial_m1j0s0",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.21899999999999997,
+    "problem_cluster_ci95": [
+      0.17800000000000002,
+      0.262
+    ],
+    "states_proposed_mean": 926.988,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 100.625,
+    "states_merged_mean": 132.231,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 100.625,
+    "wall_seconds_mean": 0.0015370657676830888,
+    "work_used_mean": 1027.613
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "factorial_m1j0s1",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 484.587,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 15.413,
+    "states_merged_mean": 117.471,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 2.0,
+    "wall_seconds_mean": 0.0006482927985489368,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "factorial_m1j0s1",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.07200000000000001,
+    "problem_cluster_ci95": [
+      0.053,
+      0.09100000000000001
+    ],
+    "states_proposed_mean": 1053.844,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 64.421,
+    "states_merged_mean": 192.086,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.0015283375745639206,
+    "work_used_mean": 1118.265
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "factorial_m1j0s1",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.07200000000000001,
+    "problem_cluster_ci95": [
+      0.05399999999999999,
+      0.09199999999999997
+    ],
+    "states_proposed_mean": 1053.844,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 64.421,
+    "states_merged_mean": 192.086,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.0015255199801176786,
+    "work_used_mean": 1118.265
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "factorial_m1j0s1",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.07200000000000001,
+    "problem_cluster_ci95": [
+      0.053,
+      0.09102499999999987
+    ],
+    "states_proposed_mean": 1053.844,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 64.421,
+    "states_merged_mean": 192.086,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.001520427125506103,
+    "work_used_mean": 1118.265
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "factorial_m1j1s0",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 276.5,
+    "states_judged_mean": 214.97,
+    "states_expanded_mean": 8.53,
+    "states_merged_mean": 48.189,
+    "states_pruned_mean": 0.19,
+    "sequential_rounds_mean": 8.53,
+    "wall_seconds_mean": 0.00047634004428982735,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "factorial_m1j1s0",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.08900000000000001,
+    "problem_cluster_ci95": [
+      0.04,
+      0.15
+    ],
+    "states_proposed_mean": 828.618,
+    "states_judged_mean": 631.16,
+    "states_expanded_mean": 32.51,
+    "states_merged_mean": 189.792,
+    "states_pruned_mean": 25.529,
+    "sequential_rounds_mean": 32.51,
+    "wall_seconds_mean": 0.0014320234060287477,
+    "work_used_mean": 1492.288
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "factorial_m1j1s0",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.64,
+    "problem_cluster_ci95": [
+      0.55,
+      0.74
+    ],
+    "states_proposed_mean": 962.367,
+    "states_judged_mean": 740.56,
+    "states_expanded_mean": 48.43,
+    "states_merged_mean": 205.579,
+    "states_pruned_mean": 86.28,
+    "sequential_rounds_mean": 48.43,
+    "wall_seconds_mean": 0.0016724214171990753,
+    "work_used_mean": 1751.357
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "factorial_m1j1s0",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.64,
+    "problem_cluster_ci95": [
+      0.54,
+      0.73
+    ],
+    "states_proposed_mean": 962.367,
+    "states_judged_mean": 740.56,
+    "states_expanded_mean": 48.43,
+    "states_merged_mean": 205.579,
+    "states_pruned_mean": 86.28,
+    "sequential_rounds_mean": 48.43,
+    "wall_seconds_mean": 0.001667639311403036,
+    "work_used_mean": 1751.357
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "factorial_m1j1s1",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 276.91,
+    "states_judged_mean": 214.61,
+    "states_expanded_mean": 8.48,
+    "states_merged_mean": 48.992,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 2.0,
+    "wall_seconds_mean": 0.0004274436021223664,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "factorial_m1j1s1",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 838.42,
+    "states_judged_mean": 628.61,
+    "states_expanded_mean": 32.97,
+    "states_merged_mean": 202.35,
+    "states_pruned_mean": 27.06,
+    "sequential_rounds_mean": 3.27,
+    "wall_seconds_mean": 0.0013292755149304867,
+    "work_used_mean": 1500.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "factorial_m1j1s1",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.69,
+    "problem_cluster_ci95": [
+      0.6,
+      0.78
+    ],
+    "states_proposed_mean": 1026.164,
+    "states_judged_mean": 778.57,
+    "states_expanded_mean": 54.32,
+    "states_merged_mean": 233.59,
+    "states_pruned_mean": 124.93,
+    "sequential_rounds_mean": 4.99,
+    "wall_seconds_mean": 0.0016594034750014545,
+    "work_used_mean": 1859.054
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "factorial_m1j1s1",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.69,
+    "problem_cluster_ci95": [
+      0.6,
+      0.78
+    ],
+    "states_proposed_mean": 1026.164,
+    "states_judged_mean": 778.57,
+    "states_expanded_mean": 54.32,
+    "states_merged_mean": 233.59,
+    "states_pruned_mean": 124.93,
+    "sequential_rounds_mean": 4.99,
+    "wall_seconds_mean": 0.0016524029718711973,
+    "work_used_mean": 1859.054
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "frontier_without_merging",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 255.89,
+    "states_judged_mean": 236.25,
+    "states_expanded_mean": 7.86,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 2.0,
+    "wall_seconds_mean": 0.000407915435731411,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "frontier_without_merging",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 740.81,
+    "states_judged_mean": 731.97,
+    "states_expanded_mean": 27.22,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 13.962,
+    "sequential_rounds_mean": 3.0,
+    "wall_seconds_mean": 0.0012680704072117806,
+    "work_used_mean": 1500.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "frontier_without_merging",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.47,
+    "problem_cluster_ci95": [
+      0.37,
+      0.57
+    ],
+    "states_proposed_mean": 1039.48,
+    "states_judged_mean": 1012.4,
+    "states_expanded_mean": 57.33,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 137.08,
+    "sequential_rounds_mean": 4.99,
+    "wall_seconds_mean": 0.0018075457764789463,
+    "work_used_mean": 2109.21
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "frontier_without_merging",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.47,
+    "problem_cluster_ci95": [
+      0.37,
+      0.57
+    ],
+    "states_proposed_mean": 1039.48,
+    "states_judged_mean": 1012.4,
+    "states_expanded_mean": 57.33,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 137.08,
+    "sequential_rounds_mean": 4.99,
+    "wall_seconds_mean": 0.0018027117950841784,
+    "work_used_mean": 2109.21
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "full_interference_search",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 276.91,
+    "states_judged_mean": 214.61,
+    "states_expanded_mean": 8.48,
+    "states_merged_mean": 48.992,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 2.0,
+    "wall_seconds_mean": 0.0004316604323685169,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "full_interference_search",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 838.42,
+    "states_judged_mean": 628.61,
+    "states_expanded_mean": 32.97,
+    "states_merged_mean": 202.35,
+    "states_pruned_mean": 27.06,
+    "sequential_rounds_mean": 3.27,
+    "wall_seconds_mean": 0.0013344792295247316,
+    "work_used_mean": 1500.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "full_interference_search",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.69,
+    "problem_cluster_ci95": [
+      0.6,
+      0.77
+    ],
+    "states_proposed_mean": 1026.164,
+    "states_judged_mean": 778.57,
+    "states_expanded_mean": 54.32,
+    "states_merged_mean": 233.59,
+    "states_pruned_mean": 124.93,
+    "sequential_rounds_mean": 4.99,
+    "wall_seconds_mean": 0.0016666800156235695,
+    "work_used_mean": 1859.054
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "full_interference_search",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.69,
+    "problem_cluster_ci95": [
+      0.6,
+      0.78
+    ],
+    "states_proposed_mean": 1026.164,
+    "states_judged_mean": 778.57,
+    "states_expanded_mean": 54.32,
+    "states_merged_mean": 233.59,
+    "states_pruned_mean": 124.93,
+    "sequential_rounds_mean": 4.99,
+    "wall_seconds_mean": 0.001661219796165824,
+    "work_used_mean": 1859.054
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "hand_bound_frontier",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 484.587,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 15.413,
+    "states_merged_mean": 117.471,
+    "states_pruned_mean": 0.308,
+    "sequential_rounds_mean": 2.0,
+    "wall_seconds_mean": 0.0008384011555463076,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "hand_bound_frontier",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.06799999999999999,
+    "problem_cluster_ci95": [
+      0.04999999999999999,
+      0.08702499999999987
+    ],
+    "states_proposed_mean": 1053.813,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 64.441,
+    "states_merged_mean": 191.671,
+    "states_pruned_mean": 13.199,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.0019293907955288887,
+    "work_used_mean": 1118.254
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "hand_bound_frontier",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.06799999999999999,
+    "problem_cluster_ci95": [
+      0.049,
+      0.08700000000000001
+    ],
+    "states_proposed_mean": 1053.813,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 64.441,
+    "states_merged_mean": 191.671,
+    "states_pruned_mean": 13.199,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.0019052320662885905,
+    "work_used_mean": 1118.254
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "hand_bound_frontier",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.06799999999999999,
+    "problem_cluster_ci95": [
+      0.05,
+      0.08800000000000001
+    ],
+    "states_proposed_mean": 1053.813,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 64.441,
+    "states_merged_mean": 191.671,
+    "states_pruned_mean": 13.199,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.001900263491086662,
+    "work_used_mean": 1118.254
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "independent_parallel",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 255.911,
+    "states_judged_mean": 236.216,
+    "states_expanded_mean": 7.873,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 2.0,
+    "wall_seconds_mean": 0.0004965469548478723,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "independent_parallel",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 740.945,
+    "states_judged_mean": 731.724,
+    "states_expanded_mean": 27.331,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 3.003,
+    "wall_seconds_mean": 0.0014220847962424159,
+    "work_used_mean": 1500.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "independent_parallel",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.528,
+    "problem_cluster_ci95": [
+      0.47200000000000003,
+      0.583
+    ],
+    "states_proposed_mean": 1907.292,
+    "states_judged_mean": 1835.035,
+    "states_expanded_mean": 107.009,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 9.339,
+    "wall_seconds_mean": 0.004334861315786838,
+    "work_used_mean": 3849.336
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "independent_parallel",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.8160000000000001,
+    "problem_cluster_ci95": [
+      0.774,
+      0.8560000000000001
+    ],
+    "states_proposed_mean": 3401.841,
+    "states_judged_mean": 3265.639,
+    "states_expanded_mean": 201.391,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 16.719,
+    "wall_seconds_mean": 0.007563958405517042,
+    "work_used_mean": 6868.871
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "merging_without_learned_judge",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.0,
+    "problem_cluster_ci95": [
+      0.0,
+      0.0
+    ],
+    "states_proposed_mean": 484.587,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 15.413,
+    "states_merged_mean": 117.471,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 2.0,
+    "wall_seconds_mean": 0.0006507003093138337,
+    "work_used_mean": 500.0
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "merging_without_learned_judge",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.07200000000000001,
+    "problem_cluster_ci95": [
+      0.05399999999999999,
+      0.09299999999999999
+    ],
+    "states_proposed_mean": 1053.844,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 64.421,
+    "states_merged_mean": 192.086,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.001535500436089933,
+    "work_used_mean": 1118.265
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "merging_without_learned_judge",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.07200000000000001,
+    "problem_cluster_ci95": [
+      0.054000000000000006,
+      0.092
+    ],
+    "states_proposed_mean": 1053.844,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 64.421,
+    "states_merged_mean": 192.086,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.0015324369054287672,
+    "work_used_mean": 1118.265
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "merging_without_learned_judge",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.07200000000000001,
+    "problem_cluster_ci95": [
+      0.05399999999999999,
+      0.092
+    ],
+    "states_proposed_mean": 1053.844,
+    "states_judged_mean": 0.0,
+    "states_expanded_mean": 64.421,
+    "states_merged_mean": 192.086,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 5.0,
+    "wall_seconds_mean": 0.001526539263315499,
+    "work_used_mean": 1118.265
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "single_line",
+    "budget": 500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.059,
+    "problem_cluster_ci95": [
+      0.041975,
+      0.078
+    ],
+    "states_proposed_mean": 257.469,
+    "states_judged_mean": 221.339,
+    "states_expanded_mean": 10.783,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 10.783,
+    "wall_seconds_mean": 0.00045190864708274605,
+    "work_used_mean": 489.591
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "single_line",
+    "budget": 1500,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.17600000000000002,
+    "problem_cluster_ci95": [
+      0.145,
+      0.21100000000000002
+    ],
+    "states_proposed_mean": 682.297,
+    "states_judged_mean": 656.035,
+    "states_expanded_mean": 30.209,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 30.209,
+    "wall_seconds_mean": 0.001218977376818657,
+    "work_used_mean": 1368.541
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "single_line",
+    "budget": 5000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.4200000000000001,
+    "problem_cluster_ci95": [
+      0.365,
+      0.4730249999999999
+    ],
+    "states_proposed_mean": 1880.962,
+    "states_judged_mean": 1820.889,
+    "states_expanded_mean": 85.046,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 85.046,
+    "wall_seconds_mean": 0.0033778213849291207,
+    "work_used_mean": 3786.897
+  },
+  {
+    "cohort": "stratum_>20",
+    "method": "single_line",
+    "budget": 15000,
+    "problems": 100,
+    "trials": 1000,
+    "solve_rate": 0.6890000000000001,
+    "problem_cluster_ci95": [
+      0.634,
+      0.741
+    ],
+    "states_proposed_mean": 3983.307,
+    "states_judged_mean": 3867.735,
+    "states_expanded_mean": 180.865,
+    "states_merged_mean": 0.0,
+    "states_pruned_mean": 0.0,
+    "sequential_rounds_mean": 180.865,
+    "wall_seconds_mean": 0.0071633943002671,
+    "work_used_mean": 8031.907
+  }
+]

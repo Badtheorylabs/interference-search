@@ -1,0 +1,883 @@
+{
+  "status": "native slot selectivity probe",
+  "tasks": 24,
+  "summary": {
+    "matched": {
+      "mean_target_logp": -0.8854518021301677,
+      "mean_effective_rank": 1.0000000794728596,
+      "mean_slot_cosine": 0.9999999875823656
+    },
+    "shuffled": {
+      "mean_target_logp": -0.9386643089431649,
+      "mean_effective_rank": 1.0000000198682149,
+      "mean_slot_cosine": 1.0000000049670537,
+      "matched_minus_condition": 0.05321250681299716
+    },
+    "misassigned": {
+      "mean_target_logp": -2.2415910388032594,
+      "mean_effective_rank": 1.0000001043081284,
+      "mean_slot_cosine": 1.0000000471870105,
+      "matched_minus_condition": 1.3561392366730918
+    },
+    "no_marker": {
+      "mean_target_logp": -4.19426470498244,
+      "mean_effective_rank": 1.0000000844399135,
+      "mean_slot_cosine": 1.0000000844399135,
+      "matched_minus_condition": 3.308812902852272
+    },
+    "zero": {
+      "mean_target_logp": -3.563540816307068,
+      "mean_effective_rank": 1.0000000198682149,
+      "mean_slot_cosine": 1.0000000794728596,
+      "matched_minus_condition": 2.6780890141769
+    }
+  },
+  "layer_metrics": {
+    "mean_write_gate": [
+      0.4948605162401994,
+      0.5134841675559679,
+      0.5026877348621687,
+      0.5197707340121269,
+      0.5072551568349203,
+      0.5035602723558744,
+      0.5027298033237457,
+      0.4991343356668949,
+      0.5108596980571747,
+      0.5090355475743612,
+      0.5046175668636957,
+      0.49788551529248554,
+      0.5031055758396784,
+      0.49973200261592865,
+      0.5063371459643046,
+      0.5142493570844332,
+      0.4961177582542102,
+      0.5057520568370819,
+      0.5134825855493546,
+      0.5083739856878916,
+      0.5074828962484995,
+      0.5052274415890375,
+      0.5118727708856264,
+      0.5152544031540552,
+      0.49490374450882274,
+      0.49713635941346485,
+      0.5160466233889262,
+      0.49394432082772255,
+      0.5082679018378258,
+      0.5107775330543518,
+      0.4990716154376666,
+      0.503014030555884,
+      0.5099788531661034,
+      0.5016536662975947,
+      0.4957367442548275,
+      0.5043396254380544
+    ],
+    "mean_read_gate": [
+      0.5007225225369135,
+      0.4976436433692773,
+      0.5196875954667727,
+      0.492536594470342,
+      0.5059979856014252,
+      0.5271121089657148,
+      0.5217428654432297,
+      0.5118608921766281,
+      0.5097521071632704,
+      0.4859423053761323,
+      0.5116625974575678,
+      0.5078410158554713,
+      0.5074845949808756,
+      0.5290171056985855,
+      0.5172164092461268,
+      0.5303950930635134,
+      0.5115206887324651,
+      0.5307851061224937,
+      0.5135955835382143,
+      0.5085922703146935,
+      0.5168366134166718,
+      0.5075439016024271,
+      0.5244381527105967,
+      0.5126852467656136,
+      0.5106582418084145,
+      0.5071146984895071,
+      0.4964638836681843,
+      0.5069564481576284,
+      0.5414769252141317,
+      0.5119825402895609,
+      0.48648112639784813,
+      0.5019370180865129,
+      0.5237308343251547,
+      0.5079149057467779,
+      0.5044859622915586,
+      0.5217727497220039
+    ],
+    "mean_refutation_match": [
+      0.9816176220774651,
+      0.8067157715559006,
+      0.7914844552675883,
+      0.8817973807454109,
+      0.7747339581449827,
+      0.8933206722140312,
+      0.8685960496465365,
+      0.8720908264319102,
+      0.8310690472523371,
+      0.8671896283825239,
+      0.9094096620877584,
+      0.8765101755658785,
+      0.4860842823982239,
+      0.9147189781069756,
+      0.4985368959605694,
+      0.9021011268099149,
+      0.82309157649676,
+      0.8218967815240225,
+      0.7713801215092341,
+      0.7069014956553777,
+      0.8837058519323667,
+      0.8824161365628242,
+      0.8893440986673037,
+      0.8863333637515703,
+      0.8322883198658625,
+      0.926063192387422,
+      0.7766683300336202,
+      0.8498525246977806,
+      0.768053246041139,
+      0.8469316711028417,
+      0.6020110895236334,
+      0.7996355146169662,
+      0.8513750359416008,
+      0.7719436610738436,
+      0.8411069040497144,
+      0.711357851823171
+    ]
+  },
+  "rows": {
+    "matched": [
+      {
+        "task_id": 223,
+        "target_logp": -1.4977589845657349,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.000000238418579
+      },
+      {
+        "task_id": 224,
+        "target_logp": -0.04096625745296478,
+        "effective_rank": 1.0000019073486328,
+        "mean_slot_cosine": 1.000000238418579
+      },
+      {
+        "task_id": 226,
+        "target_logp": -0.06340502947568893,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.000000238418579
+      },
+      {
+        "task_id": 227,
+        "target_logp": -0.01818074844777584,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 228,
+        "target_logp": -0.6337259411811829,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 0.9999998807907104
+      },
+      {
+        "task_id": 229,
+        "target_logp": -1.8174160718917847,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 230,
+        "target_logp": -0.06015182286500931,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 0.9999998807907104
+      },
+      {
+        "task_id": 232,
+        "target_logp": -0.06358403712511063,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 233,
+        "target_logp": -3.0930564403533936,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 0.9999998807907104
+      },
+      {
+        "task_id": 234,
+        "target_logp": -0.023859521374106407,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 0.9999998807907104
+      },
+      {
+        "task_id": 235,
+        "target_logp": -0.3199731707572937,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 0.9999998807907104
+      },
+      {
+        "task_id": 237,
+        "target_logp": -4.48776388168335,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 0.9999997019767761
+      },
+      {
+        "task_id": 238,
+        "target_logp": -0.028992196545004845,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 0.9999998807907104
+      },
+      {
+        "task_id": 239,
+        "target_logp": -1.797532081604004,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 0.9999997615814209
+      },
+      {
+        "task_id": 240,
+        "target_logp": -0.3038341999053955,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 242,
+        "target_logp": -0.012383595108985901,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.000000238418579
+      },
+      {
+        "task_id": 244,
+        "target_logp": -0.22117112576961517,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 0.9999997615814209
+      },
+      {
+        "task_id": 245,
+        "target_logp": -4.693915843963623,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 0.9999998807907104
+      },
+      {
+        "task_id": 246,
+        "target_logp": -0.05514824017882347,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.000000238418579
+      },
+      {
+        "task_id": 247,
+        "target_logp": -1.0238282680511475,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0000003576278687
+      },
+      {
+        "task_id": 248,
+        "target_logp": -0.8476850986480713,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 249,
+        "target_logp": -0.04810687154531479,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 0.9999998807907104
+      },
+      {
+        "task_id": 250,
+        "target_logp": -0.06193343922495842,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 251,
+        "target_logp": -0.036470383405685425,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 0.9999998807907104
+      }
+    ],
+    "shuffled": [
+      {
+        "task_id": 223,
+        "target_logp": -1.3510191440582275,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 224,
+        "target_logp": -0.08837553858757019,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 0.9999998807907104
+      },
+      {
+        "task_id": 226,
+        "target_logp": -0.06904635578393936,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 227,
+        "target_logp": -0.030099237337708473,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.000000238418579
+      },
+      {
+        "task_id": 228,
+        "target_logp": -0.6930482983589172,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 0.9999998807907104
+      },
+      {
+        "task_id": 229,
+        "target_logp": -1.6189775466918945,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 230,
+        "target_logp": -0.13250723481178284,
+        "effective_rank": 1.0000001192092896,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 232,
+        "target_logp": -0.2337697595357895,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 233,
+        "target_logp": -4.665535926818848,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 0.9999997615814209
+      },
+      {
+        "task_id": 234,
+        "target_logp": -0.02720167301595211,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.000000238418579
+      },
+      {
+        "task_id": 235,
+        "target_logp": -0.12174226343631744,
+        "effective_rank": 1.0000001192092896,
+        "mean_slot_cosine": 0.9999997615814209
+      },
+      {
+        "task_id": 237,
+        "target_logp": -4.342090606689453,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 0.9999998807907104
+      },
+      {
+        "task_id": 238,
+        "target_logp": -0.0289316289126873,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 239,
+        "target_logp": -1.9838972091674805,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 0.9999997615814209
+      },
+      {
+        "task_id": 240,
+        "target_logp": -0.22272060811519623,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.000000238418579
+      },
+      {
+        "task_id": 242,
+        "target_logp": -0.010998577810823917,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 0.9999998807907104
+      },
+      {
+        "task_id": 244,
+        "target_logp": -0.30599743127822876,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0000003576278687
+      },
+      {
+        "task_id": 245,
+        "target_logp": -3.999725580215454,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 246,
+        "target_logp": -0.09312813729047775,
+        "effective_rank": 1.0000001192092896,
+        "mean_slot_cosine": 1.000000238418579
+      },
+      {
+        "task_id": 247,
+        "target_logp": -1.5905945301055908,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 0.9999998807907104
+      },
+      {
+        "task_id": 248,
+        "target_logp": -0.7737367749214172,
+        "effective_rank": 1.0000001192092896,
+        "mean_slot_cosine": 0.9999998807907104
+      },
+      {
+        "task_id": 249,
+        "target_logp": -0.03156064450740814,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0000003576278687
+      },
+      {
+        "task_id": 250,
+        "target_logp": -0.0792938694357872,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 0.9999998807907104
+      },
+      {
+        "task_id": 251,
+        "target_logp": -0.033944837749004364,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0
+      }
+    ],
+    "misassigned": [
+      {
+        "task_id": 223,
+        "target_logp": -8.511682510375977,
+        "effective_rank": 1.0000001192092896,
+        "mean_slot_cosine": 1.0000003576278687
+      },
+      {
+        "task_id": 224,
+        "target_logp": -0.05823702737689018,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0000003576278687
+      },
+      {
+        "task_id": 226,
+        "target_logp": -0.07984762638807297,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 227,
+        "target_logp": -0.15212483704090118,
+        "effective_rank": 1.0000001192092896,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 228,
+        "target_logp": -3.8274168968200684,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 229,
+        "target_logp": -4.740487575531006,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 0.9999997615814209
+      },
+      {
+        "task_id": 230,
+        "target_logp": -0.06853456050157547,
+        "effective_rank": 1.0000001192092896,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 232,
+        "target_logp": -2.470689296722412,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 0.9999998807907104
+      },
+      {
+        "task_id": 233,
+        "target_logp": -7.015382289886475,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 234,
+        "target_logp": -0.06516724079847336,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0000003576278687
+      },
+      {
+        "task_id": 235,
+        "target_logp": -0.4167456030845642,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.000000238418579
+      },
+      {
+        "task_id": 237,
+        "target_logp": -6.077932834625244,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.000000238418579
+      },
+      {
+        "task_id": 238,
+        "target_logp": -0.13847269117832184,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.000000238418579
+      },
+      {
+        "task_id": 239,
+        "target_logp": -4.845957279205322,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.000000238418579
+      },
+      {
+        "task_id": 240,
+        "target_logp": -2.5234856605529785,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 242,
+        "target_logp": -0.045520830899477005,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 0.9999998807907104
+      },
+      {
+        "task_id": 244,
+        "target_logp": -0.3299538493156433,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.000000238418579
+      },
+      {
+        "task_id": 245,
+        "target_logp": -5.197045803070068,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 0.9999998807907104
+      },
+      {
+        "task_id": 246,
+        "target_logp": -0.0717223733663559,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 247,
+        "target_logp": -4.034870624542236,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 248,
+        "target_logp": -2.7701354026794434,
+        "effective_rank": 1.0000020265579224,
+        "mean_slot_cosine": 0.9999997019767761
+      },
+      {
+        "task_id": 249,
+        "target_logp": -0.10132697969675064,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 250,
+        "target_logp": -0.13125859200954437,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 0.9999997615814209
+      },
+      {
+        "task_id": 251,
+        "target_logp": -0.12418654561042786,
+        "effective_rank": 1.0000001192092896,
+        "mean_slot_cosine": 1.0
+      }
+    ],
+    "no_marker": [
+      {
+        "task_id": 223,
+        "target_logp": -7.296398639678955,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 0.9999998807907104
+      },
+      {
+        "task_id": 224,
+        "target_logp": -1.6177334785461426,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 0.9999998807907104
+      },
+      {
+        "task_id": 226,
+        "target_logp": -3.6859912872314453,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 0.9999997615814209
+      },
+      {
+        "task_id": 227,
+        "target_logp": -1.4265022277832031,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 0.9999997615814209
+      },
+      {
+        "task_id": 228,
+        "target_logp": -5.558176517486572,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0000003576278687
+      },
+      {
+        "task_id": 229,
+        "target_logp": -6.882161617279053,
+        "effective_rank": 1.0000001192092896,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 230,
+        "target_logp": -3.3254551887512207,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0000003576278687
+      },
+      {
+        "task_id": 232,
+        "target_logp": -2.3257827758789062,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 233,
+        "target_logp": -7.170882701873779,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 234,
+        "target_logp": -1.9438755512237549,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0000003576278687
+      },
+      {
+        "task_id": 235,
+        "target_logp": -4.828597545623779,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 237,
+        "target_logp": -6.811553001403809,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 0.9999998807907104
+      },
+      {
+        "task_id": 238,
+        "target_logp": -3.599667549133301,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 239,
+        "target_logp": -5.302610397338867,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 240,
+        "target_logp": -3.165409803390503,
+        "effective_rank": 1.0000019073486328,
+        "mean_slot_cosine": 1.000000238418579
+      },
+      {
+        "task_id": 242,
+        "target_logp": -1.418534278869629,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.000000238418579
+      },
+      {
+        "task_id": 244,
+        "target_logp": -5.798560619354248,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.000000238418579
+      },
+      {
+        "task_id": 245,
+        "target_logp": -5.389079570770264,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.000000238418579
+      },
+      {
+        "task_id": 246,
+        "target_logp": -5.639810085296631,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0000003576278687
+      },
+      {
+        "task_id": 247,
+        "target_logp": -5.126496315002441,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0000003576278687
+      },
+      {
+        "task_id": 248,
+        "target_logp": -5.109606742858887,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 249,
+        "target_logp": -1.6532704830169678,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 0.9999998807907104
+      },
+      {
+        "task_id": 250,
+        "target_logp": -3.9172494411468506,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.000000238418579
+      },
+      {
+        "task_id": 251,
+        "target_logp": -1.6689471006393433,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0
+      }
+    ],
+    "zero": [
+      {
+        "task_id": 223,
+        "target_logp": -6.5503363609313965,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0000003576278687
+      },
+      {
+        "task_id": 224,
+        "target_logp": -1.5674755573272705,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 0.9999998807907104
+      },
+      {
+        "task_id": 226,
+        "target_logp": -3.06050443649292,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 227,
+        "target_logp": -1.183027982711792,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 0.9999998807907104
+      },
+      {
+        "task_id": 228,
+        "target_logp": -3.7076241970062256,
+        "effective_rank": 1.0000001192092896,
+        "mean_slot_cosine": 1.000000238418579
+      },
+      {
+        "task_id": 229,
+        "target_logp": -6.676417350769043,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.000000238418579
+      },
+      {
+        "task_id": 230,
+        "target_logp": -2.3710837364196777,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 0.9999998807907104
+      },
+      {
+        "task_id": 232,
+        "target_logp": -2.082761287689209,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 233,
+        "target_logp": -4.462660312652588,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.000000238418579
+      },
+      {
+        "task_id": 234,
+        "target_logp": -1.4912382364273071,
+        "effective_rank": 1.0000001192092896,
+        "mean_slot_cosine": 1.000000238418579
+      },
+      {
+        "task_id": 235,
+        "target_logp": -3.722261905670166,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 237,
+        "target_logp": -7.359410285949707,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.000000238418579
+      },
+      {
+        "task_id": 238,
+        "target_logp": -2.2848739624023438,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 239,
+        "target_logp": -4.998176097869873,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 240,
+        "target_logp": -3.8407535552978516,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 0.9999998807907104
+      },
+      {
+        "task_id": 242,
+        "target_logp": -1.010805368423462,
+        "effective_rank": 1.0000001192092896,
+        "mean_slot_cosine": 1.000000238418579
+      },
+      {
+        "task_id": 244,
+        "target_logp": -4.432040691375732,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 0.9999998807907104
+      },
+      {
+        "task_id": 245,
+        "target_logp": -5.841080665588379,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.000000238418579
+      },
+      {
+        "task_id": 246,
+        "target_logp": -4.034495830535889,
+        "effective_rank": 1.0000001192092896,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 247,
+        "target_logp": -4.452419281005859,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 248,
+        "target_logp": -4.425556659698486,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 249,
+        "target_logp": -1.6414352655410767,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.000000238418579
+      },
+      {
+        "task_id": 250,
+        "target_logp": -2.5885210037231445,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.0
+      },
+      {
+        "task_id": 251,
+        "target_logp": -1.7400195598602295,
+        "effective_rank": 1.0,
+        "mean_slot_cosine": 1.000000238418579
+      }
+    ]
+  }
+}

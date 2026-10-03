@@ -1,0 +1,27 @@
+[
+  {
+    "source_file": "Benchmark Questions Verification V2.ipynb",
+    "task_id": 161,
+    "prompt": "Write a function to remove all elements from a given list present in another list.",
+    "code": "def remove_elements(list1, list2):\n    result = [x for x in list1 if x not in list2]\n    return result",
+    "test_imports": [],
+    "test_list": [
+      "assert remove_elements([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [2, 4, 6, 8]) == [1, 3, 5, 7, 9, 10]",
+      "assert remove_elements([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [1, 3, 5, 7]) == [2, 4, 6, 8, 9, 10]",
+      "assert remove_elements([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [5, 7]) == [1, 2, 3, 4, 6, 8, 9, 10]"
+    ]
+  },
+  {
+    "source_file": "Benchmark Questions Verification V2.ipynb",
+    "task_id": 773,
+    "prompt": "Write a function to find the occurrence and position of the substrings within a string. Return None if there is no match.",
+    "code": "import re\ndef occurance_substring(text,pattern):\n for match in re.finditer(pattern, text):\n    s = match.start()\n    e = match.end()\n    return (text[s:e], s, e)",
+    "test_imports": [],
+    "test_list": [
+      "assert occurance_substring('python programming, python language','python')==('python', 0, 6)",
+      "assert occurance_substring('python programming,programming language','programming')==('programming', 7, 18)",
+      "assert occurance_substring('python programming,programming language','language')==('language', 31, 39)",
+      "assert occurance_substring('c++ programming, c++ language','python')==None"
+    ]
+  }
+]

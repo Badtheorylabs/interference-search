@@ -1,0 +1,179 @@
+{
+  "files": [
+    {
+      "path": "release/results/llm/cot_timing.json",
+      "sha256": "a4298770fca0ec45869da574e9557d921af270329e3762ac4058bd2f031e9e1d",
+      "bytes": 2280
+    },
+    {
+      "path": "release/results/llm/cot_trace.json",
+      "sha256": "178551638f6596fc256ea15d0fc5de9f4fc877876b3840d6e0a272badc6338d1",
+      "bytes": 7879
+    },
+    {
+      "path": "release/results/llm/phase0_qwen3-1.7b.jsonl",
+      "sha256": "af234d7d7e2c8a0836132fe211def88d38dd04995315a08f2a098caa0b546749",
+      "bytes": 232028
+    },
+    {
+      "path": "release/results/llm/phase1_qwen3-1.7b.jsonl",
+      "sha256": "8e4ce13d10617044e6f260c5423111f38e2ffcab12a426a775b29b033c664b23",
+      "bytes": 1127649
+    },
+    {
+      "path": "release/results/llm/probe_results.json",
+      "sha256": "977367cb8361d0025b2becf14086581149dcce581de437d1e8393d24ab4a7e20",
+      "bytes": 466
+    },
+    {
+      "path": "release/results/llm/probe_search_timing.json",
+      "sha256": "db3baa89597f489889c06d3e53c4ee06a72c0319e473e3fd6610e55ba7e5ef43",
+      "bytes": 332
+    },
+    {
+      "path": "release/results/llm/viz_slim.json",
+      "sha256": "7f783376738a69ae0682088daa2b9fbda8243ace463774ea5a0713fb250e91c4",
+      "bytes": 46079
+    },
+    {
+      "path": "release/results/invalid/mbpp_async_16_vllm_compiled.invalid-sandbox.json",
+      "sha256": "51ffc7378eb457bb0857123abccac8091f70eb118ddc83f05e8535a5b944762c",
+      "bytes": 24413
+    },
+    {
+      "path": "release/results/code/bench_code_partial.json",
+      "sha256": "6877aee7a8ab06aeb6615e540155b36ad2a46bd3f2fb566b58c97849c7f1d403",
+      "bytes": 1095
+    },
+    {
+      "path": "release/results/code/screen_150.json",
+      "sha256": "bc5de434dbdefde253ff0cc838e2ae79d6fd3f7210d58f72a9c8b4d78c7e2951",
+      "bytes": 969
+    },
+    {
+      "path": "release/results/frontier/ablate_results.json",
+      "sha256": "b009ac38009cdd65feffcc2d543d707510016864a72a2df884357abe525734f3",
+      "bytes": 1981
+    },
+    {
+      "path": "release/results/frontier/native_loop_results.json",
+      "sha256": "edf754434e868dcfe80049fcd1db9be44855718d4254d5e59e3e09e98a111c73",
+      "bytes": 6450
+    },
+    {
+      "path": "release/results/frontier/refuter_results_s0.json",
+      "sha256": "3ef316cc29207f9479a1bfe706463e20262b342fc372a26ec5c4397da12b42b5",
+      "bytes": 2487
+    },
+    {
+      "path": "original/runs/llm_state.log",
+      "sha256": "a68faefa625ead68479dba3ce88b46450864e157cd16f76732dac1158e7cac5f",
+      "bytes": 339
+    },
+    {
+      "path": "original/runs/llm_state_smoke.jsonl",
+      "sha256": "9013a8c59194eb1f50c146ada4a800c4d33198cd3c48810d9dfd26dc7c23a312",
+      "bytes": 3097
+    },
+    {
+      "path": "original/runs/llm_state_v1_partial.log",
+      "sha256": "7879e6c6832b2bdd8ae46f948825517e9f7cc11fea1ea66b62f718510179a25e",
+      "bytes": 196
+    },
+    {
+      "path": "original/runs/phase0_qwen3-1.7b.jsonl",
+      "sha256": "af234d7d7e2c8a0836132fe211def88d38dd04995315a08f2a098caa0b546749",
+      "bytes": 232028
+    },
+    {
+      "path": "original/runs/phase0_qwen3-1.7b.log",
+      "sha256": "c7d0e0a8731262d674355714d0b3bf32b12b9b36365f4604fe1a29e0a440f157",
+      "bytes": 415
+    },
+    {
+      "path": "original/runs/phase1_qwen3-1.7b.jsonl",
+      "sha256": "8e4ce13d10617044e6f260c5423111f38e2ffcab12a426a775b29b033c664b23",
+      "bytes": 1127649
+    },
+    {
+      "path": "original/runs/phase1_qwen3-1.7b.log",
+      "sha256": "960f1d8ed9151d26de4f61e943e0bc12863b49d94ae38e566ca89c469bcc0f22",
+      "bytes": 5369
+    },
+    {
+      "path": "original/runs/phase1b_qwen3-1.7b.jsonl",
+      "sha256": "c5cfba6509e408e2a6915f0e6e9877654887ecc12c2cfe9260841251e2b4e957",
+      "bytes": 370493
+    },
+    {
+      "path": "original/runs/phase1b_qwen3-1.7b.log",
+      "sha256": "85c580d6842ae27f9e153b89cf7b841ba79aba74148977059035fa8eef7d7b40",
+      "bytes": 3881
+    },
+    {
+      "path": "original/runs/probe.log",
+      "sha256": "4b265f402592392ebfd4cdbdf9b47987e92ba4bbc61f976cdef5dfefa6fd8379",
+      "bytes": 1144
+    },
+    {
+      "path": "original/runs/probe_results.json",
+      "sha256": "977367cb8361d0025b2becf14086581149dcce581de437d1e8393d24ab4a7e20",
+      "bytes": 466
+    },
+    {
+      "path": "original/toy/runs2/final_eval.json",
+      "sha256": "bb74f3c147515d8053666a339a3ce0a52925f715b41409b8b78eb49d4caeb1ff",
+      "bytes": 530
+    },
+    {
+      "path": "original/toy/runs2/indep_s0.json",
+      "sha256": "b92d37a899d50768cb99034a87eab93678d3223013eeb5b8dd04ff3fa78d1395",
+      "bytes": 1202
+    },
+    {
+      "path": "original/toy/runs2/indep_s0.log",
+      "sha256": "285cb7f7ae397e20141d0749b878f3fffca76bbb62dad98a1caa36068a1c92ea",
+      "bytes": 13646
+    },
+    {
+      "path": "original/toy/runs2/visible_s0.json",
+      "sha256": "11f0a23602beb314513ad12a20e6fd2da2b55d38c471dfaea4add7a70c1432ed",
+      "bytes": 1209
+    },
+    {
+      "path": "original/toy/runs2/visible_s0.log",
+      "sha256": "f32f283e2f38f5f395238ba1c2429cdfcdf372b16729964dd5ad0183429e6ed6",
+      "bytes": 13663
+    },
+    {
+      "path": "original/toy/runs2/w0.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "original/toy/runs2/w1.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "original/EXPERIMENT_DESIGN.md",
+      "sha256": "8257818bd68056ebdb32c3ff2a09a781fc9b019123f994426875337f892d8bbd",
+      "bytes": 27648
+    },
+    {
+      "path": "original/REVIEW_BRIEF.md",
+      "sha256": "b04ceede47b16afa540a006ccb7fb2f985a36dce4d891153025e9b9b3553399f",
+      "bytes": 39713
+    }
+  ],
+  "policy": "unchanged originals; failed/interrupted experiments retained",
+  "limitations": "historical MBPP aggregate 9/30 versus 8/30 has no recoverable per-problem outcomes; no paired statistics are manufactured",
+  "experiments": [
+    "textual refutation ledger",
+    "self rewind",
+    "cross rewind",
+    "explicit state prompting",
+    "cross-stream visibility and signed/unsigned toy studies",
+    "MLX OOM and interrupted runs"
+  ]
+}

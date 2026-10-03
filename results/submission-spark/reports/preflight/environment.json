@@ -1,0 +1,39 @@
+{
+  "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+  "platform": "Linux-6.17.0-1022-nvidia-aarch64-with-glibc2.39",
+  "machine": "aarch64",
+  "processor": "aarch64",
+  "torch": "2.9.1+cu130",
+  "torch_threads": 2,
+  "git_head": null,
+  "git_status": null,
+  "hardware": "Architecture:                            aarch64\nCPU op-mode(s):                          64-bit\nByte Order:                              Little Endian\nCPU(s):                                  20\nOn-line CPU(s) list:                     0-19\nVendor ID:                               ARM\nModel name:                              Cortex-X925\nModel:                                   1\nThread(s) per core:                      1\nCore(s) per socket:                      10\nSocket(s):                               1\nStepping:                                r0p1\nFrequency boost:                         disabled\nCPU(s) scaling MHz:                      100%\nCPU max MHz:                             3900.0000\nCPU min MHz:                             1378.0000\nBogoMIPS:                                2000.00\nFlags:                                   fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 sm3 sm4 asimddp sha512 sve asimdfhm dit uscat ilrcpc flagm sb paca pacg dcpodp sve2 sveaes svepmull svebitperm svesha3 svesm4 flagm2 frint svei8mm svebf16 i8mm bf16 dgh bti ecv afp wfxt\nModel name:                              Cortex-A725\nModel:                                   1\nThread(s) per core:                      1\nCore(s) per socket:                      10\nSocket(s):                               1\nStepping:                                r0p1\nCPU(s) scaling MHz:                      100%\nCPU max MHz:                             2808.0000\nCPU min MHz:                             338.0000\nBogoMIPS:                                2000.00\nFlags:                                   fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 sm3 sm4 asimddp sha512 sve asimdfhm dit uscat ilrcpc flagm sb paca pacg dcpodp sve2 sveaes svepmull svebitperm svesha3 svesm4 flagm2 frint svei8mm svebf16 i8mm bf16 dgh bti ecv afp wfxt\nL1d cache:                               1.3 MiB (20 instances)\nL1i cache:                               1.3 MiB (20 instances)\nL2 cache:                                25 MiB (20 instances)\nL3 cache:                                24 MiB (2 instances)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-19\nVulnerability Gather data sampling:      Not affected\nVulnerability Ghostwrite:                Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Old microcode:             Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Not affected\nVulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\nVulnerability Spectre v1:                Mitigation; __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; CSV2, BHB\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Not affected",
+  "gpu": "Sat Oct  3 11:58:30 2026       \n+-----------------------------------------------------------------------------------------+\n| NVIDIA-SMI 580.159.03             Driver Version: 580.159.03     CUDA Version: 13.0     |\n+-----------------------------------------+------------------------+----------------------+\n| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n|                                         |                        |               MIG M. |\n|=========================================+========================+======================|\n|   0  NVIDIA GB10                    On  |   0000000F:01:00.0 Off |                  N/A |\n| N/A   52C    P0             11W /  N/A  | Not Supported          |      0%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n\n+-----------------------------------------------------------------------------------------+\n| Processes:                                                                              |\n|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n|        ID   ID                                                               Usage      |\n|=========================================================================================|\n|    0   N/A  N/A          282896      C   ...local/lib/ollama/llama-server      36354MiB |\n+-----------------------------------------------------------------------------------------+",
+  "argv": [
+    "/home/badtheory/interference-search-submission-20261003/experiments/submission/run_countdown.py",
+    "--manifest",
+    "data/submission/countdown-v1.json",
+    "--out",
+    "results/submission/preflight",
+    "--limit",
+    "2",
+    "--seeds",
+    "0,1",
+    "--budgets",
+    "25,50,200,1500"
+  ],
+  "source_hashes": {
+    "experiments/submission/.___init__.py": "eb4eb6b67ff0df373135cca2248d663fbafb30f7ce7701e426d9066e80f760d1",
+    "experiments/submission/._build_countdown.py": "eb4eb6b67ff0df373135cca2248d663fbafb30f7ce7701e426d9066e80f760d1",
+    "experiments/submission/._common.py": "eb4eb6b67ff0df373135cca2248d663fbafb30f7ce7701e426d9066e80f760d1",
+    "experiments/submission/._countdown_engine.py": "eb4eb6b67ff0df373135cca2248d663fbafb30f7ce7701e426d9066e80f760d1",
+    "experiments/submission/__init__.py": "52a9f70b756df6d3e69772f9543d64331775a7fcba11db333ba0ba396c480c62",
+    "experiments/submission/analyze.py": "7f8c1e75c63cd0899f820656bbcb5da5ab2961139c17cc20bca7fd4568e161ef",
+    "experiments/submission/build_countdown.py": "30a699d8f41fd67077240b22561fb48b8dfe6e9f7293e94134e0b62003bc8d05",
+    "experiments/submission/common.py": "8e3461a09e119fc1d24fcb7e7225983c247ecae6f2e9349c807cc0d1974f845c",
+    "experiments/submission/countdown_engine.py": "78a4cf9c46be15a925b52e8c93b4e6e5d529ca0518b4be91ccfb3ff4de81a667",
+    "experiments/submission/run_countdown.py": "4878d0e0860290f064e33da31a493b5c42cdd15a802ade65877ac6ff94bff06d"
+  },
+  "domain_hash": "95f57196c0bd4a8548aca075111689ce515beb96e5407236201da5b013b7d908",
+  "judge_source_hash": "73ab5c139772f8ffcfa691860587ca5d9ddf252b2f2222e6828710a147ca8909"
+}

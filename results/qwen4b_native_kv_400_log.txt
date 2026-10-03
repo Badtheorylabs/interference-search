@@ -1,0 +1,125 @@
+2026-09-27 09:14:30.135608: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-09-27 09:14:30.149001: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1790500470.162557  487632 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1790500470.167752  487632 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1790500470.181620  487632 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1790500470.181644  487632 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1790500470.181646  487632 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1790500470.181647  487632 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2026-09-27 09:14:30.185267: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:01,  1.31it/s]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:01<00:00,  1.40it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:01<00:00,  2.05it/s]
+{"step": 1, "coupling": "zero", "loss": 3.72803, "action": 2.38291, "survival": 0.67282, "match": 1.54436, "transition": 1.0127, "elapsed_s": 0.3}
+{"step": 25, "coupling": "zero", "loss": 2.63811, "action": 1.60198, "survival": 0.85199, "match": 1.35666, "transition": 0.05668, "elapsed_s": 2.4}
+{"step": 50, "coupling": "zero", "loss": 3.656, "action": 2.76169, "survival": 0.56424, "match": 1.33045, "transition": 0.0113, "elapsed_s": 4.4}
+{"step": 75, "coupling": "zero", "loss": 3.59529, "action": 2.6974, "survival": 0.57106, "match": 1.32904, "transition": 0.01648, "elapsed_s": 7.1}
+{"step": 100, "coupling": "zero", "loss": 3.22008, "action": 2.21813, "survival": 0.81972, "match": 1.33931, "transition": 0.01469, "elapsed_s": 9.2}
+{"step": 125, "coupling": "zero", "loss": 2.11793, "action": 1.17585, "survival": 0.67074, "match": 1.33954, "transition": 0.01336, "elapsed_s": 11.8}
+{"step": 150, "coupling": "zero", "loss": 2.81055, "action": 1.88143, "survival": 0.64564, "match": 1.3346, "transition": 0.01185, "elapsed_s": 14.1}
+{"step": 175, "coupling": "zero", "loss": 2.62302, "action": 1.64611, "survival": 0.73966, "match": 1.35402, "transition": 0.01343, "elapsed_s": 16.1}
+{"step": 200, "coupling": "zero", "loss": 2.07861, "action": 1.19877, "survival": 0.56249, "match": 1.30379, "transition": 0.00983, "elapsed_s": 18.1}
+{"step": 225, "coupling": "zero", "loss": 1.78575, "action": 0.93577, "survival": 0.44299, "match": 1.33427, "transition": 0.01883, "elapsed_s": 20.1}
+{"step": 250, "coupling": "zero", "loss": 2.17565, "action": 1.33813, "survival": 0.37996, "match": 1.36333, "transition": 0.01292, "elapsed_s": 22.5}
+{"step": 275, "coupling": "zero", "loss": 3.06651, "action": 2.10295, "survival": 0.73668, "match": 1.33289, "transition": 0.00814, "elapsed_s": 24.7}
+{"step": 300, "coupling": "zero", "loss": 2.89828, "action": 2.02214, "survival": 0.51475, "match": 1.33202, "transition": 0.01409, "elapsed_s": 26.8}
+{"step": 325, "coupling": "inhibit", "loss": 3.84946, "action": 2.84983, "survival": 0.73567, "match": 1.40125, "transition": 0.01579, "elapsed_s": 29.5}
+{"step": 350, "coupling": "inhibit", "loss": 4.72447, "action": 3.82977, "survival": 0.57828, "match": 1.3185, "transition": 0.01382, "elapsed_s": 32.3}
+{"step": 375, "coupling": "inhibit", "loss": 2.87756, "action": 1.97848, "survival": 0.40318, "match": 1.46766, "transition": 0.01324, "elapsed_s": 35.1}
+{"step": 400, "coupling": "inhibit", "loss": 3.43641, "action": 2.45459, "survival": 0.79596, "match": 1.32075, "transition": 0.01018, "elapsed_s": 37.2}
+{
+  "status": "trained native frontier on Qwen3-4B hidden states and live task KV",
+  "before": {
+    "validation": {
+      "zero": {
+        "rows": 50,
+        "alive_states": 103,
+        "exact_target_top1_rate": 0.1941747572815534,
+        "winning_action_top1_rate": 0.3883495145631068,
+        "known_refuted_action_top1_rate": 0.08737864077669903,
+        "refutation_match_positive": 0.2909101241827011,
+        "refutation_match_negative": 0.2911698365211487,
+        "refutation_match_gap": -0.0002597123384475708
+      },
+      "inhibit": {
+        "rows": 50,
+        "alive_states": 103,
+        "exact_target_top1_rate": 0.1941747572815534,
+        "winning_action_top1_rate": 0.3883495145631068,
+        "known_refuted_action_top1_rate": 0.08737864077669903,
+        "refutation_match_positive": 0.2909101241827011,
+        "refutation_match_negative": 0.2911698365211487,
+        "refutation_match_gap": -0.0002597123384475708
+      }
+    },
+    "test_5_numbers": {
+      "zero": {
+        "rows": 50,
+        "alive_states": 159,
+        "exact_target_top1_rate": 0.050314465408805034,
+        "winning_action_top1_rate": 0.32075471698113206,
+        "known_refuted_action_top1_rate": 0.0392156862745098,
+        "refutation_match_positive": 0.293354304432869,
+        "refutation_match_negative": 0.29358268797397613,
+        "refutation_match_gap": -0.00022838354110715775
+      },
+      "inhibit": {
+        "rows": 50,
+        "alive_states": 159,
+        "exact_target_top1_rate": 0.050314465408805034,
+        "winning_action_top1_rate": 0.32075471698113206,
+        "known_refuted_action_top1_rate": 0.0392156862745098,
+        "refutation_match_positive": 0.293354304432869,
+        "refutation_match_negative": 0.29358268797397613,
+        "refutation_match_gap": -0.00022838354110715775
+      }
+    }
+  },
+  "after": {
+    "validation": {
+      "zero": {
+        "rows": 50,
+        "alive_states": 103,
+        "exact_target_top1_rate": 0.22330097087378642,
+        "winning_action_top1_rate": 0.22330097087378642,
+        "known_refuted_action_top1_rate": 0.10679611650485436,
+        "refutation_match_positive": 0.4836648398637772,
+        "refutation_match_negative": 0.480532528758049,
+        "refutation_match_gap": 0.003132311105728147
+      },
+      "inhibit": {
+        "rows": 50,
+        "alive_states": 103,
+        "exact_target_top1_rate": 0.22330097087378642,
+        "winning_action_top1_rate": 0.22330097087378642,
+        "known_refuted_action_top1_rate": 0.0970873786407767,
+        "refutation_match_positive": 0.4836648398637772,
+        "refutation_match_negative": 0.480532528758049,
+        "refutation_match_gap": 0.003132311105728147
+      }
+    },
+    "test_5_numbers": {
+      "zero": {
+        "rows": 50,
+        "alive_states": 159,
+        "exact_target_top1_rate": 0.24528301886792453,
+        "winning_action_top1_rate": 0.24528301886792453,
+        "known_refuted_action_top1_rate": 0.058823529411764705,
+        "refutation_match_positive": 0.4721926325559616,
+        "refutation_match_negative": 0.4771019297838211,
+        "refutation_match_gap": -0.004909297227859488
+      },
+      "inhibit": {
+        "rows": 50,
+        "alive_states": 159,
+        "exact_target_top1_rate": 0.25157232704402516,
+        "winning_action_top1_rate": 0.25157232704402516,
+        "known_refuted_action_top1_rate": 0.049019607843137254,
+        "refutation_match_positive": 0.4721926325559616,
+        "refutation_match_negative": 0.4771019297838211,
+        "refutation_match_gap": -0.004909297227859488
+      }
+    }
+  },
+  "checkpoint": "runs/qwen4b_native_kv_400/native_kv_frontier_head.pt"
+}

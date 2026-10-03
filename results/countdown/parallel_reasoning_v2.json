@@ -1,0 +1,446 @@
+{
+  "status": "exploratory same-judge scheduler comparison; no model-native claim",
+  "budgets": [
+    20,
+    50,
+    100,
+    200,
+    400
+  ],
+  "arms": [
+    "released frontier",
+    "shared graph",
+    "shared graph + reserve",
+    "shared graph + reserve + mass"
+  ],
+  "problem_sets": {
+    "6": {
+      "count": 100,
+      "seed_start": 40000,
+      "arms": {
+        "released frontier": {
+          "20": {
+            "solved": 33,
+            "of": 100,
+            "mean_expansions": 16.14,
+            "mean_rounds_on_solved": 5,
+            "mean_wall_ms": 17.613634178997017,
+            "mean_judged_states": null,
+            "mean_rescue_rounds": null,
+            "mean_peak_graph_nodes": null
+          },
+          "50": {
+            "solved": 61,
+            "of": 100,
+            "mean_expansions": 36.04,
+            "mean_rounds_on_solved": 5,
+            "mean_wall_ms": 35.0204187160125,
+            "mean_judged_states": null,
+            "mean_rescue_rounds": null,
+            "mean_peak_graph_nodes": null
+          },
+          "100": {
+            "solved": 77,
+            "of": 100,
+            "mean_expansions": 66.9,
+            "mean_rounds_on_solved": 5,
+            "mean_wall_ms": 59.47691749082878,
+            "mean_judged_states": null,
+            "mean_rescue_rounds": null,
+            "mean_peak_graph_nodes": null
+          },
+          "200": {
+            "solved": 88,
+            "of": 100,
+            "mean_expansions": 123.66,
+            "mean_rounds_on_solved": 5,
+            "mean_wall_ms": 97.12827584007755,
+            "mean_judged_states": null,
+            "mean_rescue_rounds": null,
+            "mean_peak_graph_nodes": null
+          },
+          "400": {
+            "solved": 94,
+            "of": 100,
+            "mean_expansions": 207.17,
+            "mean_rounds_on_solved": 5,
+            "mean_wall_ms": 146.4392395655159,
+            "mean_judged_states": null,
+            "mean_rescue_rounds": null,
+            "mean_peak_graph_nodes": null
+          }
+        },
+        "shared graph": {
+          "20": {
+            "solved": 33,
+            "of": 100,
+            "mean_expansions": 17,
+            "mean_rounds_on_solved": 5,
+            "mean_wall_ms": 19.602694178465754,
+            "mean_judged_states": 246.75,
+            "mean_rescue_rounds": 0,
+            "mean_peak_graph_nodes": 256.54
+          },
+          "50": {
+            "solved": 61,
+            "of": 100,
+            "mean_expansions": 41,
+            "mean_rounds_on_solved": 5,
+            "mean_wall_ms": 40.8508571004495,
+            "mean_judged_states": 523.17,
+            "mean_rescue_rounds": 0,
+            "mean_peak_graph_nodes": 537.36
+          },
+          "100": {
+            "solved": 77,
+            "of": 100,
+            "mean_expansions": 81,
+            "mean_rounds_on_solved": 5,
+            "mean_wall_ms": 70.08929959789384,
+            "mean_judged_states": 915.41,
+            "mean_rescue_rounds": 0,
+            "mean_peak_graph_nodes": 931.28
+          },
+          "200": {
+            "solved": 88,
+            "of": 100,
+            "mean_expansions": 157.45,
+            "mean_rounds_on_solved": 5,
+            "mean_wall_ms": 118.47712246933952,
+            "mean_judged_states": 1502.47,
+            "mean_rescue_rounds": 0,
+            "mean_peak_graph_nodes": 1518.06
+          },
+          "400": {
+            "solved": 94,
+            "of": 100,
+            "mean_expansions": 280.81,
+            "mean_rounds_on_solved": 5,
+            "mean_wall_ms": 171.3133841898525,
+            "mean_judged_states": 2269.4,
+            "mean_rescue_rounds": 0,
+            "mean_peak_graph_nodes": 2284.25
+          }
+        },
+        "shared graph + reserve": {
+          "20": {
+            "solved": 35,
+            "of": 100,
+            "mean_expansions": 19.01,
+            "mean_rounds_on_solved": 5.057142857142857,
+            "mean_wall_ms": 19.517927899141796,
+            "mean_judged_states": 246.75,
+            "mean_rescue_rounds": 0.67,
+            "mean_peak_graph_nodes": 261.36
+          },
+          "50": {
+            "solved": 61,
+            "of": 100,
+            "mean_expansions": 44.51,
+            "mean_rounds_on_solved": 5,
+            "mean_wall_ms": 50.21911246993113,
+            "mean_judged_states": 523.17,
+            "mean_rescue_rounds": 0.39,
+            "mean_peak_graph_nodes": 545.24
+          },
+          "100": {
+            "solved": 77,
+            "of": 100,
+            "mean_expansions": 85.37,
+            "mean_rounds_on_solved": 5,
+            "mean_wall_ms": 68.40852199762594,
+            "mean_judged_states": 915.41,
+            "mean_rescue_rounds": 0.23,
+            "mean_peak_graph_nodes": 940.42
+          },
+          "200": {
+            "solved": 88,
+            "of": 100,
+            "mean_expansions": 162.63,
+            "mean_rounds_on_solved": 5,
+            "mean_wall_ms": 112.51141792861745,
+            "mean_judged_states": 1502.47,
+            "mean_rescue_rounds": 0.19,
+            "mean_peak_graph_nodes": 1527.99
+          },
+          "400": {
+            "solved": 94,
+            "of": 100,
+            "mean_expansions": 288.19,
+            "mean_rounds_on_solved": 5,
+            "mean_wall_ms": 171.19215544720646,
+            "mean_judged_states": 2269.4,
+            "mean_rescue_rounds": 0.12,
+            "mean_peak_graph_nodes": 2295.76
+          }
+        },
+        "shared graph + reserve + mass": {
+          "20": {
+            "solved": 38,
+            "of": 100,
+            "mean_expansions": 18.89,
+            "mean_rounds_on_solved": 5.026315789473684,
+            "mean_wall_ms": 20.01261999772396,
+            "mean_judged_states": 253.76,
+            "mean_rescue_rounds": 0.63,
+            "mean_peak_graph_nodes": 268.07
+          },
+          "50": {
+            "solved": 61,
+            "of": 100,
+            "mean_expansions": 44.6,
+            "mean_rounds_on_solved": 5.016393442622951,
+            "mean_wall_ms": 41.19574579934124,
+            "mean_judged_states": 532.03,
+            "mean_rescue_rounds": 0.4,
+            "mean_peak_graph_nodes": 554.19
+          },
+          "100": {
+            "solved": 73,
+            "of": 100,
+            "mean_expansions": 86.32,
+            "mean_rounds_on_solved": 5.013698630136986,
+            "mean_wall_ms": 70.11756206979044,
+            "mean_judged_states": 914.66,
+            "mean_rescue_rounds": 0.28,
+            "mean_peak_graph_nodes": 943.88
+          },
+          "200": {
+            "solved": 88,
+            "of": 100,
+            "mean_expansions": 162.7,
+            "mean_rounds_on_solved": 5,
+            "mean_wall_ms": 111.09439576684963,
+            "mean_judged_states": 1477.03,
+            "mean_rescue_rounds": 0.2,
+            "mean_peak_graph_nodes": 1503.14
+          },
+          "400": {
+            "solved": 92,
+            "of": 100,
+            "mean_expansions": 290.56,
+            "mean_rounds_on_solved": 5,
+            "mean_wall_ms": 168.9902400301071,
+            "mean_judged_states": 2206.92,
+            "mean_rescue_rounds": 0.16,
+            "mean_peak_graph_nodes": 2240.4
+          }
+        }
+      }
+    },
+    "7": {
+      "count": 30,
+      "seed_start": 50000,
+      "arms": {
+        "released frontier": {
+          "20": {
+            "solved": 9,
+            "of": 30,
+            "mean_expansions": 15.466666666666667,
+            "mean_rounds_on_solved": 6,
+            "mean_wall_ms": 23.33811813344558,
+            "mean_judged_states": null,
+            "mean_rescue_rounds": null,
+            "mean_peak_graph_nodes": null
+          },
+          "50": {
+            "solved": 16,
+            "of": 30,
+            "mean_expansions": 37.9,
+            "mean_rounds_on_solved": 6,
+            "mean_wall_ms": 51.20333879604004,
+            "mean_judged_states": null,
+            "mean_rescue_rounds": null,
+            "mean_peak_graph_nodes": null
+          },
+          "100": {
+            "solved": 21,
+            "of": 30,
+            "mean_expansions": 71.76666666666667,
+            "mean_rounds_on_solved": 6,
+            "mean_wall_ms": 91.32799297804013,
+            "mean_judged_states": null,
+            "mean_rescue_rounds": null,
+            "mean_peak_graph_nodes": null
+          },
+          "200": {
+            "solved": 26,
+            "of": 30,
+            "mean_expansions": 138.9,
+            "mean_rounds_on_solved": 6,
+            "mean_wall_ms": 167.42014303066148,
+            "mean_judged_states": null,
+            "mean_rescue_rounds": null,
+            "mean_peak_graph_nodes": null
+          },
+          "400": {
+            "solved": 26,
+            "of": 30,
+            "mean_expansions": 262.4,
+            "mean_rounds_on_solved": 6,
+            "mean_wall_ms": 284.2626179956521,
+            "mean_judged_states": null,
+            "mean_rescue_rounds": null,
+            "mean_peak_graph_nodes": null
+          }
+        },
+        "shared graph": {
+          "20": {
+            "solved": 9,
+            "of": 30,
+            "mean_expansions": 16,
+            "mean_rounds_on_solved": 6,
+            "mean_wall_ms": 33.13142650101023,
+            "mean_judged_states": 320.5,
+            "mean_rescue_rounds": 0,
+            "mean_peak_graph_nodes": 328.6333333333333
+          },
+          "50": {
+            "solved": 16,
+            "of": 30,
+            "mean_expansions": 41,
+            "mean_rounds_on_solved": 6,
+            "mean_wall_ms": 60.272180436489485,
+            "mean_judged_states": 742.6,
+            "mean_rescue_rounds": 0,
+            "mean_peak_graph_nodes": 756.4
+          },
+          "100": {
+            "solved": 21,
+            "of": 30,
+            "mean_expansions": 81,
+            "mean_rounds_on_solved": 6,
+            "mean_wall_ms": 105.12983060325496,
+            "mean_judged_states": 1357.9666666666667,
+            "mean_rescue_rounds": 0,
+            "mean_peak_graph_nodes": 1376.5333333333333
+          },
+          "200": {
+            "solved": 26,
+            "of": 30,
+            "mean_expansions": 166,
+            "mean_rounds_on_solved": 6,
+            "mean_wall_ms": 191.67058463790454,
+            "mean_judged_states": 2494.9333333333334,
+            "mean_rescue_rounds": 0,
+            "mean_peak_graph_nodes": 2510
+          },
+          "400": {
+            "solved": 26,
+            "of": 30,
+            "mean_expansions": 317.8,
+            "mean_rounds_on_solved": 6,
+            "mean_wall_ms": 330.96338753627305,
+            "mean_judged_states": 4174.033333333334,
+            "mean_rescue_rounds": 0,
+            "mean_peak_graph_nodes": 4198.933333333333
+          }
+        },
+        "shared graph + reserve": {
+          "20": {
+            "solved": 10,
+            "of": 30,
+            "mean_expansions": 18.766666666666666,
+            "mean_rounds_on_solved": 6.1,
+            "mean_wall_ms": 27.290630536541965,
+            "mean_judged_states": 320.5,
+            "mean_rescue_rounds": 1.3666666666666667,
+            "mean_peak_graph_nodes": 335.43333333333334
+          },
+          "50": {
+            "solved": 17,
+            "of": 30,
+            "mean_expansions": 45.166666666666664,
+            "mean_rounds_on_solved": 6.0588235294117645,
+            "mean_wall_ms": 58.17719185530829,
+            "mean_judged_states": 742.6,
+            "mean_rescue_rounds": 0.9,
+            "mean_peak_graph_nodes": 765.2
+          },
+          "100": {
+            "solved": 22,
+            "of": 30,
+            "mean_expansions": 86.6,
+            "mean_rounds_on_solved": 6.045454545454546,
+            "mean_wall_ms": 105.71567236135404,
+            "mean_judged_states": 1357.9666666666667,
+            "mean_rescue_rounds": 0.5666666666666667,
+            "mean_peak_graph_nodes": 1387.0666666666666
+          },
+          "200": {
+            "solved": 26,
+            "of": 30,
+            "mean_expansions": 170.53333333333333,
+            "mean_rounds_on_solved": 6,
+            "mean_wall_ms": 193.43797650071792,
+            "mean_judged_states": 2494.9333333333334,
+            "mean_rescue_rounds": 0.26666666666666666,
+            "mean_peak_graph_nodes": 2517.3333333333335
+          },
+          "400": {
+            "solved": 26,
+            "of": 30,
+            "mean_expansions": 328.1666666666667,
+            "mean_rounds_on_solved": 6,
+            "mean_wall_ms": 327.6478820363991,
+            "mean_judged_states": 4174.033333333334,
+            "mean_rescue_rounds": 0.26666666666666666,
+            "mean_peak_graph_nodes": 4213.066666666667
+          }
+        },
+        "shared graph + reserve + mass": {
+          "20": {
+            "solved": 6,
+            "of": 30,
+            "mean_expansions": 19.2,
+            "mean_rounds_on_solved": 6,
+            "mean_wall_ms": 28.665119469709072,
+            "mean_judged_states": 344.8,
+            "mean_rescue_rounds": 1.6,
+            "mean_peak_graph_nodes": 361.06666666666666
+          },
+          "50": {
+            "solved": 14,
+            "of": 30,
+            "mean_expansions": 46.06666666666667,
+            "mean_rounds_on_solved": 6.071428571428571,
+            "mean_wall_ms": 62.62058893723103,
+            "mean_judged_states": 792.4666666666667,
+            "mean_rescue_rounds": 1.1,
+            "mean_peak_graph_nodes": 818.8
+          },
+          "100": {
+            "solved": 18,
+            "of": 30,
+            "mean_expansions": 88.6,
+            "mean_rounds_on_solved": 6,
+            "mean_wall_ms": 112.21941666250738,
+            "mean_judged_states": 1421.4,
+            "mean_rescue_rounds": 0.8,
+            "mean_peak_graph_nodes": 1459.6666666666667
+          },
+          "200": {
+            "solved": 25,
+            "of": 30,
+            "mean_expansions": 171.66666666666666,
+            "mean_rounds_on_solved": 6,
+            "mean_wall_ms": 196.10302213501805,
+            "mean_judged_states": 2508.1666666666665,
+            "mean_rescue_rounds": 0.3333333333333333,
+            "mean_peak_graph_nodes": 2536.133333333333
+          },
+          "400": {
+            "solved": 26,
+            "of": 30,
+            "mean_expansions": 328.73333333333335,
+            "mean_rounds_on_solved": 6,
+            "mean_wall_ms": 323.77221525918384,
+            "mean_judged_states": 4112.833333333333,
+            "mean_rescue_rounds": 0.26666666666666666,
+            "mean_peak_graph_nodes": 4153.333333333333
+          }
+        }
+      }
+    }
+  }
+}

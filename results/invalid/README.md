@@ -1,0 +1,3 @@
+# Invalid MBPP receipt
+
+`mbpp_async_16_vllm_compiled.invalid-sandbox.json` is preserved only as a failure record. Its `status: complete` field reflects script termination, not valid scoring. Bubblewrap's process limit counted vLLM's host-user threads; namespace creation failed and correct generated programs received `runner_error`. Do not use its solve or latency figures. The corrected sandbox runs as a dedicated unprivileged host user, treats candidate resource exits as failed programs, and aborts on sandbox startup errors. Valid results are linked from `docs/MBPP_REAL_EXECUTION_GATE_2026-09-27.md`.

@@ -1,0 +1,161 @@
+{
+  "manifest_sha256": "afb38abf391fb44660e319b7a12acfe9e07384f045197b750493ecdfe5503e81",
+  "weights_sha256": "67bd622b0a74c7951170fee8c20b55d98dc1c4cde8dd91e7b4304c3882ed8739",
+  "seeds": [
+    0,
+    1
+  ],
+  "budgets": [
+    25,
+    50,
+    200,
+    1500
+  ],
+  "methods": [
+    {
+      "name": "factorial_m0j0s0",
+      "merge": false,
+      "judge": false,
+      "synchronous": false,
+      "scheduler": "frontier",
+      "prune": true
+    },
+    {
+      "name": "factorial_m0j0s1",
+      "merge": false,
+      "judge": false,
+      "synchronous": true,
+      "scheduler": "frontier",
+      "prune": true
+    },
+    {
+      "name": "factorial_m0j1s0",
+      "merge": false,
+      "judge": true,
+      "synchronous": false,
+      "scheduler": "frontier",
+      "prune": true
+    },
+    {
+      "name": "factorial_m0j1s1",
+      "merge": false,
+      "judge": true,
+      "synchronous": true,
+      "scheduler": "frontier",
+      "prune": true
+    },
+    {
+      "name": "factorial_m1j0s0",
+      "merge": true,
+      "judge": false,
+      "synchronous": false,
+      "scheduler": "frontier",
+      "prune": true
+    },
+    {
+      "name": "factorial_m1j0s1",
+      "merge": true,
+      "judge": false,
+      "synchronous": true,
+      "scheduler": "frontier",
+      "prune": true
+    },
+    {
+      "name": "factorial_m1j1s0",
+      "merge": true,
+      "judge": true,
+      "synchronous": false,
+      "scheduler": "frontier",
+      "prune": true
+    },
+    {
+      "name": "factorial_m1j1s1",
+      "merge": true,
+      "judge": true,
+      "synchronous": true,
+      "scheduler": "frontier",
+      "prune": true
+    },
+    {
+      "name": "single_line",
+      "merge": false,
+      "judge": true,
+      "synchronous": false,
+      "scheduler": "linear",
+      "prune": false
+    },
+    {
+      "name": "bfs",
+      "merge": true,
+      "judge": false,
+      "synchronous": false,
+      "scheduler": "bfs",
+      "prune": false
+    },
+    {
+      "name": "beam",
+      "merge": true,
+      "judge": true,
+      "synchronous": true,
+      "scheduler": "frontier",
+      "prune": false
+    },
+    {
+      "name": "best_first",
+      "merge": true,
+      "judge": true,
+      "synchronous": false,
+      "scheduler": "frontier",
+      "prune": false
+    },
+    {
+      "name": "independent_parallel",
+      "merge": false,
+      "judge": true,
+      "synchronous": true,
+      "scheduler": "parallel",
+      "prune": false
+    },
+    {
+      "name": "frontier_without_merging",
+      "merge": false,
+      "judge": true,
+      "synchronous": true,
+      "scheduler": "frontier",
+      "prune": true
+    },
+    {
+      "name": "merging_without_learned_judge",
+      "merge": true,
+      "judge": false,
+      "synchronous": true,
+      "scheduler": "frontier",
+      "prune": true
+    },
+    {
+      "name": "full_interference_search",
+      "merge": true,
+      "judge": true,
+      "synchronous": true,
+      "scheduler": "frontier",
+      "prune": true
+    },
+    {
+      "name": "hand_bound_frontier",
+      "merge": true,
+      "judge": false,
+      "synchronous": true,
+      "scheduler": "hand",
+      "prune": true
+    }
+  ],
+  "width": 16,
+  "threshold": 0.2,
+  "budget_unit": "state_work",
+  "problem_ids": [
+    "d1623a22dcc214f71c1d",
+    "a6264e49399689e22037"
+  ],
+  "uncached": false,
+  "source_sha256": "78a4cf9c46be15a925b52e8c93b4e6e5d529ca0518b4be91ccfb3ff4de81a667"
+}

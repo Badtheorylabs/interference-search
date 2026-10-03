@@ -1,0 +1,100 @@
+{
+  "status": "real SWE native frontier one-hour gate",
+  "model_path": "/home/ubuntu/.cache/huggingface/hub/models--Qwen--Qwen3-4B-Base/snapshots/906bfd4b4dc7f14ee4320094d8b41684abff8539",
+  "source_commit": "101ba6ddad803b570864e478066f12848a05b7a6",
+  "steps": 400,
+  "seed": 17,
+  "data_sha256": {
+    "train": "d4c4994298b30ba57e82d11dc395998b65b7f6f0c8c8255085b6f38c778c1120",
+    "validation": "a1ec729320aff5a75f8b847f7b864cc106b9a191fcb22824f70b3fecb42cd4fb",
+    "test": "99b33f9d7c250b7e854651ca7af040706ac179352ceda1f7da62a84ee648e312"
+  },
+  "before": {
+    "validation": {
+      "zero": {
+        "rows": 80,
+        "top1_resolved_rate": 0.3625,
+        "resolved_over_failed_pair_accuracy": 0.48470588235294115,
+        "refutation_match_positive": 0.28299002461135386,
+        "refutation_match_negative": 0.28195458054542544,
+        "refutation_match_gap": 0.0010354440659284259
+      },
+      "inhibit": {
+        "rows": 80,
+        "top1_resolved_rate": 0.4125,
+        "resolved_over_failed_pair_accuracy": 0.47294117647058825,
+        "refutation_match_positive": 0.28299002461135386,
+        "refutation_match_negative": 0.28195458054542544,
+        "refutation_match_gap": 0.0010354440659284259
+      }
+    },
+    "test": {
+      "zero": {
+        "rows": 80,
+        "top1_resolved_rate": 0.425,
+        "resolved_over_failed_pair_accuracy": 0.4963235294117647,
+        "refutation_match_positive": 0.28205917999148367,
+        "refutation_match_negative": 0.28321673683822157,
+        "refutation_match_gap": -0.001157556846737906
+      },
+      "inhibit": {
+        "rows": 80,
+        "top1_resolved_rate": 0.45,
+        "resolved_over_failed_pair_accuracy": 0.5220588235294118,
+        "refutation_match_positive": 0.28205917999148367,
+        "refutation_match_negative": 0.28321673683822157,
+        "refutation_match_gap": -0.001157556846737906
+      }
+    }
+  },
+  "after": {
+    "validation": {
+      "zero": {
+        "rows": 80,
+        "top1_resolved_rate": 0.55,
+        "resolved_over_failed_pair_accuracy": 0.5694117647058824,
+        "refutation_match_positive": 0.5660083435475827,
+        "refutation_match_negative": 0.5504951145499944,
+        "refutation_match_gap": 0.015513228997588224
+      },
+      "inhibit": {
+        "rows": 80,
+        "top1_resolved_rate": 0.55,
+        "resolved_over_failed_pair_accuracy": 0.5764705882352941,
+        "refutation_match_positive": 0.5660083435475827,
+        "refutation_match_negative": 0.5504951145499944,
+        "refutation_match_gap": 0.015513228997588224
+      }
+    },
+    "test": {
+      "zero": {
+        "rows": 80,
+        "top1_resolved_rate": 0.35,
+        "resolved_over_failed_pair_accuracy": 0.3860294117647059,
+        "refutation_match_positive": 0.5555725883692503,
+        "refutation_match_negative": 0.5563988748937845,
+        "refutation_match_gap": -0.0008262865245342033
+      },
+      "inhibit": {
+        "rows": 80,
+        "top1_resolved_rate": 0.35,
+        "resolved_over_failed_pair_accuracy": 0.3860294117647059,
+        "refutation_match_positive": 0.5555725883692503,
+        "refutation_match_negative": 0.5563988748937845,
+        "refutation_match_gap": -0.0008262865245342033
+      }
+    }
+  },
+  "loss_first": 1.4017884731292725,
+  "loss_last": 1.7734895944595337,
+  "loss_last_25_mean": 1.8638212442398072,
+  "training_seconds": 472.51249264899525,
+  "steady_step_seconds": 0.8918849930050783,
+  "peak_cuda_mib": 66522.30078125,
+  "head_changed": true,
+  "lora_changed": true,
+  "trainable_head_parameters": 85227522,
+  "trainable_lora_parameters": 33030144,
+  "head_path": "runs/real_swe_frontier_gate_400/native_frontier_head.pt",
+  "adapter_path": "runs/real_swe_frontier_gate_400/unsloth_adapter"
+}

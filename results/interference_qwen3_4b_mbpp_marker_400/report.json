@@ -1,0 +1,33 @@
+{
+  "status": "same-state verified coding midtrain",
+  "source_commit": "d88d4bddf94583c3d2fceb5f0deb9e5fc5100734",
+  "data_sha256": "1da19a549dfea89e7f3133bc30f733d55f7f98eaf3738e6e24eba01517a66fc9",
+  "train_tasks": 94,
+  "validation_tasks": 24,
+  "preserve_weight": 20.0,
+  "steps": 400,
+  "before": {
+    "rows": 24,
+    "mean_inhibit_target_logp": -3.6430384864409766,
+    "mean_zero_target_logp": -3.6430384864409766,
+    "mean_inhibit_minus_zero": 0.0,
+    "positive_margin_rows": 0,
+    "mean_zero_vs_teacher_kl": -4.017579716246907e-09
+  },
+  "after": {
+    "rows": 24,
+    "mean_inhibit_target_logp": -0.8611776701097066,
+    "mean_zero_target_logp": -3.5444559156894684,
+    "mean_inhibit_minus_zero": 2.6832782526810965,
+    "positive_margin_rows": 24,
+    "mean_zero_vs_teacher_kl": 0.0019907657867103503
+  },
+  "loss_first": 3.113597869873047,
+  "loss_last": 0.04499995335936546,
+  "mean_training_margin": 1.420435324460268,
+  "median_step_seconds": 0.7596820114995353,
+  "elapsed_seconds": 306.0037267830048,
+  "peak_cuda_mib": 20096.94970703125,
+  "native_state_path": "runs/interference_qwen3_4b_mbpp_marker_400/native_interference_state.pt",
+  "native_state_sha256": "7e14fab72d2c606634e14f4f69d25220ac86f6998f4c7790030cf65f7643be59"
+}

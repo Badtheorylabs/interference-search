@@ -1,0 +1,12 @@
+{
+  "source_repo": "mlx-community/Qwen3-1.7B-4bit",
+  "source_revision": "3b1b1768f8f8cf8351c712464f906e86c2b8269e",
+  "source_safetensors_sha256": "0e86d9677e519323849eac1bc272caae88567a481ff188c431f70be543d9995f",
+  "config_sha256": "507a6701220524eb8b283425bf0856a9ae4f21f4052e563896ddd668994b1dc7",
+  "dtype": "bfloat16",
+  "backend": "Transformers SDPA; affine 4-bit weights expanded to BF16",
+  "legacy_mlx_kernel_parity": "not verified; do not compare absolute results with legacy counts",
+  "load_seconds": 78.08239796385169,
+  "device": "cuda",
+  "parameters": 1720574976
+}

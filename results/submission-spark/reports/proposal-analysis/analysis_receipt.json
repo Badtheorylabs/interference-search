@@ -1,0 +1,9 @@
+{
+  "raw_sha256": "48d5f1449ed167919e8a60074b8b4472162fe54d2216ee2b37d7dcbca3e57a4b",
+  "rows": 1020000,
+  "bootstrap_seed": 20261003,
+  "bootstrap_replicates": 2000,
+  "interval_scope": "resample source problems after averaging 10 search seeds; conditional on fixed trained judge",
+  "multiplicity": "pairwise p-values unadjusted and exploratory; primary prespecified contrast is three-way interaction on random cohort at budget 200",
+  "timing_warning": "frozen_judge_replay wall time excludes scoring precompute; use online_uncached runs for end-to-end comparisons"
+}

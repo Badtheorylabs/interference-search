@@ -1,0 +1,14 @@
+{
+  "status": "diagnostic only",
+  "checkpoint": "runs/native_countdown_pilot/inhibit.pt",
+  "match_logit_bias": 2.0,
+  "positive_affinity_mean": -9408.0,
+  "negative_affinity_mean": -9410.5947265625,
+  "affinity_min": -9472.0,
+  "affinity_max": -9408.0,
+  "positive_match_mean": 0.0,
+  "negative_match_mean": 0.0,
+  "query_norm_mean": 3004.439697265625,
+  "key_norm_mean": 196.87925720214844,
+  "positive_logit_mean": -9408.0
+}

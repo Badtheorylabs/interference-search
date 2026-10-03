@@ -1,0 +1,73 @@
+{
+  "status": "Countdown mechanism pilot; no source-disjoint or broad-reasoning claim",
+  "data_sha256": {
+    "train": "ed0b325e72d7cdbe0019f0b033663fab6cfd5843340dcdc9ca0b609106445e51",
+    "validation": "fce9b23a0e5e72f986c6ef9084e9be38dd9aea7631256c18f4a1f9e205c2d045",
+    "test_5_numbers": "1f88db6dd0af1180d5ad8b6048e9732504ea7b15a94cdd01e448288222153e74"
+  },
+  "requested_arms": [
+    "inhibit"
+  ],
+  "steps_per_arm": 25,
+  "eval_rows_per_split": 30,
+  "arms": [
+    {
+      "mode": "inhibit",
+      "steps": 25,
+      "seed": 17,
+      "model": "Qwen/Qwen3-4B-Base",
+      "revision": "906bfd4b4dc7f14ee4320094d8b41684abff8539",
+      "training_status": "load-forward-backward-update-changed-weights-save-reload; behavior measured below",
+      "before": {
+        "validation": {
+          "rows": 30,
+          "winning_action_rate_on_alive_states": 0.4264705882352941,
+          "alive_states": 68,
+          "known_refuted_action_top1_rate": 0.0967741935483871,
+          "refuted_action_opportunities": 62,
+          "refutation_match_selectivity": 7.22736120223999e-05,
+          "mean_score_change_on_refuted_actions": -0.026925562570492428
+        },
+        "test_5_numbers": {
+          "rows": 30,
+          "winning_action_rate_on_alive_states": 0.27835051546391754,
+          "alive_states": 97,
+          "known_refuted_action_top1_rate": 0.08196721311475409,
+          "refuted_action_opportunities": 61,
+          "refutation_match_selectivity": -3.11662753423055e-05,
+          "mean_score_change_on_refuted_actions": -0.02671105954796076
+        }
+      },
+      "after": {
+        "validation": {
+          "rows": 30,
+          "winning_action_rate_on_alive_states": 0.23529411764705882,
+          "alive_states": 68,
+          "known_refuted_action_top1_rate": 0.14516129032258066,
+          "refuted_action_opportunities": 62,
+          "refutation_match_selectivity": 2.6851892471313475e-06,
+          "mean_score_change_on_refuted_actions": -0.04394027404487133
+        },
+        "test_5_numbers": {
+          "rows": 30,
+          "winning_action_rate_on_alive_states": 0.2268041237113402,
+          "alive_states": 97,
+          "known_refuted_action_top1_rate": 0.04918032786885246,
+          "refuted_action_opportunities": 61,
+          "refutation_match_selectivity": -4.645188649495443e-06,
+          "mean_score_change_on_refuted_actions": -0.043787882352868714
+        }
+      },
+      "train_loss_first": 4.353816032409668,
+      "train_loss_last": 4.640936374664307,
+      "steady_step_seconds": 0.41366580949761556,
+      "train_elapsed_s": 31.794745799001248,
+      "peak_cuda_mib": 24921.20654296875,
+      "checkpoint": "runs/native_countdown_repair_smoke/inhibit.pt",
+      "checkpoint_bytes": 8326599161,
+      "save_reload_equal": true,
+      "backbone_changed": true,
+      "frontier_changed": true
+    }
+  ]
+}
